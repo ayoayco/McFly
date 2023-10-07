@@ -6,23 +6,25 @@ This is a minimal Proof of Concept for using [Nitro](https://nitro.unjs.io) and 
 
 Do the following steps to get you started:
 
-0. clone project and go into the directory
+1. clone project and go into the directory
 ```
-> git clone https://github.com/ayoayco/nitro-web-components.git
-> cd nitro-web-components
+git clone https://github.com/ayoayco/nitro-web-components.git
 ```
-
-1. install deps
 ```
-> npm i
+cd nitro-web-components
 ```
 
-2. run the dev server
+2. install deps
 ```
-> npm run dev
+npm i
 ```
 
-3. open the browser to `https://localhost:3000` (or what the dev server said)
+3. run the dev server
+```
+npm run dev
+```
+
+4. open the browser to `https://localhost:3000` (or what the dev server said)
 
 This project was generated from Nitro starter guide. Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.
 
