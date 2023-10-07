@@ -26,5 +26,15 @@ npm run dev
 
 4. open the browser to `https://localhost:3000` (or what the dev server said)
 
+## Ambitious Goals
+These items are not yet achieved in this early POC, but what I have in mind starting this is to find a way to:
+1. create web apps with vanilla custom elements
+1. no frameworks or reactivity libraries on the browser
+1. easy APIs authoring
+1. server-side pre-rendering
+1. control on when and where JS is downloaded for interactive elements
+
+## More info
+
 This project was generated from Nitro starter guide. Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.
 
