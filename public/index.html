@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hello Nitro</title>
+    <script type="module" src="registry.js"></script>
+  </head>
+  <body>
+    <hello-world name="Ayo" />
+    <script>
+      const helloWorld = document.querySelector("hello-world");
+      setTimeout(() => {
+        helloWorld.setAttribute("name", "Nitro");
+      }, 2000);
+    </script>
+  </body>
+</html>
