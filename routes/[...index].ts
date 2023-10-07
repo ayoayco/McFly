@@ -1,14 +1,15 @@
 import * as fs from "fs";
-export default eventHandler((event) => {
+export default eventHandler(async (event) => {
   const filename = event.path === "/" ? "/index.html" : `${event.path}.html`;
   const fallback = getPath(event.path + "/index.html");
   const path = getPath(filename);
   let html = "";
+
   try {
-    html = fs.readFileSync(path, "utf8");
+    html = await useStorage().getItem(path);
   } catch (error) {
     try {
-      html = fs.readFileSync(fallback, "utf8");
+      html = await useStorage().getItem(fallback);
     } catch {
       html = `cannot find ${path} or ${fallback}`;
     }
@@ -18,5 +19,5 @@ export default eventHandler((event) => {
 });
 
 function getPath(filename: string) {
-  return `./pages${filename}`;
+  return `assets/pages${filename}`;
 }

@@ -1,9 +1,9 @@
 //https://nitro.unjs.io/config
 export default defineNitroConfig({
-  devStorage: {
-    db: {
-      driver: "fs",
-      base: "./data/db",
+  serverAssets: [
+    {
+      baseName: "pages",
+      dir: "./pages",
     },
-  },
+  ],
 });
