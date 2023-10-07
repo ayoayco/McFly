@@ -3,7 +3,7 @@ export default defineNitroConfig({
   serverAssets: [
     {
       baseName: "pages",
-      dir: "./pages",
+      dir: "./src/pages",
     },
   ],
 });
