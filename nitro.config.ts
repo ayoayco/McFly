@@ -5,5 +5,9 @@ export default defineNitroConfig({
       baseName: "pages",
       dir: "./src/pages",
     },
+    {
+      baseName: "components",
+      dir: "./src/components",
+    },
   ],
 });
