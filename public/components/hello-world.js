@@ -12,11 +12,10 @@ export default class HelloWorld extends WebComponent {
       this.name = `I was clicked ${++count} times`;
       this.render();
     };
-    this.style.cursor = "pointer";
     this.setAttribute("title", "Click me please");
   }
 
   get template() {
-    return `Hello ${this.name}! <small>I am interactive</small>`;
+    return `<button style="cursor:pointer">Hello ${this.name}!</button>`;
   }
 }
