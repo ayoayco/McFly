@@ -17,6 +17,6 @@ export default class HelloWorld extends WebComponent {
   }
 
   get template() {
-    return `Hello ${this.name}!`;
+    return `Hello ${this.name}! <small>I am interactive</small>`;
   }
 }
