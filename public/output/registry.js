@@ -1,0 +1,2 @@
+import C0 from "./clickable-text.js";import C1 from "./hello-world.js";const registry = {
+    "clickable-text": C0,"hello-world": C1};Object.keys(registry).forEach((key) => {if(window?.hasOwnProperty("customElements"))customElements.define(key, registry[key]);})
