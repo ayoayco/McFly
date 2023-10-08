@@ -27,8 +27,9 @@ npm run dev
 4. open the browser to `https://localhost:3000` (or what the dev server said)
 
 ## Ambitious Goals
-These items are not yet achieved in this early POC, but what I have in mind starting this is to find a way to:
+We want a way to:
 1. create web apps with vanilla custom elements
+1. write real .HTML files
 1. no frameworks or reactivity libraries on the browser
 1. easy server APIs authoring
 1. server-side pre-rendering
