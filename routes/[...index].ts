@@ -12,7 +12,7 @@ export default eventHandler(async (event) => {
 
   // temporary; use ultrahtml later
   const registryScript =
-    '<script type="module" src="./output/registry.js"></script>';
+    '<script type="module" src="./.output/registry.js"></script>';
   html = html.toString().replace("</head>", registryScript + "</head>");
 
   return html ?? new Response("Not found", { status: 404 });

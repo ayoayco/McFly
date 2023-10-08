@@ -5,7 +5,7 @@ export default defineNitroPlugin(async () => {
   rawKeys.forEach(async (key) => {
     const cleanKey = key.replace("assets:components:", "");
     const content = await useStorage().getItem(key);
-    if (!fs.existsSync("./public/output")) fs.mkdirSync("./public/output");
-    fs.writeFileSync(`./public/output/${cleanKey}`, content.toString());
+    if (!fs.existsSync("./public/.output")) fs.mkdirSync("./public/.output");
+    fs.writeFileSync(`./public/.output/${cleanKey}`, content.toString());
   });
 });
