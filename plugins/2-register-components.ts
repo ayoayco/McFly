@@ -1,7 +1,4 @@
 import * as fs from "fs";
-/**
- build registry of custom elements
- */
 
 export default defineNitroPlugin(async () => {
   console.log("Building registry of custom elements...");
@@ -9,31 +6,21 @@ export default defineNitroPlugin(async () => {
   const keys = rawKeys.map((key) => key.replace("assets:components:", ""));
   console.log("Found components:", keys);
   const imports = keys.map((key, index) => {
-    return `import C${index} from "/components/${key}"`;
+    return `import C${index} from "./${key}"`;
   });
 
-  const registryObject = `
-  const registry = {
+  const registryObject = `const registry = {
     ${keys
       .map((key, index) => {
         const name = key.replace(".js", "").replace(".ts", "");
         return `"${name}": C${index}`;
       })
-      .join(",")}
-  }`;
+      .join(",")}}`;
 
-  const customElementsDefine = `
-  Object.keys(registry).forEach((key) => {
-    if (window?.hasOwnProperty("customElements"))
-      customElements.define(key, registry[key]);
-  })`;
+  const customElementsDefine = `Object.keys(registry).forEach((key) => {if(window?.hasOwnProperty("customElements"))customElements.define(key, registry[key]);})`;
 
   fs.writeFileSync(
-    "./public/registry.js",
+    "./public/.output/registry.js",
     [...imports, registryObject, customElementsDefine].join(";")
   );
 });
-
-function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}

@@ -5,4 +5,3 @@ node_modules
 .output
 .env
 dist
-public/registry.js
