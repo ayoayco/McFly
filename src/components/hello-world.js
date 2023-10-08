@@ -15,6 +15,10 @@ export default class HelloWorld extends WebComponent {
     this.setAttribute("title", "Click me please");
   }
 
+  onChanges(changes) {
+    console.log(changes);
+  }
+
   get template() {
     return `<button style="cursor:pointer">Hello ${this.name}!</button>`;
   }
