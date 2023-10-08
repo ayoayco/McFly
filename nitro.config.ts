@@ -1,5 +1,8 @@
 //https://nitro.unjs.io/config
 export default defineNitroConfig({
+  devServer: {
+    watch: ["./src/pages", "./src/components"],
+  },
   serverAssets: [
     {
       baseName: "pages",
