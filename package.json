@@ -8,7 +8,6 @@
     "build:preview": "npm run build && npm run preview"
   },
   "dependencies": {
-    "fs": "^0.0.1-security",
     "nitropack": "latest"
   }
 }
