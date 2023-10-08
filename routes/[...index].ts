@@ -10,13 +10,10 @@ export default eventHandler(async (event) => {
   if (!html) html = await useStorage().getItem(fallback);
   if (!html) html = await useStorage().getItem(getPath("/404.html"));
 
-  // insert registry to head
-  html = html
-    .toString()
-    .replace(
-      "</head>",
-      '<script type="module" src="./.output/registry.js"></script></head>'
-    );
+  // temporary; use ultrahtml later
+  const registryScript =
+    '<script type="module" src="./.output/registry.js"></script>';
+  html = html.toString().replace("</head>", registryScript + "</head>");
 
   return html ?? new Response("Not found", { status: 404 });
 });

@@ -19,6 +19,7 @@ export default defineNitroPlugin(async () => {
 
   const customElementsDefine = `Object.keys(registry).forEach((key) => {if(window?.hasOwnProperty("customElements"))customElements.define(key, registry[key]);})`;
 
+  if (!fs.existsSync("./public/.output")) fs.mkdirSync("./public/.output");
   fs.writeFileSync(
     "./public/.output/registry.js",
     [...imports, registryObject, customElementsDefine].join(";")
