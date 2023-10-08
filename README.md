@@ -26,6 +26,16 @@ npm run dev
 
 4. open the browser to `https://localhost:3000` (or what the dev server said)
 
+## Special directories
+**src/pages**
+- file based routing for `.html` files
+
+**src/components**
+- custom element constructor class files go here (only `.js` files for now)
+- all components are automatically registered using their file names (e.g., a `hello-world.js` component can be used as `<hello-world>` element)
+
+
+
 ## Ambitious Goals
 We want a way to:
 1. create web apps with vanilla custom elements
