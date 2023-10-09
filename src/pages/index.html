@@ -12,11 +12,10 @@
   <body>
     <a href="/about">About</a>
     <div>
-      <hello-world name="Ayo"></hello-world>
+      <hello-world name="{{name}}"></hello-world>
     </div>
     <span>some text</span>
     <clickable-text></clickable-text>
-    <span>Name: {{ name }}</span>
     <script>
       const helloWorld = document.querySelector("hello-world");
       setTimeout(() => {
