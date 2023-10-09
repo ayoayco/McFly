@@ -7,7 +7,6 @@ We want a way to:
 1. create web apps with vanilla custom elements
 1. write real .HTML files
 1. no frameworks or reactivity libraries on the browser
-1. easy server APIs authoring
 1. server-side pre-rendering
 1. control on when and where JS is downloaded for interactive elements
    
