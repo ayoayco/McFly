@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Nitro</title>
+    <script setup>
+      // define logic that runs on the server
+      const name = "Ayo";
+    </script>
   </head>
   <body>
     <a href="/about">About</a>
@@ -12,6 +16,7 @@
     </div>
     <span>some text</span>
     <clickable-text></clickable-text>
+    <span>Name: {{ name }}</span>
     <script>
       const helloWorld = document.querySelector("hello-world");
       setTimeout(() => {
