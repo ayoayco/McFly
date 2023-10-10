@@ -1,4 +1,4 @@
-import WebComponent from "https://unpkg.com/web-component-base/index.js";
+import { WebComponent } from "https://unpkg.com/web-component-base@1.6.15/WebComponent.js";
 
 export default class ClickableText extends WebComponent {
   onInit() {
