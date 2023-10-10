@@ -6,10 +6,15 @@
     <title>top about</title>
     <script server:setup>
       let greeting = "hello";
+      const homeLabel = getHomeLabel();
+
+      function getHomeLabel() {
+        return "Home" + "!!! " + new Date().toLocaleDateString();
+      }
     </script>
   </head>
   <body>
-    <a href="/">Home</a>
+    <a href="/">{{homeLabel}}</a>
     <h1>{{greeting}}!!! Top Level About</h1>
   </body>
 </html>

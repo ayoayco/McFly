@@ -96,7 +96,6 @@ function doSetUp(html: string) {
     value = value.replace(/\s/g, "");
     html = html.replace(key, setupMap[value]);
   }
-  console.log("---------");
 
   return html;
 }
