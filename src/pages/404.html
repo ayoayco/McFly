@@ -1,8 +1,18 @@
-<script server:setup>
-  const homeLinkLabel = "Home";
-  let greeting = "hello!";
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>not found</title>
 
-<a href="/">{{homeLinkLabel}}</a>
+    <script server:setup>
+      const homeLinkLabel = "Home";
+      let greeting = "hello!";
+    </script>
+  </head>
+  <body>
+    <a href="./">{{homeLinkLabel}}</a>
 
-{{greeting }} wow we can't find that
+    {{greeting }} wow we can't find that
+  </body>
+</html>

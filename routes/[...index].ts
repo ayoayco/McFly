@@ -39,12 +39,21 @@ function insertRegistry(html: string): string {
 
   const ast = parse(html);
 
-  // insert registry script to head
+  let hasCustomElements = false;
+
   walkSync(ast, (node) => {
-    if (node.type === ELEMENT_NODE && node.name === "head") {
-      node.children.push(parse(registryScript));
+    if (node.type === ELEMENT_NODE && node.name.includes("-")) {
+      hasCustomElements = true;
     }
   });
+
+  // insert registry script to head
+  if (hasCustomElements)
+    walkSync(ast, (node) => {
+      if (node.type === ELEMENT_NODE && node.name === "head") {
+        node.children.push(parse(registryScript));
+      }
+    });
 
   return renderSync(ast);
 }
@@ -82,10 +91,10 @@ function doSetUp(html: string) {
   const regex = /{{(.*?)}}/g;
   var match;
 
-  let matches = [];
-  while ((match = regex.exec(html)) != null) {
-    console.log(match[0], match[1]);
-    html = html.replace(match[0], setupMap[match[1].trim()]);
+  while ((match = regex.exec(html))) {
+    let [key, value] = match;
+    value = value.replace(/\s/g, "");
+    html = html.replace(key, setupMap[value]);
   }
   console.log("---------");
 
