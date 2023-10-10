@@ -47,12 +47,10 @@ function doSetUp(html: string) {
     const { attributes } = node;
     const attributeKeys = Object.keys(attributes ?? {});
     const isServerScript = attributeKeys.some((key) => key.includes("server:"));
-    const isInHead = node.parent?.name === "head";
     if (
       node.type === ELEMENT_NODE &&
       node.name === "script" &&
-      isServerScript &&
-      isInHead
+      isServerScript
     ) {
       const scripts = node.children.map((child) => child.value);
       serverScripts.push(scripts.join(" "));
