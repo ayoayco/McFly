@@ -1,6 +1,6 @@
 //https://nitro.unjs.io/config
 export default defineNitroConfig({
-  preset: "node",
+  preset: "vercel",
   devServer: {
     watch: ["./src/pages", "./src/components"],
   },

@@ -6,7 +6,7 @@
     <title>Hello Nitro</title>
     <script server:setup>
       const name = "AYOs";
-      return { name }; // TODO: this is illegal! figure out a way to build an object in the route intercept
+      return { name, greeting: "hey" }; // TODO: this is illegal! figure out a way to build an object in the route intercept
     </script>
   </head>
   <body>
@@ -14,7 +14,7 @@
     <div>
       <hello-world name="{{name}}"></hello-world>
     </div>
-    <span>some text</span>
+    <span>some text: {{greeting}}</span>
     <clickable-text></clickable-text>
     <script>
       const helloWorld = document.querySelector("hello-world");

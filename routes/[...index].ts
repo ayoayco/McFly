@@ -67,5 +67,14 @@ function doSetUp(html: string) {
     Object.assign(setupMap, new evalStore());
   });
 
-  return html.replace("{{name}}", setupMap["name"]);
+  const regex = /{{(.*?)}}/g;
+  var match;
+
+  let matches = [];
+  while ((match = regex.exec(html)) != null) {
+    console.log(match[0], match[1]);
+    html = html.replace(match[0], setupMap[match[1]]);
+  }
+
+  return html;
 }
