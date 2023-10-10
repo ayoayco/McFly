@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hello Nitro</title>
-    <script setup>
-      // define logic that runs on the server
-      const name = "Ayo";
+    <script server:setup>
+      const name = "AYOs";
+      return { name };
     </script>
   </head>
   <body>
@@ -16,11 +16,11 @@
     </div>
     <span>some text</span>
     <clickable-text></clickable-text>
-    <script>
+    <!-- <script>
       const helloWorld = document.querySelector("hello-world");
       setTimeout(() => {
         helloWorld.setAttribute("name", "Nitro");
       }, 2000);
-    </script>
+    </script> -->
   </body>
 </html>

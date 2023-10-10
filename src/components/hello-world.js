@@ -9,7 +9,7 @@ export default class HelloWorld extends WebComponent {
     let count = 0;
     this.onclick = () => {
       console.log("Clicked!");
-      this.setAttribute("name", `I was clicked ${++count} times`);
+      this.setAttribute("name", `I was clicked ${++count} times!`);
     };
     this.setAttribute("title", "Click me please");
   }
