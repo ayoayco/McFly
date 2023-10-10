@@ -14,7 +14,7 @@ export default eventHandler(async (event) => {
   if (!html) html = await useStorage().getItem(getPath("/404.html"));
 
   // transforms
-  const transforms = [insertRegistry, doSetUp, deleteServerScripts];
+  const transforms = [doSetUp, deleteServerScripts, insertRegistry];
   if (html) {
     for (const transform of transforms) {
       html = transform(html.toString());
@@ -37,7 +37,16 @@ function insertRegistry(html: string): string {
   const registryScript =
     '<script type="module" src="./.output/registry.js"></script>';
 
-  return html.toString().replace("</head>", registryScript + "</head>");
+  const ast = parse(html);
+
+  // insert registry script to head
+  walkSync(ast, (node) => {
+    if (node.type === ELEMENT_NODE && node.name === "head") {
+      node.children.push(parse(registryScript));
+    }
+  });
+
+  return renderSync(ast);
 }
 
 function doSetUp(html: string) {
@@ -78,6 +87,7 @@ function doSetUp(html: string) {
     console.log(match[0], match[1]);
     html = html.replace(match[0], setupMap[match[1].trim()]);
   }
+  console.log("---------");
 
   return html;
 }
