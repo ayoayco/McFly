@@ -60,14 +60,11 @@ function doSetUp(html: string) {
 
   const setupMap = {};
   serverScripts.forEach((script: string) => {
-    console.log(script);
-
     const constructor = `
     new Function(\`${script}\`);
     `;
     const evalStore = eval(constructor);
     Object.assign(setupMap, new evalStore());
-    console.log(">>> from server", setupMap);
   });
 
   return html.replace("{{name}}", setupMap["name"]);

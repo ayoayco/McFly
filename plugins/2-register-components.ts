@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import { mkdirSync, writeFileSync, existsSync } from "node:fs";
 
 export default defineNitroPlugin(async () => {
   console.log("Building registry of custom elements...");
@@ -19,10 +19,10 @@ export default defineNitroPlugin(async () => {
 
   const customElementsDefine = `Object.keys(registry).forEach((key) => {if(window?.hasOwnProperty("customElements"))customElements.define(key, registry[key]);})`;
 
-  if (!fs.existsSync("./public/.output")) {
-    fs.mkdirSync("./public/.output");
+  if (!existsSync("./public/.output")) {
+    mkdirSync("./public/.output");
   }
-  fs.writeFileSync(
+  writeFileSync(
     "./public/.output/registry.js",
     [...imports, registryObject, customElementsDefine].join(";")
   );
