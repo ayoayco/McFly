@@ -1,4 +1,4 @@
-import { ELEMENT_NODE, parse, walkSync } from "ultrahtml";
+import { ELEMENT_NODE, parse, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
 
 export default eventHandler(async (event) => {
@@ -14,7 +14,7 @@ export default eventHandler(async (event) => {
   if (!html) html = await useStorage().getItem(getPath("/404.html"));
 
   // transforms
-  const transforms = [insertRegistry, doSetUp];
+  const transforms = [insertRegistry, doSetUp, deleteServerScripts];
   if (html) {
     for (const transform of transforms) {
       html = transform(html.toString());
@@ -82,4 +82,18 @@ function doSetUp(html: string) {
   }
 
   return html;
+}
+
+function deleteServerScripts(html: string): string {
+  const ast = parse(html);
+  walkSync(ast, (node) => {
+    const { attributes } = node;
+    const attributeKeys = Object.keys(attributes ?? {});
+    const isServerScript = attributeKeys.some((key) => key.includes("server:"));
+    if (isServerScript) {
+      node.parent.children.splice(node.parent.children.indexOf(node), 1);
+    }
+  });
+
+  return renderSync(ast);
 }
