@@ -19,6 +19,11 @@ export default eventHandler(async (event) => {
       html = transform(html.toString());
     }
   }
+
+  /**
+   * TODO remove server:script tags
+   */
+
   return html ?? new Response("Not found", { status: 404 });
 });
 
