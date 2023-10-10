@@ -1,4 +1,5 @@
 import { ELEMENT_NODE, parse, walkSync } from "ultrahtml";
+import { parseScript } from "esprima";
 
 export default eventHandler(async (event) => {
   const rawPath =
@@ -60,9 +61,13 @@ function doSetUp(html: string) {
 
   const setupMap = {};
   serverScripts.forEach((script: string) => {
-    const constructor = `
-    new Function(\`${script}\`);
-    `;
+    const { body } = parseScript(script);
+    const keys = body
+      .filter((node) => node.type === "VariableDeclaration")
+      .map((node) => node.declarations[0].id.name);
+    const constructor = `new Function(\`${script}; return {${keys.join(
+      ","
+    )}}\`);`;
     const evalStore = eval(constructor);
     Object.assign(setupMap, new evalStore());
   });
@@ -73,7 +78,7 @@ function doSetUp(html: string) {
   let matches = [];
   while ((match = regex.exec(html)) != null) {
     console.log(match[0], match[1]);
-    html = html.replace(match[0], setupMap[match[1]]);
+    html = html.replace(match[0], setupMap[match[1].trim()]);
   }
 
   return html;

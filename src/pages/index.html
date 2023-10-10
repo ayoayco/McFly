@@ -6,15 +6,20 @@
     <title>Hello Nitro</title>
     <script server:setup>
       const name = "AYOs";
-      return { name, greeting: "hey" }; // TODO: this is illegal! figure out a way to build an object in the route intercept
+      let greeting = "hello";
+      var count = sum(1, 247);
+
+      function sum(x, y) {
+        return x + y;
+      }
     </script>
   </head>
   <body>
-    <a href="/about">About</a>
+    <a href="/about">{{ count }}</a>
     <div>
       <hello-world name="{{name}}"></hello-world>
     </div>
-    <span>some text: {{greeting}}</span>
+    <p>some text: {{greeting}}</p>
     <clickable-text></clickable-text>
     <script>
       const helloWorld = document.querySelector("hello-world");
