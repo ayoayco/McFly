@@ -1,9 +1,10 @@
+import { NitroApp } from "nitropack";
 import config from "../mcfly.config";
 
-export default defineNitroPlugin(() => {
-  const { integrations } = config();
-  if (integrations?.length > 0)
-    integrations.forEach((integration) => {
-      integration();
+export default defineNitroPlugin((event: NitroApp) => {
+  const { onBuild } = config();
+  if (onBuild?.length > 0)
+    onBuild.forEach((callBack) => {
+      callBack(event);
     });
 });

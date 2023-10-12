@@ -1,14 +1,13 @@
 import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 
-export default function components() {
+export default function registerComponents() {
   return () => {
     copyComponents();
-    registerComponents();
+    buildRegistry();
   };
 }
 
 const copyComponents = async () => {
-  console.log("Copying components to public folder...");
   const rawKeys = await useStorage().getKeys("assets:components");
   rawKeys.forEach(async (key) => {
     const cleanKey = key.replace("assets:components:", "");
@@ -18,7 +17,7 @@ const copyComponents = async () => {
   });
 };
 
-const registerComponents = async () => {
+const buildRegistry = async () => {
   console.log("Building registry of custom elements...");
   const rawKeys = await useStorage().getKeys("/assets/components");
   const keys = rawKeys.map((key) => key.replace("assets:components:", ""));
@@ -37,9 +36,9 @@ const registerComponents = async () => {
 
   const customElementsDefine = `Object.keys(registry).forEach((key) => {if(window?.hasOwnProperty("customElements"))customElements.define(key, registry[key]);})`;
 
-  if (!existsSync("./public/.output")) {
-    mkdirSync("./public/.output");
-  }
+  if (!existsSync("./public")) mkdirSync("./public");
+  if (!existsSync("./public/.output")) mkdirSync("./public/.output");
+
   writeFileSync(
     "./public/.output/registry.js",
     [...imports, registryObject, customElementsDefine].join(";")

@@ -1,6 +1,6 @@
-import components from "./packages/custom-elements";
+import registerComponents from "./packages/register-components";
 import defineConfig from "./packages/define-config";
 
 export default defineConfig({
-  integrations: [components()],
+  onBuild: [registerComponents()],
 });
