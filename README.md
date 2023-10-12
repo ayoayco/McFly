@@ -1,9 +1,15 @@
 McFly: Back to the Basics. Into the Future.
 ---
 
-McFly is a framework that grows with you. Start at the very basic of writing HTML files and enhance with standard web technologies. Then go advanced as you like, at your own pace: define Server-Side Rendering logic, write vanilla Custom Elements for the browser and your own REST APIs on the server with full-stack type-safety... all in the same project.
+McFly is a framework that grows with you. Start at the very basic of writing HTML files and enhance with standard web technologies or go advanced as you like, at your own pace.
 
-At the moment, this is a Proof of Concept and testing ground for using [Nitro](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [Web Component Base](https://ayco.io/n/web-component-base) class.
+- HTML pages
+- Server-Side Rendering logic
+- Custom Elements
+- REST APIs
+
+...all in the same project.
+
 
 ## Ambitious Goals
 We want a way to:
@@ -50,6 +56,7 @@ npm run dev
 
 
 ## More info
+At the moment, this is a Proof of Concept and testing ground for using [Nitro](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [Web Component Base](https://ayco.io/n/web-component-base) class.
 
 This project was generated from Nitro starter guide. Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.
 
