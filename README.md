@@ -1,6 +1,9 @@
-# Nitro + Vanilla Custom Elements
+McFly: Back to the Basics. Into the Future.
+---
 
-This is a Proof of Concept and testing ground for using [Nitro](https://nitro.unjs.io) and vanilla JS custom elements using my [Web Component Base](https://ayco.io/n/web-component-base) class.
+McFly is a framework that grows with you. Start at the very basic of writing HTML files and enhance with standard web technologies. Then go advanced as you like, at your own pace: define Server-Side Rendering logic, write vanilla Custom Elements for the browser and your own REST APIs on the server with full-stack type-safety... all in the same project.
+
+At the moment, this is a Proof of Concept and testing ground for using [Nitro](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [Web Component Base](https://ayco.io/n/web-component-base) class.
 
 ## Ambitious Goals
 We want a way to:
@@ -9,7 +12,7 @@ We want a way to:
 1. no frameworks or reactivity libraries on the browser
 1. server-side pre-rendering
 1. control on when and where JS is downloaded for interactive elements
-   
+
 ## Special directories
 **1. `src/pages`**
 - file based routing for `.html` files
@@ -25,10 +28,10 @@ Do the following steps to get you started:
 
 1. clone project and go into the directory
 ```
-git clone https://github.com/ayoayco/nitro-web-components.git
+git clone https://github.com/ayoayco/mcfly.git
 ```
 ```
-cd nitro-web-components
+cd mcfly
 ```
 
 2. install deps
