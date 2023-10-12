@@ -2,16 +2,8 @@ import { ELEMENT_NODE, parse, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
 
 export default eventHandler(async (event) => {
-  const rawPath =
-    event.path[event.path.length - 1] === "/"
-      ? event.path.slice(0, -1)
-      : event.path;
-  const filename = rawPath === "" ? "/index.html" : `${rawPath}.html`;
-  const fallback = getPath(rawPath + "/index.html");
-  const path = getPath(filename);
-  let html = await useStorage().getItem(path);
-  if (!html) html = await useStorage().getItem(fallback);
-  if (!html) html = await useStorage().getItem(getPath("/404.html"));
+  const { path } = event;
+  let html = await getHtml(path);
 
   // transforms
   const transforms = [doSetUp, deleteServerScripts, insertRegistry];
@@ -21,12 +13,20 @@ export default eventHandler(async (event) => {
     }
   }
 
-  /**
-   * TODO remove server:script tags
-   */
-
   return html ?? new Response("Not found", { status: 404 });
 });
+
+const getHtml = async (path: string) => {
+  const rawPath = path[path.length - 1] === "/" ? path.slice(0, -1) : path;
+  const filename = rawPath === "" ? "/index.html" : `${rawPath}.html`;
+  const fallback = getPath(rawPath + "/index.html");
+  const filePath = getPath(filename);
+  let html = await useStorage().getItem(filePath);
+  if (!html) html = await useStorage().getItem(fallback);
+  if (!html) html = await useStorage().getItem(getPath("/404.html"));
+
+  return html;
+};
 
 function getPath(filename: string) {
   return `assets/pages${filename}`;

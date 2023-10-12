@@ -1,6 +1,24 @@
-import { mkdirSync, writeFileSync, existsSync } from "node:fs";
+import { existsSync, mkdirSync, writeFileSync } from "node:fs";
 
-export default defineNitroPlugin(async () => {
+export default function components() {
+  return () => {
+    copyComponents();
+    registerComponents();
+  };
+}
+
+const copyComponents = async () => {
+  console.log("Copying components to public folder...");
+  const rawKeys = await useStorage().getKeys("assets:components");
+  rawKeys.forEach(async (key) => {
+    const cleanKey = key.replace("assets:components:", "");
+    const content = await useStorage().getItem(key);
+    if (!existsSync("./public/.output")) mkdirSync("./public/.output");
+    writeFileSync(`./public/.output/${cleanKey}`, content.toString());
+  });
+};
+
+const registerComponents = async () => {
   console.log("Building registry of custom elements...");
   const rawKeys = await useStorage().getKeys("/assets/components");
   const keys = rawKeys.map((key) => key.replace("assets:components:", ""));
@@ -26,4 +44,4 @@ export default defineNitroPlugin(async () => {
     "./public/.output/registry.js",
     [...imports, registryObject, customElementsDefine].join(";")
   );
-});
+};

@@ -1,4 +1,3 @@
-// eslint disable-next-line
 {
   "extends": "./.nitro/types/tsconfig.json"
 }
