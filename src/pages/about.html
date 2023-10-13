@@ -11,6 +11,14 @@
       function getHomeLabel() {
         return "Home" + "!!! " + new Date().toLocaleDateString();
       }
+
+      greeting = "nope";
+
+      mcDelivery(() =>
+        setInterval(() => {
+          greeting = "hello " + new Date().toLocaleTimeString();
+        }, 1000)
+      );
     </script>
   </head>
   <body>
