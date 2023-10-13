@@ -7,6 +7,7 @@ McFly is a framework that grows with you. Start at the very basic of writing HTM
 - Server-Side Rendering logic
 - Custom Elements
 - REST APIs
+- Universal Deployment
 
 ...all in the same project.
 
