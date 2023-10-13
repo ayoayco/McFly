@@ -1,4 +1,4 @@
-McFly: Back to the Basics. Into the Future.
+McFly
 ---
 
 McFly is a framework that grows with you. Start at the very basic of writing HTML files and enhance with standard web technologies or go advanced as you like, at your own pace.
