@@ -1,6 +1,4 @@
-import { WebComponent } from "https://unpkg.com/web-component-base@1.6.15/WebComponent.js";
-
-export default class HelloWorld extends WebComponent {
+class HelloWorld extends WebComponent {
   name = "";
   static properties = ["name"];
 

@@ -2,19 +2,26 @@
  * McFly SSR logic
  */
 
-import { ELEMENT_NODE, parse, renderSync, walkSync } from "ultrahtml";
+import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
+import config from "../mcfly.config";
 
 export default eventHandler(async (event) => {
   const { path } = event;
   let html = await getHtml(path);
 
+  const { components: componentType } = config();
+
   // transforms
-  const transforms = [doSetUp, deleteServerScripts, insertRegistry];
+  const transforms = [doSetUp, deleteServerScripts];
   if (html) {
     for (const transform of transforms) {
       html = transform(html.toString());
     }
+  }
+
+  if (!!componentType) {
+    html = await insertRegistry(html.toString(), componentType);
   }
 
   return html ?? new Response("Not found", { status: 404 });
@@ -36,30 +43,60 @@ function getPath(filename: string) {
   return `assets/pages${filename}`;
 }
 
-function insertRegistry(html: string): string {
-  // temporary; use ultrahtml later
-  const registryScript =
-    '<script type="module" src="./.output/registry.js"></script>';
-
+async function insertRegistry(
+  html: string,
+  type: "js" | "ts"
+): Promise<string> {
   const ast = parse(html);
+  const componentFiles = (await useStorage().getKeys("assets:components"))
+    .map((key) => key.replace("assets:components:", ""))
+    .filter((key) => key.includes(type));
+  const availableComponents = componentFiles.map((key) =>
+    key.replace(`.${type}`, "")
+  );
 
-  let hasCustomElements = false;
+  const usedCustomElements = [];
 
   walkSync(ast, (node) => {
-    if (node.type === ELEMENT_NODE && node.name.includes("-")) {
-      hasCustomElements = true;
+    const usedElement = availableComponents.find((name) => name === node.name);
+
+    if (node.type === ELEMENT_NODE && !!usedElement) {
+      usedCustomElements.push(usedElement);
     }
   });
 
   // insert registry script to head
-  if (hasCustomElements)
+  if (usedCustomElements.length > 0) {
+    const registryScript = await buildRegistry(usedCustomElements, type);
     walkSync(ast, (node) => {
       if (node.type === ELEMENT_NODE && node.name === "head") {
         node.children.push(parse(registryScript));
       }
     });
+  }
 
-  return renderSync(ast);
+  return render(ast);
+}
+
+async function buildRegistry(usedCustomElements: string[], type: "js" | "ts") {
+  let registryScript = `<script type='module'>
+import { WebComponent } from "https://unpkg.com/web-component-base@1.6.15/WebComponent.js";
+`;
+
+  for (const name of usedCustomElements) {
+    const content = await useStorage().getItem(
+      `assets:components:${name}.${type}`
+    );
+    registryScript += content;
+    const evalStore = eval(`class WebComponent {};(${content.toString()})`);
+    const className = new evalStore().constructor.name;
+
+    registryScript += `customElements.define("${name}", ${className});`;
+  }
+
+  registryScript += "</script>";
+
+  return registryScript;
 }
 
 function doSetUp(html: string) {
