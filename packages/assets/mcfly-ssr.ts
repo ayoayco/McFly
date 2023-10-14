@@ -122,7 +122,6 @@ function deleteServerScripts(html: string): string {
 function cleanScript(scripts: string[]): string {
   let script = scripts.map((s) => s.trim()).join(" ");
 
-  // remove comments
   script = removeComments(script);
 
   return script.replace(/\n/g, "").replace(/\s+/g, " ");
