@@ -85,7 +85,7 @@ function doSetUp(html: string) {
     const keys = body
       .filter((node) => node.type === "VariableDeclaration")
       .map((node) => node.declarations[0].id.name);
-    const constructor = `new Function(\`${script}; return {${keys.join(
+    const constructor = `(function(){}.constructor)(\`${script}; return {${keys.join(
       ","
     )}}\`);`;
     const evalStore = eval(constructor);

@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, writeFileSync } from "node:fs";
+import { existsSync, promises as fsp } from "node:fs";
 
 export default function registerComponents() {
   return () => {
@@ -12,8 +12,8 @@ const copyComponents = async () => {
   rawKeys.forEach(async (key) => {
     const cleanKey = key.replace("assets:components:", "");
     const content = await useStorage().getItem(key);
-    if (!existsSync("./public/.output")) mkdirSync("./public/.output");
-    writeFileSync(`./public/.output/${cleanKey}`, content.toString());
+    if (!existsSync("./public/.output")) await fsp.mkdir("./public/.output");
+    await fsp.writeFile(`./public/.output/${cleanKey}`, content.toString());
   });
 };
 
@@ -36,10 +36,10 @@ const buildRegistry = async () => {
 
   const customElementsDefine = `Object.keys(registry).forEach((key) => {if(window?.hasOwnProperty("customElements"))customElements.define(key, registry[key]);})`;
 
-  if (!existsSync("./public")) mkdirSync("./public");
-  if (!existsSync("./public/.output")) mkdirSync("./public/.output");
+  if (!existsSync("./public")) await fsp.mkdir("./public");
+  if (!existsSync("./public/.output")) await fsp.mkdir("./public/.output");
 
-  writeFileSync(
+  await fsp.writeFile(
     "./public/.output/registry.js",
     [...imports, registryObject, customElementsDefine].join(";")
   );
