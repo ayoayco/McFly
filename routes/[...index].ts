@@ -20,7 +20,7 @@ export default eventHandler(async (event) => {
     }
   }
 
-  if (!!componentType) {
+  if (!!componentType && !!html) {
     html = await insertRegistry(html.toString(), componentType);
   }
 

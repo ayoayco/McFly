@@ -3,34 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello {{name}} :)</title>
-    <script server:setup>
-      const name = "AYOs";
-      let greeting = "hello";
-      var count = sum(1, 247);
-
-      // comment
-
-      greeting = "nope";
-
-      function sum(x, y) {
-        return x + y;
-      }
-    </script>
+    <title>McFly: Back to the Basics. Into the Future.</title>
   </head>
   <body>
-    <a href="/about">{{ count }}</a>
-    <div>
-      <hello-world name="{{name }}"></hello-world>
-    </div>
-    <p>some text: {{greeting}}</p>
-    {{greeting}} hey<br />
-    <clickable-text></clickable-text>
-    <script>
-      const helloWorld = document.querySelector("hello-world");
-      setTimeout(() => {
-        helloWorld.setAttribute("name", "Nitro");
-      }, 2000);
-    </script>
+    <h1>McFly</h1>
+    <a href="/demo">Demo</a>
   </body>
 </html>
