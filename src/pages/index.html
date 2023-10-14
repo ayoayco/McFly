@@ -6,31 +6,56 @@
     <title>McFly: Back to the Basics. Into the Future.</title>
     <link rel="stylesheet" href="./reset.css"></style>
     <style>
-      body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        max-width: 750px;
-        margin: 0 auto;
-        padding: 1em;
-      }
+        html {
+            font-size: 1.5em;
+        }
 
-      h1 {
-        padding: 0;
-        margin: 0;
-      }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 1em;
+        }
 
-      h2, p, ul, ol {
-        margin-top: 0.5em;
-      }
+        h1 {
+            padding: 0;
+            margin: 0;
+        }
+
+        h2, p, ul, ol {
+            margin-top: 0.5em;
+        }
+        footer {
+            text-align: right;
+            font-style: italic;
+        }
+        header {
+            margin: 0.5em 0;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #3054bf, #416fff);
+            color: white;
+        }
+        header a {
+            color: white
+        }
+        header, main {
+            padding: 0.5em 1em;
+        }
+
     </style>
   </head>
   <body>
     <header>
-      <h1>McFly</h1>
-      <a href="https://ayco.io/gh/mcfly">GitHub</a>
+        <a href="https://ayco.io/gh/mcfly">
+            <h1>McFly</h1>
+        </a>
     </header>
     <main>
       <p>
-        McFly is a framework that grows with you. Start at the very basic of
+        McFly is a web framework that grows with you.
+      </p>
+      <p>
+        Start at the very basic of
         writing HTML files and enhance with standard web technologies or go
         advanced as you like, at your own pace.
       </p>
@@ -42,17 +67,10 @@
         <li>Universal Deployment</li>
       </ul>
       <p>...all in the same project.</p>
-      <h2>Ambitious Goals</h2>
-      <p>We want a way to:</p>
-      <ol>
-        <li>create web apps with vanilla custom elements</li>
-        <li>write real .HTML files</li>
-        <li>have no frameworks or reactivity libraries on the browser</li>
-        <li>server-side pre-rendering</li>
-        <li>
-          control on when and where JS is downloaded for interactive elements
-        </li>
-      </ol>
+      <p>Read more on <a href="https://github.com/ayoayco/mcfly">GitHub</a>.</p>
     </main>
+    <footer>
+        <small> A project by <a href="https://ayco.io">Ayo Ayco</a></small>
+    </footer>
   </body>
 </html>
