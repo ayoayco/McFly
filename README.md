@@ -1,13 +1,17 @@
-McFly
+McFly - Back to the Basics. Into the Future.
 ---
 
-McFly is a framework that grows with you. Start at the very basic of writing HTML files and enhance with standard web technologies or go advanced as you like, at your own pace.
+McFly is a framework that grows with you.
+
+Start at the very basic of writing HTML files and enhance with standard web technologies or go advanced as you like, at your own pace.
+
+It will never get in the way between you and the web platform.
 
 - HTML pages
 - Server-Side Rendering logic
 - Custom Elements
 - REST APIs
-- Universal Deployment
+- Deployment Anywhere
 
 ...all in the same project.
 
