@@ -11,7 +11,7 @@ It will never get in the way between you and the web platform.
 - Server-Side Rendering logic
 - Custom Elements
 - REST APIs
-- Deployment Anywhere
+- Deploy Anywhere
 
 ...all in the same project.
 
