@@ -54,7 +54,18 @@ npm run dev
 
 4. open the browser to `https://localhost:3000` (or what the dev server said)
 
+## McFly config
 
+To tell McFly you want to use components, pass `registerComponents()` as `onBuild` one callback
+
+```js
+import registerComponents from "./packages/register-components";
+import defineConfig from "./packages/define-config";
+
+export default defineConfig({
+  onBuild: [registerComponents()]
+});
+```
 
 
 ## More info
