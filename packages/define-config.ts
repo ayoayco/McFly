@@ -5,5 +5,6 @@ export type McFlyConfig = {
   onBuild?: Array<(event: NitroApp) => void>;
 };
 export default function defineConfig(config: McFlyConfig) {
-  return () => ({ ...config, onBuild: [...config.onBuild, setUpSsr()] });
+  const onBuild = config.onBuild ?? [];
+  return () => ({ ...config, onBuild: [...onBuild, setUpSsr()] });
 }
