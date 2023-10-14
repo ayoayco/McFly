@@ -75,7 +75,8 @@ function doSetUp(html: string) {
       isServerScript
     ) {
       const scripts = node.children.map((child) => child.value);
-      serverScripts.push(scripts.join(" "));
+      const script = cleanScript(scripts);
+      serverScripts.push(script);
     }
   });
 
@@ -116,4 +117,43 @@ function deleteServerScripts(html: string): string {
   });
 
   return renderSync(ast);
+}
+
+function cleanScript(scripts: string[]): string {
+  let script = scripts.map((s) => s.trim()).join(" ");
+
+  // remove comments
+  script = removeComments(script);
+
+  return script.replace(/\n/g, "").replace(/\s+/g, " ");
+}
+
+function isComment(node) {
+  return (
+    node.type === "Line" ||
+    node.type === "Block" ||
+    node.type === "BlockComment" ||
+    node.type === "LineComment"
+  );
+}
+
+function removeComments(script: string) {
+  const entries = [];
+  parseScript(script, { comment: true }, function (node, meta) {
+    if (isComment(node)) {
+      entries.push({
+        start: meta.start.offset,
+        end: meta.end.offset,
+      });
+    }
+  });
+
+  entries
+    .sort((a, b) => {
+      return b.end - a.end;
+    })
+    .forEach((n) => {
+      script = script.slice(0, n.start) + script.slice(n.end);
+    });
+  return script;
 }
