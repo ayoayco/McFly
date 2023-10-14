@@ -56,15 +56,15 @@ npm run dev
 
 ## McFly config
 
-To tell McFly you want to use components, pass `registerComponents()` as one of the `onBuild` callbacks in mcfly.config.ts
+To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
 
 ```js
-import registerComponents from "./packages/register-components";
 import defineConfig from "./packages/define-config";
 
 export default defineConfig({
-  onBuild: [registerComponents()]
+  components: "js",
 });
+
 ```
 
 
