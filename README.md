@@ -1,7 +1,7 @@
 McFly - Back to the Basics. Into the Future.
 ---
 
-**McFly** is a full-stack framework that clears the way toward leveraging the full power of the web platform...
+**McFly** is a full-stack no-framework framework that assists developers in leveraging the web platform.
 
 - HTML pages
 - Server-Side Rendering
