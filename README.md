@@ -1,9 +1,15 @@
 McFly - Back to the Basics. Into the Future.
 ---
 
-McFly is a full-stack web framework that never gets in the way between you and the web platform.
+**McFly** is a full-stack framework that clears the way toward leveraging the full power of the web platform...
 
-## Ambitious Goals
+- HTML pages
+- Server-Side Rendering
+- Custom Elements
+- REST APIs
+- Deploy Anywhere
+
+## Project Goals
 We want a way to:
 1. create web apps with vanilla custom elements
 1. write real .HTML files
@@ -60,7 +66,10 @@ export default defineConfig({
 
 
 ## More info
-At the moment, this is a Proof of Concept and testing ground for using [Nitro](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [Web Component Base](https://ayco.io/n/web-component-base) class.
+This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://ayco.io/n/web-component-base) class.
 
-This project was generated from Nitro starter guide. Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.
+**Nitro** is the same production-grade web server powering [**Nuxt**](https://nuxt.com/)
 
+---
+*Just keep building*<br />
+*A project by [Ayo Ayco](https://ayco.io)*
