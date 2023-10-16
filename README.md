@@ -29,6 +29,10 @@ We want a way to:
 
 ## Setting up
 
+It's still very early in the project development and we have no packages published yet.
+
+You can, however, experience the framework by cloning the project and play with the example files in the [special directories](#special-directories). 
+
 Do the following steps to get you started:
 
 1. clone project and go into the directory
