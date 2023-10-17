@@ -26,6 +26,7 @@ We want a way to:
 **2. `src/components`**
 - custom element constructor class files go here (only `.js` files for now)
 - all components are automatically registered using their file names (e.g., a `hello-world.js` component can be used as `<hello-world>` element)
+- the idea is, if it is a valid custom element constructor, just throw it in the `components` directory and it will work... vanilla, Lit, Stencil, or our own totally optional [Base Class](https://ayco.io/n/web-component-base) -- your choice!
 
 ## Setting up
 
