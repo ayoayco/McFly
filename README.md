@@ -1,9 +1,9 @@
 ![rick_morty_PNG10-min 2](https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd)
 
 <p align="center">
-  <strong>McFly</strong><br>
+  <h1>McFly</h1><br>
   Back to the Basics.<br>
-  Into the Future.<br>
+  Into the Future.<br><br>
   <img src="https://img.shields.io/badge/from-the_future-blue" />
   <img src="https://img.shields.io/badge/for-the_web_platform-green" />
   <img src="https://img.shields.io/badge/status-legit-black" />
