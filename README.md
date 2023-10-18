@@ -1,6 +1,6 @@
-McFly - Back to the Basics. Into the Future.
----
+![rick_morty_PNG10-min 2](https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd)
 
+# McFly - Back to the Basics. Into the Future.
 **McFly** is a full-stack no-framework framework that assists developers in leveraging the web platform.
 
 - HTML pages
