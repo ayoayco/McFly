@@ -3,7 +3,7 @@
 <p align="center">
   <strong>McFly</strong><br>
   Back to the Basics.<br>
-  Into the Future.<br><br>
+  Into the Future.<br>
   <img src="https://img.shields.io/badge/from-the_future-blue" />
   <img src="https://img.shields.io/badge/for-the_web_platform-green" />
   <img src="https://img.shields.io/badge/status-legit-black" />
