@@ -2,7 +2,7 @@
 
 <p align="center">
   <strong>McFly</strong><br>
-  A full-stack no-framework framework that assists developers in leveraging the web platform<br><br>
+  A no-framework framework that assists developers in leveraging the web platform<br><br>
   <img src="https://img.shields.io/badge/from-the_future-blue" />
   <img src="https://img.shields.io/badge/status-legit-black" />
 </ p>
