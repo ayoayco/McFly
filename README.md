@@ -2,14 +2,12 @@
 
 <p align="center">
   <strong>McFly</strong><br>
-  Back to the Basics.<br>
-  Into the Future.<br><br>
+  A full-stack no-framework framework that assists developers in leveraging the web platform<br><br>
   <img src="https://img.shields.io/badge/from-the_future-blue" />
   <img src="https://img.shields.io/badge/status-legit-black" />
 </ p>
 
-**McFly** is a full-stack no-framework framework that assists developers in leveraging the web platform.
-
+## Features
 - HTML pages
 - Server-Side Rendering
 - Custom Elements
