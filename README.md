@@ -3,8 +3,9 @@
 <p align="center">
   <strong>McFly</strong><br>
   Back to the Basics.<br>
-  Into the Future.
-<\p>
+  Into the Future.<br>
+</p>
+
 **McFly** is a full-stack no-framework framework that assists developers in leveraging the web platform.
 
 - HTML pages
