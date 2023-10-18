@@ -5,7 +5,6 @@
   Back to the Basics.<br>
   Into the Future.<br><br>
   <img src="https://img.shields.io/badge/from-the_future-blue" />
-  <img src="https://img.shields.io/badge/for-the_web_platform-green" />
   <img src="https://img.shields.io/badge/status-legit-black" />
 </ p>
 
