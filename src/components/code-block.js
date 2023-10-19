@@ -1,39 +1,17 @@
-// @ts-check
-
 class CodeBlockComponent extends HTMLElement {
-  constructor() {
-    super();
-  }
-
   connectedCallback() {
-    const trimmed = this.innerHTML.trim();
+    this.trimmed = this.innerHTML.trim();
+    const lang = this.getAttribute("language");
+    const lineNumbers = this.getAttribute("line-numbers") === "true";
 
-    this.css({
-      color: "orange",
-      margin: "1em 0",
-      padding: "1em",
-      fontWeight: "bold",
-      fontSize: "x-large",
-      display: "block",
-      backgroundColor: "#eee",
-    });
+    console.log(lineNumbers, lang);
 
-    const template = `
+    this.innerHTML = `
       <div>
-        <pre class="language-${this.lang}" id="pre"><code id="code">${trimmed}</code></pre>
+        <pre class="language-${lang} ${
+      lineNumbers ? "line-numbers" : ""
+    }" id="pre"><code id="code">${this.trimmed}</code></pre>
       </div>
     `;
-
-    this.innerHTML = template;
-  }
-
-  /**
-   * Apply css to an element
-   * @param {Partial<CSSStyleDeclaration>} style
-   * @param {HTMLElement} element
-   */
-  css(style, element = null) {
-    let el = element ?? this;
-    for (const property in style) el.style[property] = style[property];
   }
 }

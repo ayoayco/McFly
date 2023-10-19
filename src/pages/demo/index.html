@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <my-head>
+    <link rel="stylesheet" href="/prism.css" />
+    <script src="/prism.js"></script>
     <script server:setup>
       const name = "AYOs";
       let greeting = "hello";
@@ -25,7 +27,12 @@
       <p>some text: {{greeting}}</p>
       {{greeting}} hey<br />
       <clickable-text></clickable-text>
-      <code-block lang="css"> const hey = "AYO" </code-block>
+      <code-block language="js" line-numbers="true">
+        <pre>
+const hey = "AYO";
+console.log(hey)
+        </pre>
+      </code-block>
     </main>
     <my-footer></my-footer>
 
