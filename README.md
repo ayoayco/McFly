@@ -1,26 +1,23 @@
 <p align="center">
-  <img src="https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd" alt="rRick & Morty cartoon" /><br>
-  <strong>McFly</strong><br>
-  A no-framework framework<br>to leverage the web platform<br><br>
-  <img src="https://img.shields.io/badge/from-the_future-blue" />
-  <img src="https://img.shields.io/badge/status-legit-black" />
-  <a href="https://mc-fly.vercel.app" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-green" /></a>
-</ p>
+  <img width="250" src="https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd" alt="rRick & Morty cartoon" />
+</p>
+
+<h1 align="center">McFly</h1>
+
+<p align="center"><strong>McFly</strong> is a full-stack no-framework framework<br />that assists developers in leveraging the web platform</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/from-the_future-blue?style=flat" />
+  <img src="https://img.shields.io/badge/status-legit-purple?style=flat" />
+  <a href="https://mc-fly.vercel.app" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
+</p>
 
 ## Features
-- HTML pages & fragments
-- Server-Side Rendering
-- Custom Elements
-- REST APIs
-- Deploy Anywhere
-
-## Project Goals
-We want a way to:
-1. create web apps with vanilla custom elements
-1. write real .HTML files
-1. have no frameworks or reactivity libraries on the browser
-1. use server-side rendering
-1. control when and where JS is downloaded for interactive elements
+- Create web apps with vanilla custom elements
+- Write real .HTML files
+- Have no frameworks or reactivity libraries on the browser
+- Use server-side rendering
+- Deploy anywhere
 
 ## Special directories
 **1. `src/pages`**
