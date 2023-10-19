@@ -7,7 +7,7 @@
 </ p>
 
 ## Features
-- HTML pages
+- HTML pages & fragments
 - Server-Side Rendering
 - Custom Elements
 - REST APIs
