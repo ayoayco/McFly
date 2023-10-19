@@ -62,8 +62,6 @@ async function insertRegistry(
     key.replace(`.${type}`, "")
   );
 
-  console.log(">>> availableComponents", availableComponents);
-
   const usedCustomElements = [];
 
   walkSync(ast, (node) => {
@@ -89,19 +87,29 @@ async function insertRegistry(
 }
 
 async function buildRegistry(usedCustomElements: string[], type: "js" | "ts") {
-  let registryScript = `<script type='module'>
-import { WebComponent } from "https://unpkg.com/web-component-base@1.6.15/WebComponent.js";
-`;
+  let registryScript = `<script type='module'>`;
 
   for (const name of usedCustomElements) {
     const content = await useStorage().getItem(
       `assets:components:${name}.${type}`
     );
-    registryScript += content;
     const evalStore = eval(
       `class WebComponent {}; class HTMLElement {}; (${content.toString()})`
     );
     const className = new evalStore().constructor.name;
+    let baseClassImported = false;
+
+    if (
+      !baseClassImported &&
+      content.toString().includes("extends WebComponent")
+    ) {
+      const baseClassImport = `import { WebComponent } from "https://unpkg.com/web-component-base@1.6.15/WebComponent.js";`;
+
+      registryScript += baseClassImport;
+      baseClassImported = true;
+    }
+
+    registryScript += content;
 
     registryScript += `customElements.define("${name}", ${className});`;
   }
