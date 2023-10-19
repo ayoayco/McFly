@@ -13,8 +13,7 @@ class HelloWorld extends HTMLElement {
 
   attributeChangedCallback(property, previousValue, currentValue) {
     if (previousValue !== currentValue) {
-      this[property] = currentValue;
-      this.innerHTML = `<button style="cursor:pointer">Hello ${this.name}!</button>`;
+      this.innerHTML = `<button style="cursor:pointer">Hello ${currentValue}!</button>`;
     }
   }
 }
