@@ -14,21 +14,24 @@
       </p>
       <code-block class="language-js line-numbers" data-line="2">
         <pre>
-class HelloWorld extends WebComponent {
-  static properties = ["name"];
+class HelloWorld extends HTMLElement {
+  static observedAttributes = ["name"];
 
-  onInit() {
+  connectedCallback() {
     let count = 0;
     this.onclick = () => {
       this.setAttribute("name", `Clicked ${++count}x`);
     };
+    this.setAttribute("title", "Click me please");
   }
 
-  get template() {
-    return `<button style="cursor:pointer">Hello ${this.name}!</button>`;
+  attributeChangedCallback(property, previousValue, currentValue) {
+    if (previousValue !== currentValue) {
+      this[property] = currentValue;
+      this.innerHTML = `<button style="cursor:pointer">Hello ${this.name}!</button>`;
+    }
   }
-}
-</pre>
+}</pre>
       </code-block>
       <p>
         Start at the very basic of writing HTML files and enhance with standard

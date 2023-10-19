@@ -1,7 +1,7 @@
-class HelloWorld extends WebComponent {
-  static properties = ["name"];
+class HelloWorld extends HTMLElement {
+  static observedAttributes = ["name"];
 
-  onInit() {
+  connectedCallback() {
     console.log(`Greeting for ${this.name} initialized`);
     let count = 0;
     this.onclick = () => {
@@ -11,11 +11,10 @@ class HelloWorld extends WebComponent {
     this.setAttribute("title", "Click me please");
   }
 
-  onChanges(changes) {
-    console.log(changes);
-  }
-
-  get template() {
-    return `<button style="cursor:pointer">Hello ${this.name}!</button>`;
+  attributeChangedCallback(property, previousValue, currentValue) {
+    if (previousValue !== currentValue) {
+      this[property] = currentValue;
+      this.innerHTML = `<button style="cursor:pointer">Hello ${this.name}!</button>`;
+    }
   }
 }
