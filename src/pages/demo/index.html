@@ -20,7 +20,7 @@
     <main>
       <a href="/demo/about">{{ count }}</a>
       <div>
-        <hello-world name="{{name }}"></hello-world>
+        <my-hello-world name="{{name }}"></my-hello-world>
       </div>
       <p>some text: {{greeting}}</p>
       {{greeting}} hey<br />
@@ -28,7 +28,7 @@
     </main>
     <my-footer></my-footer>
     <script>
-      const helloWorld = document.querySelector("hello-world");
+      const helloWorld = document.querySelector("my-hello-world");
       setTimeout(() => {
         helloWorld.setAttribute("name", "Nitro");
       }, 2000);

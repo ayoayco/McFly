@@ -88,6 +88,7 @@ async function insertRegistry(
 
 async function buildRegistry(usedCustomElements: string[], type: "js" | "ts") {
   let registryScript = `<script type='module'>`;
+  let baseClassImported = false;
 
   for (const name of usedCustomElements) {
     const content = await useStorage().getItem(
@@ -97,7 +98,6 @@ async function buildRegistry(usedCustomElements: string[], type: "js" | "ts") {
       `class WebComponent {}; class HTMLElement {}; (${content.toString()})`
     );
     const className = new evalStore().constructor.name;
-    let baseClassImported = false;
 
     if (
       !baseClassImported &&
