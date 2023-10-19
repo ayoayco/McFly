@@ -2,16 +2,7 @@
  * McFly SSR logic
  */
 
-import {
-  ELEMENT_NODE,
-  parse,
-  render,
-  renderSync,
-  walkSync,
-  transform,
-  html as ultraHtml,
-} from "ultrahtml";
-import swap from "ultrahtml/transformers/swap";
+import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
 import config from "../mcfly.config";
 
@@ -226,7 +217,6 @@ async function useFragments(html: string) {
   }, {});
   const ast = parse(html);
 
-  // building fragment<name, text> map
   for (const key in availableFragments) {
     let text: string = await useStorage().getItem(
       "assets:components:" + key + ".html"
@@ -253,9 +243,6 @@ async function useFragments(html: string) {
 }
 
 function replaceSlots(fragmentNode, node) {
-  // fragmentNode.children = fragmentNode.children.concat(node.children);
-
-  // walkSync find slot
   walkSync(fragmentNode, (n) => {
     if (n.type === ELEMENT_NODE && n.name === "slot") {
       console.log(n);
