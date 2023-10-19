@@ -1,11 +1,11 @@
 class HelloWorld extends HTMLElement {
-  static observedAttributes = ["name"];
+  static get observedAttributes() {
+    return ["name"];
+  }
 
   connectedCallback() {
-    console.log(`Greeting for ${this.name} initialized`);
     let count = 0;
     this.onclick = () => {
-      console.log("Clicked!");
       this.setAttribute("name", `Clicked ${++count}x`);
     };
     this.setAttribute("title", "Click me please");
@@ -13,7 +13,12 @@ class HelloWorld extends HTMLElement {
 
   attributeChangedCallback(property, previousValue, currentValue) {
     if (previousValue !== currentValue) {
-      this.innerHTML = `<button style="cursor:pointer">Hello ${currentValue}!</button>`;
+      this[property] = currentValue;
+      this.render();
     }
+  }
+
+  render() {
+    this.innerHTML = `<button style="cursor:pointer">Hello ${this.name}!</button>`;
   }
 }
