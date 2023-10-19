@@ -1,5 +1,4 @@
 class HelloWorld extends WebComponent {
-  name = "";
   static properties = ["name"];
 
   onInit() {

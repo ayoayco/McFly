@@ -62,6 +62,8 @@ async function insertRegistry(
     key.replace(`.${type}`, "")
   );
 
+  console.log(">>> availableComponents", availableComponents);
+
   const usedCustomElements = [];
 
   walkSync(ast, (node) => {
@@ -74,6 +76,7 @@ async function insertRegistry(
 
   // insert registry script to head
   if (usedCustomElements.length > 0) {
+    console.log(">>> usedCustomElements", usedCustomElements);
     const registryScript = await buildRegistry(usedCustomElements, type);
     walkSync(ast, (node) => {
       if (node.type === ELEMENT_NODE && node.name === "head") {
@@ -95,7 +98,9 @@ import { WebComponent } from "https://unpkg.com/web-component-base@1.6.15/WebCom
       `assets:components:${name}.${type}`
     );
     registryScript += content;
-    const evalStore = eval(`class WebComponent {};(${content.toString()})`);
+    const evalStore = eval(
+      `class WebComponent {}; class HTMLElement {}; (${content.toString()})`
+    );
     const className = new evalStore().constructor.name;
 
     registryScript += `customElements.define("${name}", ${className});`;
@@ -224,11 +229,29 @@ async function useFragments(html: string) {
     );
 
     if (node.type === ELEMENT_NODE && !!usedFragment) {
-      node.children.push(parse(usedFragment.text));
+      const value = replaceSlots(usedFragment.text, node);
+      node.children.push(parse(value));
     }
   });
 
   return render(ast);
+}
+
+function replaceSlots(text: string, sourceNode: UltraNode) {
+  const regex = /<slot \/>/g;
+  var match;
+
+  while ((match = regex.exec(text))) {
+    let [key, _value] = match;
+    const slotName = sourceNode.attributes.slot;
+    const h = sourceNode.children.find((node) => node.name === slotName);
+    if (h) {
+      text = text?.replace(key, h.value);
+      sourceNode.children.splice(sourceNode.children.indexOf(h), 1);
+    }
+  }
+
+  return text;
 }
 
 async function getFiles(type: string) {

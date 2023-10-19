@@ -12,6 +12,24 @@
         Here's a sample interactive custom element:
         <hello-world name="McFly"></hello-world>
       </p>
+      <code-block class="language-js line-numbers" data-line="2">
+        <pre>
+class HelloWorld extends WebComponent {
+  static properties = ["name"];
+
+  onInit() {
+    let count = 0;
+    this.onclick = () => {
+      this.setAttribute("name", `Clicked ${++count}x`);
+    };
+  }
+
+  get template() {
+    return `<button style="cursor:pointer">Hello ${this.name}!</button>`;
+  }
+}
+</pre>
+      </code-block>
       <p>
         Start at the very basic of writing HTML files and enhance with standard
         web technologies or go advanced as you like, at your own pace.
