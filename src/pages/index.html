@@ -1,33 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-  <my-head></my-head>
+  <my-head>
+    <link rel="stylesheet" href="/prism.css" />
+    <script src="/prism.js"></script>
+    <style>
+      @counter-style publish-icons {
+        system: cyclic;
+        symbols: "️✅";
+        suffix: " ";
+      }
+      ul {
+        list-style: publish-icons;
+      }
+      header,
+      footer,
+      main {
+        max-width: 35em;
+        margin: 0 auto;
+      }
+    </style>
+  </my-head>
   <body>
     <awesome-header></awesome-header>
     <main>
-      <p>
-        <strong>McFly</strong> is a full-stack no-framework framework that
-        assists developers in leveraging the web platform.
-      </p>
-      <p>
-        Here's a sample interactive custom element:
-        <vanilla-hello-world name="McFly"></vanilla-hello-world>
-      </p>
-      <p>
-        Start at the very basic of writing HTML files and enhance with standard
-        web technologies or go advanced as you like, at your own pace.
-      </p>
-      <ul>
-        <li>HTML pages & fragments</li>
-        <li>Server-Side Rendering logic</li>
-        <li>Custom Elements</li>
-        <li>REST APIs</li>
-        <li>Deploy Anywhere</li>
-      </ul>
-      <p>...all in the same project.</p>
-      <p>
-        Read more on
-        <a href="https://github.com/ayoayco/mcfly#readme">GitHub</a>.
-      </p>
+      <section>
+        <p>
+          <strong style="font-size: large">McFly</strong> is a full-stack
+          no-framework framework that assists developers in leveraging the web
+          platform.
+        </p>
+        <p>
+          Here's a sample interactive custom element:
+          <vanilla-hello-world name="McFly"></vanilla-hello-world>
+        </p>
+        <p>
+          Start at the very basic of writing HTML files and enhance with
+          standard web technologies or go advanced as you like, at your own
+          pace.
+        </p>
+        <ul>
+          <li>Create web apps with vanilla custom elements</li>
+          <li>Write real .HTML files</li>
+          <li>Have no frameworks or reactivity libraries on the browser</li>
+          <li>Use server-side rendering</li>
+          <li>Deploy anywhere</li>
+        </ul>
+        <p>
+          Read more on
+          <a href="https://github.com/ayoayco/mcfly#readme">GitHub</a>.
+        </p>
+      </section>
+      <!--
+      <section>
+        <h2>HTML pages w/ server setup</h2>
+        <ul>
+          <li>
+            directly use custom elements & static fragments (no imports or
+            registry maintenance needed)
+          </li>
+          <li>
+            use
+            <code class="language-html">&lt;script server:setup&gt;</code>
+            to define logic that runs on the server, which then gets stripped
+            away
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Custom Elements & Static Fragments</h2>
+        <ul>
+          <li>
+            all components are automatically registered using their file names;
+            a
+            <code class="language-unknown">hello-world.js</code> component can
+            be used as
+            <code class="language-unknown">&lt;hello-world&gt;</code>
+          </li>
+          <li>
+            static <code class="language-unknown">.html</code> fragments; a
+            <code class="language-unknown">my-header.html</code> fragment can be
+            directly used as
+            <code class="language-unknown">&lt;my-header&gt;</code>
+          </li>
+        </ul>
+      </section>
+      <section>
+        <h2>Using the Browser's built-in reactivity</h2>
+        <p>
+          Here's a sample interactive custom element:
+          <vanilla-hello-world name="McFly"></vanilla-hello-world>
+        </p>
+        <code-block language="js" line-numbers="true">
+          <pre>
+class HelloWorld extends HTMLElement {
+  static get observedAttributes() {
+    return ["name"];
+  }
+
+  connectedCallback() {
+    let count = 0;
+    this.onclick = () => {
+      this.setAttribute("name", `Clicked ${++count}x`);
+    };
+  }
+
+  attributeChangedCallback(property, previousValue, currentValue) {
+    if (previousValue !== currentValue) {
+      this.innerHTML = `<button style="cursor:pointer">Hello ${currentValue}!</button>`;
+    }
+  }
+}</pre>
+        </code-block>
+      </section> -->
     </main>
     <my-footer></my-footer>
   </body>

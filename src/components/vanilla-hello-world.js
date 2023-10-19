@@ -8,17 +8,11 @@ class HelloWorld extends HTMLElement {
     this.onclick = () => {
       this.setAttribute("name", `Clicked ${++count}x`);
     };
-    this.setAttribute("title", "Click me please");
   }
 
   attributeChangedCallback(property, previousValue, currentValue) {
     if (previousValue !== currentValue) {
-      this[property] = currentValue;
-      this.render();
+      this.innerHTML = `<button style="cursor:pointer">Hello ${currentValue}!</button>`;
     }
-  }
-
-  render() {
-    this.innerHTML = `<button style="cursor:pointer">Hello ${this.name}!</button>`;
   }
 }
