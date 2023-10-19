@@ -12,26 +12,6 @@
         Here's a sample interactive custom element:
         <hello-world name="McFly"></hello-world>
       </p>
-      <code-block class="language-js line-numbers" data-line="2">
-        <pre>
-class HelloWorld extends HTMLElement {
-  static observedAttributes = ["name"];
-
-  connectedCallback() {
-    let count = 0;
-    this.onclick = () => {
-      this.setAttribute("name", `Clicked ${++count}x`);
-    };
-    this.setAttribute("title", "Click me please");
-  }
-
-  attributeChangedCallback(property, previousValue, currentValue) {
-    if (previousValue !== currentValue) {
-      this.innerHTML = `<button style="cursor:pointer">Hello ${currentValue}!</button>`;
-    }
-  }
-}</pre>
-      </code-block>
       <p>
         Start at the very basic of writing HTML files and enhance with standard
         web technologies or go advanced as you like, at your own pace.
