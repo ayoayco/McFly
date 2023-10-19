@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello {{name}} :)</title>
+  <my-head>
     <script server:setup>
       const name = "AYOs";
       let greeting = "hello";
@@ -17,15 +14,19 @@
         return x + y;
       }
     </script>
-  </head>
+  </my-head>
   <body>
-    <a href="/demo/about">{{ count }}</a>
-    <div>
-      <hello-world name="{{name }}"></hello-world>
-    </div>
-    <p>some text: {{greeting}}</p>
-    {{greeting}} hey<br />
-    <clickable-text></clickable-text>
+    <awesome-header></awesome-header>
+    <main>
+      <a href="/demo/about">{{ count }}</a>
+      <div>
+        <hello-world name="{{name }}"></hello-world>
+      </div>
+      <p>some text: {{greeting}}</p>
+      {{greeting}} hey<br />
+      <clickable-text></clickable-text>
+    </main>
+    <my-footer></my-footer>
     <script>
       const helloWorld = document.querySelector("hello-world");
       setTimeout(() => {
