@@ -10,6 +10,7 @@ import {
   renderSync,
   walkSync,
 } from "ultrahtml";
+import { querySelectorAll } from "ultrahtml/selector";
 import { parseScript } from "esprima";
 import config from "../mcfly.config";
 
@@ -74,7 +75,6 @@ async function insertRegistry(
 
   // insert registry script to head
   if (usedCustomElements.length > 0) {
-    console.log(">>> usedCustomElements", usedCustomElements);
     const registryScript = await buildRegistry(usedCustomElements, type);
     walkSync(ast, (node) => {
       if (node.type === ELEMENT_NODE && node.name === "head") {
@@ -217,28 +217,30 @@ function removeComments(script: string) {
 async function useFragments(html: string) {
   const fragmentFiles = await getFiles("html");
 
-  const availableFragments = fragmentFiles.map((key) => {
+  const availableFragments = fragmentFiles.reduce((acc, key) => {
     return {
-      key: key.replace(".html", ""),
-      text: "",
+      ...acc,
+      [key.replace(".html", "")]: "",
     };
-  });
+  }, {});
   const ast = parse(html);
 
-  for (const fragment of availableFragments) {
-    fragment.text = await useStorage().getItem(
-      "assets:components:" + fragment.key + ".html"
+  // building fragment<name, text> map
+  for (const key in availableFragments) {
+    let text: string = await useStorage().getItem(
+      "assets:components:" + key + ".html"
     );
+    availableFragments[key] = text.replace(/\n/g, "").replace(/\s+/g, " ");
   }
 
   walkSync(ast, (node) => {
-    const usedFragment = availableFragments.find(
-      (fragment) => fragment.key === node.name
+    const selector = Object.keys(availableFragments).find(
+      (name) => name === node.name
     );
 
-    if (node.type === ELEMENT_NODE && !!usedFragment) {
-      const value = replaceSlots(usedFragment.text, node);
-      node.children.push(parse(value));
+    if (node.type === ELEMENT_NODE && !!selector) {
+      const index = node.parent.children.indexOf(node);
+      node.parent.children[index] = parse(availableFragments[selector]);
     }
   });
 
