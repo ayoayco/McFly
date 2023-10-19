@@ -28,15 +28,15 @@ We want a way to:
 - use `<script server:setup>` to define logic that runs on the server, which then gets stripped away
 
 **2. `src/components`**
-- custom element constructor class files go here (only `.js` files for now)
-- all components are automatically registered using their file names (e.g., a `hello-world.js` component can be used as `<hello-world>` element)
-- the idea is, if it is a valid custom element constructor, just throw it in the `components` directory and it will work... vanilla, Lit, Stencil, or our own totally optional [Base Class](https://ayco.io/n/web-component-base) -- your choice!
+- custom element constructor files (only `.js` files for now)
+- all components are automatically registered using their file names; a `hello-world.js` component can be used as `<hello-world>`
+- static `.html` fragments; a `my-header.html` fragment can be directly used as `<my-header>`
 
 ## Setting up
 
 It's still very early in the project development and we have no packages published yet.
 
-You can, however, experience the framework by cloning the project and play with the example files in the [special directories](#special-directories). 
+You can, however, experience the framework by cloning the project and play with the example files in the [special directories](#special-directories).
 
 Do the following steps to get you started:
 

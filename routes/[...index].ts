@@ -2,15 +2,22 @@
  * McFly SSR logic
  */
 
-import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
+import {
+  Node as UltraNode,
+  ELEMENT_NODE,
+  parse,
+  render,
+  renderSync,
+  walkSync,
+} from "ultrahtml";
 import { parseScript } from "esprima";
 import config from "../mcfly.config";
+
+const { components: componentType } = config();
 
 export default eventHandler(async (event) => {
   const { path } = event;
   let html = await getHtml(path);
-
-  const { components: componentType } = config();
 
   // transforms
   const transforms = [doSetUp, deleteServerScripts];
@@ -19,6 +26,8 @@ export default eventHandler(async (event) => {
       html = transform(html.toString());
     }
   }
+
+  html = await useFragments(html.toString());
 
   if (!!componentType && !!html) {
     html = await insertRegistry(html.toString(), componentType);
@@ -48,9 +57,7 @@ async function insertRegistry(
   type: "js" | "ts"
 ): Promise<string> {
   const ast = parse(html);
-  const componentFiles = (await useStorage().getKeys("assets:components"))
-    .map((key) => key.replace("assets:components:", ""))
-    .filter((key) => key.includes(type));
+  const componentFiles = await getFiles(type);
   const availableComponents = componentFiles.map((key) =>
     key.replace(`.${type}`, "")
   );
@@ -192,4 +199,40 @@ function removeComments(script: string) {
       script = script.slice(0, n.start) + script.slice(n.end);
     });
   return script;
+}
+
+async function useFragments(html: string) {
+  const fragmentFiles = await getFiles("html");
+
+  const availableFragments = fragmentFiles.map((key) => {
+    return {
+      key: key.replace(".html", ""),
+      text: "",
+    };
+  });
+  const ast = parse(html);
+
+  for (const fragment of availableFragments) {
+    fragment.text = await useStorage().getItem(
+      "assets:components:" + fragment.key + ".html"
+    );
+  }
+
+  walkSync(ast, (node) => {
+    const usedFragment = availableFragments.find(
+      (fragment) => fragment.key === node.name
+    );
+
+    if (node.type === ELEMENT_NODE && !!usedFragment) {
+      node.children.push(parse(usedFragment.text));
+    }
+  });
+
+  return render(ast);
+}
+
+async function getFiles(type: string) {
+  return (await useStorage().getKeys("assets:components"))
+    .map((key) => key.replace("assets:components:", ""))
+    .filter((key) => key.includes(type));
 }
