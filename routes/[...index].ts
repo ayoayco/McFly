@@ -3,14 +3,15 @@
  */
 
 import {
-  Node as UltraNode,
   ELEMENT_NODE,
   parse,
   render,
   renderSync,
   walkSync,
+  transform,
+  html as ultraHtml,
 } from "ultrahtml";
-import { querySelectorAll } from "ultrahtml/selector";
+import swap from "ultrahtml/transformers/swap";
 import { parseScript } from "esprima";
 import config from "../mcfly.config";
 
@@ -240,28 +241,28 @@ async function useFragments(html: string) {
 
     if (node.type === ELEMENT_NODE && !!selector) {
       const index = node.parent.children.indexOf(node);
-      node.parent.children[index] = parse(availableFragments[selector]);
+      const fragmentNode = parse(availableFragments[selector]);
+
+      replaceSlots(fragmentNode, node);
+
+      node.parent.children[index] = fragmentNode;
     }
   });
 
   return render(ast);
 }
 
-function replaceSlots(text: string, sourceNode: UltraNode) {
-  const regex = /<slot \/>/g;
-  var match;
+function replaceSlots(fragmentNode, node) {
+  // fragmentNode.children = fragmentNode.children.concat(node.children);
 
-  while ((match = regex.exec(text))) {
-    let [key, _value] = match;
-    const slotName = sourceNode.attributes.slot;
-    const h = sourceNode.children.find((node) => node.name === slotName);
-    if (h) {
-      text = text?.replace(key, h.value);
-      sourceNode.children.splice(sourceNode.children.indexOf(h), 1);
+  // walkSync find slot
+  walkSync(fragmentNode, (n) => {
+    if (n.type === ELEMENT_NODE && n.name === "slot") {
+      console.log(n);
+      const index = n.parent.children.indexOf(n);
+      n.parent.children.splice(index, 1, ...node.children);
     }
-  }
-
-  return text;
+  });
 }
 
 async function getFiles(type: string) {
