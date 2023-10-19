@@ -1,9 +1,10 @@
 <p align="center">
   <img src="https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd" alt="rRick & Morty cartoon" /><br>
   <strong>McFly</strong><br>
-  A no-framework framework that assists developers in leveraging the web platform<br><br>
+  A no-framework framework<br>to leverage the web platform<br><br>
   <img src="https://img.shields.io/badge/from-the_future-blue" />
   <img src="https://img.shields.io/badge/status-legit-black" />
+  <a href="https://mc-fly.vercel.app" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-green" /></a>
 </ p>
 
 ## Features
