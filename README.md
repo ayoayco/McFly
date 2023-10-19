@@ -24,7 +24,7 @@ We want a way to:
 ## Special directories
 **1. `src/pages`**
 - file based routing for `.html` files
-- directly use custom elements (no registry maintenance needed)
+- directly use custom elements & static fragments (no imports or registry maintenance needed)
 - use `<script server:setup>` to define logic that runs on the server, which then gets stripped away
 
 **2. `src/components`**
