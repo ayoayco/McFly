@@ -80,7 +80,8 @@ async function insertRegistry(
 
 async function buildRegistry(usedCustomElements: string[], type: "js" | "ts") {
   let registryScript = `<script type='module'>`;
-  let baseClassImported = false;
+  let isBaseClassImported = false;
+  let classesImported = [];
 
   for (const name of usedCustomElements) {
     const content = await useStorage().getItem(
@@ -91,19 +92,22 @@ async function buildRegistry(usedCustomElements: string[], type: "js" | "ts") {
     );
     const className = new evalStore().constructor.name;
 
-    if (
-      !baseClassImported &&
-      content.toString().includes("extends WebComponent")
-    ) {
-      const baseClassImport = `import { WebComponent } from "https://unpkg.com/web-component-base@1.7.1/WebComponent.mjs";`;
+    if (!classesImported.includes(className)) {
+      if (
+        !isBaseClassImported &&
+        content.toString().includes("extends WebComponent")
+      ) {
+        const baseClassImport = `import { WebComponent } from "https://unpkg.com/web-component-base@1.7.1/WebComponent.mjs";`;
 
-      registryScript += baseClassImport;
-      baseClassImported = true;
+        registryScript += baseClassImport;
+        isBaseClassImported = true;
+      }
+
+      registryScript += content;
+
+      registryScript += `customElements.define("${name}", ${className});`;
+      classesImported.push(className);
     }
-
-    registryScript += content;
-
-    registryScript += `customElements.define("${name}", ${className});`;
   }
 
   registryScript += "</script>";
