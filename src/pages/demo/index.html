@@ -4,11 +4,9 @@
     <link rel="stylesheet" href="/prism.css" />
     <script src="/prism.js"></script>
     <script server:setup>
-      const name = "AYOs";
+      const name = "Nitro";
       let greeting = "hello";
       var count = sum(1, 247);
-
-      // comment
 
       greeting = "nope";
 
@@ -20,27 +18,76 @@
   <body>
     <awesome-header><span>heyyy</span></awesome-header>
     <main>
-      <a href="/demo/about">{{ count }}</a>
-      <div>
-        <my-hello-world name="{{name }}"></my-hello-world>
-      </div>
-      <p>some text: {{greeting}}</p>
-      {{greeting}} hey<br />
-      <clickable-text></clickable-text>
-      <code-block language="js" line-numbers="true">
-        <pre>
-const hey = "AYO";
-console.log(hey)</pre
+      <section id="intro">
+        <h1>McFly Demo</h1>
+        <warning-block
+          >This page is in-progress. See the
+          <a
+            href="https://github.com/ayoayco/McFly/blob/main/src/pages/demo/index.html"
+            >source code</a
+          >.</warning-block
         >
-      </code-block>
+        <p>In this page, there are several things happening.</p>
+        <p>
+          In the grey box here everything is working, and we will breakdown the
+          code in the <a href="#breakdown">Breakdown</a> section below the page.
+        </p>
+      </section>
+      <section
+        id="demo"
+        style="
+          padding: 1em;
+          margin: 3em 0;
+          box-shadow: 5px 25px 10px -25px rgba(34, 34, 34, 0.15);
+          border: 1px solid rgba(34, 34, 34, 0.15);
+          border-radius: 5px;
+        "
+      >
+        <h2>Demo Page</h2>
+        <a href="/demo/about">{{ count }}</a>
+        <div>
+          <my-hello-world name="{{name }}"></my-hello-world>
+        </div>
+        <code-block language="js">const name = "Nitro"</code-block>
+        <p>some text: {{greeting}}</p>
+        {{greeting}} hey<br />
+        <clickable-text></clickable-text>
+      </section>
+      <section id="breakdown">
+        <h2>Let's Break it Down</h2>
+        <code-block language="html" line-numbers="true">
+          <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+  &lt;my-head&gt;
+    &lt;script server:setup&gt;
+      const name = &quot;Nitro&quot;;
+      let greeting = &quot;hello&quot;;
+      var count = sum(1, 247);
+      greeting = &quot;nope&quot;;
+      function sum(x, y) {
+          return x + y;
+      }
+    &lt;/script&gt;
+  &lt;/my-head&gt;
+  &lt;body&gt;
+    &lt;awesome-header&gt;&lt;span&gt;heyyy&lt;/span&gt;&lt;/awesome-header&gt;
+    &lt;main&gt;
+      &lt;a href=&quot;/demo/about&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/a&gt;
+      &lt;div&gt;
+        &lt;my-hello-world name=&quot;&#123;&#123;name &#125;&#125;&quot;&gt;&lt;/my-hello-world&gt;
+      &lt;/div&gt;
+      &lt;p&gt;some text: &#123;&#123;greeting&#125;&#125;&lt;/p&gt;
+      &#123;&#123;greeting&#125;&#125; hey&lt;br /&gt;
+      &lt;clickable-text&gt;&lt;/clickable-text&gt;
+    &lt;/main&gt;
+    &lt;my-footer&gt;&lt;/my-footer&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</pre
+          >
+        </code-block>
+      </section>
     </main>
     <my-footer></my-footer>
-
-    <script>
-      const helloWorld = document.querySelector("my-hello-world");
-      setTimeout(() => {
-        helloWorld.setAttribute("name", "Nitro");
-      }, 2000);
-    </script>
   </body>
 </html>
