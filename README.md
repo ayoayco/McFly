@@ -9,7 +9,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/from-the_future-blue?style=flat" />
   <img src="https://img.shields.io/badge/status-legit-purple?style=flat" />
-  <a href="https://mc-fly.vercel.app" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
+  <a href="https://mc-fly.vercel.app/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
 
 ## Features
