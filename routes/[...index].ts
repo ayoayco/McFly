@@ -249,7 +249,6 @@ async function useFragments(html: string) {
 function replaceSlots(fragmentNode, node) {
   walkSync(fragmentNode, (n) => {
     if (n.type === ELEMENT_NODE && n.name === "slot") {
-      console.log(n);
       const index = n.parent.children.indexOf(n);
       n.parent.children.splice(index, 1, ...node.children);
     }
