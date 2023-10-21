@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--
+    Hello! This page is an example McFly page.
+    See more on https://ayco.io/gh/McFly
+  -->
   <my-head>
-    <link rel="stylesheet" href="/prism.css" />
-    <script src="/prism.js"></script>
+    <script server:setup>
+      /**
+       * This server:setup script block will get evaluated on the server
+       * ...then get stripped away, leaving just the HTML
+       * */
+      const name = "McFly";
+    </script>
   </my-head>
   <body>
+    <!--
+      This element below is a static HTML fragment, found in ./components/awesome-header.html
+    -->
     <awesome-header></awesome-header>
     <main>
-      Here's a vanilla custom element:
-      <vanilla-hello-world data-name="McFly" />
+      <!--
+        any varible declared in a server:setup script can be used on the page
+      -->
+      <h2>Welcome to {{name}}</h2>
+
+      <p>
+        Here's a vanilla custom element:
+        <vanilla-hello-world data-name="{{name}}" />
+      </p>
+
+      <!--
+        this is just a code-block element, found in ./components/code-block.html
+        (not an actual JS code)
+      -->
       <code-block language="js">
         <pre>
 class HelloWorld extends HTMLElement {
@@ -32,6 +56,9 @@ class HelloWorld extends HTMLElement {
         >
       </code-block>
     </main>
+    <!--
+      Here's another static .html fragment, found in ./components/my-footer.html
+    -->
     <my-footer></my-footer>
   </body>
 </html>
