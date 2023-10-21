@@ -15,6 +15,7 @@
     "ultrahtml": "^1.5.2"
   },
   "workspaces": [
-    "packages/config"
+    "packages/config",
+    "packages/create-mcfly"
   ]
 }
