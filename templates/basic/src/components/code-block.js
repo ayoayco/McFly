@@ -10,7 +10,7 @@ class CodeBlockComponent extends HTMLElement {
       <div>
         <pre class="language-${lang} ${
       lineNumbers ? "line-numbers" : ""
-    }" id="pre" style="padding:1em;background:#efefef;margin:1em 0;border-radius:5px;font-size:large;overflow:scroll"><code id="code">${
+    }" id="pre" style="padding:1em;background:#efefef;margin:1em 0;border-radius:5px;overflow:scroll"><code id="code">${
       this.trimmed
     }</code></pre>
       </div>
