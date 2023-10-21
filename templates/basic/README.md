@@ -1,6 +1,6 @@
 # McFly Starter Project
 
-**McFly** is a no-framework framework that assists in leveraging the web platform
+**McFly** is a no-framework framework that assists in leveraging the web platform.
 
 ```
 npm create mcfly@latest
