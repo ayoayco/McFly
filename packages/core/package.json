@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "McFly core package",
   "main": "event-handler.mjs",
   "files": [
