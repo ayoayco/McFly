@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "esprima": "^4.0.1",
-    "nitropack": "latest",
+    "nitropack": "^2.7.0",
     "ultrahtml": "^1.5.2"
   }
 }
