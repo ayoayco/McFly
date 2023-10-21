@@ -4,7 +4,7 @@ import { eventHandler } from "h3";
 import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
 
-export default (config, storage) => {
+export function defineRoute({ config, storage }) {
   return eventHandler(async (event) => {
     const { path } = event;
     const { components: componentType } = config();
@@ -25,7 +25,7 @@ export default (config, storage) => {
 
     return html ?? new Response("Not found", { status: 404 });
   });
-};
+}
 
 const getHtml = async (path, storage) => {
   const rawPath = path[path.length - 1] === "/" ? path.slice(0, -1) : path;

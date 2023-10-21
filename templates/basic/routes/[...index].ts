@@ -1,6 +1,6 @@
 /**
  * McFly SSR logic
  */
-import McFly from "@mcflyjs/core/event-handler.mjs";
+import { defineRoute } from "@mcflyjs/core/event-handler.mjs";
 import config from "../mcfly.config";
-export default McFly(config, useStorage());
+export default defineRoute({ config, storage: useStorage() });

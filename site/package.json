@@ -7,7 +7,8 @@
     "prepare": "nitropack prepare",
     "dev": "nitropack dev",
     "build": "nitropack build",
-    "preview": "node .output/server/index.mjs"
+    "preview": "node .output/server/index.mjs",
+    "build:preview": "npm run build && npm run preview"
   },
   "dependencies": {
     "esprima": "^4.0.1",
