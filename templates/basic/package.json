@@ -8,10 +8,10 @@
     "preview": "node .output/server/index.mjs"
   },
   "dependencies": {
-    "@mcflyjs/config": "^0.0.1",
-    "@mcflyjs/core": "^0.1.0",
-    "esprima": "^4.0.1",
+    "@mcflyjs/config": "latest",
+    "@mcflyjs/core": "latest",
     "nitropack": "latest",
+    "esprima": "^4.0.1",
     "ultrahtml": "^1.5.2"
   },
   "name": "@templates/basic",

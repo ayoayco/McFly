@@ -1,9 +1,10 @@
+// @ts-check
+
 import { eventHandler } from "h3";
-import { Storage as NitroStorage } from "unstorage";
 import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
 
-export default (config: Function, storage: NitroStorage) => {
+export default (config, storage) => {
   return eventHandler(async (event) => {
     const { path } = event;
     const { components: componentType } = config();
@@ -26,7 +27,7 @@ export default (config: Function, storage: NitroStorage) => {
   });
 };
 
-const getHtml = async (path: string, storage) => {
+const getHtml = async (path, storage) => {
   const rawPath = path[path.length - 1] === "/" ? path.slice(0, -1) : path;
   const filename = rawPath === "" ? "/index.html" : `${rawPath}.html`;
   const fallback = getPath(rawPath + "/index.html");
@@ -38,15 +39,22 @@ const getHtml = async (path: string, storage) => {
   return html;
 };
 
-function getPath(filename: string) {
+/**
+ *
+ * @param {string} filename
+ * @returns string
+ */
+function getPath(filename) {
   return `assets/pages${filename}`;
 }
 
-async function insertRegistry(
-  html: string,
-  type: "js" | "ts",
-  storage: NitroStorage
-): Promise<string> {
+/**
+ *
+ * @param {string} html
+ * @param {"js" | "ts"} type
+ * @returns Promise<string>
+ */
+async function insertRegistry(html, type, storage) {
   const ast = parse(html);
   const componentFiles = await getFiles(type, storage);
   const availableComponents = componentFiles.map((key) =>
@@ -80,17 +88,20 @@ async function insertRegistry(
   return render(ast);
 }
 
-async function buildRegistry(
-  usedCustomElements: string[],
-  type: "js" | "ts",
-  storage: NitroStorage
-) {
+/**
+ *
+ * @param {Array<string>} usedCustomElements
+ * @param {"js" | "ts"} type
+ * @returns
+ */
+async function buildRegistry(usedCustomElements, type, storage) {
   let registryScript = `<script type='module'>`;
   let isBaseClassImported = false;
   let classesImported = [];
 
   for (const name of usedCustomElements) {
     const content = await storage.getItem(`assets:components:${name}.${type}`);
+    if (!content) continue;
     const evalStore = eval(
       `class WebComponent {}; class HTMLElement {}; (${content.toString()})`
     );
@@ -119,7 +130,12 @@ async function buildRegistry(
   return registryScript;
 }
 
-function doSetUp(html: string) {
+/**
+ *
+ * @param {string} html
+ * @returns string
+ */
+function doSetUp(html) {
   const ast = parse(html);
   const serverScripts = [];
   walkSync(ast, (node) => {
@@ -138,11 +154,11 @@ function doSetUp(html: string) {
   });
 
   const setupMap = {};
-  serverScripts.forEach((script: string) => {
+  serverScripts.forEach((script) => {
     const { body } = parseScript(script);
     const keys = body
-      .filter((node) => node.type === "VariableDeclaration")
-      .map((node) => node.declarations[0].id.name);
+      .filter((n) => n.type === "VariableDeclaration")
+      .map((n) => n["declarations"][0].id.name);
     const constructor = `(function(){}.constructor)(\`${script}; return {${keys.join(
       ","
     )}}\`);`;
@@ -162,13 +178,18 @@ function doSetUp(html: string) {
   return html;
 }
 
-function deleteServerScripts(html: string): string {
+/**
+ *
+ * @param {string} html
+ * @returns string
+ */
+function deleteServerScripts(html) {
   const ast = parse(html);
   walkSync(ast, (node) => {
     const { attributes } = node;
     const attributeKeys = Object.keys(attributes ?? {});
     const isServerScript = attributeKeys.some((key) => key.includes("server:"));
-    if (isServerScript) {
+    if (isServerScript && !!node.parent) {
       node.parent.children.splice(node.parent.children.indexOf(node), 1);
     }
   });
@@ -176,7 +197,12 @@ function deleteServerScripts(html: string): string {
   return renderSync(ast);
 }
 
-function cleanScript(scripts: string[]): string {
+/**
+ *
+ * @param {Array<string>} scripts
+ * @returns string
+ */
+function cleanScript(scripts) {
   let script = scripts.map((s) => s.trim()).join(" ");
 
   script = removeComments(script);
@@ -184,6 +210,10 @@ function cleanScript(scripts: string[]): string {
   return script.replace(/\n/g, "").replace(/\s+/g, " ");
 }
 
+/**
+ *
+ * @returns boolean
+ */
 function isComment(node) {
   return (
     node.type === "Line" ||
@@ -193,7 +223,12 @@ function isComment(node) {
   );
 }
 
-function removeComments(script: string) {
+/**
+ *
+ * @param {string} script
+ * @returns string
+ */
+function removeComments(script) {
   const entries = [];
   parseScript(script, { comment: true }, function (node, meta) {
     if (isComment(node)) {
@@ -214,7 +249,12 @@ function removeComments(script: string) {
   return script;
 }
 
-async function useFragments(html: string, storage: NitroStorage) {
+/**
+ *
+ * @param {string} html
+ * @returns Promise<string>
+ */
+async function useFragments(html, storage) {
   const fragmentFiles = await getFiles("html", storage);
 
   const availableFragments = fragmentFiles.reduce((acc, key) => {
@@ -226,9 +266,11 @@ async function useFragments(html: string, storage: NitroStorage) {
   const ast = parse(html);
 
   for (const key in availableFragments) {
-    let text: string = await storage.getItem(
-      "assets:components:" + key + ".html"
-    );
+    /**
+     * @type string | null
+     */
+    let text = await storage.getItem("assets:components:" + key + ".html");
+    if (!text) continue;
     availableFragments[key] = text.replace(/\n/g, "").replace(/\s+/g, " ");
   }
 
@@ -259,7 +301,11 @@ function replaceSlots(fragmentNode, node) {
   });
 }
 
-async function getFiles(type: string, storage: NitroStorage) {
+/**
+ *
+ * @param {string} type
+ */
+async function getFiles(type, storage) {
   return (await storage.getKeys("assets:components"))
     .map((key) => key.replace("assets:components:", ""))
     .filter((key) => key.includes(type));
