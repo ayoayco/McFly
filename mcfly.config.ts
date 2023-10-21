@@ -1,4 +1,4 @@
-import defineConfig from "./packages/define-config";
+import defineConfig from "@mcflyjs/core/define-config";
 
 export default defineConfig({
   components: "js",

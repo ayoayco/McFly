@@ -9,13 +9,15 @@
     "build:preview": "npm run build && npm run preview"
   },
   "dependencies": {
-    "@mcflyjs/config": "*",
+    "@mcflyjs/config": "./packages/config",
     "esprima": "^4.0.1",
     "nitropack": "latest",
     "ultrahtml": "^1.5.2"
   },
   "workspaces": [
     "packages/config",
-    "packages/create-mcfly"
+    "packages/create-mcfly",
+    "templates/basic",
+    "packages/core"
   ]
 }

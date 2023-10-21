@@ -1,0 +1,19 @@
+{
+  "private": true,
+  "scripts": {
+    "prepare": "nitropack prepare",
+    "dev": "nitropack dev",
+    "build": "nitropack build",
+    "preview": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "@mcflyjs/config": "^0.0.1",
+    "nitropack": "latest"
+  },
+  "name": "@templates/basic",
+  "description": "Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Ayo Ayco",
+  "license": "MIT"
+}

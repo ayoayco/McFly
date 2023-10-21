@@ -1,6 +1,4 @@
-import { NitroConfig } from "nitropack";
-
-export default function McFly(): NitroConfig {
+export default function McFly() {
   return {
     devServer: {
       watch: ["./src/pages", "./src/components"],

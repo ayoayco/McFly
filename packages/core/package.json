@@ -1,0 +1,24 @@
+{
+  "name": "@mcflyjs/core",
+  "version": "0.0.1",
+  "description": "McFly core package",
+  "main": "index.js",
+  "devDependencies": {},
+  "files": [
+    "define-config.ts"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayoayco/McFly.git",
+    "directory": "packages/core"
+  },
+  "author": "Ayo Ayco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayoayco/McFly/issues"
+  },
+  "homepage": "https://github.com/ayoayco/McFly#readme"
+}
