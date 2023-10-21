@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "start": "nitropack dev",
     "prepare": "nitropack prepare",
     "dev": "nitropack dev",
     "build": "nitropack build",
@@ -9,7 +10,9 @@
   "dependencies": {
     "@mcflyjs/config": "^0.0.1",
     "@mcflyjs/core": "^0.0.1",
-    "nitropack": "latest"
+    "nitropack": "latest",
+    "esprima": "^4.0.1",
+    "ultrahtml": "^1.5.2"
   },
   "name": "@templates/basic",
   "description": "Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.",
