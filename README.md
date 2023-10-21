@@ -53,7 +53,7 @@ npm i
 
 3. run the dev server
 ```
-npm run dev
+npm start
 ```
 
 4. open the browser to `https://localhost:3000` (or what the dev server said)
