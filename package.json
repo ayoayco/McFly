@@ -1,22 +1,15 @@
 {
   "private": true,
   "scripts": {
-    "start": "nitropack dev",
-    "prepare": "nitropack prepare",
-    "dev": "nitropack dev",
-    "build": "nitropack build",
-    "preview": "node .output/server/index.mjs",
-    "build:preview": "npm run build && npm run preview"
-  },
-  "dependencies": {
-    "esprima": "^4.0.1",
-    "nitropack": "latest",
-    "ultrahtml": "^1.5.2"
+    "start": "npm start -w @mcflyjs/landing-page",
+    "build": "npm run build -w @mcflyjs/landing-page",
+    "build:preview": "npm run build:preview -w @mcflyjs/landing-page"
   },
   "workspaces": [
     "packages/config",
     "packages/create-mcfly",
     "templates/basic",
-    "packages/core"
+    "packages/core",
+    "app"
   ]
 }

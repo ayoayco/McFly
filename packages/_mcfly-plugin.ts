@@ -1,5 +1,5 @@
 import { NitroApp } from "nitropack";
-import config from "../mcfly.config";
+import config from "../app/mcfly.config";
 
 export default defineNitroPlugin((event: NitroApp) => {
   const { onBuild } = config();

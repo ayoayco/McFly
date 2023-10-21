@@ -1,0 +1,31 @@
+{
+  "name": "@mcflyjs/landing-page",
+  "description": "McFly is a full-stack no-framework framework that assists developers in leveraging the web platform.",
+  "private": true,
+  "scripts": {
+    "start": "nitropack dev",
+    "prepare": "nitropack prepare",
+    "dev": "nitropack dev",
+    "build": "nitropack build",
+    "preview": "node .output/server/index.mjs"
+  },
+  "dependencies": {
+    "esprima": "^4.0.1",
+    "nitropack": "latest",
+    "ultrahtml": "^1.5.2"
+  },
+  "version": "0.0.1",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayoayco/McFly.git",
+    "directory": "app"
+  },
+  "author": "Ayo Ayco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayoayco/McFly/issues"
+  },
+  "homepage": "https://github.com/ayoayco/McFly#readme"
+}
