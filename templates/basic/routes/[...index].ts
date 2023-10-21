@@ -4,7 +4,7 @@
 
 import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
-import config from "../../../app/mcfly.config";
+import config from "../mcfly.config";
 
 const { components: componentType } = config();
 

@@ -10,7 +10,6 @@ class HelloWorld extends WebComponent {
     this.onclick = () => {
       this.setAttribute("data-name", `Clicked ${++count}x`);
     };
-    this.setAttribute("title", "Click me please");
   }
 
   get template() {
