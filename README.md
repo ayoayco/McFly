@@ -20,7 +20,7 @@ npm create mcfly@latest
 ```
 
 ## Features
-The time has come for vanilla Web tech to be great again. 🎉
+The time has come for vanilla Web tech. 🎉
 
 ✅ Create web apps with vanilla custom elements<br>
 ✅ Write real .HTML files<br>
