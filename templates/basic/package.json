@@ -1,5 +1,6 @@
 {
-  "private": true,
+  "name": "@templates/basic",
+  "description": "McFly starter project; see more on https://ayco.io/gh/McFly",
   "scripts": {
     "start": "nitropack dev",
     "prepare": "nitropack prepare",
@@ -10,12 +11,8 @@
   "dependencies": {
     "@mcflyjs/config": "latest",
     "@mcflyjs/core": "latest",
-    "nitropack": "latest",
-    "esprima": "^4.0.1",
-    "ultrahtml": "^1.5.2"
+    "nitropack": "latest"
   },
-  "name": "@templates/basic",
-  "description": "Look at the [Nitro documentation](https://nitro.unjs.io/) to learn more.",
   "version": "0.0.1",
   "main": "index.js",
   "author": "Ayo Ayco",
