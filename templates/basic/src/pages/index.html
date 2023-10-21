@@ -56,9 +56,13 @@ class HelloWorld extends HTMLElement {
         >
       </code-block>
     </main>
+
     <!--
       Here's another static .html fragment, found in ./components/my-footer.html
+      The child <small> element gets inserted into the <slot /> on the fragment
     -->
-    <my-footer></my-footer>
+    <my-footer>
+      <small>A project by <a href="https://ayo.ayco.io">Ayo Ayco</a></small>
+    </my-footer>
   </body>
 </html>
