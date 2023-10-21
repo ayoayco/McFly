@@ -2,9 +2,9 @@
   "name": "@mcflyjs/core",
   "version": "0.0.1",
   "description": "McFly core package",
-  "main": "index.js",
-  "devDependencies": {},
+  "main": "index.ts",
   "files": [
+    "index.ts",
     "define-config.ts"
   ],
   "scripts": {
@@ -20,5 +20,11 @@
   "bugs": {
     "url": "https://github.com/ayoayco/McFly/issues"
   },
-  "homepage": "https://github.com/ayoayco/McFly#readme"
+  "homepage": "https://github.com/ayoayco/McFly#readme",
+  "dependencies": {
+    "esprima": "^4.0.1",
+    "h3": "^1.8.2",
+    "nitropack": "^2.7.0",
+    "ultrahtml": "^1.5.2"
+  }
 }
