@@ -11,6 +11,6 @@
     "packages/create-mcfly",
     "templates/basic",
     "packages/core",
-    "app"
+    "site"
   ]
 }
