@@ -39,34 +39,6 @@ The time has come for vanilla Web tech to be great again. 🎉
 - all components are automatically registered using their file names; a `hello-world.js` component can be used as `<hello-world>`
 - static `.html` fragments; a `my-header.html` fragment can be directly used as `<my-header>`
 
-## Setting up
-
-In this project, we maintain several node workspaces in directories `./packages`, `./site`, and `./templates`.
-
-You can experience the framework now by cloning the project and playing with the example files in the [special directories](#special-directories) for the landing page (`./site/src`).
-
-Do the following steps to get you started:
-
-1. clone project and go into the directory
-```
-git clone https://github.com/ayoayco/mcfly.git
-```
-```
-cd mcfly
-```
-
-2. install deps
-```
-npm i
-```
-
-3. run the dev server
-```
-npm start
-```
-
-4. open the browser to `https://localhost:3000` (or what the dev server said)
-
 ## McFly config
 
 To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
@@ -79,7 +51,6 @@ export default defineConfig({
 });
 
 ```
-
 
 ## More info
 This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://ayco.io/n/web-component-base) class.
