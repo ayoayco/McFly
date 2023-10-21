@@ -32,9 +32,9 @@ From the root of your project, you can run the following.
 | Command | Result |
 | --- | --- |
 | npm start | Start the dev server |
-| npm prepare | Prepare the app |
-| npm build | Locally generate the app's build files to `./output` |
-| npm preview | Preview the built app locally |
+| npm run prepare | Prepare the app |
+| npm run build | Locally generate the app's build files to `./output` |
+| npm run preview | Preview the built app locally |
 
 ## More info
 
