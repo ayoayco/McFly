@@ -24,3 +24,18 @@ npm create mcfly@latest
 - custom element constructor files (only `.js` files for now)
 - all components are automatically registered using their file names; a `hello-world.js` component can be used as `<hello-world>`
 - static `.html` fragments; a `my-header.html` fragment can be directly used as `<my-header>`
+
+## Commands
+
+From the root of your project, you can run the following.
+
+| Command | Result |
+| --- | --- |
+| npm start | Start the dev server |
+| npm prepare | Prepare the app |
+| npm build | Locally generate the app's build files to `./output` |
+| npm preview | Preview the built app locally |
+
+## More info
+
+Check our [website](https://mc-fly.vercel.app) and [GitHub](https://github.com/ayoayco/McFly)
