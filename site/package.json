@@ -11,11 +11,9 @@
     "build:preview": "npm run build && npm run preview"
   },
   "dependencies": {
-    "esprima": "^4.0.1",
-    "nitropack": "latest",
-    "ultrahtml": "^1.5.2",
     "@mcflyjs/core": "*",
-    "@mcflyjs/config": "*"
+    "@mcflyjs/config": "*",
+    "nitropack": "latest"
   },
   "version": "0.0.1",
   "main": "index.js",
