@@ -46,72 +46,10 @@
           <li>Deploy anywhere</li>
         </ul>
         <p>
-          Visit our in-progress <a href="/demo">Demo Page</a> or read more on
+          Visit our in-progress <a href="/demo">Demo Page</a> or read more on ✨
           <a href="https://github.com/ayoayco/mcfly#readme">GitHub</a>.
         </p>
       </section>
-      <!--
-      <section>
-        <h2>HTML pages w/ server setup</h2>
-        <ul>
-          <li>
-            directly use custom elements & static fragments (no imports or
-            registry maintenance needed)
-          </li>
-          <li>
-            use
-            <code class="language-html">&lt;script server:setup&gt;</code>
-            to define logic that runs on the server, which then gets stripped
-            away
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>Custom Elements & Static Fragments</h2>
-        <ul>
-          <li>
-            all components are automatically registered using their file names;
-            a
-            <code class="language-unknown">hello-world.js</code> component can
-            be used as
-            <code class="language-unknown">&lt;hello-world&gt;</code>
-          </li>
-          <li>
-            static <code class="language-unknown">.html</code> fragments; a
-            <code class="language-unknown">my-header.html</code> fragment can be
-            directly used as
-            <code class="language-unknown">&lt;my-header&gt;</code>
-          </li>
-        </ul>
-      </section>
-      <section>
-        <h2>Using the Browser's built-in reactivity</h2>
-        <p>
-          Here's a sample interactive custom element:
-          <vanilla-hello-world name="McFly"></vanilla-hello-world>
-        </p>
-        <code-block language="js" line-numbers="true">
-          <pre>
-class HelloWorld extends HTMLElement {
-  static get observedAttributes() {
-    return ["name"];
-  }
-
-  connectedCallback() {
-    let count = 0;
-    this.onclick = () => {
-      this.setAttribute("name", `Clicked ${++count}x`);
-    };
-  }
-
-  attributeChangedCallback(property, previousValue, currentValue) {
-    if (previousValue !== currentValue) {
-      this.innerHTML = `<button style="cursor:pointer">Hello ${currentValue}!</button>`;
-    }
-  }
-}</pre>
-        </code-block>
-      </section> -->
     </main>
     <my-footer></my-footer>
   </body>
