@@ -1,38 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>McFly: Back to the Basics. Into the Future.</title>
-    <style>
-      body {
-        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-        max-width: 750px;
-        margin: 0 auto;
-        padding: 1em;
-      }
-      body > * {
-        padding: 0.5em 1em;
-      }
-
-      h1 {
-        padding: 0;
-        margin: 0;
-      }
-
-      h2,
-      p,
-      ul,
-      ol {
-        margin-bottom: 1em;
-      }
-    </style>
-  </head>
+  <my-head>
+    <link rel="stylesheet" href="/prism.css" />
+    <script src="/prism.js"></script>
+  </my-head>
   <body>
     <awesome-header></awesome-header>
     <main>
       Here's a vanilla custom element:
-      <vanilla-hello-world data-name="McFly"></vanilla-hello-world>
+      <vanilla-hello-world data-name="McFly" />
+      <code-block language="js">
+        <pre>
+class HelloWorld extends HTMLElement {
+  static get observedAttributes() {
+    return [&quot;data-name&quot;];
+  }
+
+  connectedCallback() {
+    let count = 0;
+    this.onclick = () => {
+      this.setAttribute(&quot;data-name&quot;, `Clicked ${++count}x`);
+    };
+  }
+
+  attributeChangedCallback(property, previousValue, currentValue) {
+    if (property === &quot;data-name&quot; && previousValue !== currentValue) {
+      this.innerHTML = `&lt;button style=&quot;cursor:pointer&quot;&gt;Hello ${currentValue}!&lt;/button&gt;`;
+    }
+  }
+}</pre
+        >
+      </code-block>
     </main>
     <my-footer></my-footer>
   </body>
