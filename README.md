@@ -32,9 +32,9 @@
 
 ## Setting up
 
-In this project, we maintain several node workspaces in directories `./packages`, `./app`, and `./templates`.
+In this project, we maintain several node workspaces in directories `./packages`, `./site`, and `./templates`.
 
-You can experience the framework now by cloning the project and playing with the example files in the [special directories](#special-directories) for the landing page (`./app/src`).
+You can experience the framework now by cloning the project and playing with the example files in the [special directories](#special-directories) for the landing page (`./site/src`).
 
 Do the following steps to get you started:
 
