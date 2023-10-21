@@ -1,6 +1,7 @@
 {
   "name": "create-mcfly",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "bin": "./index.js",
   "description": "Create a new McFly app",
   "main": "index.js",
   "devDependencies": {},
