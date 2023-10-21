@@ -10,20 +10,27 @@ export function defineRoute({ config, storage }) {
     const { components: componentType } = config();
     let html = await getHtml(path, storage);
 
-    const transforms = [doSetUp, deleteServerScripts];
     if (html) {
+      const transforms = [doSetUp, deleteServerScripts];
+
       for (const transform of transforms) {
         html = transform(html.toString());
       }
+
+      html = await useFragments(html.toString(), storage);
+
+      if (!!componentType && !!html) {
+        html = await insertRegistry(html.toString(), componentType, storage);
+      }
     }
 
-    html = await useFragments(html.toString(), storage);
-
-    if (!!componentType && !!html) {
-      html = await insertRegistry(html.toString(), componentType, storage);
-    }
-
-    return html ?? new Response("Not found", { status: 404 });
+    return (
+      html ??
+      new Response(
+        "😱 ERROR 404: Not found. You can put a 404.html on the ./pages directory to customize this error page.",
+        { status: 404 }
+      )
+    );
   });
 }
 
