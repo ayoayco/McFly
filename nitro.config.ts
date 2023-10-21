@@ -1,6 +1,8 @@
-import McFly from "./packages/mcfly.config";
+import McFly from "@mcflyjs/config";
 
-//https://nitro.unjs.io/config
+/**
+ * @see https://nitro.unjs.io/config
+ */
 export default defineNitroConfig({
   extends: McFly,
 });

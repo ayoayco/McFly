@@ -1,0 +1,20 @@
+{
+  "name": "@mcflyjs/config",
+  "version": "0.0.1",
+  "description": "Nitro configuration for McFly apps",
+  "main": "index.ts",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ayoayco/McFly.git"
+  },
+  "author": "Ayo Ayco",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ayoayco/McFly/issues"
+  },
+  "homepage": "https://github.com/ayoayco/McFly#readme"
+}
