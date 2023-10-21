@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@mcflyjs/config": "^0.0.1",
+    "@mcflyjs/core": "^0.0.1",
     "nitropack": "latest"
   },
   "name": "@templates/basic",
