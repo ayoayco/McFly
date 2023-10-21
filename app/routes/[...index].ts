@@ -3,4 +3,4 @@
  */
 import McFly from "@mcflyjs/core";
 import config from "../mcfly.config";
-export default McFly(config, useStorage);
+export default McFly(config, useStorage());

@@ -3,7 +3,8 @@
   "scripts": {
     "start": "npm start -w @mcflyjs/landing-page",
     "build": "npm run build -w @mcflyjs/landing-page",
-    "build:preview": "npm run build:preview -w @mcflyjs/landing-page"
+    "build:preview": "npm run build:preview -w @mcflyjs/landing-page",
+    "template:basic": "npm run dev -w @templates/basic"
   },
   "workspaces": [
     "packages/config",

@@ -1,14 +1,14 @@
 import { eventHandler } from "h3";
+import { Storage as NitroStorage } from "unstorage";
 import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
 
-export default (config: Function, useStorage) => {
-  const { componentType } = config();
+export default (config: Function, storage: NitroStorage) => {
   return eventHandler(async (event) => {
     const { path } = event;
-    let html = await getHtml(path, useStorage);
+    const { components: componentType } = config();
+    let html = await getHtml(path, storage);
 
-    // transforms
     const transforms = [doSetUp, deleteServerScripts];
     if (html) {
       for (const transform of transforms) {
@@ -16,24 +16,24 @@ export default (config: Function, useStorage) => {
       }
     }
 
-    html = await useFragments(html.toString(), useStorage);
+    html = await useFragments(html.toString(), storage);
 
     if (!!componentType && !!html) {
-      html = await insertRegistry(html.toString(), componentType, useStorage);
+      html = await insertRegistry(html.toString(), componentType, storage);
     }
 
     return html ?? new Response("Not found", { status: 404 });
   });
 };
 
-const getHtml = async (path: string, useStorage) => {
+const getHtml = async (path: string, storage) => {
   const rawPath = path[path.length - 1] === "/" ? path.slice(0, -1) : path;
   const filename = rawPath === "" ? "/index.html" : `${rawPath}.html`;
   const fallback = getPath(rawPath + "/index.html");
   const filePath = getPath(filename);
-  let html = await useStorage().getItem(filePath);
-  if (!html) html = await useStorage().getItem(fallback);
-  if (!html) html = await useStorage().getItem(getPath("/404.html"));
+  let html = await storage.getItem(filePath);
+  if (!html) html = await storage.getItem(fallback);
+  if (!html) html = await storage.getItem(getPath("/404.html"));
 
   return html;
 };
@@ -45,10 +45,10 @@ function getPath(filename: string) {
 async function insertRegistry(
   html: string,
   type: "js" | "ts",
-  useStorage
+  storage: NitroStorage
 ): Promise<string> {
   const ast = parse(html);
-  const componentFiles = await getFiles(type, useStorage);
+  const componentFiles = await getFiles(type, storage);
   const availableComponents = componentFiles.map((key) =>
     key.replace(`.${type}`, "")
   );
@@ -68,7 +68,7 @@ async function insertRegistry(
     const registryScript = await buildRegistry(
       usedCustomElements,
       type,
-      useStorage
+      storage
     );
     walkSync(ast, (node) => {
       if (node.type === ELEMENT_NODE && node.name === "head") {
@@ -83,16 +83,14 @@ async function insertRegistry(
 async function buildRegistry(
   usedCustomElements: string[],
   type: "js" | "ts",
-  useStorage
+  storage: NitroStorage
 ) {
   let registryScript = `<script type='module'>`;
   let isBaseClassImported = false;
   let classesImported = [];
 
   for (const name of usedCustomElements) {
-    const content = await useStorage().getItem(
-      `assets:components:${name}.${type}`
-    );
+    const content = await storage.getItem(`assets:components:${name}.${type}`);
     const evalStore = eval(
       `class WebComponent {}; class HTMLElement {}; (${content.toString()})`
     );
@@ -216,8 +214,8 @@ function removeComments(script: string) {
   return script;
 }
 
-async function useFragments(html: string, useStorage) {
-  const fragmentFiles = await getFiles("html", useStorage);
+async function useFragments(html: string, storage: NitroStorage) {
+  const fragmentFiles = await getFiles("html", storage);
 
   const availableFragments = fragmentFiles.reduce((acc, key) => {
     return {
@@ -228,7 +226,7 @@ async function useFragments(html: string, useStorage) {
   const ast = parse(html);
 
   for (const key in availableFragments) {
-    let text: string = await useStorage().getItem(
+    let text: string = await storage.getItem(
       "assets:components:" + key + ".html"
     );
     availableFragments[key] = text.replace(/\n/g, "").replace(/\s+/g, " ");
@@ -261,8 +259,8 @@ function replaceSlots(fragmentNode, node) {
   });
 }
 
-async function getFiles(type: string, useStorage) {
-  return (await useStorage().getKeys("assets:components"))
+async function getFiles(type: string, storage: NitroStorage) {
+  return (await storage.getKeys("assets:components"))
     .map((key) => key.replace("assets:components:", ""))
     .filter((key) => key.includes(type));
 }
