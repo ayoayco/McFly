@@ -11,7 +11,7 @@
   "dependencies": {
     "@mcflyjs/config": "*",
     "esprima": "^4.0.1",
-    "nitropack": "^2.7.0",
+    "nitropack": "latest",
     "ultrahtml": "^1.5.2"
   },
   "workspaces": [
