@@ -1,6 +1,6 @@
 {
   "name": "create-mcfly",
-  "version": "0.0.5",
+  "version": "0.1.0",
   "bin": {
     "create-mcfly": "./index.js"
   },
@@ -12,7 +12,6 @@
   "files": [
     "index.js"
   ],
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -26,5 +25,8 @@
   "bugs": {
     "url": "https://github.com/ayoayco/McFly/issues"
   },
-  "homepage": "https://github.com/ayoayco/McFly#readme"
+  "homepage": "https://github.com/ayoayco/McFly#readme",
+  "dependencies": {
+    "giget": "^1.1.3"
+  }
 }

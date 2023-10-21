@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
-const fs = require("fs");
-const args = process.argv;
-
+const { downloadTemplate } = require("giget");
 create();
-
-function create() {
-  console.log("Create a new McFly app!");
-  console.log("See project details: https://ayco.io/gh/McFly#readme");
+async function create() {
+  const { source, dir } = await downloadTemplate(
+    "github:ayoayco/mcfly/templates/basic",
+    {
+      dir: "mcfly-app",
+    }
+  );
+  console.log(`✨ New McFly app created: ${dir}`);
   return 1;
 }

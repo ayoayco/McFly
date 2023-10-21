@@ -12,12 +12,21 @@
   <a href="https://mc-fly.vercel.app/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
 
+## Installation
+
+Run the following to generate a McFly starter project:
+```
+npm create mcfly@latest
+```
+
 ## Features
-- Create web apps with vanilla custom elements
-- Write real .HTML files
-- Have no frameworks or reactivity libraries on the browser
-- Use server-side rendering
-- Deploy anywhere
+The time has come for vanilla Web tech to be great again. 🎉
+
+✅ Create web apps with vanilla custom elements<br>
+✅ Write real .HTML files<br>
+✅ Have no frameworks or reactivity libraries on the browser<br>
+✅ Use server-side rendering<br>
+✅ Deploy anywhere<br>
 
 ## Special directories
 **1. `src/pages`**
