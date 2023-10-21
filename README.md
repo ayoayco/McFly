@@ -32,9 +32,9 @@
 
 ## Setting up
 
-It's still very early in the project development and we have no packages published yet.
+In this project, we maintain several node workspaces in directories `./packages`, `./app`, and `./templates`.
 
-You can, however, experience the framework by cloning the project and play with the example files in the [special directories](#special-directories).
+You can experience the framework now by cloning the project and playing with the example files in the [special directories](#special-directories) for the landing page (`./app/src`).
 
 Do the following steps to get you started:
 
