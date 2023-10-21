@@ -1,16 +1,25 @@
 {
   "name": "create-mcfly",
   "version": "0.0.3",
-  "bin": "./index.js",
+  "bin": {
+    "create-mcfly": "./index.js"
+  },
   "description": "Create a new McFly app",
   "main": "index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ayoayco/McFly.git"
+    "url": "https://github.com/ayoayco/McFly.git",
+    "directory": "packages/create-mcfly"
   },
   "author": "Ayo Ayco",
   "license": "MIT",

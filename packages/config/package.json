@@ -9,7 +9,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ayoayco/McFly.git"
+    "url": "git+https://github.com/ayoayco/McFly.git",
+    "directory": "packages/config"
   },
   "author": "Ayo Ayco",
   "license": "MIT",
