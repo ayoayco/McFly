@@ -2,7 +2,7 @@
 
 const { downloadTemplate } = require("giget");
 const { consola } = require("consola");
-const { exec } = require("node:child_process");
+const { execSync: exec } = require("node:child_process");
 create();
 async function create() {
   console.clear();
@@ -12,7 +12,7 @@ async function create() {
       placeholder: "./mcfly-app",
     })) ?? "mcfly-app";
   try {
-    await consola.start(`Copying template to ${directory}...`);
+    consola.start(`Copying template to ${directory}...`);
     await downloadTemplate("github:ayoayco/mcfly/templates/basic", {
       dir: directory,
     });
@@ -29,9 +29,10 @@ async function create() {
       }
     );
     if (installDeps) {
-      await consola.start("Installing dependencies...");
+      consola.start("Installing dependencies...");
       try {
         await exec(`npm --prefix ${directory} install`);
+        consola.success("Done!");
       } catch (e) {
         consola.error(e);
       }
@@ -44,9 +45,10 @@ async function create() {
       }
     );
     if (initializeGit) {
-      await consola.start("Initializing git repository...");
+      consola.start("Initializing git repository...");
       try {
         await exec(`git -C ${directory} init`);
+        consola.success("Done!");
       } catch (e) {
         consola.error(e);
       }
