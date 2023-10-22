@@ -32,16 +32,8 @@ async function create() {
     if (installDeps) {
       consola.info("This might take some time depending on your connectivity.");
       consola.start("Installing dependencies using npm...");
-      let done = false;
-      setTimeout(() => {
-        if (!done)
-          consola.info(
-            "This may take some time depending on your connectivity..."
-          );
-      }, 3000);
       try {
         await exec(`npm --prefix ${directory} install`);
-        done = true;
         consola.success("Done!");
       } catch (e) {
         consola.error(e);
