@@ -64,11 +64,22 @@ async function create() {
       }
     }
 
-    consola.box(`🎉 Your new McFly app is now ready: ./${directory}\n
-Next actions:
-1. Go to your project by running 'cd ./${directory}'
-2. Run 'npm start' to start the dev server
-3. Join us at https://ayco.io/gh/McFly`);
+    let nextActions = [`Go to your project by running 'cd ./${directory}'`];
+
+    if (!installDeps) {
+      nextActions.push("Install the dependencies with: 'npm install'");
+    }
+
+    nextActions = nextActions.concat([
+      "Run 'npm start' to start the dev server",
+      "Join us at https://ayco.io/gh/McFly",
+    ]);
+
+    const result = `🎉 Your new McFly app is now ready: ./${directory}\n\nNext actions: ${nextActions
+      .map((action, index) => `\n${++index}. ${action}`)
+      .join("")}`;
+
+    consola.box(result);
   }
 
   return 1;
