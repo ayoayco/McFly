@@ -4,7 +4,8 @@
     "start": "npm start -w @mcflyjs/landing-page",
     "build": "npm run build -w @mcflyjs/landing-page",
     "build:preview": "npm run build:preview -w @mcflyjs/landing-page",
-    "template:basic": "npm run dev -w @templates/basic"
+    "template:basic": "npm run dev -w @templates/basic",
+    "create": "node ./packages/create-mcfly"
   },
   "workspaces": [
     "packages/config",

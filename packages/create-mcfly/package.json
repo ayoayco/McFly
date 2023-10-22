@@ -27,6 +27,7 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
+    "consola": "^3.2.3",
     "giget": "^1.1.3"
   }
 }
