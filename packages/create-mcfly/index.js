@@ -7,8 +7,9 @@ create();
 async function create() {
   console.clear();
   let hasErrors = false;
+  consola.box("👋 Hello! Welcome to McFly.");
   const directory =
-    (await consola.prompt("Name your new vanilla web app:", {
+    (await consola.prompt("Give your new project a name:", {
       placeholder: "./mcfly-app",
     })) ?? "mcfly-app";
   try {
@@ -29,9 +30,17 @@ async function create() {
       }
     );
     if (installDeps) {
-      consola.start("Installing dependencies...");
+      consola.start("Installing dependencies using npm...");
+      let done = false;
+      setTimeout(() => {
+        if (!done)
+          consola.info(
+            "This may take some time depending on your connectivity..."
+          );
+      }, 3000);
       try {
         await exec(`npm --prefix ${directory} install`);
+        done = true;
         consola.success("Done!");
       } catch (e) {
         consola.error(e);
@@ -54,7 +63,15 @@ async function create() {
       }
     }
 
-    consola.box(`McFly app created: ${directory}`);
+    let counter = 2;
+    consola.box(`🎉 Your new McFly app is now ready: ./${directory}
+
+Next actions:
+1. Go to your project by running 'cd ./${directory}'
+2. Run 'npm start' to start the dev server`);
   }
+  consola.info(
+    "Need more info? Join the McFly community at https://ayco.io/gh/McFly \n"
+  );
   return 1;
 }
