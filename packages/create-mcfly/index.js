@@ -30,6 +30,7 @@ async function create() {
       }
     );
     if (installDeps) {
+      consola.info("This might take some time depending on your connectivity.");
       consola.start("Installing dependencies using npm...");
       let done = false;
       setTimeout(() => {
@@ -63,15 +64,12 @@ async function create() {
       }
     }
 
-    let counter = 2;
-    consola.box(`🎉 Your new McFly app is now ready: ./${directory}
-
+    consola.box(`🎉 Your new McFly app is now ready: ./${directory}\n
 Next actions:
 1. Go to your project by running 'cd ./${directory}'
-2. Run 'npm start' to start the dev server`);
+2. Run 'npm start' to start the dev server
+3. Join us at https://ayco.io/gh/McFly`);
   }
-  consola.info(
-    "Need more info? Join the McFly community at https://ayco.io/gh/McFly \n"
-  );
+
   return 1;
 }
