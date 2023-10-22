@@ -3,15 +3,17 @@
 const { downloadTemplate } = require("giget");
 const { consola } = require("consola");
 const { execSync: exec } = require("node:child_process");
+const { colorize } = require("consola/utils");
 create();
 async function create() {
   console.clear();
   let hasErrors = false;
-  consola.box("👋 Hello! Welcome to McFly.");
+  const defaultDirectory = "./mcfly-app";
+  consola.box(`👋 Hello! Welcome to ${colorize("bold", "McFly")}!`);
   const directory =
     (await consola.prompt("Give your new project a name:", {
-      placeholder: "./mcfly-app",
-    })) ?? "mcfly-app";
+      placeholder: defaultDirectory,
+    })) ?? defaultDirectory;
   try {
     consola.start(`Copying template to ${directory}...`);
     await downloadTemplate("github:ayoayco/mcfly/templates/basic", {
@@ -56,23 +58,25 @@ async function create() {
       }
     }
 
-    let nextActions = [`Go to your project by running 'cd ./${directory}'`];
+    let nextActions = [`Go to your project by running: 'cd ${directory}'`];
 
     if (!installDeps) {
       nextActions.push("Install the dependencies with: 'npm install'");
     }
 
     nextActions = nextActions.concat([
-      "Run 'npm start' to start the dev server",
+      "To start the dev server, run: 'npm start'",
       "Join us at https://ayco.io/gh/McFly",
     ]);
 
-    const result = `🎉 Your new McFly app is now ready: ./${directory}\n\nNext actions: ${nextActions
+    const result = `🎉 Your new ${colorize(
+      "bold",
+      "McFly"
+    )} app is now ready: ${directory}\n\nNext actions: ${nextActions
       .map((action, index) => `\n${++index}. ${action}`)
       .join("")}`;
 
     consola.box(result);
   }
-
   return 1;
 }
