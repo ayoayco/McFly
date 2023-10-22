@@ -27,7 +27,7 @@ export function defineRoute({ config, storage }) {
     return (
       html ??
       new Response(
-        "😱 ERROR 404: Not found. You can put a 404.html on the ./pages directory to customize this error page.",
+        "😱 ERROR 404: Not found. You can put a 404.html on the ./src/pages directory to customize this error page.",
         { status: 404 }
       )
     );
