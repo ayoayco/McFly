@@ -1,6 +1,6 @@
 {
   "name": "create-mcfly",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "bin": {
     "create-mcfly": "./index.js"
   },
@@ -10,7 +10,8 @@
     ".": "./index.js"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "LICENSE"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

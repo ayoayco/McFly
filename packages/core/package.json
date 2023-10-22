@@ -1,11 +1,12 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "McFly core package",
   "main": "event-handler.mjs",
   "files": [
     "event-handler.mjs",
-    "define-config.mjs"
+    "define-config.mjs",
+    "LICENSE"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

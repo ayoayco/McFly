@@ -5,7 +5,8 @@
     "build": "npm run build -w @mcflyjs/landing-page",
     "build:preview": "npm run build:preview -w @mcflyjs/landing-page",
     "template:basic": "npm run dev -w @templates/basic",
-    "create": "node ./packages/create-mcfly"
+    "create": "node ./packages/create-mcfly",
+    "patch:all": "npm version patch -w @mcflyjs/core && npm version patch -w @mcflyjs/config && npm version patch -w create-mcfly"
   },
   "workspaces": [
     "packages/config",
