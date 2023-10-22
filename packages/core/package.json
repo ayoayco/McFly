@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "McFly core package",
   "main": "event-handler.mjs",
   "files": [
@@ -24,8 +24,6 @@
   "dependencies": {
     "esprima": "^4.0.1",
     "h3": "^1.8.2",
-    "nitropack": "^2.7.0",
-    "ultrahtml": "^1.5.2",
-    "unstorage": "^1.9.0"
+    "ultrahtml": "^1.5.2"
   }
 }
