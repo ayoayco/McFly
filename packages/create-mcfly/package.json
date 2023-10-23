@@ -1,6 +1,6 @@
 {
   "name": "create-mcfly",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "bin": {
     "create-mcfly": "./index.js"
   },

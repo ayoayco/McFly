@@ -58,21 +58,25 @@ async function create() {
       }
     }
 
-    let nextActions = [`Go to your project by running: 'cd ${directory}'`];
+    let nextActions = [
+      `Go to your project by running ${colorize("yellow", `cd ${directory}`)}`,
+    ];
 
     if (!installDeps) {
-      nextActions.push("Install the dependencies with: 'npm install'");
+      nextActions.push(
+        `Install the dependencies with ${colorize("yellow", "npm install")}`
+      );
     }
 
     nextActions = nextActions.concat([
-      "To start the dev server, run: 'npm start'",
-      "Join us at https://ayco.io/gh/McFly",
+      `Start the dev server with ${colorize("yellow", "npm start")}`,
+      `Join us at ${colorize("blue", "https://ayco.io/gh/McFly")}`,
     ]);
 
     const result = `🎉 Your new ${colorize(
       "bold",
       "McFly"
-    )} app is now ready: ${directory}\n\nNext actions: ${nextActions
+    )} app is ready: ${directory}\n\nNext actions: ${nextActions
       .map((action, index) => `\n${++index}. ${action}`)
       .join("")}`;
 
