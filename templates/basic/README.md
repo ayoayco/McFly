@@ -49,6 +49,16 @@ export default defineConfig({
 });
 
 ```
+## Commands
+
+The following commands are available to you on this project. Add more, or modify them as needed in your `./package.json` file.
+
+| Command | Action |
+| --- | --- |
+| npm start | Start the dev server |
+| npm run prepare | Prepare the app |
+| npm run build | Locally generate the app's build files to `./output` |
+| npm run preview | Preview the built app locally |
 
 ## More info
 This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://ayco.io/n/web-component-base) class.
