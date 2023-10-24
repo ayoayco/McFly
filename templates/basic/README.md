@@ -1,41 +1,60 @@
 # McFly Starter Project
 
-**McFly** is a no-framework framework that assists in leveraging the web platform.
+
+![template-basic](https://raw.githubusercontent.com/ayoayco/McFly/main/assets/template-basic.png)
+
+## Background
+This project was generated from the basic template for **McFly** -- a no-framework framework that assists in leveraging the web platform.
 
 ```
 npm create mcfly@latest
 ```
-![template-basic](https://raw.githubusercontent.com/ayoayco/McFly/main/assets/template-basic.png)
+
+It contains example files to get you started using vanilla web technologies in a modern way. See the [Special Directories](#special-directories) section for more information.
 
 ## Features
-- Create web apps with vanilla custom elements
-- Write real .HTML files
-- Have no frameworks or reactivity libraries on the browser
-- Use server-side rendering
-- Deploy anywhere
+The time has come for vanilla Web tech. 🎉
+
+✅ Create web apps with vanilla custom elements<br>
+✅ Write real .HTML files<br>
+✅ Have no frameworks or reactivity libraries on the browser<br>
+✅ Use server-side rendering<br>
+✅ Deploy anywhere<br>
 
 ## Special directories
-**1. `src/pages`**
-- file based routing for `.html` files
+**1. `./src/pages/`**
+- file-based routing for `.html` files
 - directly use custom elements & static fragments (no imports or registry maintenance needed)
 - use `<script server:setup>` to define logic that runs on the server, which then gets stripped away
 
-**2. `src/components`**
+**2. `./src/components/`**
 - custom element constructor files (only `.js` files for now)
 - all components are automatically registered using their file names; a `hello-world.js` component can be used as `<hello-world>`
 - static `.html` fragments; a `my-header.html` fragment can be directly used as `<my-header>`
 
-## Commands
+**3. `./routes/api/`**
+- file-based routing for REST API endpoints
+- e.g., `./routes/api/users.ts` can be accessed via `http://<domain>/api/users`
+- TypeScript or JavaScript welcome!
 
-From the root of your project, you can run the following.
+## McFly config
 
-| Command | Result |
-| --- | --- |
-| npm start | Start the dev server |
-| npm run prepare | Prepare the app |
-| npm run build | Locally generate the app's build files to `./output` |
-| npm run preview | Preview the built app locally |
+To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
+
+```js
+import defineConfig from "./packages/define-config";
+
+export default defineConfig({
+  components: "js",
+});
+
+```
 
 ## More info
+This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://ayco.io/n/web-component-base) class.
 
-Check our [website](https://mc-fly.vercel.app) and [GitHub](https://github.com/ayoayco/McFly)
+**Nitro** is the same production-grade web server powering [**Nuxt**](https://nuxt.com/)
+
+---
+*Just keep building*<br />
+*A project by [Ayo Ayco](https://ayco.io)*
