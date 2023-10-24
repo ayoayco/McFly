@@ -1,5 +1,3 @@
-// @ts-check
-
 /**
  * @typedef {{
  *  components: 'js'

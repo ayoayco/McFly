@@ -1,4 +1,3 @@
-// @ts-check
 import { eventHandler } from "h3";
 import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";

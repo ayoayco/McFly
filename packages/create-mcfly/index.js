@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-// @ts-check
 const { consola } = require("consola");
 const { colorize } = require("consola/utils");
 const { downloadTemplate } = require("giget");
