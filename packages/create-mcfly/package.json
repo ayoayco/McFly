@@ -1,6 +1,6 @@
 {
   "name": "create-mcfly",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "bin": {
     "create-mcfly": "./index.js"
   },
@@ -11,6 +11,7 @@
   },
   "files": [
     "index.js",
+    "create.mjs",
     "LICENSE"
   ],
   "scripts": {
