@@ -35,7 +35,7 @@ async function create() {
       consola.info("This might take some time depending on your connectivity.");
       consola.start("Installing dependencies using npm...");
       try {
-        await exec(`npm --prefix ${directory} install`);
+        await exec(`npm --prefix "${directory}" install`);
         consola.success("Done!");
       } catch (e) {
         consola.error(e);
@@ -51,7 +51,7 @@ async function create() {
     if (initializeGit) {
       consola.start("Initializing git repository...");
       try {
-        await exec(`git -C ${directory} init`);
+        await exec(`git -C "${directory}" init`);
         consola.success("Done!");
       } catch (e) {
         consola.error(e);
