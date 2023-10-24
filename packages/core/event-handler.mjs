@@ -1,9 +1,23 @@
 // @ts-check
-
 import { eventHandler } from "h3";
 import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
 
+/**
+ * @typedef {import('./define-config.mjs').McFlyConfig} McFlyConfig
+ * @typedef {import('unstorage').Storage} Storage
+ * @typedef {import('ultrahtml').Node} HtmlNode
+ * @typedef {import('estree').BaseNode} JsNode
+ */
+
+/**
+ * Intercepts all routes and assembles the correct HTML to return
+ * @param {{
+ *  config: function(): McFlyConfig,
+ *  storage: Storage
+ * }} param0
+ * @returns
+ */
 export function defineRoute({ config, storage }) {
   return eventHandler(async (event) => {
     const { path } = event;
@@ -34,7 +48,13 @@ export function defineRoute({ config, storage }) {
   });
 }
 
-const getHtml = async (path, storage) => {
+/**
+ * Gets the correct HTML depending on the path requested
+ * @param {string} path
+ * @param {Storage} storage
+ * @returns
+ */
+async function getHtml(path, storage) {
   const rawPath = path[path.length - 1] === "/" ? path.slice(0, -1) : path;
   const filename = rawPath === "" ? "/index.html" : `${rawPath}.html`;
   const fallback = getPath(rawPath + "/index.html");
@@ -44,21 +64,22 @@ const getHtml = async (path, storage) => {
   if (!html) html = await storage.getItem(getPath("/404.html"));
 
   return html;
-};
+}
 
 /**
- *
+ * Gets the storage path for a file
  * @param {string} filename
  * @returns string
  */
 function getPath(filename) {
-  return `assets/pages${filename}`;
+  return `assets:pages${filename}`;
 }
 
 /**
- *
+ * Returns transformed HTML with custom elements registry in the head
  * @param {string} html
- * @param {"js" | "ts"} type
+ * @param {'js'} type
+ * @param {Storage} storage
  * @returns Promise<string>
  */
 async function insertRegistry(html, type, storage) {
@@ -96,10 +117,11 @@ async function insertRegistry(html, type, storage) {
 }
 
 /**
- *
+ * Builds the string containing all custom elements definition
  * @param {Array<string>} usedCustomElements
  * @param {"js" | "ts"} type
- * @returns
+ * @param {Storage} storage
+ * @returns string
  */
 async function buildRegistry(usedCustomElements, type, storage) {
   let registryScript = `<script type='module'>`;
@@ -138,7 +160,7 @@ async function buildRegistry(usedCustomElements, type, storage) {
 }
 
 /**
- *
+ * Evaluates server:setup script and replaces all variables used in the HTML
  * @param {string} html
  * @returns string
  */
@@ -174,7 +196,7 @@ function doSetUp(html) {
   });
 
   const regex = /{{(.*?)}}/g;
-  var match;
+  let match;
 
   while ((match = regex.exec(html))) {
     let [key, value] = match;
@@ -186,7 +208,7 @@ function doSetUp(html) {
 }
 
 /**
- *
+ * Removes any instance of server:setup script in the HTML
  * @param {string} html
  * @returns string
  */
@@ -205,7 +227,7 @@ function deleteServerScripts(html) {
 }
 
 /**
- *
+ * Cleans a JS string for save evaluation
  * @param {Array<string>} scripts
  * @returns string
  */
@@ -218,7 +240,8 @@ function cleanScript(scripts) {
 }
 
 /**
- *
+ * Checks if given node of a JS script is a comment
+ * @param {JsNode} node
  * @returns boolean
  */
 function isComment(node) {
@@ -231,7 +254,7 @@ function isComment(node) {
 }
 
 /**
- *
+ * Removes all instances of comments in a JS string
  * @param {string} script
  * @returns string
  */
@@ -253,12 +276,14 @@ function removeComments(script) {
     .forEach((n) => {
       script = script.slice(0, n.start) + script.slice(n.end);
     });
+
   return script;
 }
 
 /**
- *
+ * Return HTML with all fragments replaced with the correct content in the storage
  * @param {string} html
+ * @param {Storage} storage
  * @returns Promise<string>
  */
 async function useFragments(html, storage) {
@@ -288,6 +313,9 @@ async function useFragments(html, storage) {
 
     if (node.type === ELEMENT_NODE && !!selector) {
       const index = node.parent.children.indexOf(node);
+      /**
+       * @type {HtmlNode}
+       */
       const fragmentNode = parse(availableFragments[selector]);
 
       replaceSlots(fragmentNode, node);
@@ -299,6 +327,11 @@ async function useFragments(html, storage) {
   return render(ast);
 }
 
+/**
+ * Replace a slot in a fragmentNode with given node
+ * @param {HtmlNode} fragmentNode
+ * @param {HtmlNode} node
+ */
 function replaceSlots(fragmentNode, node) {
   walkSync(fragmentNode, (n) => {
     if (n.type === ELEMENT_NODE && n.name === "slot") {
@@ -309,8 +342,9 @@ function replaceSlots(fragmentNode, node) {
 }
 
 /**
- *
+ * Get all files from the storage given a type
  * @param {string} type
+ * @param {Storage} storage
  */
 async function getFiles(type, storage) {
   return (await storage.getKeys("assets:components"))
