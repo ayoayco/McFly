@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
 // @ts-check
-import { consola } from "consola";
-import { colorize } from "consola/utils";
-import { downloadTemplate } from "giget";
-import { execSync as exec } from "node:child_process";
+const { consola } = require("consola");
+const { colorize } = require("consola/utils");
+const { downloadTemplate } = require("giget");
+const { execSync: exec } = require("node:child_process");
 
 /**
  * @typedef {{
@@ -18,7 +18,7 @@ import { execSync as exec } from "node:child_process";
 /**
  * Create McFly App
  */
-export async function create() {
+async function create() {
   console.clear();
   const defaultDirectory = "./mcfly-app";
   consola.box(`👋 Hello! Welcome to ${colorize("bold", "McFly")}!`);
@@ -144,3 +144,5 @@ function showResults(directory, installDeps) {
 
   consola.box(result);
 }
+
+create();
