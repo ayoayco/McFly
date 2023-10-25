@@ -11,7 +11,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ayoayco/McFly.git"
+    "url": "git+https://github.com/ayoayco/McFly.git",
+    "directory": "packages/cli"
   },
   "author": "Ayo Ayco",
   "license": "MIT",
