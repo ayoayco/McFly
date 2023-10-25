@@ -3,16 +3,21 @@
 import { consola } from "consola";
 import { defineCommand } from "citty";
 import { commonArgs } from "../common.mjs";
+import { execSync as exec } from "child_process";
 
 export default defineCommand({
   meta: {
     name: "prepare",
-    description: "Generates building blocks for a McFly app.",
+    description: "Generates the build files for the McFly app.",
   },
   args: {
     ...commonArgs,
   },
   async run({ args }) {
-    consola.box("Generate a McFly building block (In-progress)");
+    try {
+      exec(`npx nitropack build`, { stdio: "inherit" });
+    } catch (e) {
+      consola.error(e);
+    }
   },
 });

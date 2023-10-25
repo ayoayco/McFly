@@ -4,6 +4,7 @@ import { consola } from "consola";
 import { defineCommand } from "citty";
 import { commonArgs } from "../common.mjs";
 import { existsSync, writeFileSync, appendFileSync } from "node:fs";
+import { execSync as exec } from "child_process";
 
 export default defineCommand({
   meta: {
@@ -16,6 +17,12 @@ export default defineCommand({
   async run({ args }) {
     const typeDefinition = `\n/// <reference path="./mcfly-imports.d.ts" />`;
     const globalDefinition = `import {WebComponent as W} from "web-component-base/WebComponent.mjs"; declare global {const WebComponent: typeof W;}export {WebComponent};`;
+
+    try {
+      exec("npx nitropack prepare", { stdio: "inherit" });
+    } catch (e) {
+      consola.error(e);
+    }
 
     if (existsSync(".nitro/types/nitro.d.ts")) {
       try {

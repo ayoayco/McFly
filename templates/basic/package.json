@@ -2,11 +2,12 @@
   "name": "@templates/basic",
   "description": "McFly starter project; see more on https://ayco.io/gh/McFly",
   "scripts": {
-    "start": "nitropack dev",
-    "prepare": "nitropack prepare",
-    "dev": "nitropack dev",
-    "build": "nitropack build",
-    "preview": "node .output/server/index.mjs"
+    "start": "mcfly dev",
+    "prepare": "mcfly prepare",
+    "dev": "mcfly dev",
+    "build": "mcfly build",
+    "preview": "node .output/server/index.mjs",
+    "build:preview": "npm run build && npm run preview"
   },
   "dependencies": {
     "@mcflyjs/cli": "latest",

@@ -3,10 +3,10 @@
   "description": "McFly is a full-stack no-framework framework that assists developers in leveraging the web platform.",
   "private": true,
   "scripts": {
-    "start": "nitropack dev",
-    "prepare": "nitropack prepare && mcfly prepare",
-    "dev": "nitropack dev",
-    "build": "nitropack build",
+    "start": "mcfly dev",
+    "prepare": "mcfly prepare",
+    "dev": "mcfly dev",
+    "build": "mcfly build",
     "preview": "node .output/server/index.mjs",
     "build:preview": "npm run build && npm run preview"
   },
