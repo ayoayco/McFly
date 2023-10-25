@@ -5,6 +5,8 @@ const { colorize } = require("consola/utils");
 const { downloadTemplate } = require("giget");
 const { execSync: exec } = require("node:child_process");
 
+const [, , directoryArg] = process.argv;
+
 /**
  * @typedef {{
  *  prompt: string,
@@ -21,10 +23,16 @@ async function create() {
   console.clear();
   const defaultDirectory = "./mcfly-app";
   consola.box(`👋 Hello! Welcome to ${colorize("bold", "McFly")}!`);
-  const directory =
-    (await consola.prompt("Give your new project a name:", {
-      placeholder: defaultDirectory,
-    })) ?? defaultDirectory;
+  let directory = directoryArg;
+
+  if (!directory) {
+    directory =
+      (await consola.prompt("Give your new project a name:", {
+        placeholder: defaultDirectory,
+      })) ?? defaultDirectory;
+  } else {
+    consola.success(`Using ${directory} as name.`);
+  }
 
   const hasErrors = await downloadTemplateToDirectory(directory);
   const safeDirectory = getSafeDirectory(directory);
