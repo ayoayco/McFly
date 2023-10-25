@@ -14,7 +14,7 @@
 
 ## Installation
 
-Run the following to generate a McFly starter project:
+Run the following to generate a McFly starter project.
 ```
 npm create mcfly@latest
 ```
@@ -43,6 +43,23 @@ The time has come for vanilla Web tech. 🎉
 - file-based routing for REST API endpoints
 - e.g., `./routes/api/users.ts` can be accessed via `http://<domain>/api/users`
 - TypeScript or JavaScript welcome!
+
+## McFly CLI (In-Progress)
+
+The **McFly CLI** can assist further in scaffolding new projects and building blocks:
+
+```
+npm i -g @mcflyjs/cli
+```
+
+Then, you can run the following **McFly CLI** commands:
+
+| Command | Action |
+| --- | --- |
+| `mcfly new` | Creates a new McFly project. |
+| `mcfly generate` | Generates building blocks for a McFly app. |
+
+
 
 ## McFly config
 
