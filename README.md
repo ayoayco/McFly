@@ -62,8 +62,6 @@ Then, you can run the following **McFly CLI** commands:
 | `mcfly prepare` | Prepares the McFly workspace. |
 | `mcfly generate` | Generates building blocks for a McFly app. (In-progress) |
 
-
-
 ## McFly config
 
 To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
@@ -76,6 +74,15 @@ export default defineConfig({
 });
 
 ```
+## Packages
+The following are the project packages published on the NPM registry:
+
+| Package | Description | Version |
+| --- | --- | --- |
+| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core) | Core package containing event and configuration handlers | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore) |
+| [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Package containing the Nitro configuration for McFly projects | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
+| [`@mcflyjs/cli`](https://ayco.io/n/@mcflyjs/cli) | The McFly CLI tooling | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcli) |
+| [`create-mcfly`](https://ayco.io/n/create-mcfly) | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly) |
 
 ## More info
 This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://ayco.io/n/web-component-base) class.
