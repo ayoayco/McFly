@@ -13,6 +13,7 @@
     "packages/create-mcfly",
     "templates/basic",
     "packages/core",
-    "site"
+    "site",
+    "packages/cli"
   ]
 }
