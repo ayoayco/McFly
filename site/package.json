@@ -11,13 +11,13 @@
     "build:preview": "npm run build && npm run preview"
   },
   "dependencies": {
-    "@mcflyjs/core": "*",
+    "@mcflyjs/cli": "^0.0.2",
     "@mcflyjs/config": "*",
+    "@mcflyjs/core": "*",
     "nitropack": "latest"
   },
   "version": "0.0.1",
   "main": "index.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ayoayco/McFly.git",
