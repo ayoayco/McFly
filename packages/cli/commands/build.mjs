@@ -8,7 +8,7 @@ import { execSync as exec } from "child_process";
 export default defineCommand({
   meta: {
     name: "prepare",
-    description: "Generates the build files for the McFly app.",
+    description: "Builds the McFly project for production.",
   },
   args: {
     ...commonArgs,
