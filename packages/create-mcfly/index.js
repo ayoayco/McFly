@@ -101,7 +101,7 @@ async function askPrompts(prompts) {
       p.info && consola.info(p.info);
       consola.start(p.startMessage);
       try {
-        await exec(p.command);
+        await exec(p.command, { stdio: "inherit" });
         consola.success("Done!");
       } catch (e) {
         consola.error(e);
