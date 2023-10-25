@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nitropack dev",
-    "prepare": "nitropack prepare && mcfly prepare",
+    "prepare": "nitropack prepare",
     "dev": "nitropack dev",
     "build": "nitropack build",
     "preview": "node .output/server/index.mjs",
