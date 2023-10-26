@@ -16,7 +16,9 @@ export default defineCommand({
   },
   async run({ args }) {
     const typeDefinition = `\n/// <reference path="./mcfly-imports.d.ts" />`;
-    const globalDefinition = `import {WebComponent as W} from "web-component-base/WebComponent.mjs"; declare global {const WebComponent: typeof W;}export {WebComponent};`;
+    const globalDefinition = `import {WebComponent as W} from "web-component-base/WebComponent.mjs"; declare global {class WebComponent extends W {}}export {WebComponent} from 'web-component-base/WebComponent.mjs';`;
+
+    consola.info("ola");
 
     try {
       exec("npx nitropack prepare", { stdio: "inherit" });

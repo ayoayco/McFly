@@ -7,7 +7,7 @@
     "template:basic": "npm run dev -w @templates/basic",
     "create": "node ./packages/create-mcfly",
     "cli": "node ./packages/cli",
-    "patch:all": "npm version patch -w @mcflyjs/core && npm version patch -w @mcflyjs/config && npm version patch -w create-mcfly"
+    "patch:all": "npm version patch -w @mcflyjs/cli && npm version patch -w @mcflyjs/core && npm version patch -w @mcflyjs/config && npm version patch -w create-mcfly"
   },
   "workspaces": [
     "packages/config",
