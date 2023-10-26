@@ -10,7 +10,7 @@ const main = defineCommand({
   },
   subCommands: {
     new: () => import("./commands/new.mjs").then((r) => r.default),
-    dev: () => import("./commands/dev.mjs").then((r) => r.default),
+    serve: () => import("./commands/serve.mjs").then((r) => r.default),
     build: () => import("./commands/build.mjs").then((r) => r.default),
     prepare: () => import("./commands/prepare.mjs").then((r) => r.default),
     generate: () => import("./commands/generate.mjs").then((r) => r.default),

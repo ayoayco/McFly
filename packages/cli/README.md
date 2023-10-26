@@ -17,7 +17,7 @@ You can run the following **McFly CLI** commands:
 | Command | Action |
 | --- | --- |
 | `mcfly new` | Creates a new McFly project. |
-| `mcfly dev` | Runs the developent server. |
+| `mcfly serve` | Runs the developent server. |
 | `mcfly build` | Builds the McFly project for production. |
 | `mcfly prepare` | Prepares the McFly workspace. |
 | `mcfly generate` | Generates building blocks for a McFly app. (In-progress) |

@@ -3,9 +3,9 @@
   "description": "McFly is a full-stack no-framework framework that assists developers in leveraging the web platform.",
   "private": true,
   "scripts": {
-    "start": "mcfly dev",
+    "start": "mcfly serve",
     "prepare": "mcfly prepare",
-    "dev": "mcfly dev",
+    "dev": "mcfly serve",
     "build": "mcfly build",
     "preview": "node .output/server/index.mjs",
     "build:preview": "npm run build && npm run preview"
