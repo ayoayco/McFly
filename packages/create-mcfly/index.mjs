@@ -1,9 +1,9 @@
 #!/usr/bin/env node
 
-const { consola } = require("consola");
-const { colorize } = require("consola/utils");
-const { downloadTemplate } = require("giget");
-const { execSync: exec } = require("node:child_process");
+import { consola } from "consola";
+import { colorize } from "consola/utils";
+import { downloadTemplate } from "giget";
+import { execSync as exec } from "node:child_process";
 
 const [, , directoryArg] = process.argv;
 
@@ -22,7 +22,7 @@ const [, , directoryArg] = process.argv;
 async function create() {
   console.clear();
   const defaultDirectory = "./mcfly-app";
-  consola.box(`👋 Hello! Welcome to ${colorize("bold", "McFly")}!`);
+  consola.box(`Hello! Welcome to ${colorize("bold", "McFly")}!`);
   let directory = directoryArg;
 
   if (!directory) {

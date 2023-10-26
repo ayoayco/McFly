@@ -1,16 +1,17 @@
 {
   "name": "create-mcfly",
-  "version": "0.3.1",
-  "bin": {
-    "create-mcfly": "./index.js"
-  },
+  "version": "0.3.2",
   "description": "Create a new McFly app",
-  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "create-mcfly": "./index.mjs"
+  },
+  "main": "index.mjs",
   "exports": {
-    ".": "./index.js"
+    ".": "./index.mjs"
   },
   "files": [
-    "index.js",
+    "index.mjs",
     "LICENSE"
   ],
   "scripts": {

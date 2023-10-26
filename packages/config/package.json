@@ -1,11 +1,12 @@
 {
   "name": "@mcflyjs/config",
-  "version": "0.0.7",
+  "version": "0.0.9",
   "description": "Nitro configuration for McFly apps",
-  "main": "index.js",
+  "type": "module",
+  "main": "index.mjs",
   "devDependencies": {},
   "files": [
-    "index.js",
+    "index.mjs",
     "LICENSE"
   ],
   "scripts": {
