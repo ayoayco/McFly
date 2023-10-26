@@ -17,13 +17,14 @@ export default defineCommand({
   async run({ args }) {
     const typeDefinition = `\n/// <reference path="./mcfly-imports.d.ts" />`;
     const globalDefinition = `import {WebComponent as W} from "web-component-base/WebComponent.mjs"; declare global {class WebComponent extends W {}}export {WebComponent} from 'web-component-base/WebComponent.mjs';`;
+    let hasErrors = false;
 
-    consola.info("ola");
-
+    consola.start("Preparing McFly workspace...");
     try {
       exec("npx nitropack prepare", { stdio: "inherit" });
     } catch (e) {
       consola.error(e);
+      hasErrors = true;
     }
 
     if (existsSync(".nitro/types/nitro.d.ts")) {
@@ -31,16 +32,23 @@ export default defineCommand({
         writeFileSync(".nitro/types/mcfly-imports.d.ts", globalDefinition);
       } catch (e) {
         consola.error(e);
+        hasErrors = true;
       }
       try {
         appendFileSync(".nitro/types/nitro.d.ts", typeDefinition);
       } catch (e) {
         consola.error(e);
+        hasErrors = true;
       }
     } else {
-      consola.log(
+      consola.fail(
         "Preparation Failed. Please run:\n> npx nitropack prepare && npx mcfly prepare"
       );
+      hasErrors = true;
+    }
+
+    if (!hasErrors) {
+      consola.success("Done!");
     }
   },
 });
