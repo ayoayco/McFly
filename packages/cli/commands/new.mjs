@@ -3,7 +3,6 @@
 import { execSync as exec } from "node:child_process";
 import { consola } from "consola";
 import { defineCommand } from "citty";
-import { commonArgs } from "../common.mjs";
 
 export default defineCommand({
   meta: {
@@ -11,12 +10,24 @@ export default defineCommand({
     description: "Creates a new McFly project.",
   },
   args: {
-    ...commonArgs,
+    dir: {
+      type: "string",
+      description: "project root directory",
+      required: false,
+    },
+    _dir: {
+      type: "positional",
+      description: "project root directory (prefer using `--dir`)",
+      required: false,
+    },
   },
   async run({ args }) {
-    const [directory] = args._;
+    const directory = args.dir || args._dir;
+    const command = directory
+      ? `npm create mcfly@latest ${directory}`
+      : "npm create mcfly@latest";
     try {
-      exec(`npm create mcfly@latest ${directory ?? ""}`, { stdio: "inherit" });
+      exec(command, { stdio: "inherit" });
     } catch (e) {
       consola.error(e);
     }
