@@ -17,7 +17,7 @@ import { parseScript } from "esprima";
  * }} param0
  * @returns
  */
-export function defineRoute({ config, storage }) {
+export function useMcFlyRoute({ config, storage }) {
   return eventHandler(async (event) => {
     const { path } = event;
     const { components: componentType } = config();

@@ -6,5 +6,6 @@
  * ...reusable code are in ./src/components
  * @see https://ayco.io/gh/McFly#special-directories
  */
+import { useMcFlyRoute } from "@mcflyjs/core/event-handler.mjs";
 import config from "../mcfly.config.mjs";
-export default defineRoute({ config, storage: useStorage() });
+export default useMcFlyRoute({ config, storage: useStorage() });

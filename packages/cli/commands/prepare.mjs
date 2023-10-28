@@ -2,7 +2,7 @@
 
 import { consola } from "consola";
 import { defineCommand } from "citty";
-import { copyFileSync, readFileSync, writeFileSync } from "node:fs";
+import { appendFileSync, copyFileSync, readFileSync } from "node:fs";
 import { createRequire } from "node:module";
 import { execSync as exec } from "child_process";
 import { tryCatch } from "../utils/try-catch.mjs";
@@ -26,18 +26,11 @@ export default defineCommand({
           `${globalsPath}/globals/mcfly-imports.d.ts`,
           ".nitro/types/mcfly-imports.d.ts"
         ),
-      () =>
-        copyFileSync(
-          `${globalsPath}/globals/mcfly.d.ts`,
-          ".nitro/types/mcfly.d.ts"
-        ),
       () => {
-        const path = ".nitro/types/tsconfig.json";
-        const tsconfig = readFileSync(path);
-        const configStr = tsconfig.toString();
-        const config = JSON.parse(configStr);
-        config.include.push("./mcfly.d.ts");
-        writeFileSync(path, JSON.stringify(config));
+        const ref = `\n${readFileSync(
+          `${globalsPath}/globals/mcfly.d.ts`
+        ).toString()}`;
+        appendFileSync(".nitro/types/nitro.d.ts", ref);
       },
     ].map((fn) => () => tryCatch(fn));
 
