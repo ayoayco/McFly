@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
-    "web-component-base": "^1.9.5"
+    "@mcflyjs/core": "latest",
+    "web-component-base": "latest"
   }
 }
