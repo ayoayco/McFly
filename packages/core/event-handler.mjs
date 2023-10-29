@@ -7,6 +7,7 @@ import { parseScript } from "esprima";
  * @typedef {import('unstorage').Storage} Storage
  * @typedef {import('ultrahtml').Node} HtmlNode
  * @typedef {import('estree').BaseNode} JsNode
+ * @typedef {import('h3').EventHandler} EventHandler
  */
 
 /**
@@ -15,7 +16,7 @@ import { parseScript } from "esprima";
  *  config: function(): McFlyConfig,
  *  storage: Storage
  * }} param0
- * @returns
+ * @returns {EventHandler}
  */
 export function useMcFlyRoute({ config, storage }) {
   return eventHandler(async (event) => {
