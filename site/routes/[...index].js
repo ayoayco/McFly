@@ -1,4 +1,3 @@
-// @ts-check
 /**
  * McFly SSR logic
  * 👋 this is not the route you're looking for
