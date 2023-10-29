@@ -1,19 +1,15 @@
 {
   "name": "create-mcfly",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Create a new McFly app",
   "type": "module",
   "bin": {
-    "create-mcfly": "./index.mjs"
+    "create-mcfly": "./index.js"
   },
-  "main": "index.mjs",
+  "main": "index.js",
   "exports": {
-    ".": "./index.mjs"
+    ".": "./index.js"
   },
-  "files": [
-    "index.mjs",
-    "LICENSE"
-  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
