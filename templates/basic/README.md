@@ -1,14 +1,11 @@
 # McFly Starter Project
 
 
-![template-basic](https://raw.githubusercontent.com/ayoayco/McFly/main/assets/template-basic.png)
 
 ## Background
 This project was generated from the basic template for **McFly** -- a no-framework framework that assists in leveraging the web platform.
 
-```
-npm create mcfly@latest
-```
+![template-basic](https://raw.githubusercontent.com/ayoayco/McFly/main/assets/template-basic.png)
 
 It contains example files to get you started using vanilla web technologies in a modern way. See the [Special Directories](#special-directories) section for more information.
 
@@ -60,11 +57,6 @@ The following commands are available to you on this project. Add more, or modify
 | npm run build | Locally generate the app's build files to `./output` |
 | npm run preview | Preview the built app locally |
 
-
-## More info
-This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://ayco.io/n/web-component-base) class.
-
-**Nitro** is the same production-grade web server powering [**Nuxt**](https://nuxt.com/)
 
 ---
 *Just keep building*<br />

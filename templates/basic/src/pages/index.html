@@ -3,40 +3,21 @@
   <!--
     Hello! This page is an example McFly page.
     See more on https://ayco.io/gh/McFly
-
-    <my-head> here is a static HTML fragment found in ./components/my-head.html
-      you can reuse it to have the same <head> on every page
-      any children will be inserted into the <slot /> on the fragment
   -->
   <my-head>
     <script server:setup>
-      /**
-       * This server:setup script block will get evaluated on the server
-       * ...then get stripped away, leaving just the HTML
-       * */
       const name = "McFly";
+      const author = "Ayo Ayco";
     </script>
   </my-head>
   <body>
-    <!--
-      This element below is a static HTML fragment, found in ./components/awesome-header.html
-    -->
     <awesome-header></awesome-header>
     <main>
-      <!--
-        any variable declared in a server:setup script can be used on the page
-      -->
       <h2>Welcome to {{name}}</h2>
-
       <p>
         Here's a vanilla custom element:
         <vanilla-hello-world data-name="{{name}}" />
       </p>
-
-      <!--
-        this is just a code-block element, found in ./components/code-block.js
-        (not an actual JS code)
-      -->
       <code-block language="js">
         <pre>
 class HelloWorld extends HTMLElement {
@@ -60,13 +41,8 @@ class HelloWorld extends HTMLElement {
         >
       </code-block>
     </main>
-
-    <!--
-      Here's another static .html fragment, found in ./components/my-footer.html
-      The child <small> element gets inserted into the <slot /> on the fragment
-    -->
     <my-footer>
-      <small>A project by <a href="https://ayo.ayco.io">Ayo Ayco</a></small>
+      <small>A project by <a href="https://ayco.io">{{author}}</a></small>
     </my-footer>
   </body>
 </html>

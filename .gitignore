@@ -1,10 +1,10 @@
+dist
 node_modules
 *.log*
 .nitro
 .cache
 .output
 .env
-dist
 *~
 *swp
 *swo
