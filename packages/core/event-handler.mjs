@@ -5,6 +5,7 @@ import { parseScript } from "esprima";
 /**
  * @typedef {import('./define-config.mjs').McFlyConfig} McFlyConfig
  * @typedef {import('unstorage').Storage} Storage
+ * @typedef {import('unstorage').StorageValue} StorageValue
  * @typedef {import('ultrahtml').Node} HtmlNode
  * @typedef {import('estree').BaseNode} JsNode
  * @typedef {import('h3').EventHandler} EventHandler
@@ -52,7 +53,7 @@ export function useMcFlyRoute({ config, storage }) {
  * Gets the correct HTML depending on the path requested
  * @param {string} path
  * @param {Storage} storage
- * @returns
+ * @returns {Promise<StorageValue>}
  */
 async function getHtml(path, storage) {
   const rawPath = path[path.length - 1] === "/" ? path.slice(0, -1) : path;
@@ -69,7 +70,7 @@ async function getHtml(path, storage) {
 /**
  * Gets the storage path for a file
  * @param {string} filename
- * @returns string
+ * @returns {string}
  */
 function getPath(filename) {
   return `assets:pages${filename}`;
@@ -80,7 +81,7 @@ function getPath(filename) {
  * @param {string} html
  * @param {'js'} type
  * @param {Storage} storage
- * @returns Promise<string>
+ * @returns {Promise<string>}
  */
 async function insertRegistry(html, type, storage) {
   const ast = parse(html);
@@ -121,7 +122,7 @@ async function insertRegistry(html, type, storage) {
  * @param {Array<string>} usedCustomElements
  * @param {"js" | "ts"} type
  * @param {Storage} storage
- * @returns string
+ * @returns {Promise<string>}
  */
 async function buildRegistry(usedCustomElements, type, storage) {
   let registryScript = `<script type='module'>`;
@@ -162,7 +163,7 @@ async function buildRegistry(usedCustomElements, type, storage) {
 /**
  * Evaluates server:setup script and replaces all variables used in the HTML
  * @param {string} html
- * @returns string
+ * @returns {string}
  */
 function doSetUp(html) {
   const ast = parse(html);
@@ -210,7 +211,7 @@ function doSetUp(html) {
 /**
  * Removes any instance of server:setup script in the HTML
  * @param {string} html
- * @returns string
+ * @returns {string}
  */
 function deleteServerScripts(html) {
   const ast = parse(html);
@@ -229,7 +230,7 @@ function deleteServerScripts(html) {
 /**
  * Cleans a JS string for save evaluation
  * @param {Array<string>} scripts
- * @returns string
+ * @returns {string}
  */
 function cleanScript(scripts) {
   let script = scripts.map((s) => s.trim()).join(" ");
@@ -242,7 +243,7 @@ function cleanScript(scripts) {
 /**
  * Checks if given node of a JS script is a comment
  * @param {JsNode} node
- * @returns boolean
+ * @returns {boolean}
  */
 function isComment(node) {
   return (
@@ -256,7 +257,7 @@ function isComment(node) {
 /**
  * Removes all instances of comments in a JS string
  * @param {string} script
- * @returns string
+ * @returns {string}
  */
 function removeComments(script) {
   const entries = [];
@@ -284,7 +285,7 @@ function removeComments(script) {
  * Return HTML with all fragments replaced with the correct content in the storage
  * @param {string} html
  * @param {Storage} storage
- * @returns Promise<string>
+ * @returns {Promise<string>}
  */
 async function useFragments(html, storage) {
   const fragmentFiles = await getFiles("html", storage);
@@ -331,6 +332,7 @@ async function useFragments(html, storage) {
  * Replace a slot in a fragmentNode with given node
  * @param {HtmlNode} fragmentNode
  * @param {HtmlNode} node
+ * @returns {void}
  */
 function replaceSlots(fragmentNode, node) {
   walkSync(fragmentNode, (n) => {
@@ -345,6 +347,7 @@ function replaceSlots(fragmentNode, node) {
  * Get all files from the storage given a type
  * @param {string} type
  * @param {Storage} storage
+ * @returns {Promise<string[]>}
  */
 async function getFiles(type, storage) {
   return (await storage.getKeys("assets:components"))
