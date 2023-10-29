@@ -1,8 +1,9 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.2.10",
+  "version": "0.2.11",
   "description": "McFly core package",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

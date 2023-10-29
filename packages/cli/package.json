@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/cli",
-  "version": "0.0.15",
+  "version": "0.0.16",
   "description": "McFly CLI tools",
   "type": "module",
   "main": "index.js",
@@ -24,6 +24,6 @@
   "dependencies": {
     "citty": "^0.1.4",
     "consola": "^3.2.3",
-    "web-component-base": "latest"
+    "web-component-base": "^1.9.5"
   }
 }

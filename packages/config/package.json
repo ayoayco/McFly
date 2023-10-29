@@ -1,10 +1,9 @@
 {
   "name": "@mcflyjs/config",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "Nitro configuration for McFly apps",
   "type": "module",
   "main": "index.mjs",
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -18,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/ayoayco/McFly/issues"
   },
-  "homepage": "https://github.com/ayoayco/McFly#readme"
+  "homepage": "https://github.com/ayoayco/McFly#readme",
+  "dependencies": {
+    "web-component-base": "^1.9.5"
+  }
 }

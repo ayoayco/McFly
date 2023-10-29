@@ -9,6 +9,6 @@
  * @param {McFlyConfig} config
  * @returns {function(): McFlyConfig}
  */
-export default function defineConfig(config) {
+export function defineMcFlyConfig(config) {
   return () => config;
 }

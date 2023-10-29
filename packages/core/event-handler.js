@@ -3,7 +3,7 @@ import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
 import { parseScript } from "esprima";
 
 /**
- * @typedef {import('./define-config.mjs').McFlyConfig} McFlyConfig
+ * @typedef {import('./define-config.js').McFlyConfig} Config
  * @typedef {import('unstorage').Storage} Storage
  * @typedef {import('unstorage').StorageValue} StorageValue
  * @typedef {import('ultrahtml').Node} HtmlNode
@@ -14,7 +14,7 @@ import { parseScript } from "esprima";
 /**
  * Intercepts all routes and assembles the correct HTML to return
  * @param {{
- *  config: function(): McFlyConfig,
+ *  config: function(): Config,
  *  storage: Storage
  * }} param0
  * @returns {EventHandler}

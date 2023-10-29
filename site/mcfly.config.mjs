@@ -1,5 +1,4 @@
-import defineConfig from "@mcflyjs/core/define-config.mjs";
-
-export default defineConfig({
+import { defineMcFlyConfig } from "#imports";
+export default defineMcFlyConfig({
   components: "js",
 });
