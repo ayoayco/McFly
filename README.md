@@ -44,18 +44,6 @@ The time has come for vanilla Web tech. 🎉
 - e.g., `./routes/api/users.ts` can be accessed via `http://<domain>/api/users`
 - TypeScript or JavaScript welcome!
 
-## McFly config
-
-To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
-
-```js
-import defineConfig from "./packages/define-config";
-
-export default defineConfig({
-  components: "js",
-});
-
-```
 ## Packages
 The following are the project packages published on the NPM registry:
 
