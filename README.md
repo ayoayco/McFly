@@ -49,9 +49,9 @@ The following are the project packages published on the NPM registry:
 
 | Package | Description | Version |
 | --- | --- | --- |
-| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core) | Core package containing event and configuration handlers | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore) |
-| [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Package containing the Nitro configuration for McFly projects | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
 | [`@mcflyjs/cli`](https://ayco.io/n/@mcflyjs/cli) | The McFly CLI tooling | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcli) |
+| [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Nitro server config for McFly projects | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
+| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core) | Route event and config handlers | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore) |
 | [`create-mcfly`](https://ayco.io/n/create-mcfly) | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly) |
 
 ## More info
