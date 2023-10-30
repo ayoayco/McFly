@@ -44,24 +44,6 @@ The time has come for vanilla Web tech. 🎉
 - e.g., `./routes/api/users.ts` can be accessed via `http://<domain>/api/users`
 - TypeScript or JavaScript welcome!
 
-## McFly CLI (In-Progress)
-
-The **McFly CLI** can assist further in scaffolding new projects and building blocks:
-
-```
-npm i -g @mcflyjs/cli
-```
-
-Then, you can run the following **McFly CLI** commands:
-
-| Command | Action |
-| --- | --- |
-| `mcfly new` | Creates a new McFly project. |
-| `mcfly serve` | Runs the developent server. |
-| `mcfly build` | Builds the McFly project for production. |
-| `mcfly prepare` | Prepares the McFly workspace. |
-| `mcfly generate` | Generates building blocks for a McFly app. (In-progress) |
-
 ## McFly config
 
 To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
