@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "McFly core package",
   "type": "module",
   "main": "index.js",
