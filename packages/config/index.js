@@ -25,12 +25,8 @@ export default function McFly() {
           imports: ["WebComponent"],
         },
         {
-          from: "@mcflyjs/core/event-handler",
-          imports: ["useMcFlyRoute"],
-        },
-        {
-          from: "@mcflyjs/core/define-config",
-          imports: ["defineMcFlyConfig"],
+          from: "@mcflyjs/core",
+          imports: ["useMcFlyRoute", "defineMcFlyConfig"],
         },
       ],
     },
