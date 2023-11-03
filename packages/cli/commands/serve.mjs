@@ -15,7 +15,7 @@ export default defineCommand({
     try {
       const _require = createRequire(import.meta.url);
       const mcflyPkg = await _require("@mcflyjs/core/package.json");
-      const mcflyPkgVersion = `McFly ${mcflyPkg.version}`;
+      const mcflyPkgVersion = `McFly ${colorize("bold", mcflyPkg.version)}`;
       const nitroPkg = await _require("nitropack/package.json");
       const nitroPkgVersion = `Nitro ${nitroPkg.version}`;
       consola.log(
