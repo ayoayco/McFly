@@ -2,7 +2,7 @@
 
 import { consola } from "consola";
 import { defineCommand } from "citty";
-import { execSync as exec } from "child_process";
+import { execSync as exec } from "node:child_process";
 
 export default defineCommand({
   meta: {
