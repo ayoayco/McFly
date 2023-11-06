@@ -2,7 +2,7 @@
   <img width="250" src="https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd" alt="rRick & Morty cartoon" />
 </p>
 
-<h1 align="center">McFly</h1>
+<h1 align="center">McFly Docs</h1>
 
 <p align="center"><strong>McFly</strong> is a no-framework framework<br />that assists in leveraging the web platform</p>
 
@@ -11,22 +11,6 @@
   <img src="https://img.shields.io/badge/status-legit-purple?style=flat" />
   <a href="https://mc-fly.vercel.app/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
-
-## Installation
-
-Run the following to generate a McFly starter project:
-```
-npm create mcfly@latest
-```
-
-## Features
-The time has come for vanilla Web tech. 🎉
-
-✅ Create web apps with vanilla custom elements<br>
-✅ Write real .HTML files<br>
-✅ Have no frameworks or reactivity libraries on the browser<br>
-✅ Use server-side rendering<br>
-✅ Deploy anywhere<br>
 
 ## Special directories
 **1. `./src/pages/`**
@@ -56,11 +40,6 @@ export default defineConfig({
 });
 
 ```
-
-## More info
-This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://ayco.io/n/web-component-base) class.
-
-**Nitro** is the same production-grade web server powering [**Nuxt**](https://nuxt.com/)
 
 ---
 *Just keep building*<br />
