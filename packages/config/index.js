@@ -1,9 +1,12 @@
 /**
- * Returns the Nitro configuration for a McFly project
  * @typedef {import('nitropack').NitroConfig} NitroConfig
+ */
+
+/**
+ * Returns the Nitro configuration for a McFly project
  * @returns {NitroConfig}
  */
-export default function McFly() {
+export default function () {
   return {
     devServer: {
       watch: ["./src/pages", "./src/components"],
