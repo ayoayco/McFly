@@ -79,7 +79,11 @@
     &lt;main&gt;
       &lt;a href=&quot;/demo/about&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/a&gt;
       &lt;div&gt;
-        &lt;my-hello-world data-name=&quot;&#123;&#123;name &#125;&#125;&quot;&gt;&lt;/my-hello-world&gt;
+        &lt;my-hello-world id=&quot;my-hello&quot; data-name=&quot;&#123;&#123;name &#125;&#125;&quot;&gt;&lt;/my-hello-world&gt;
+        &lt;input
+          placeholder=&quot;Type your name here&quot;
+          onkeyup=&quot;document.getElementById(&#39;my-hello&#39;).setAttribute(&#39;data-name&#39;, this.value)&quot;
+        /&gt;
       &lt;/div&gt;
       &lt;code-block language=&quot;js&quot;&gt;const name = &quot;Nitro&quot;&lt;/code-block&gt;
       &lt;p&gt;some text: &#123;&#123;greeting&#125;&#125;&lt;/p&gt;
