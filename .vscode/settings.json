@@ -1,4 +1,15 @@
 {
     "editor.formatOnSave": true,
-    "js/ts.implicitProjectConfig.checkJs": true
+    "js/ts.implicitProjectConfig.checkJs": true,
+    "cSpell.words": [
+        "citty",
+        "consola",
+        "estree",
+        "giget",
+        "mcfly",
+        "mcflyjs",
+        "nitropack",
+        "ultrahtml",
+        "unstorage"
+    ]
 }
