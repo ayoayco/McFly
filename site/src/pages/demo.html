@@ -46,7 +46,11 @@
       >
         <a href="/demo/about">{{ count }}</a>
         <div>
-          <my-hello-world data-name="{{name }}"></my-hello-world>
+          <my-hello-world id="my-hello" data-name="{{name }}"></my-hello-world>
+          <input
+            placeholder="Type your name here"
+            onkeyup="document.getElementById('my-hello').setAttribute('data-name', this.value)"
+          />
         </div>
         <code-block language="js">const name = "Nitro"</code-block>
         <p>some text: {{greeting}}</p>
