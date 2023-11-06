@@ -1,4 +1,4 @@
-#: CONTRIBUTING
+# CONTRIBUTING
 
 This file contains the contributing guide for our project.
 
