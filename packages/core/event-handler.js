@@ -344,7 +344,7 @@ function replaceSlots(fragmentNode, node) {
       let nodeChildren = [];
 
       if (currentSlotName === null)  {
-        nodeChildren = node.children.filter(child => !child.attributes?.['slot'] && child.type === ELEMENT_NODE);
+        nodeChildren = node.children.filter(child => !child.attributes?.['slot']);
       } else {
         nodeChildren = node.children.filter(child => {
           const childSlotName = child.attributes?.['slot'];
