@@ -335,10 +335,28 @@ async function useFragments(html, storage) {
  * @returns {void}
  */
 function replaceSlots(fragmentNode, node) {
+  let slotted = [];
+  const containsAll = (arr, target) => target.every(v => arr.includes(v));
   walkSync(fragmentNode, (n) => {
     if (n.type === ELEMENT_NODE && n.name === "slot") {
-      const index = n.parent.children.indexOf(n);
-      n.parent.children.splice(index, 1, ...node.children);
+      // find node child with same name attribute
+      const currentSlotName = n.attributes?.['name'] ?? null;
+      let nodeChildren = [];
+
+      if (currentSlotName === null)  {
+        nodeChildren = node.children.filter(child => !child.attributes?.['slot'] && child.type === ELEMENT_NODE);
+      } else {
+        nodeChildren = node.children.filter(child => {
+          const childSlotName = child.attributes?.['slot'];
+          return childSlotName === currentSlotName;
+        })
+      }
+
+      if (nodeChildren.length > 0 && !containsAll(slotted, nodeChildren)) {
+        slotted = [...slotted, ...nodeChildren]
+        const index = n.parent.children.indexOf(n);
+        n.parent.children.splice(index, 1, ...nodeChildren);
+      }
     }
   });
 }
