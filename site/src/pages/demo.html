@@ -16,7 +16,10 @@
     </script>
   </my-head>
   <body>
-    <awesome-header><span>heyyy</span></awesome-header>
+    <awesome-header>
+      <span>Back to the Basics. Into the Future.</span>
+      <span slot="title-postfix">- This is strong!</span>
+    </awesome-header>
     <main>
       <section id="intro">
         <h1>McFly Demo</h1>
@@ -75,22 +78,18 @@
     &lt;/script&gt;
   &lt;/my-head&gt;
   &lt;body&gt;
-    &lt;awesome-header&gt;&lt;span&gt;heyyy&lt;/span&gt;&lt;/awesome-header&gt;
-    &lt;main&gt;
-      &lt;a href=&quot;/demo/about&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/a&gt;
-      &lt;div&gt;
-        &lt;my-hello-world id=&quot;my-hello&quot; data-name=&quot;&#123;&#123;name &#125;&#125;&quot;&gt;&lt;/my-hello-world&gt;
-        &lt;input
-          placeholder=&quot;Type your name here&quot;
-          onkeyup=&quot;document.getElementById(&#39;my-hello&#39;).setAttribute(&#39;data-name&#39;, this.value)&quot;
-        /&gt;
-      &lt;/div&gt;
-      &lt;code-block language=&quot;js&quot;&gt;const name = &quot;Nitro&quot;&lt;/code-block&gt;
-      &lt;p&gt;some text: &#123;&#123;greeting&#125;&#125;&lt;/p&gt;
-      &#123;&#123;greeting&#125;&#125; hey&lt;br /&gt;
-      &lt;clickable-text&gt;&lt;/clickable-text&gt;
-    &lt;/main&gt;
-    &lt;my-footer&gt;&lt;/my-footer&gt;
+    &lt;a href=&quot;/demo/about&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/a&gt;
+    &lt;div&gt;
+      &lt;my-hello-world id=&quot;my-hello&quot; data-name=&quot;&#123;&#123;name &#125;&#125;&quot;&gt;&lt;/my-hello-world&gt;
+      &lt;input
+        placeholder=&quot;Type your name here&quot;
+        onkeyup=&quot;document.getElementById(&#39;my-hello&#39;).setAttribute(&#39;data-name&#39;, this.value)&quot;
+      /&gt;
+    &lt;/div&gt;
+    &lt;code-block language=&quot;js&quot;&gt;const name = &quot;Nitro&quot;&lt;/code-block&gt;
+    &lt;p&gt;some text: &#123;&#123;greeting&#125;&#125;&lt;/p&gt;
+    &#123;&#123;greeting&#125;&#125; hey&lt;br /&gt;
+    &lt;clickable-text&gt;&lt;/clickable-text&gt;
   &lt;/body&gt;
 &lt;/html&gt;</pre
           >
