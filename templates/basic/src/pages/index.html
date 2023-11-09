@@ -11,9 +11,12 @@
     </script>
   </my-head>
   <body>
-    <awesome-header></awesome-header>
+    <awesome-header>
+      <span>{{ name }}</span>
+      <span slot="description">Back to the Basics. Into the Future.</span>
+    </awesome-header>
     <main>
-      <h2>Welcome to {{name}}</h2>
+      <h2>Welcome to {{ name }}</h2>
       <p>
         Here's a vanilla custom element:
         <vanilla-hello-world data-name="{{name}}" />
