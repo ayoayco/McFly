@@ -7,7 +7,10 @@
   <my-head>
     <script server:setup>
       const name = "McFly";
-      const author = "Ayo Ayco";
+      const author = {
+        name: "Ayo Ayco",
+        url: "https://ayco.io"
+      }
     </script>
   </my-head>
   <body>
@@ -45,7 +48,7 @@ class HelloWorld extends HTMLElement {
       </code-block>
     </main>
     <my-footer>
-      <small>A project by <a href="https://ayco.io">{{author}}</a></small>
+      <small>A project by <a href="{{ author.url }}">{{ author.name }}</a></small>
     </my-footer>
   </body>
 </html>
