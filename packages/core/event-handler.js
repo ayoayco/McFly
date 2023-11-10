@@ -202,7 +202,17 @@ function doSetUp(html) {
   while ((match = regex.exec(html))) {
     let [key, value] = match;
     value = value.replace(/\s/g, "");
-    html = html.replace(key, setupMap[value]);
+    // nested objects
+    const keys = value.split('.');
+    let finalValue = '';
+    let setupCopy = setupMap;
+
+    keys.forEach(i => {
+      finalValue = setupCopy[i]
+      setupCopy = finalValue;
+    })
+
+    html = html.replace(key, finalValue);
   }
 
   return html;

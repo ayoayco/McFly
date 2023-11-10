@@ -5,10 +5,12 @@
     <script src="/prism.js"></script>
     <script server:setup>
       const name = "Nitro";
-      let greeting = "hello";
-      var count = sum(1, 247);
+      let greeting = {
+        url: 'https://www.google.com',
+        message: "hello"
+      };
 
-      greeting = "nope";
+      var count = sum(1, 247);
 
       function sum(x, y) {
         return x + y;
@@ -56,8 +58,7 @@
           />
         </div>
         <code-block language="js">const name = "Nitro"</code-block>
-        <p>some text: {{greeting}}</p>
-        {{greeting}} hey<br />
+        <a href="{{greeting.url}}">some text: {{greeting.message}}</a>
         <clickable-text></clickable-text>
       </section>
       <section id="breakdown">
