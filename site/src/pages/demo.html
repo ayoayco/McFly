@@ -10,6 +10,7 @@
         message: "hello"
       };
 
+      greeting.message = "nope";
       var count = sum(1, 247);
 
       function sum(x, y) {
@@ -58,7 +59,7 @@
           />
         </div>
         <code-block language="js">const name = "Nitro"</code-block>
-        <a href="{{greeting.url}}">some text: {{greeting.message}}</a>
+        <p><a href="{{greeting.url}}">some text: {{greeting.message}}</a></p>
         <clickable-text></clickable-text>
       </section>
       <section id="breakdown">
@@ -70,9 +71,12 @@
   &lt;my-head&gt;
     &lt;script server:setup&gt;
       const name = &quot;Nitro&quot;;
-      let greeting = &quot;hello&quot;;
+      let greeting = {
+        url: 'https://www.google.com',
+        message: "hello"
+      };
       var count = sum(1, 247);
-      greeting = &quot;nope&quot;;
+      greeting.message = &quot;nope&quot;;
       function sum(x, y) {
           return x + y;
       }
@@ -88,8 +92,7 @@
       /&gt;
     &lt;/div&gt;
     &lt;code-block language=&quot;js&quot;&gt;const name = &quot;Nitro&quot;&lt;/code-block&gt;
-    &lt;p&gt;some text: &#123;&#123;greeting&#125;&#125;&lt;/p&gt;
-    &#123;&#123;greeting&#125;&#125; hey&lt;br /&gt;
+    &lt;p&gt;&lt;a href="&#123;&#123;greeting.url&#125;&#125;"&gt;some text: &#123;&#123;greeting.message&#125;&#125;&lt;/a&gt;&lt;/p&gt;
     &lt;clickable-text&gt;&lt;/clickable-text&gt;
   &lt;/body&gt;
 &lt;/html&gt;</pre
