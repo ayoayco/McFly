@@ -1,10 +1,10 @@
 class CodeBlockComponent extends HTMLElement {
   connectedCallback() {
-    this.trimmed = this.innerHTML.trim();
+    const trimmed = this.innerHTML.trim();
     const lang = this.getAttribute("language");
 
     this.innerHTML = `
-        <pre id="pre"><code id="code">${this.trimmed}</code></pre>
+        <pre id="pre"><code id="code">${trimmed}</code></pre>
     `;
 
     /**
