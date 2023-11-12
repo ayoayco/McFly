@@ -18,12 +18,21 @@ class CodeBlockComponent extends WebComponent {
      * @type {HTMLPreElement} */
     const pre = this.querySelector("#pre");
 
-    // scoped style for pre block
-    pre.style.background = "#f5f2f0";
-    pre.style.padding = "1em";
-    pre.style.margin = "1em 0";
-    pre.style.fontSize = "1.25em";
-    pre.style.overflow = "auto";
+    /**
+     * @type {Partial<CSSStyleDeclaration>}
+     */
+    const style = {
+      background: "#f5f2f0",
+      padding: "1em",
+      margin: "1em 0",
+      fontSize: "large",
+      overflow: "auto",
+      borderRadius: '5px'
+    };
+
+    Object.keys(style).forEach((rule) => {
+      pre.style[rule] = style[rule];
+    });
   }
 
   // readonly template

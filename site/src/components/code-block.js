@@ -4,15 +4,13 @@ class CodeBlockComponent extends HTMLElement {
     const lang = this.getAttribute("language");
 
     this.innerHTML = `
-        <pre id="pre"><code id="code">${
-      this.trimmed
-    }</code></pre>
+        <pre id="pre"><code id="code">${this.trimmed}</code></pre>
     `;
 
     /**
      * @type {HTMLPreElement}
      */
-    const pre = this.querySelector('#pre')
+    const pre = this.querySelector("#pre");
 
     if (lang) {
       pre.className = `language-${lang}`;
@@ -22,15 +20,16 @@ class CodeBlockComponent extends HTMLElement {
      * @type {Partial<CSSStyleDeclaration>}
      */
     const style = {
-      padding:'1em',
-      background:'#efefef',
-      margin: '1em 0',
-      borderRadius: '5px',
-      fontSize: 'large'
-    }
+      background: "#f5f2f0",
+      padding: "1em",
+      margin: "1em 0",
+      fontSize: "large",
+      overflow: "auto",
+      borderRadius: '5px'
+    };
 
-    Object.keys(style).forEach(rule => {
-      pre.style[rule] = style[rule]
-    })
+    Object.keys(style).forEach((rule) => {
+      pre.style[rule] = style[rule];
+    });
   }
 }
