@@ -3,15 +3,22 @@
  * @see https://ayco.io/n/web-component-base
  */
 class MyHelloWorld extends WebComponent {
+  // intialize props
+  dataName = 'World';
+
+  // tell browser which props to cause render
   static properties = ["data-name"];
 
+  // Triggered when the component is connected to the DOM
   onInit() {
     let count = 0;
+    // initialize event handler
     this.onclick = () => {
       this.setAttribute("data-name", `Clicked ${++count}x`);
     };
   }
 
+  // give readonly template
   get template() {
     /**
      * any attribute/property in kebab-case...

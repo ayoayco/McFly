@@ -1,19 +1,38 @@
-class CodeBlockComponent extends HTMLElement {
-  connectedCallback() {
-    this.trimmed = this.innerHTML.trim();
-    const lang = this.getAttribute("language");
-    const lineNumbers = this.getAttribute("line-numbers") === "true";
+// @ts-check
 
-    console.log(lineNumbers, lang);
+/**
+ * Custom element using a minimal Web Component Base class
+ * @see https://ayco.io/n/web-component-base
+ */
+class CodeBlockComponent extends WebComponent {
+  // initialize props
+  language;
 
-    this.innerHTML = `
-      <div>
-        <pre class="language-${lang} ${
-      lineNumbers ? "line-numbers" : ""
-    }" id="pre" style="padding:1em;background:#efefef;margin:1em 0;border-radius:5px;overflow:scroll"><code id="code">${
-      this.trimmed
-    }</code></pre>
-      </div>
+  // tell browser which props to cause render
+  static properties = ["language"];
+
+  // Triggered after view is initialized
+  afterViewInit() {
+    /**
+     * Provides autocompletion on IDEs when @ts-check is enabled on first line
+     * @type {HTMLPreElement} */
+    const pre = this.querySelector("#pre");
+
+    // scoped style for pre block
+    pre.style.background = "#f5f2f0";
+    pre.style.padding = "1em";
+    pre.style.margin = "1em 0";
+    pre.style.fontSize = "1.25em";
+    pre.style.overflow = "auto";
+  }
+
+  // readonly template
+  get template() {
+    const trimmed = this.innerHTML.trim();
+    return `
+        <pre class="${
+          this.language && `language-${this.language}`
+        }" id="pre"><code id="code">${trimmed}</code></pre>
     `;
   }
 }
