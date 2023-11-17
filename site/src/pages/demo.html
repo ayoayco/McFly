@@ -52,10 +52,10 @@
       >
         <a href="/demo/about">{{ count }}</a>
         <div>
-          <my-hello-world id="my-hello" data-name="{{name }}"></my-hello-world>
+          <my-hello-world id="my-hello" my-name="{{ name }}"></my-hello-world>
           <input
             placeholder="Type your name here"
-            onkeyup="document.getElementById('my-hello').setAttribute('data-name', this.value)"
+            onkeyup="document.getElementById('my-hello').setAttribute('my-name', this.value)"
           />
         </div>
         <code-block language="js">const name = "Nitro"</code-block>
@@ -84,10 +84,10 @@
   &lt;body&gt;
     &lt;a href=&quot;/demo/about&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/a&gt;
     &lt;div&gt;
-      &lt;my-hello-world id=&quot;my-hello&quot; data-name=&quot;&#123;&#123;name &#125;&#125;&quot;&gt;&lt;/my-hello-world&gt;
+      &lt;my-hello-world id=&quot;my-hello&quot; my-name=&quot;&#123;&#123;name&#125;&#125;&quot;&gt;&lt;/my-hello-world&gt;
       &lt;input
         placeholder=&quot;Type your name here&quot;
-        onkeyup=&quot;document.getElementById(&#39;my-hello&#39;).setAttribute(&#39;data-name&#39;, this.value)&quot;
+        onkeyup=&quot;document.getElementById(&#39;my-hello&#39;).setAttribute(&#39;my-name&#39;, this.value)&quot;
       /&gt;
     &lt;/div&gt;
     &lt;code-block language=&quot;js&quot;&gt;const name = &quot;Nitro&quot;&lt;/code-block&gt;
