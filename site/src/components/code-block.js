@@ -2,6 +2,7 @@ class CodeBlockComponent extends HTMLElement {
   connectedCallback() {
     const trimmed = this.innerHTML.trim();
     const lang = this.getAttribute("language");
+    const inline = this.getAttribute("inline") !== null;
 
     this.innerHTML = `
         <pre id="pre"><code id="code">${trimmed}</code></pre>
@@ -27,6 +28,13 @@ class CodeBlockComponent extends HTMLElement {
       overflow: "auto",
       borderRadius: '5px'
     };
+
+    console.log('>>> inline', inline, this)
+
+    if (inline) {
+      style.display = 'inline';
+      style.padding = '0.3em';
+    }
 
     Object.keys(style).forEach((rule) => {
       pre.style[rule] = style[rule];

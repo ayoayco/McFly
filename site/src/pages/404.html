@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>not found</title>
-
+  <my-head>
+    <title>Not Found | McFly: Back to the Basics. Into the Future.</title>
     <script server:setup>
       const homeLinkLabel = "Home";
       let greeting = "hello!";
     </script>
-  </head>
+  </my-head>
   <body>
-    <a href="./">{{homeLinkLabel}}</a>
-
-    {{greeting }} wow we can't find that
+    <awesome-header></awesome-header>
+    <h1>Not Found</h1>
+    <p>This custom 404 page is possible in McFly by adding a <code-block inline>404.html</code-block> in your <code-block inline>/pages</code-block> directory.</p>
   </body>
 </html>
