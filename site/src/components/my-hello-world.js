@@ -7,13 +7,11 @@ class HelloWorld extends WebComponent {
 
   onInit() {
     let count = 0;
-    this.onclick = () => {
-      this.setAttribute("data-name", `Clicked ${++count}x`);
-    };
-    this.setAttribute("title", "Click me please");
+    this.dataset.name = this.dataset.name ?? 'World';
+    this.onclick = () => this.dataset.name = `Clicked ${++count}x`;
   }
 
   get template() {
-    return `<button style="cursor:pointer">Hello ${this.dataName}!</button>`;
+    return `<button style="cursor:pointer">Hello ${this.dataset.name}!</button>`;
   }
 }

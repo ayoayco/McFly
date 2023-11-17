@@ -5,11 +5,7 @@ class HelloWorld extends HTMLElement {
 
   connectedCallback() {
     let count = 0;
-
-    if (!('name' in this.dataset)) {
-      this.dataset.name = 'World'
-    }
-
+    this.dataset.name = this.dataset.name ?? 'World';
     this.onclick = () => this.dataset.name = `Clicked ${++count}x`;
   }
 
