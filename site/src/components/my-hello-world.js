@@ -3,16 +3,14 @@
  * @see https://ayco.io/n/web-component-base
  */
 class HelloWorld extends WebComponent {
-  dataName = 'World';
-
-  static properties = ["data-name"];
+  static properties = ["my-name"];
 
   onInit() {
     let count = 0;
-    this.onclick = () => this.dataset.name = `Clicked ${++count}x`;
+    this.onclick = () => this.props.myName = `Clicked ${++count}x`;
   }
 
   get template() {
-    return `<button style="cursor:pointer">Hello ${this.dataName}!</button>`;
+    return `<button style="cursor:pointer">Hello ${this.props.myName ?? 'World'}!</button>`;
   }
 }
