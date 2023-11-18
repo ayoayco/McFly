@@ -30,18 +30,24 @@
       <code-block language="js">
 class HelloWorld extends HTMLElement {
   static get observedAttributes() {
-    return [&quot;data-name&quot;];
+    return [&quot;my-name&quot;];
   }
 
   connectedCallback() {
     let count = 0;
+    const currentName = this.getAttribute(&quot;my-name&quot;);
+
+    if (!currentName) {
+      this.setAttribute(&quot;my-name&quot;, &quot;World&quot;)
+    }
+
     this.onclick = () => {
-      this.setAttribute(&quot;data-name&quot;, `Clicked ${++count}x`);
+      this.setAttribute(&quot;my-name&quot;, `Clicked ${++count}x`);
     };
   }
 
   attributeChangedCallback(property, previousValue, currentValue) {
-    if (property === &quot;data-name&quot; && previousValue !== currentValue) {
+    if (property === &quot;my-name&quot; && previousValue !== currentValue) {
       this.innerHTML = `&lt;button style=&quot;cursor:pointer&quot;&gt;Hello ${currentValue}!&lt;/button&gt;`;
     }
   }
