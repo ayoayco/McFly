@@ -29,8 +29,6 @@ class CodeBlockComponent extends HTMLElement {
       borderRadius: '5px'
     };
 
-    console.log('>>> inline', inline, this)
-
     if (inline) {
       style.display = 'inline';
       style.padding = '0.3em';
