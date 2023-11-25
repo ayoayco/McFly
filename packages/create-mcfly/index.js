@@ -21,7 +21,7 @@ const [, , directoryArg] = process.argv;
  */
 async function create() {
   console.clear();
-  const defaultDirectory = "./mcfly-app";
+  const defaultDirectory = "mcfly-app";
   consola.box(`Hello! Welcome to ${colorize("bold", "McFly")}!`);
   let directory = directoryArg;
 
@@ -43,7 +43,7 @@ async function create() {
      */
     const prompts = [
       {
-        prompt: "Would you like to install the dependencies?",
+        prompt: `Would you like to install the dependencies to ${safeDirectory}?`,
         info: "This might take some time depending on your connectivity.",
         startMessage: "Installing dependencies using npm...",
         command: `npm --prefix ${safeDirectory} install`,
@@ -66,7 +66,10 @@ async function create() {
  * @returns string
  */
 function getSafeDirectory(directory) {
-  return /\s/.test(directory) ? `"${directory}"` : directory;
+  
+  const dir =  /\s/.test(directory) ? `"${directory}"` : directory;
+  console.log('>>>', dir)
+  return dir;
 }
 
 /**
@@ -109,6 +112,7 @@ async function askPrompts(prompts) {
       p.info && consola.info(p.info);
       consola.start(p.startMessage);
       try {
+        console.log('>>>', p.command)
         await exec(p.command, { stdio: "inherit" });
         consola.success("Done!");
       } catch (e) {
