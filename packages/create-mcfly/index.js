@@ -68,7 +68,6 @@ async function create() {
 function getSafeDirectory(directory) {
   
   const dir =  /\s/.test(directory) ? `"${directory}"` : directory;
-  console.log('>>>', dir)
   return dir;
 }
 
@@ -112,7 +111,6 @@ async function askPrompts(prompts) {
       p.info && consola.info(p.info);
       consola.start(p.startMessage);
       try {
-        console.log('>>>', p.command)
         await exec(p.command, { stdio: "inherit" });
         consola.success("Done!");
       } catch (e) {
