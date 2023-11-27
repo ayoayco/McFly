@@ -58,7 +58,7 @@ export default defineConfig({
 ```
 
 ## More info
-This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://ayco.io/n/web-component-base) class.
+This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://WebComponent.io) class.
 
 **Nitro** is the same production-grade web server powering [**Nuxt**](https://nuxt.com/)
 

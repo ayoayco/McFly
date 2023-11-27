@@ -1,6 +1,6 @@
 /**
  * Custom element using a minimal Web Component Base class
- * @see https://ayco.io/n/web-component-base
+ * @see https://WebComponent.io
  */
 class ClickableText extends WebComponent {
   onInit() {
