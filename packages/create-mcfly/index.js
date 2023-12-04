@@ -126,6 +126,8 @@ async function askPrompts(prompts, cwd) {
       try {
         spawnSync(p.command, [p.subCommand], {
           cwd,
+          shell: true,
+          timeout: 100_000,
           stdio: 'inherit'
         })
         consola.success("Done!");
