@@ -3,7 +3,8 @@
 import { consola } from "consola";
 import { colorize } from "consola/utils";
 import { downloadTemplate } from "giget";
-import { execSync as exec } from "node:child_process";
+import { spawnSync } from "node:child_process";
+import path from 'node:path';
 
 const [, , directoryArg] = process.argv;
 
@@ -13,6 +14,8 @@ const [, , directoryArg] = process.argv;
  *  info?: string,
  *  startMessage: string,
  *  command: string,
+ *  subCommand: string,
+ *  error: string
  * }} PromptAction
  **/
 
@@ -34,8 +37,8 @@ async function create() {
     consola.success(`Using ${directory} as name.`);
   }
 
-  const hasErrors = await downloadTemplateToDirectory(directory);
   const safeDirectory = getSafeDirectory(directory);
+  const hasErrors = await downloadTemplateToDirectory(safeDirectory);
 
   if (!hasErrors) {
     /**
@@ -46,16 +49,20 @@ async function create() {
         prompt: `Would you like to install the dependencies to ${safeDirectory}?`,
         info: "This might take some time depending on your connectivity.",
         startMessage: "Installing dependencies using npm...",
-        command: `npm --prefix ${safeDirectory} install`,
+        command: `npm`,
+        subCommand: 'install',
+        error: `Install dependencies later with ${colorize("yellow", "npm install")}`
       },
       {
         prompt: "Would you like to initialize your git repository?",
         startMessage: "Initializing git repository...",
-        command: `git -C ${safeDirectory} init`,
+        command: `git`,
+        subCommand: 'init',
+        error: 'Initialize git repository later with `git init`'
       },
     ];
 
-    const intentions = await askPrompts(prompts);
+    const intentions = await askPrompts(prompts, safeDirectory);
     showResults(safeDirectory, intentions[0]);
   }
 }
@@ -68,7 +75,11 @@ async function create() {
 function getSafeDirectory(directory) {
   
   const dir =  /\s/.test(directory) ? `"${directory}"` : directory;
-  return dir;
+
+  const { platform } = process;
+  const locale = path[platform === `win32` ? `win32` : `posix`];
+  const localePath = dir.split(path.sep).join(locale.sep);
+  return path.normalize(localePath);
 }
 
 /**
@@ -88,6 +99,7 @@ async function downloadTemplateToDirectory(directory) {
     });
   } catch (e) {
     consola.error(e);
+    consola.info('Try a different name.')
     hasErrors = true;
   }
 
@@ -97,9 +109,10 @@ async function downloadTemplateToDirectory(directory) {
 /**
  *
  * @param {Array<PromptAction>} prompts
+ * @param {string} cwd
  * @returns Array<boolean>
  */
-async function askPrompts(prompts) {
+async function askPrompts(prompts, cwd) {
   const results = [];
 
   for (const p of prompts) {
@@ -111,10 +124,14 @@ async function askPrompts(prompts) {
       p.info && consola.info(p.info);
       consola.start(p.startMessage);
       try {
-        await exec(p.command, { stdio: "inherit" });
+        spawnSync(p.command, [p.subCommand], {
+          cwd,
+          stdio: 'inherit'
+        })
         consola.success("Done!");
       } catch (e) {
         consola.error(e);
+        consola.info(p.error);
       }
     }
     results.push(userIntends);
