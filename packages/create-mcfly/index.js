@@ -4,7 +4,7 @@ import { consola } from "consola";
 import { colorize } from "consola/utils";
 import { downloadTemplate } from "giget";
 import { spawnSync } from "node:child_process";
-import path from 'node:path';
+import path from "node:path";
 
 const [, , directoryArg] = process.argv;
 
@@ -37,8 +37,12 @@ async function create() {
     consola.success(`Using ${directory} as name.`);
   }
 
-  const safeDirectory = getSafeDirectory(directory);
-  const hasErrors = await downloadTemplateToDirectory(safeDirectory);
+  if (typeof directory !== "string") {
+    return;
+  }
+
+  directory = getSafeDirectory(directory);
+  const hasErrors = await downloadTemplateToDirectory(directory);
 
   if (!hasErrors) {
     /**
@@ -46,39 +50,46 @@ async function create() {
      */
     const prompts = [
       {
-        prompt: `Would you like to install the dependencies to ${safeDirectory}?`,
+        prompt: `Would you like to install the dependencies to ${colorize(
+          "bold",
+          directory
+        )}?`,
         info: "This might take some time depending on your connectivity.",
         startMessage: "Installing dependencies using npm...",
         command: `npm`,
-        subCommand: 'install',
-        error: `Install dependencies later with ${colorize("yellow", "npm install")}`
+        subCommand: "install",
+        error: `Install dependencies later with ${colorize(
+          "yellow",
+          "npm install"
+        )}`,
       },
       {
         prompt: "Would you like to initialize your git repository?",
         startMessage: "Initializing git repository...",
         command: `git`,
-        subCommand: 'init',
-        error: 'Initialize git repository later with `git init`'
+        subCommand: "init",
+        error: `Initialize git repository later with ${colorize(
+          "yellow",
+          "git init"
+        )}`,
       },
     ];
 
-    const intentions = await askPrompts(prompts, safeDirectory);
-    showResults(safeDirectory, intentions[0]);
+    const intentions = await askPrompts(prompts, directory);
+    if (!!intentions && intentions.length > 0)
+      showResults(directory, intentions[0]);
   }
 }
 
 /**
  * Returns string that is safe for commands
  * @param {string} directory
- * @returns string
+ * @returns string | undefined
  */
 function getSafeDirectory(directory) {
-  
-  const dir =  /\s/.test(directory) ? `"${directory}"` : directory;
-
   const { platform } = process;
   const locale = path[platform === `win32` ? `win32` : `posix`];
-  const localePath = dir.split(path.sep).join(locale.sep);
+  const localePath = directory.split(path.sep).join(locale.sep);
   return path.normalize(localePath);
 }
 
@@ -97,9 +108,9 @@ async function downloadTemplateToDirectory(directory) {
     await downloadTemplate("github:ayoayco/mcfly/templates/basic", {
       dir: directory,
     });
-  } catch (e) {
-    consola.error(e);
-    consola.info('Try a different name.')
+  } catch (ㆆ_ㆆ) {
+    consola.error(ㆆ_ㆆ.message);
+    consola.info("Try a different name.\n");
     hasErrors = true;
   }
 
@@ -110,7 +121,7 @@ async function downloadTemplateToDirectory(directory) {
  *
  * @param {Array<PromptAction>} prompts
  * @param {string} cwd
- * @returns Array<boolean>
+ * @returns Array<boolean> | undefined
  */
 async function askPrompts(prompts, cwd) {
   const results = [];
@@ -120,6 +131,10 @@ async function askPrompts(prompts, cwd) {
       type: "confirm",
     });
 
+    if (typeof userIntends !== "boolean") {
+      return;
+    }
+
     if (userIntends) {
       p.info && consola.info(p.info);
       consola.start(p.startMessage);
@@ -128,12 +143,12 @@ async function askPrompts(prompts, cwd) {
           cwd,
           shell: true,
           timeout: 100_000,
-          stdio: 'inherit'
-        })
+          stdio: "inherit",
+        });
         consola.success("Done!");
-      } catch (e) {
-        consola.error(e);
-        consola.info(p.error);
+      } catch (ㆆ_ㆆ) {
+        consola.error(ㆆ_ㆆ.message);
+        consola.info(p.error + "\n");
       }
     }
     results.push(userIntends);
