@@ -24,7 +24,7 @@ export default function () {
     imports: {
       presets: [
         {
-          from: "web-component-base/WebComponent",
+          from: "web-component-base",
           imports: ["WebComponent", "html", "attachEffect"],
         },
         {
