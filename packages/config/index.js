@@ -25,7 +25,7 @@ export default function () {
       presets: [
         {
           from: "web-component-base/WebComponent",
-          imports: ["WebComponent"],
+          imports: ["WebComponent", "html", "attachEffect"],
         },
         {
           from: "@mcflyjs/core",
