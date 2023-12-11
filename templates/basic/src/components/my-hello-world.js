@@ -1,19 +1,21 @@
 /**
- * Custom element using a minimal Web Component Base class
+ * Custom element using a minimal base class
  * @see https://WebComponent.io
  */
 class MyHelloWorld extends WebComponent {
-  // tell browser which props to cause render
-  static properties = ["my-name"];
-
-  // Triggered when the component is connected to the DOM
-  onInit() {
-    let count = 0;
-    this.onclick = () => this.props.myName = `Clicked ${++count}x`
+  static props = {
+    myName: 'World',
+    count: 0
   }
 
-  // give readonly template
+  updateLabel() {
+    this.props.myName = `Clicked ${++this.props.count}x`
+  }
+
   get template() {
-    return `<button style="cursor:pointer">Hello ${this.props.myName ?? 'World'}!</button>`;
+    return html`
+      <button onClick=${() => this.updateLabel()} style="cursor:pointer">
+        Hello ${this.props.myName}!
+      </button>`;
   }
 }

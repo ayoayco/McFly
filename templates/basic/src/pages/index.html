@@ -25,38 +25,32 @@
     <main>
       <h2>Welcome to {{ project.name }}</h2>
       <p>
-        Here's a vanilla custom element:
-        <vanilla-hello-world></vanilla-hello-world>
+        Here's an interactive custom element:
+        <my-hello-world></my-hello-world>
       </p>
       <code-block language="js">
-class HelloWorld extends HTMLElement {
-  static get observedAttributes() {
-    return [&quot;my-name&quot;];
+class MyHelloWorld extends WebComponent {
+  static props = {
+    myName: &quot;World&quot;,
+    count: 0
   }
 
-  connectedCallback() {
-    let count = 0;
-    const currentName = this.getAttribute(&quot;my-name&quot;);
-
-    if (!currentName) {
-      this.setAttribute(&quot;my-name&quot;, &quot;World&quot;)
-    }
-
-    this.onclick = () => {
-      this.setAttribute(&quot;my-name&quot;, `Clicked ${++count}x`);
-    };
+  updateLabel() {
+    this.props.myName = `Clicked ${++this.props.count}x`;
   }
 
-  attributeChangedCallback(property, previousValue, currentValue) {
-    if (property === &quot;my-name&quot; && previousValue !== currentValue) {
-      this.innerHTML = `&lt;button style=&quot;cursor:pointer&quot;&gt;Hello ${currentValue}!&lt;/button&gt;`;
-    }
+  get template() {
+    return html`
+      &lt;button onClick=${() => this.updateLabel()} style="cursor:pointer"&gt;
+        Hello ${this.props.myName}!
+      &lt;/button&gt;`;
   }
-}
-      </code-block>
+}</code-block>
     </main>
     <my-footer>
-      <small>A project by <a href="{{ author.url }}">{{ author.name }}</a></small>
+      <small>
+        Learn how to build components easily at <a href="https://WebComponent.io">WebComponent.io</a>
+      </small>
     </my-footer>
   </body>
 </html>

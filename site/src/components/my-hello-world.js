@@ -3,14 +3,19 @@
  * @see https://WebComponent.io
  */
 class HelloWorld extends WebComponent {
-  static properties = ["my-name"];
-
-  onInit() {
-    let count = 0;
-    this.onclick = () => this.props.myName = `Clicked ${++count}x`;
+  static props = {
+    myName: 'World',
+    count: 0,
   }
 
+  updateLabel(){
+    this.props.myName = `Clicked ${++this.props.count}x`;
+  }
+  
   get template() {
-    return `<button style="cursor:pointer">Hello ${this.props.myName ?? 'World'}!</button>`;
+    return html`
+      <button onClick=${() => this.updateLabel()} style="cursor:pointer">
+        Hello ${this.props.myName}!
+      </button>`;
   }
 }
