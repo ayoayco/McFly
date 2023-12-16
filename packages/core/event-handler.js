@@ -142,7 +142,7 @@ async function buildRegistry(usedCustomElements, type, storage) {
         !isBaseClassImported &&
         content.toString().includes("extends WebComponent")
       ) {
-        const baseClassImport = `import { WebComponent, html, attachEffect } from "https://unpkg.com/web-component-base@2.0.0/index.js";`;
+        const baseClassImport = `import { WebComponent, html, attachEffect } from "https://unpkg.com/web-component-base@2.0.6/index.js";`;
         registryScript += baseClassImport;
         isBaseClassImported = true;
       }
