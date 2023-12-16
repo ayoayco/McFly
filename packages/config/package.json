@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/config",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Nitro configuration for McFly apps",
   "type": "module",
   "main": "index.js",
@@ -20,6 +20,6 @@
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
     "@mcflyjs/core": "latest",
-    "web-component-base": "^2.0.0"
+    "web-component-base": "^2.0.6"
   }
 }
