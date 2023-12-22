@@ -49,6 +49,10 @@ export function useMcFlyRoute({ config, storage }) {
   });
 }
 
+function getPurePath(path) {
+  return path.split('?')[0]
+}
+
 /**
  * Gets the correct HTML depending on the path requested
  * @param {string} path
@@ -56,7 +60,8 @@ export function useMcFlyRoute({ config, storage }) {
  * @returns {Promise<StorageValue>}
  */
 async function getHtml(path, storage) {
-  const rawPath = path[path.length - 1] === "/" ? path.slice(0, -1) : path;
+  const purePath = getPurePath(path);
+  const rawPath = purePath[purePath.length - 1] === "/" ? purePath.slice(0, -1) : purePath;
   const filename = rawPath === "" ? "/index.html" : `${rawPath}.html`;
   const fallback = getPath(rawPath + "/index.html");
   const filePath = getPath(filename);
