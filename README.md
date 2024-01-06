@@ -12,6 +12,10 @@
   <a href="https://mc-fly.vercel.app/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
 
+## Project Status 
+
+We are currently in a Proof of Concept phase. All parts are subject to breaking changes in any release. 
+
 ## Installation
 
 Run the following to generate a McFly starter project.
