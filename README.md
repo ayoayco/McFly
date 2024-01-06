@@ -14,7 +14,7 @@
 
 ## Project Status 
 
-We are currently in a Proof of Concept phase. All parts are subject to breaking changes in any release. 
+We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases. 
 
 ## Installation
 
