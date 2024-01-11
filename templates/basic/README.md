@@ -1,22 +1,8 @@
 # McFly Starter Project
 
-
-
-## Background
 This project was generated from the basic template for **McFly** -- a no-framework framework that assists in leveraging the web platform.
 
-![template-basic](https://raw.githubusercontent.com/ayoayco/McFly/main/assets/template-basic.png)
-
 It contains example files to get you started using vanilla web technologies in a modern way. See the [Special Directories](#special-directories) section for more information.
-
-## Features
-The time has come for vanilla Web tech. 🎉
-
-✅ Create web apps with vanilla custom elements<br>
-✅ Write real .HTML files<br>
-✅ Have no frameworks or reactivity libraries on the browser<br>
-✅ Use server-side rendering<br>
-✅ Deploy anywhere<br>
 
 ## Special directories
 **1. `./src/pages/`**
@@ -34,18 +20,6 @@ The time has come for vanilla Web tech. 🎉
 - e.g., `./routes/api/users.ts` can be accessed via `http://<domain>/api/users`
 - TypeScript or JavaScript welcome!
 
-## McFly config
-
-To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
-
-```js
-import defineConfig from "./packages/define-config";
-
-export default defineConfig({
-  components: "js",
-});
-
-```
 ## Commands
 
 The following commands are available to you on this project. Add more, or modify them as needed in your `./package.json` file.
@@ -56,8 +30,3 @@ The following commands are available to you on this project. Add more, or modify
 | npm run prepare | Prepare the workspace |
 | npm run build | Locally generate the app's build files to `./output` |
 | npm run preview | Preview the built app locally |
-
-
----
-*Just keep building*<br />
-*A project by [Ayo Ayco](https://ayco.io)*
