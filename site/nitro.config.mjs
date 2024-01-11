@@ -1,10 +1,18 @@
 export default defineNitroConfig({
-  extends: '@mcflyjs/config',
+  extends: "@mcflyjs/config",
   devServer: {
-      watch: ["../packages"],
+    watch: ["../packages"],
+  },
+  routeRules: {
+    "/chat": {
+      redirect: {
+        to: "https://matrix.to/#/#mcfly:matrix.org",
+        statusCode: 302,
+      },
+    },
   },
   compressPublicAssets: {
     gzip: true,
     brotli: true,
-  }
+  },
 });
