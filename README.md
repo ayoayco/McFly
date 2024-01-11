@@ -13,11 +13,9 @@
 </p>
 
 ## Project Status 
-
 We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases. 
 
 ## Installation
-
 Run the following to generate a McFly starter project.
 ```
 npm create mcfly@latest
