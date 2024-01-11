@@ -15,13 +15,14 @@
 ## Project Status 
 We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases. 
 
+> [!TIP]
+> Need help? Wanna hangout? Everyone is welcome to join our public [McFly chat rooms](https://mcfly.js.org/chat)... or just read through the [Discussion channel](https://app.element.io/#/room/!ClBXAeIoOzdniMUUue:matrix.org) even without an account!
+
 ## Installation
 Run the following to generate a McFly starter project.
 ```
 npm create mcfly@latest
 ```
-## Join Us!
-Need help? Wanna hangout? Everyone is welcome to join our public [McFly chat rooms](https://mcfly.js.org/chat)... or just read through the [Discussion channel](https://app.element.io/#/room/!ClBXAeIoOzdniMUUue:matrix.org) even without an account!
 
 ## Features
 The time has come for vanilla Web tech. 🎉
