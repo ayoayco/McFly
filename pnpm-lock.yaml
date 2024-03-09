@@ -11,7 +11,7 @@ importers:
   packages/cli:
     dependencies:
       '@mcflyjs/core':
-        specifier: workspace:^
+        specifier: latest
         version: link:../core
       citty:
         specifier: ^0.1.4

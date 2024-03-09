@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/cli",
-  "version": "0.0.24",
+  "version": "0.0.26",
   "description": "McFly CLI tools",
   "type": "module",
   "main": "index.js",
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
-    "@mcflyjs/core": "workspace:^",
+    "@mcflyjs/core": "latest",
     "citty": "^0.1.4",
     "consola": "^3.2.3"
   }
