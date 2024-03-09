@@ -1,21 +1,14 @@
 {
   "private": true,
   "scripts": {
-    "start": "npm start -w @mcflyjs/landing-page",
-    "site": "npm start -w @mcflyjs/landing-page",
-    "build": "npm run build -w @mcflyjs/landing-page",
-    "build:preview": "npm run build:preview -w @mcflyjs/landing-page",
-    "template:basic": "npm run dev -w @templates/basic",
+    "preinstall": "npx only-allow pnpm",
+    "start": "pnpm --filter @mcflyjs/landing-page start",
+    "site": "pnpm --filter @mcflyjs/landing-page start",
+    "build": "pnpm --filter @mcflyjs/landing-page build",
+    "build:preview": "pnpm --filter @mcflyjs/landing-page build:preview",
+    "template:basic": "pnpm --filter @templates/basic dev",
     "create": "node ./packages/create-mcfly",
     "cli": "node ./packages/cli",
     "patch:all": "npm version patch -w @mcflyjs/cli && npm version patch -w @mcflyjs/core && npm version patch -w @mcflyjs/config && npm version patch -w create-mcfly"
-  },
-  "workspaces": [
-    "packages/config",
-    "packages/create-mcfly",
-    "templates/basic",
-    "packages/core",
-    "site",
-    "packages/cli"
-  ]
+  }
 }
