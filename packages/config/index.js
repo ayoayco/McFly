@@ -8,6 +8,9 @@
  */
 export default function () {
   return {
+    framework: {
+      name: 'McFly'
+    },
     devServer: {
       watch: ["./src/pages", "./src/components"],
     },
