@@ -21,5 +21,8 @@
   "dependencies": {
     "@mcflyjs/core": "latest",
     "web-component-base": "^2.0.6"
+  },
+  "devDependencies": {
+    "nitropack": "^2.9.2"
   }
 }
