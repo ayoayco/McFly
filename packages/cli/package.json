@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
+    "@mcflyjs/core": "workspace:^",
     "citty": "^0.1.4",
     "consola": "^3.2.3"
   }

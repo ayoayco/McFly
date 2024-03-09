@@ -10,6 +10,9 @@ importers:
 
   packages/cli:
     dependencies:
+      '@mcflyjs/core':
+        specifier: workspace:^
+        version: link:../core
       citty:
         specifier: ^0.1.4
         version: 0.1.5
