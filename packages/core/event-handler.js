@@ -50,7 +50,7 @@ export function useMcFlyRoute({ config, storage }) {
 }
 
 function getPurePath(path) {
-  return path.split('?')[0]
+  return path.split("?")[0];
 }
 
 /**
@@ -61,7 +61,8 @@ function getPurePath(path) {
  */
 async function getHtml(path, storage) {
   const purePath = getPurePath(path);
-  const rawPath = purePath[purePath.length - 1] === "/" ? purePath.slice(0, -1) : purePath;
+  const rawPath =
+    purePath[purePath.length - 1] === "/" ? purePath.slice(0, -1) : purePath;
   const filename = rawPath === "" ? "/index.html" : `${rawPath}.html`;
   const fallback = getPath(rawPath + "/index.html");
   const filePath = getPath(filename);
@@ -140,28 +141,48 @@ async function buildRegistry(usedCustomElements, type, storage) {
     const evalStore = eval(
       `class WebComponent {}; class HTMLElement {}; (${content.toString()})`
     );
-    const className = new evalStore().constructor.name;
 
-    if (!classesImported.includes(className)) {
-      if (
-        !isBaseClassImported &&
-        content.toString().includes("extends WebComponent")
-      ) {
-        const baseClassImport = `import { WebComponent, html, attachEffect } from "https://unpkg.com/web-component-base@2.0.6/index.js";`;
-        registryScript += baseClassImport;
-        isBaseClassImported = true;
+    console.log('>>> content', content.toString());
+
+    if (isConstructor(evalStore)) {
+      const className = new evalStore().constructor.name;
+
+      if (!classesImported.includes(className)) {
+        if (
+          !isBaseClassImported &&
+          content.toString().includes("extends WebComponent")
+        ) {
+          const baseClassImport = `import { WebComponent, html, attachEffect } from "https://unpkg.com/web-component-base@2.0.6/index.js";`;
+          registryScript += baseClassImport;
+          isBaseClassImported = true;
+        }
+
+        registryScript += content;
+
+        registryScript += `customElements.define("${name}", ${className});`;
+        classesImported.push(className);
       }
-
-      registryScript += content;
-
-      registryScript += `customElements.define("${name}", ${className});`;
-      classesImported.push(className);
     }
   }
 
   registryScript += "</script>";
 
   return registryScript;
+}
+
+/**
+ * Check if function is a constructor
+ * @param {function} f
+ * @returns boolean
+ */
+function isConstructor(f) {
+  try {
+    new f();
+  } catch (err) {
+    // verify err is the expected error and then
+    return false;
+  }
+  return true;
 }
 
 /**
@@ -207,14 +228,14 @@ function doSetUp(html) {
     let [key, value] = match;
     value = value.replace(/\s/g, "");
     // nested objects
-    const keys = value.split('.');
-    let finalValue = '';
+    const keys = value.split(".");
+    let finalValue = "";
     let setupCopy = setupMap;
 
-    keys.forEach(i => {
-      finalValue = setupCopy[i]
+    keys.forEach((i) => {
+      finalValue = setupCopy[i];
       setupCopy = finalValue;
-    })
+    });
 
     html = html.replace(key, finalValue);
   }
@@ -350,24 +371,26 @@ async function useFragments(html, storage) {
  */
 function replaceSlots(fragmentNode, node) {
   let slotted = [];
-  const containsAll = (arr, target) => target.every(v => arr.includes(v));
+  const containsAll = (arr, target) => target.every((v) => arr.includes(v));
   walkSync(fragmentNode, (n) => {
     if (n.type === ELEMENT_NODE && n.name === "slot") {
       // find node child with same name attribute
-      const currentSlotName = n.attributes?.['name'] ?? null;
+      const currentSlotName = n.attributes?.["name"] ?? null;
       let nodeChildren = [];
 
-      if (currentSlotName === null)  {
-        nodeChildren = node.children.filter(child => !child.attributes?.['slot']);
+      if (currentSlotName === null) {
+        nodeChildren = node.children.filter(
+          (child) => !child.attributes?.["slot"]
+        );
       } else {
-        nodeChildren = node.children.filter(child => {
-          const childSlotName = child.attributes?.['slot'];
+        nodeChildren = node.children.filter((child) => {
+          const childSlotName = child.attributes?.["slot"];
           return childSlotName === currentSlotName;
-        })
+        });
       }
 
       if (nodeChildren.length > 0 && !containsAll(slotted, nodeChildren)) {
-        slotted = [...slotted, ...nodeChildren]
+        slotted = [...slotted, ...nodeChildren];
         const index = n.parent.children.indexOf(n);
         n.parent.children.splice(index, 1, ...nodeChildren);
       }
