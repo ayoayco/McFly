@@ -13,6 +13,6 @@
     "@mcflyjs/cli": "latest",
     "@mcflyjs/config": "latest",
     "@mcflyjs/core": "latest",
-    "nitropack": "latest"
+    "nitropack": "2.8"
   }
 }
