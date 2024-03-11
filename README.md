@@ -16,7 +16,7 @@
 We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases. 
 
 > [!TIP]
-> Need help? Wanna hangout? Everyone is welcome to join our public [Matrix](https://matrix.org/about/) space at [mcfly.js.org/chat](https://mcfly.js.org/chat) or just read through the [Discussion channel](https://app.element.io/#/room/#mcfly-discussions:matrix.org) even without an account!
+> Need help? Wanna hangout? Everyone is welcome to join [our discussion channel](https://app.element.io/#/room/#mcfly-discussions:matrix.org)!
 
 ## Installation
 Run the following to generate a McFly starter project.
