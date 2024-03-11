@@ -142,8 +142,6 @@ async function buildRegistry(usedCustomElements, type, storage) {
       `class WebComponent {}; class HTMLElement {}; (${content.toString()})`
     );
 
-    console.log('>>> content', content.toString());
-
     if (isConstructor(evalStore)) {
       const className = new evalStore().constructor.name;
 
