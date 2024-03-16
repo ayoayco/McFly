@@ -23,7 +23,6 @@ const [, , directoryArg] = process.argv;
  * Create McFly App
  */
 async function create() {
-  console.clear();
   const defaultDirectory = "mcfly-app";
   consola.box(`Hello! Welcome to ${colorize("bold", "McFly")}!`);
   let directory = directoryArg;
