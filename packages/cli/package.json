@@ -8,7 +8,7 @@
     "mcfly": "./index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
     "@mcflyjs/core": "latest",
     "citty": "^0.1.4",
     "consola": "^3.2.3"
+  },
+  "devDependencies": {
+    "vitest": "^2.1.8"
   }
 }
