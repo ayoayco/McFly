@@ -2,7 +2,16 @@
 
 import { consola } from "consola";
 import { defineCommand } from "citty";
-import { execSync as exec } from "node:child_process";
+import { execSync } from "node:child_process";
+
+function build() {
+    consola.start("Building project...");
+    try {
+      execSync(`npx nitropack build`, { stdio: "inherit" });
+    } catch (err) {
+      consola.error(err);
+    }
+}
 
 export default defineCommand({
   meta: {
@@ -11,11 +20,10 @@ export default defineCommand({
   },
 
   async run() {
-    consola.start("Building project...");
-    try {
-      exec(`npx nitropack build`, { stdio: "inherit" });
-    } catch (err) {
-      consola.error(err);
-    }
+    build()
   },
 });
+
+export const exportedForTest = {
+  build
+}
