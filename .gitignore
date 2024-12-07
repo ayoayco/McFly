@@ -1,11 +1,16 @@
 dist
 node_modules
+coverage
+html
+
 *.log*
 .nitro
 .cache
 .output
 .env
+
 *~
 *swp
 *swo
+
 mcfly-app
