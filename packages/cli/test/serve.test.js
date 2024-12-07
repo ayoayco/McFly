@@ -40,14 +40,47 @@ describe("FUNCTION: serve()", () => {
 /**
  * TODO: test printInfo
  */
-// describe("FUNCTION: printInfo()", () => {
-//   const testFn = exportedForTest.printInfo;
+describe("FUNCTION: printInfo()", () => {
+  const testFn = exportedForTest.printInfo;
 
-//   test("log mcfly and nitro versions", () => {
-//     const spy = vi.spyOn(consola, "log");
+  const createRequireMocks = vi.hoisted(() => {
+    return {
+      createRequire: vi.fn(),
+    };
+  });
 
-//     testFn();
+  vi.mock("node:module", () => {
+    return {
+      createRequire: createRequireMocks.createRequire,
+    };
+  });
 
-//     expect(spy).toHaveBeenCalled();
-//   });
-// });
+  test("log mcfly and nitro versions", async () => {
+    const spy = vi.spyOn(consola, "log");
+    const fakeMessage = "McFly -1.0.0 Nitro -1.0.0";
+    createRequireMocks.createRequire.mockImplementationOnce(() => {
+      return () => {
+        return {
+          version: "-1.0.0",
+        };
+      };
+    });
+
+    await testFn();
+
+    expect(spy.mock.calls[0][0]).toContain("McFly");
+    expect(spy.mock.calls[0][0]).toContain("Nitro");
+    expect(spy).toHaveBeenCalledWith(fakeMessage);
+  });
+
+  test("catch error", async () => {
+    createRequireMocks.createRequire.mockImplementationOnce(() => {
+      throw new Error("error");
+    });
+    const spy = vi.spyOn(consola, "error");
+
+    await testFn();
+
+    expect(spy).toHaveBeenCalledWith(new Error("error"));
+  });
+});
