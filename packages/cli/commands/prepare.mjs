@@ -33,7 +33,6 @@ export default defineCommand({
   },
 });
 
-
 export const exportedForTest = {
   prepare
 }
