@@ -5,6 +5,18 @@ import { execSync } from "node:child_process";
 
 const testFn = exportedForTest.prepare;
 
+const mocks = vi.hoisted(() => {
+  return {
+    execSync: vi.fn(),
+  };
+});
+
+vi.mock("node:child_process", () => {
+  return {
+    execSync: mocks.execSync,
+  };
+});
+
 test("start prepare script", () => {
   const spy = vi.spyOn(consola, "start");
 
@@ -14,16 +26,25 @@ test("start prepare script", () => {
 });
 
 test("execute nitropack prepare", () => {
+  const successSpy = vi.spyOn(consola, "success");
   const command = "npx nitropack prepare";
   const param = { stdio: "inherit" };
-  vi.mock("node:child_process");
 
   testFn();
 
-  expect(execSync).toHaveBeenCalled();
+  expect(execSync).toHaveBeenCalledWith(command, param);
+  expect(successSpy).toHaveBeenCalled();
 });
 
-/**
- * TODO:
- * - add test for catch error
- */
+test("catch error", () => {
+  const errSpy = vi.spyOn(consola, "error");
+  const failSpy = vi.spyOn(consola, "fail");
+  mocks.execSync.mockImplementationOnce(() => {
+    throw new Error();
+  });
+
+  testFn();
+
+  expect(errSpy).toHaveBeenCalled();
+  expect(failSpy).toHaveBeenCalled();
+});

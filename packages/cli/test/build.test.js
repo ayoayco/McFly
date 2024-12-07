@@ -6,15 +6,15 @@ const testFn = exportedForTest.build;
 
 const mocks = vi.hoisted(() => {
   return {
-    execSync: vi.fn()
-  }
-})
+    execSync: vi.fn(),
+  };
+});
 
-vi.mock('node:child_process', () => {
+vi.mock("node:child_process", () => {
   return {
-    execSync: mocks.execSync
-  }
-})
+    execSync: mocks.execSync,
+  };
+});
 
 test("start build with message", () => {
   const message = "Building project...";
@@ -34,15 +34,13 @@ test("execute nitropack build", () => {
   expect(mocks.execSync).toHaveBeenCalledWith(command, param);
 });
 
-/**
- * TODO
- * - test catch error
- */
-// test("catch error", () => {
-//   const spy = vi.spyOn(consola, "error");
-//   mocks.execSync.mockImplementation(() => new Error('hey'))
+test("catch error", () => {
+  const spy = vi.spyOn(consola, "error");
+  mocks.execSync.mockImplementationOnce(() => {
+    throw new Error("hey");
+  });
 
-//   testFn();
+  testFn();
 
-//   expect(spy).toHaveBeenCalled();
-// });
+  expect(spy).toHaveBeenCalledWith(new Error("hey"));
+});
