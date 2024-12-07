@@ -37,9 +37,6 @@ describe("FUNCTION: serve()", () => {
   });
 });
 
-/**
- * TODO: test printInfo
- */
 describe("FUNCTION: printInfo()", () => {
   const testFn = exportedForTest.printInfo;
 
