@@ -1,8 +1,20 @@
 #!/usr/bin/env node
 
-import { execSync as exec } from "node:child_process";
+import { execSync } from "node:child_process";
 import { consola } from "consola";
 import { defineCommand } from "citty";
+
+function createNew(args) {
+    const directory = args.dir || args._dir;
+    const command = directory
+      ? `npm create mcfly@latest ${directory}`
+      : "npm create mcfly@latest";
+    try {
+      execSync(command, { stdio: "inherit" });
+    } catch (e) {
+      consola.error(e);
+    }
+}
 
 export default defineCommand({
   meta: {
@@ -22,14 +34,10 @@ export default defineCommand({
     },
   },
   async run({ args }) {
-    const directory = args.dir || args._dir;
-    const command = directory
-      ? `npm create mcfly@latest ${directory}`
-      : "npm create mcfly@latest";
-    try {
-      exec(command, { stdio: "inherit" });
-    } catch (e) {
-      consola.error(e);
-    }
+    createNew(args)
   },
 });
+
+export const exportedForTest = {
+  createNew
+}
