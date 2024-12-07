@@ -10,9 +10,6 @@ importers:
 
   packages/cli:
     dependencies:
-      '@mcflyjs/core':
-        specifier: latest
-        version: 0.5.3
       citty:
         specifier: ^0.1.4
         version: 0.1.6
@@ -20,6 +17,9 @@ importers:
         specifier: ^3.2.3
         version: 3.2.3
     devDependencies:
+      '@mcflyjs/core':
+        specifier: ^0.5.3
+        version: 0.5.3
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.8(@types/node@20.11.25)(@vitest/ui@2.1.8)(terser@5.29.1))
