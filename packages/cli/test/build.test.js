@@ -1,19 +1,48 @@
 import consola from "consola";
-import { vi } from "vitest";
-import { expect } from "vitest";
-import { test } from "vitest";
+import { vi, expect, test } from "vitest";
 import { exportedForTest } from "../commands/build.mjs";
 
-test('start build', () => {
-    const spy = vi.spyOn(consola, 'start');
+const testFn = exportedForTest.build;
 
-    exportedForTest.build();
-
-    expect(spy).toHaveBeenCalled();
+const mocks = vi.hoisted(() => {
+  return {
+    execSync: vi.fn()
+  }
 })
 
+vi.mock('node:child_process', () => {
+  return {
+    execSync: mocks.execSync
+  }
+})
+
+test("start build with message", () => {
+  const message = "Building project...";
+  const spy = vi.spyOn(consola, "start");
+
+  testFn();
+
+  expect(spy).toHaveBeenCalledWith(message);
+});
+
+test("execute nitropack build", () => {
+  const command = "npx nitropack build";
+  const param = { stdio: "inherit" };
+
+  testFn();
+
+  expect(mocks.execSync).toHaveBeenCalledWith(command, param);
+});
+
 /**
- * TODO: add tests for
- * - nitropack build exec
- * - error catch
+ * TODO
+ * - test catch error
  */
+// test("catch error", () => {
+//   const spy = vi.spyOn(consola, "error");
+//   mocks.execSync.mockImplementation(() => new Error('hey'))
+
+//   testFn();
+
+//   expect(spy).toHaveBeenCalled();
+// });
