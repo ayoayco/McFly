@@ -6,12 +6,9 @@ import { execSync } from "node:child_process";
 
 function build() {
     consola.start("Building project...");
-    console.log('jfklsdjfklds')
     try {
       execSync(`npx nitropack build`, { stdio: "inherit" });
-      console.log('called build')
     } catch (err) {
-      console.log('hyeyyy err9r')
       consola.error(err);
     }
 }
