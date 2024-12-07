@@ -27,6 +27,7 @@
     "consola": "^3.2.3"
   },
   "devDependencies": {
+    "nitropack": "2.8",
     "vitest": "^2.1.8"
   }
 }
