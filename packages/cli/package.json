@@ -10,7 +10,7 @@
   "scripts": {
     "test": "vitest",
     "test:ui": "vitest --ui",
-    "coverage": "vitest run --coverage"
+    "test:coverage": "vitest run --coverage"
   },
   "repository": {
     "type": "git",
