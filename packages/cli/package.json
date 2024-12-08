@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
-    "citty": "^0.1.4",
+    "citty": "^0.1.6",
     "consola": "^3.2.3"
   },
   "devDependencies": {
@@ -32,7 +32,7 @@
     "@vitest/coverage-istanbul": "2.1.8",
     "@vitest/coverage-v8": "2.1.8",
     "@vitest/ui": "2.1.8",
-    "nitropack": "2.8",
+    "nitropack": "~2.10.4",
     "vitest": "^2.1.8"
   }
 }
