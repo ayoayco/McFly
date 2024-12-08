@@ -13,6 +13,6 @@
     "@mcflyjs/cli": "^0.0.26",
     "@mcflyjs/config": "^0.1.4",
     "@mcflyjs/core": "^0.5.3",
-    "nitropack": "~2.10.4"
+    "nitropack": "~2.8"
   }
 }
