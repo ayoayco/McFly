@@ -12,11 +12,20 @@
   <a href="https://mc-fly.vercel.app/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
 
+## Why
+
+I often wonder what it would look like to build sites & apps knowing just the basics.
+
+I thought:
+- What if I knew how to write HTML and I can have a dynamic web page from that?
+- What if I knew how to build custom elements and that's all the component system I needed?
+- What if I can write HTML fragments and assemble them easily in a page?
+- What if I did not have to worry about the [ever-growing number of ways to have a place on the Web](https://ayos.blog/places-in-the-web/)?
+
+**McFly** is my reimagination of web development: Back to the basics. Into the future.
+
 ## Project Status 
 We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases. 
-
-> [!TIP]
-> Need help? Wanna hangout? Everyone is welcome to join [our discussion channel](https://app.element.io/#/room/#mcfly-discussions:matrix.org)!
 
 ## Installation
 Run the following to generate a McFly starter project.
