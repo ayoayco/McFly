@@ -92,16 +92,16 @@ importers:
   templates/basic:
     dependencies:
       '@mcflyjs/cli':
-        specifier: latest
+        specifier: ^0.0.26
         version: 0.0.26
       '@mcflyjs/config':
-        specifier: latest
+        specifier: ^0.1.4
         version: 0.1.4
       '@mcflyjs/core':
-        specifier: latest
+        specifier: ^0.5.3
         version: 0.5.3
       nitropack:
-        specifier: '2.8'
+        specifier: ~2.10.4
         version: 2.10.4(typescript@5.7.2)
 
 packages:
