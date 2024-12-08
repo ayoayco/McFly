@@ -17,3 +17,7 @@ const main = defineCommand({
 });
 
 runMain(main);
+
+export const exportedForTest = {
+  main,
+};
