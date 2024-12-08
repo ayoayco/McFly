@@ -9,8 +9,9 @@
 export default function () {
   return {
     framework: {
-      name: 'McFly'
+      name: "McFly",
     },
+    compatibilityDate: "2024-12-08",
     devServer: {
       watch: ["./src/pages", "./src/components"],
     },
