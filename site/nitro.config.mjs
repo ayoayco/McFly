@@ -1,8 +1,10 @@
 export default defineNitroConfig({
   extends: "@mcflyjs/config",
+
   devServer: {
     watch: ["../packages"],
   },
+
   routeRules: {
     "/chat": {
       redirect: {
@@ -11,8 +13,11 @@ export default defineNitroConfig({
       },
     },
   },
+
   compressPublicAssets: {
     gzip: true,
     brotli: true,
   },
+
+  compatibilityDate: "2024-12-08",
 });
