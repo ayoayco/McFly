@@ -23,7 +23,7 @@ jobs:
 
       - name: Install deps
         run: |
-          npm install vitest
+          npm install && npm install vitest
 
       - name: Run Vitest
         run: npx vitest run .
