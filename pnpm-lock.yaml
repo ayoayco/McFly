@@ -23,6 +23,9 @@ importers:
       prettier:
         specifier: ^3.4.2
         version: 3.4.2
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.8(@types/node@22.10.1)(@vitest/ui@2.1.8)(terser@5.37.0)
 
   packages/cli:
     dependencies:
