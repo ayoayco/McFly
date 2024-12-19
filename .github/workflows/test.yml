@@ -26,5 +26,5 @@ jobs:
           npm install --ignore-scripts
 
       - name: Run CLI tests
-        run: cd packages/cli npm run test run .
+        run: cd packages/cli && npm run test run .
         continue-on-error: false
