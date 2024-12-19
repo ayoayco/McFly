@@ -5,7 +5,7 @@
 class MyHelloWorld extends WebComponent {
   static props = {
     myName: 'World',
-    count: 0
+    count: 0,
   }
 
   updateLabel() {
@@ -13,9 +13,11 @@ class MyHelloWorld extends WebComponent {
   }
 
   get template() {
-    return html`
-      <button onClick=${() => this.updateLabel()} style="cursor:pointer">
-        Hello ${this.props.myName}!
-      </button>`;
+    return html` <button
+      onClick=${() => this.updateLabel()}
+      style="cursor:pointer"
+    >
+      Hello ${this.props.myName}!
+    </button>`
   }
 }

@@ -1,6 +1,6 @@
-import { eventHandler } from "h3";
-import { ELEMENT_NODE, parse, render, renderSync, walkSync } from "ultrahtml";
-import { parseScript } from "esprima";
+import { eventHandler } from 'h3'
+import { ELEMENT_NODE, parse, render, renderSync, walkSync } from 'ultrahtml'
+import { parseScript } from 'esprima'
 
 /**
  * @typedef {import('./define-config.js').McFlyConfig} Config
@@ -21,36 +21,36 @@ import { parseScript } from "esprima";
  */
 export function useMcFlyRoute({ config, storage }) {
   return eventHandler(async (event) => {
-    const { path } = event;
-    const { components: componentType } = config();
-    let html = await getHtml(path, storage);
+    const { path } = event
+    const { components: componentType } = config()
+    let html = await getHtml(path, storage)
 
     if (html) {
-      const transforms = [doSetUp, deleteServerScripts];
+      const transforms = [doSetUp, deleteServerScripts]
 
       for (const transform of transforms) {
-        html = transform(html.toString());
+        html = transform(html.toString())
       }
 
-      html = await useFragments(html.toString(), storage);
+      html = await useFragments(html.toString(), storage)
 
       if (!!componentType && !!html) {
-        html = await insertRegistry(html.toString(), componentType, storage);
+        html = await insertRegistry(html.toString(), componentType, storage)
       }
     }
 
     return (
       html ??
       new Response(
-        "😱 ERROR 404: Not found. You can put a 404.html on the ./src/pages directory to customize this error page.",
+        '😱 ERROR 404: Not found. You can put a 404.html on the ./src/pages directory to customize this error page.',
         { status: 404 }
       )
-    );
-  });
+    )
+  })
 }
 
 function getPurePath(path) {
-  return path.split("?")[0];
+  return path.split('?')[0]
 }
 
 /**
@@ -60,17 +60,17 @@ function getPurePath(path) {
  * @returns {Promise<StorageValue>}
  */
 async function getHtml(path, storage) {
-  const purePath = getPurePath(path);
+  const purePath = getPurePath(path)
   const rawPath =
-    purePath[purePath.length - 1] === "/" ? purePath.slice(0, -1) : purePath;
-  const filename = rawPath === "" ? "/index.html" : `${rawPath}.html`;
-  const fallback = getPath(rawPath + "/index.html");
-  const filePath = getPath(filename);
-  let html = await storage.getItem(filePath);
-  if (!html) html = await storage.getItem(fallback);
-  if (!html) html = await storage.getItem(getPath("/404.html"));
+    purePath[purePath.length - 1] === '/' ? purePath.slice(0, -1) : purePath
+  const filename = rawPath === '' ? '/index.html' : `${rawPath}.html`
+  const fallback = getPath(rawPath + '/index.html')
+  const filePath = getPath(filename)
+  let html = await storage.getItem(filePath)
+  if (!html) html = await storage.getItem(fallback)
+  if (!html) html = await storage.getItem(getPath('/404.html'))
 
-  return html;
+  return html
 }
 
 /**
@@ -79,7 +79,7 @@ async function getHtml(path, storage) {
  * @returns {string}
  */
 function getPath(filename) {
-  return `assets:pages${filename}`;
+  return `assets:pages${filename}`
 }
 
 /**
@@ -90,21 +90,21 @@ function getPath(filename) {
  * @returns {Promise<string>}
  */
 async function insertRegistry(html, type, storage) {
-  const ast = parse(html);
-  const componentFiles = await getFiles(type, storage);
+  const ast = parse(html)
+  const componentFiles = await getFiles(type, storage)
   const availableComponents = componentFiles.map((key) =>
-    key.replace(`.${type}`, "")
-  );
+    key.replace(`.${type}`, '')
+  )
 
-  const usedCustomElements = [];
+  const usedCustomElements = []
 
   walkSync(ast, (node) => {
-    const usedElement = availableComponents.find((name) => name === node.name);
+    const usedElement = availableComponents.find((name) => name === node.name)
 
     if (node.type === ELEMENT_NODE && !!usedElement) {
-      usedCustomElements.push(usedElement);
+      usedCustomElements.push(usedElement)
     }
-  });
+  })
 
   // insert registry script to head
   if (usedCustomElements.length > 0) {
@@ -112,15 +112,15 @@ async function insertRegistry(html, type, storage) {
       usedCustomElements,
       type,
       storage
-    );
+    )
     walkSync(ast, (node) => {
-      if (node.type === ELEMENT_NODE && node.name === "head") {
-        node.children.push(parse(registryScript));
+      if (node.type === ELEMENT_NODE && node.name === 'head') {
+        node.children.push(parse(registryScript))
       }
-    });
+    })
   }
 
-  return render(ast);
+  return render(ast)
 }
 
 /**
@@ -131,41 +131,41 @@ async function insertRegistry(html, type, storage) {
  * @returns {Promise<string>}
  */
 async function buildRegistry(usedCustomElements, type, storage) {
-  let registryScript = `<script type='module'>`;
-  let isBaseClassImported = false;
-  let classesImported = [];
+  let registryScript = `<script type='module'>`
+  let isBaseClassImported = false
+  let classesImported = []
 
   for (const name of usedCustomElements) {
-    const content = await storage.getItem(`assets:components:${name}.${type}`);
-    if (!content) continue;
+    const content = await storage.getItem(`assets:components:${name}.${type}`)
+    if (!content) continue
     const evalStore = eval(
       `class WebComponent {}; class HTMLElement {}; (${content.toString()})`
-    );
+    )
 
     if (isConstructor(evalStore)) {
-      const className = new evalStore().constructor.name;
+      const className = new evalStore().constructor.name
 
       if (!classesImported.includes(className)) {
         if (
           !isBaseClassImported &&
-          content.toString().includes("extends WebComponent")
+          content.toString().includes('extends WebComponent')
         ) {
-          const baseClassImport = `import { WebComponent, html, attachEffect } from "https://unpkg.com/web-component-base@2.0.6/index.js";`;
-          registryScript += baseClassImport;
-          isBaseClassImported = true;
+          const baseClassImport = `import { WebComponent, html, attachEffect } from "https://unpkg.com/web-component-base@2.0.6/index.js";`
+          registryScript += baseClassImport
+          isBaseClassImported = true
         }
 
-        registryScript += content;
+        registryScript += content
 
-        registryScript += `customElements.define("${name}", ${className});`;
-        classesImported.push(className);
+        registryScript += `customElements.define("${name}", ${className});`
+        classesImported.push(className)
       }
     }
   }
 
-  registryScript += "</script>";
+  registryScript += '</script>'
 
-  return registryScript;
+  return registryScript
 }
 
 /**
@@ -175,13 +175,13 @@ async function buildRegistry(usedCustomElements, type, storage) {
  */
 function isConstructor(f) {
   try {
-    new f();
+    new f()
     // eslint-disable-next-line no-unused-vars
   } catch (err) {
     // TODO: verify err is the expected error and then
-    return false;
+    return false
   }
-  return true;
+  return true
 }
 
 /**
@@ -190,56 +190,56 @@ function isConstructor(f) {
  * @returns {string}
  */
 function doSetUp(html) {
-  const ast = parse(html);
-  const serverScripts = [];
+  const ast = parse(html)
+  const serverScripts = []
   walkSync(ast, (node) => {
-    const { attributes } = node;
-    const attributeKeys = Object.keys(attributes ?? {});
-    const isServerScript = attributeKeys.some((key) => key.includes("server:"));
+    const { attributes } = node
+    const attributeKeys = Object.keys(attributes ?? {})
+    const isServerScript = attributeKeys.some((key) => key.includes('server:'))
     if (
       node.type === ELEMENT_NODE &&
-      node.name === "script" &&
+      node.name === 'script' &&
       isServerScript
     ) {
-      const scripts = node.children.map((child) => child.value);
-      const script = cleanScript(scripts);
-      serverScripts.push(script);
+      const scripts = node.children.map((child) => child.value)
+      const script = cleanScript(scripts)
+      serverScripts.push(script)
     }
-  });
+  })
 
-  const setupMap = {};
+  const setupMap = {}
   serverScripts.forEach((script) => {
-    const { body } = parseScript(script);
+    const { body } = parseScript(script)
     const keys = body
-      .filter((n) => n.type === "VariableDeclaration")
-      .map((n) => n["declarations"][0].id.name);
+      .filter((n) => n.type === 'VariableDeclaration')
+      .map((n) => n['declarations'][0].id.name)
     const constructor = `(function(){}.constructor)(\`${script}; return {${keys.join(
-      ","
-    )}}\`);`;
-    const evalStore = eval(constructor);
-    Object.assign(setupMap, new evalStore());
-  });
+      ','
+    )}}\`);`
+    const evalStore = eval(constructor)
+    Object.assign(setupMap, new evalStore())
+  })
 
-  const regex = /{{(.*?)}}/g;
-  let match;
+  const regex = /{{(.*?)}}/g
+  let match
 
   while ((match = regex.exec(html))) {
-    let [key, value] = match;
-    value = value.replace(/\s/g, "");
+    let [key, value] = match
+    value = value.replace(/\s/g, '')
     // nested objects
-    const keys = value.split(".");
-    let finalValue = "";
-    let setupCopy = setupMap;
+    const keys = value.split('.')
+    let finalValue = ''
+    let setupCopy = setupMap
 
     keys.forEach((i) => {
-      finalValue = setupCopy[i];
-      setupCopy = finalValue;
-    });
+      finalValue = setupCopy[i]
+      setupCopy = finalValue
+    })
 
-    html = html.replace(key, finalValue);
+    html = html.replace(key, finalValue)
   }
 
-  return html;
+  return html
 }
 
 /**
@@ -248,17 +248,17 @@ function doSetUp(html) {
  * @returns {string}
  */
 function deleteServerScripts(html) {
-  const ast = parse(html);
+  const ast = parse(html)
   walkSync(ast, (node) => {
-    const { attributes } = node;
-    const attributeKeys = Object.keys(attributes ?? {});
-    const isServerScript = attributeKeys.some((key) => key.includes("server:"));
+    const { attributes } = node
+    const attributeKeys = Object.keys(attributes ?? {})
+    const isServerScript = attributeKeys.some((key) => key.includes('server:'))
     if (isServerScript && !!node.parent) {
-      node.parent.children.splice(node.parent.children.indexOf(node), 1);
+      node.parent.children.splice(node.parent.children.indexOf(node), 1)
     }
-  });
+  })
 
-  return renderSync(ast);
+  return renderSync(ast)
 }
 
 /**
@@ -267,11 +267,11 @@ function deleteServerScripts(html) {
  * @returns {string}
  */
 function cleanScript(scripts) {
-  let script = scripts.map((s) => s.trim()).join(" ");
+  let script = scripts.map((s) => s.trim()).join(' ')
 
-  script = removeComments(script);
+  script = removeComments(script)
 
-  return script.replace(/\n/g, "").replace(/\s+/g, " ");
+  return script.replace(/\n/g, '').replace(/\s+/g, ' ')
 }
 
 /**
@@ -281,11 +281,11 @@ function cleanScript(scripts) {
  */
 function isComment(node) {
   return (
-    node.type === "Line" ||
-    node.type === "Block" ||
-    node.type === "BlockComment" ||
-    node.type === "LineComment"
-  );
+    node.type === 'Line' ||
+    node.type === 'Block' ||
+    node.type === 'BlockComment' ||
+    node.type === 'LineComment'
+  )
 }
 
 /**
@@ -294,25 +294,25 @@ function isComment(node) {
  * @returns {string}
  */
 function removeComments(script) {
-  const entries = [];
+  const entries = []
   parseScript(script, { comment: true }, function (node, meta) {
     if (isComment(node)) {
       entries.push({
         start: meta.start.offset,
         end: meta.end.offset,
-      });
+      })
     }
-  });
+  })
 
   entries
     .sort((a, b) => {
-      return b.end - a.end;
+      return b.end - a.end
     })
     .forEach((n) => {
-      script = script.slice(0, n.start) + script.slice(n.end);
-    });
+      script = script.slice(0, n.start) + script.slice(n.end)
+    })
 
-  return script;
+  return script
 }
 
 /**
@@ -322,44 +322,44 @@ function removeComments(script) {
  * @returns {Promise<string>}
  */
 async function useFragments(html, storage) {
-  const fragmentFiles = await getFiles("html", storage);
+  const fragmentFiles = await getFiles('html', storage)
 
   const availableFragments = fragmentFiles.reduce((acc, key) => {
     return {
       ...acc,
-      [key.replace(".html", "")]: "",
-    };
-  }, {});
-  const ast = parse(html);
+      [key.replace('.html', '')]: '',
+    }
+  }, {})
+  const ast = parse(html)
 
   for (const key in availableFragments) {
     /**
      * @type string | null
      */
-    let text = await storage.getItem("assets:components:" + key + ".html");
-    if (!text) continue;
-    availableFragments[key] = text.replace(/\n/g, "").replace(/\s+/g, " ");
+    let text = await storage.getItem('assets:components:' + key + '.html')
+    if (!text) continue
+    availableFragments[key] = text.replace(/\n/g, '').replace(/\s+/g, ' ')
   }
 
   walkSync(ast, (node) => {
     const selector = Object.keys(availableFragments).find(
       (name) => name === node.name
-    );
+    )
 
     if (node.type === ELEMENT_NODE && !!selector) {
-      const index = node.parent.children.indexOf(node);
+      const index = node.parent.children.indexOf(node)
       /**
        * @type {HtmlNode}
        */
-      const fragmentNode = parse(availableFragments[selector]);
+      const fragmentNode = parse(availableFragments[selector])
 
-      replaceSlots(fragmentNode, node);
+      replaceSlots(fragmentNode, node)
 
-      node.parent.children[index] = fragmentNode;
+      node.parent.children[index] = fragmentNode
     }
-  });
+  })
 
-  return render(ast);
+  return render(ast)
 }
 
 /**
@@ -369,32 +369,32 @@ async function useFragments(html, storage) {
  * @returns {void}
  */
 function replaceSlots(fragmentNode, node) {
-  let slotted = [];
-  const containsAll = (arr, target) => target.every((v) => arr.includes(v));
+  let slotted = []
+  const containsAll = (arr, target) => target.every((v) => arr.includes(v))
   walkSync(fragmentNode, (n) => {
-    if (n.type === ELEMENT_NODE && n.name === "slot") {
+    if (n.type === ELEMENT_NODE && n.name === 'slot') {
       // find node child with same name attribute
-      const currentSlotName = n.attributes?.["name"] ?? null;
-      let nodeChildren = [];
+      const currentSlotName = n.attributes?.['name'] ?? null
+      let nodeChildren = []
 
       if (currentSlotName === null) {
         nodeChildren = node.children.filter(
-          (child) => !child.attributes?.["slot"]
-        );
+          (child) => !child.attributes?.['slot']
+        )
       } else {
         nodeChildren = node.children.filter((child) => {
-          const childSlotName = child.attributes?.["slot"];
-          return childSlotName === currentSlotName;
-        });
+          const childSlotName = child.attributes?.['slot']
+          return childSlotName === currentSlotName
+        })
       }
 
       if (nodeChildren.length > 0 && !containsAll(slotted, nodeChildren)) {
-        slotted = [...slotted, ...nodeChildren];
-        const index = n.parent.children.indexOf(n);
-        n.parent.children.splice(index, 1, ...nodeChildren);
+        slotted = [...slotted, ...nodeChildren]
+        const index = n.parent.children.indexOf(n)
+        n.parent.children.splice(index, 1, ...nodeChildren)
       }
     }
-  });
+  })
 }
 
 /**
@@ -404,7 +404,7 @@ function replaceSlots(fragmentNode, node) {
  * @returns {Promise<string[]>}
  */
 async function getFiles(type, storage) {
-  return (await storage.getKeys("assets:components"))
-    .map((key) => key.replace("assets:components:", ""))
-    .filter((key) => key.includes(type));
+  return (await storage.getKeys('assets:components'))
+    .map((key) => key.replace('assets:components:', ''))
+    .filter((key) => key.includes(type))
 }

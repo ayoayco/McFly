@@ -10,5 +10,5 @@
  * @returns {function(): McFlyConfig}
  */
 export function defineMcFlyConfig(config) {
-  return () => config;
+  return () => config
 }

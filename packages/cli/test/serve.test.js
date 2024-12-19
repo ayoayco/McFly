@@ -1,83 +1,83 @@
-import { describe, expect, test, vi } from "vitest";
-import { exportedForTest } from "../commands/serve.mjs";
-import consola from "consola";
+import { describe, expect, test, vi } from 'vitest'
+import { exportedForTest } from '../commands/serve.mjs'
+import consola from 'consola'
 
-describe("FUNCTION: serve()", () => {
-  const testFn = exportedForTest.serve;
+describe('FUNCTION: serve()', () => {
+  const testFn = exportedForTest.serve
   const mocks = vi.hoisted(() => {
     return {
       execSync: vi.fn(),
-    };
-  });
+    }
+  })
 
-  vi.mock("node:child_process", () => {
+  vi.mock('node:child_process', () => {
     return {
       execSync: mocks.execSync,
-    };
-  });
+    }
+  })
 
-  test("execute nitropack serve", async () => {
-    const command = `npx nitropack dev`;
-    const param = { stdio: "inherit" };
+  test('execute nitropack serve', async () => {
+    const command = `npx nitropack dev`
+    const param = { stdio: 'inherit' }
 
-    testFn();
+    testFn()
 
-    expect(mocks.execSync).toHaveBeenCalledWith(command, param);
-  });
+    expect(mocks.execSync).toHaveBeenCalledWith(command, param)
+  })
 
-  test("catch error", () => {
-    const spy = vi.spyOn(consola, "error");
+  test('catch error', () => {
+    const spy = vi.spyOn(consola, 'error')
     mocks.execSync.mockImplementationOnce(() => {
-      throw new Error("hey");
-    });
+      throw new Error('hey')
+    })
 
-    testFn();
+    testFn()
 
-    expect(spy).toHaveBeenCalledWith(new Error("hey"));
-  });
-});
+    expect(spy).toHaveBeenCalledWith(new Error('hey'))
+  })
+})
 
-describe("FUNCTION: printInfo()", () => {
-  const testFn = exportedForTest.printInfo;
+describe('FUNCTION: printInfo()', () => {
+  const testFn = exportedForTest.printInfo
 
   const createRequireMocks = vi.hoisted(() => {
     return {
       createRequire: vi.fn(),
-    };
-  });
+    }
+  })
 
-  vi.mock("node:module", () => {
+  vi.mock('node:module', () => {
     return {
       createRequire: createRequireMocks.createRequire,
-    };
-  });
+    }
+  })
 
-  test("log mcfly and nitro versions", async () => {
-    const spy = vi.spyOn(consola, "log");
-    const fakeMessage = "McFly -1.0.0 Nitro -1.0.0";
+  test('log mcfly and nitro versions', async () => {
+    const spy = vi.spyOn(consola, 'log')
+    const fakeMessage = 'McFly -1.0.0 Nitro -1.0.0'
     createRequireMocks.createRequire.mockImplementationOnce(() => {
       return () => {
         return {
-          version: "-1.0.0",
-        };
-      };
-    });
+          version: '-1.0.0',
+        }
+      }
+    })
 
-    await testFn();
+    await testFn()
 
-    expect(spy.mock.calls[0][0]).toContain("McFly");
-    expect(spy.mock.calls[0][0]).toContain("Nitro");
-    expect(spy).toHaveBeenCalledWith(fakeMessage);
-  });
+    expect(spy.mock.calls[0][0]).toContain('McFly')
+    expect(spy.mock.calls[0][0]).toContain('Nitro')
+    expect(spy).toHaveBeenCalledWith(fakeMessage)
+  })
 
-  test("catch error", async () => {
+  test('catch error', async () => {
     createRequireMocks.createRequire.mockImplementationOnce(() => {
-      throw new Error("error");
-    });
-    const spy = vi.spyOn(consola, "error");
+      throw new Error('error')
+    })
+    const spy = vi.spyOn(consola, 'error')
 
-    await testFn();
+    await testFn()
 
-    expect(spy).toHaveBeenCalledWith(new Error("error"));
-  });
-});
+    expect(spy).toHaveBeenCalledWith(new Error('error'))
+  })
+})

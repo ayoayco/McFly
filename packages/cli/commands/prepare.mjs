@@ -1,38 +1,38 @@
 #!/usr/bin/env node
 
-import { consola } from "consola";
-import { defineCommand } from "citty";
-import { execSync } from "node:child_process";
+import { consola } from 'consola'
+import { defineCommand } from 'citty'
+import { execSync } from 'node:child_process'
 
 function prepare() {
-    consola.start("Preparing McFly workspace...");
+  consola.start('Preparing McFly workspace...')
 
-    let err;
+  let err
 
-    try {
-      execSync("npx nitropack prepare", { stdio: "inherit" });
-    } catch (e) {
-      consola.error(e);
-      err = e;
-    }
+  try {
+    execSync('npx nitropack prepare', { stdio: 'inherit' })
+  } catch (e) {
+    consola.error(e)
+    err = e
+  }
 
-    if (err) {
-      consola.fail(
-        "McFly workspace preparation failed. Please make sure dependencies are installed.\n"
-      );
-    } else consola.success("Done\n");
+  if (err) {
+    consola.fail(
+      'McFly workspace preparation failed. Please make sure dependencies are installed.\n'
+    )
+  } else consola.success('Done\n')
 }
 
 export default defineCommand({
   meta: {
-    name: "prepare",
-    description: "Prepares the McFly workspace.",
+    name: 'prepare',
+    description: 'Prepares the McFly workspace.',
   },
   run() {
-    prepare();
+    prepare()
   },
-});
+})
 
 export const exportedForTest = {
-  prepare
+  prepare,
 }

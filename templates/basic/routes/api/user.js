@@ -5,7 +5,7 @@
  */
 export default eventHandler(() => {
   return {
-    user: "AYO",
+    user: 'AYO',
     date: new Date(),
-  };
-});
+  }
+})

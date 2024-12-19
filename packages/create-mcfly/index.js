@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import { consola } from "consola";
-import { colorize } from "consola/utils";
-import { downloadTemplate } from "giget";
-import { spawnSync } from "node:child_process";
-import path from "node:path";
+import { consola } from 'consola'
+import { colorize } from 'consola/utils'
+import { downloadTemplate } from 'giget'
+import { spawnSync } from 'node:child_process'
+import path from 'node:path'
 
-const [, , directoryArg] = process.argv;
+const [, , directoryArg] = process.argv
 
 /**
  * @typedef {{
@@ -23,25 +23,25 @@ const [, , directoryArg] = process.argv;
  * Create McFly App
  */
 async function create() {
-  const defaultDirectory = "mcfly-app";
-  consola.box(`Hello! Welcome to ${colorize("bold", "McFly")}!`);
-  let directory = directoryArg;
+  const defaultDirectory = 'mcfly-app'
+  consola.box(`Hello! Welcome to ${colorize('bold', 'McFly')}!`)
+  let directory = directoryArg
 
   if (!directory) {
     directory =
-      (await consola.prompt("Give your new project a name:", {
+      (await consola.prompt('Give your new project a name:', {
         placeholder: defaultDirectory,
-      })) ?? defaultDirectory;
+      })) ?? defaultDirectory
   } else {
-    consola.success(`Using ${directory} as name.`);
+    consola.success(`Using ${directory} as name.`)
   }
 
-  if (typeof directory !== "string") {
-    return;
+  if (typeof directory !== 'string') {
+    return
   }
 
-  directory = getSafeDirectory(directory);
-  const hasErrors = await downloadTemplateToDirectory(directory);
+  directory = getSafeDirectory(directory)
+  const hasErrors = await downloadTemplateToDirectory(directory)
 
   if (!hasErrors) {
     /**
@@ -50,33 +50,33 @@ async function create() {
     const prompts = [
       {
         prompt: `Would you like to install the dependencies to ${colorize(
-          "bold",
+          'bold',
           directory
         )}?`,
-        info: "This might take some time depending on your connectivity.",
-        startMessage: "Installing dependencies using npm...",
+        info: 'This might take some time depending on your connectivity.',
+        startMessage: 'Installing dependencies using npm...',
         command: `npm`,
-        subCommand: "install",
+        subCommand: 'install',
         error: `Install dependencies later with ${colorize(
-          "yellow",
-          "npm install"
+          'yellow',
+          'npm install'
         )}`,
       },
       {
-        prompt: "Would you like to initialize your git repository?",
-        startMessage: "Initializing git repository...",
+        prompt: 'Would you like to initialize your git repository?',
+        startMessage: 'Initializing git repository...',
         command: `git`,
-        subCommand: "init",
+        subCommand: 'init',
         error: `Initialize git repository later with ${colorize(
-          "yellow",
-          "git init"
+          'yellow',
+          'git init'
         )}`,
       },
-    ];
+    ]
 
-    const intentions = await askPrompts(prompts, directory);
+    const intentions = await askPrompts(prompts, directory)
     if (!!intentions && intentions.length > 0)
-      showResults(directory, intentions[0]);
+      showResults(directory, intentions[0])
   }
 }
 
@@ -86,10 +86,10 @@ async function create() {
  * @returns string | undefined
  */
 function getSafeDirectory(directory) {
-  const { platform } = process;
-  const locale = path[platform === `win32` ? `win32` : `posix`];
-  const localePath = directory.split(path.sep).join(locale.sep);
-  return path.normalize(localePath);
+  const { platform } = process
+  const locale = path[platform === `win32` ? `win32` : `posix`]
+  const localePath = directory.split(path.sep).join(locale.sep)
+  return path.normalize(localePath)
 }
 
 /**
@@ -98,22 +98,22 @@ function getSafeDirectory(directory) {
  * @returns Promise<boolean> hasErrors
  */
 async function downloadTemplateToDirectory(directory) {
-  let hasErrors = false;
+  let hasErrors = false
 
   try {
     consola.start(
-      `Copying template to ${colorize("bold", getSafeDirectory(directory))}...`
-    );
-    await downloadTemplate("github:ayoayco/mcfly/templates/basic", {
+      `Copying template to ${colorize('bold', getSafeDirectory(directory))}...`
+    )
+    await downloadTemplate('github:ayoayco/mcfly/templates/basic', {
       dir: directory,
-    });
+    })
   } catch (ㆆ_ㆆ) {
-    consola.error(ㆆ_ㆆ.message);
-    consola.info("Try a different name.\n");
-    hasErrors = true;
+    consola.error(ㆆ_ㆆ.message)
+    consola.info('Try a different name.\n')
+    hasErrors = true
   }
 
-  return hasErrors;
+  return hasErrors
 }
 
 /**
@@ -123,37 +123,37 @@ async function downloadTemplateToDirectory(directory) {
  * @returns Array<boolean> | undefined
  */
 async function askPrompts(prompts, cwd) {
-  const results = [];
+  const results = []
 
   for (const p of prompts) {
     const userIntends = await consola.prompt(p.prompt, {
-      type: "confirm",
-    });
+      type: 'confirm',
+    })
 
-    if (typeof userIntends !== "boolean") {
-      return;
+    if (typeof userIntends !== 'boolean') {
+      return
     }
 
     if (userIntends) {
-      p.info && consola.info(p.info);
-      consola.start(p.startMessage);
+      p.info && consola.info(p.info)
+      consola.start(p.startMessage)
       try {
         spawnSync(p.command, [p.subCommand], {
           cwd,
           shell: true,
           timeout: 100_000,
-          stdio: "inherit",
-        });
-        consola.success("Done!");
+          stdio: 'inherit',
+        })
+        consola.success('Done!')
       } catch (ㆆ_ㆆ) {
-        consola.error(ㆆ_ㆆ.message);
-        consola.info(p.error + "\n");
+        consola.error(ㆆ_ㆆ.message)
+        consola.info(p.error + '\n')
       }
     }
-    results.push(userIntends);
+    results.push(userIntends)
   }
 
-  return results;
+  return results
 }
 
 /**
@@ -163,28 +163,28 @@ async function askPrompts(prompts, cwd) {
  */
 function showResults(directory, installDeps) {
   let nextActions = [
-    `Go to your project by running ${colorize("yellow", `cd ${directory}`)}`,
-  ];
+    `Go to your project by running ${colorize('yellow', `cd ${directory}`)}`,
+  ]
 
   if (!installDeps) {
     nextActions.push(
-      `Install the dependencies with ${colorize("yellow", "npm install")}`
-    );
+      `Install the dependencies with ${colorize('yellow', 'npm install')}`
+    )
   }
 
   nextActions = nextActions.concat([
-    `Start the dev server with ${colorize("yellow", "npm start")}`,
-    `Join us at ${colorize("blue", "https://ayco.io/gh/McFly")}`,
-  ]);
+    `Start the dev server with ${colorize('yellow', 'npm start')}`,
+    `Join us at ${colorize('blue', 'https://ayco.io/gh/McFly')}`,
+  ])
 
   const result = `🎉 Your new ${colorize(
-    "bold",
-    "McFly"
+    'bold',
+    'McFly'
   )} app is ready: ${directory}\n\nNext actions: ${nextActions
     .map((action, index) => `\n${++index}. ${action}`)
-    .join("")}`;
+    .join('')}`
 
-  consola.box(result);
+  consola.box(result)
 }
 
-create();
+create()

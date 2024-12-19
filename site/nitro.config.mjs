@@ -1,14 +1,14 @@
 export default defineNitroConfig({
-  extends: "@mcflyjs/config",
+  extends: '@mcflyjs/config',
 
   devServer: {
-    watch: ["../packages"],
+    watch: ['../packages'],
   },
 
   routeRules: {
-    "/chat": {
+    '/chat': {
       redirect: {
-        to: "https://matrix.to/#/#mcfly:matrix.org",
+        to: 'https://matrix.to/#/#mcfly:matrix.org',
         statusCode: 302,
       },
     },
@@ -19,5 +19,5 @@ export default defineNitroConfig({
     brotli: true,
   },
 
-  compatibilityDate: "2024-12-08",
-});
+  compatibilityDate: '2024-12-08',
+})

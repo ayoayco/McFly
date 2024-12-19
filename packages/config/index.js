@@ -9,33 +9,33 @@
 export default function () {
   return {
     framework: {
-      name: "McFly",
+      name: 'McFly',
     },
-    compatibilityDate: "2024-12-08",
+    compatibilityDate: '2024-12-08',
     devServer: {
-      watch: ["./src/pages", "./src/components"],
+      watch: ['./src/pages', './src/components'],
     },
     serverAssets: [
       {
-        baseName: "pages",
-        dir: "./src/pages",
+        baseName: 'pages',
+        dir: './src/pages',
       },
       {
-        baseName: "components",
-        dir: "./src/components",
+        baseName: 'components',
+        dir: './src/components',
       },
     ],
     imports: {
       presets: [
         {
-          from: "web-component-base",
-          imports: ["WebComponent", "html", "attachEffect"],
+          from: 'web-component-base',
+          imports: ['WebComponent', 'html', 'attachEffect'],
         },
         {
-          from: "@mcflyjs/core",
-          imports: ["useMcFlyRoute", "defineMcFlyConfig"],
+          from: '@mcflyjs/core',
+          imports: ['useMcFlyRoute', 'defineMcFlyConfig'],
         },
       ],
     },
-  };
+  }
 }
