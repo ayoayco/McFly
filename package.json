@@ -10,7 +10,7 @@
     "create": "node ./packages/create-mcfly",
     "cli": "node ./packages/cli",
     "test:cli": "cd packages/cli && pnpm run test",
-    "lint": "eslint . --config eslint.config.js",
+    "lint": "eslint . --config eslint.config.mjs",
     "format": "prettier --write \"./**/*.{js,mjs,json}\"",
     "prepare": "husky"
   },
