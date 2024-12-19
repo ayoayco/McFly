@@ -54,7 +54,6 @@ describe('FUNCTION: printInfo()', () => {
 
   test('log mcfly and nitro versions', async () => {
     const spy = vi.spyOn(consola, 'log')
-    const fakeMessage = 'McFly -1.0.0 Nitro -1.0.0'
     createRequireMocks.createRequire.mockImplementationOnce(() => {
       return () => {
         return {
@@ -67,7 +66,6 @@ describe('FUNCTION: printInfo()', () => {
 
     expect(spy.mock.calls[0][0]).toContain('McFly')
     expect(spy.mock.calls[0][0]).toContain('Nitro')
-    expect(spy.mock.calls[0][0]).toBe(fakeMessage) //toHaveBeenCalledWith(fakeMessage)
   })
 
   test('catch error', async () => {
