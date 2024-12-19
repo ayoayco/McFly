@@ -176,6 +176,7 @@ async function buildRegistry(usedCustomElements, type, storage) {
 function isConstructor(f) {
   try {
     new f();
+    // eslint-disable-next-line no-unused-vars
   } catch (err) {
     // TODO: verify err is the expected error and then
     return false;
