@@ -67,7 +67,7 @@ describe('FUNCTION: printInfo()', () => {
 
     expect(spy.mock.calls[0][0]).toContain('McFly')
     expect(spy.mock.calls[0][0]).toContain('Nitro')
-    expect(spy).toHaveBeenCalledWith(fakeMessage)
+    expect(spy.mock.calls[0][0]).toBe(fakeMessage) //toHaveBeenCalledWith(fakeMessage)
   })
 
   test('catch error', async () => {
