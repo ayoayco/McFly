@@ -23,8 +23,8 @@ jobs:
 
       - name: Install deps
         run: |
-          npm install --ignore-scripts && npm install vitest
+          npm install --ignore-scripts
 
       - name: Run Vitest
-        run: npx vitest run .
+        run: npm run test:cli run .
         continue-on-error: false
