@@ -1,4 +1,6 @@
+# someday let's think about formatting html
 **/*.html
+
 **/*.md
 **/*.css
 **/*.yml
