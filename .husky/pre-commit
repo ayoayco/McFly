@@ -1,2 +1,2 @@
-pnpm run test:cli run
-pnpm run lint
+npm run test:cli run
+npm run lint
