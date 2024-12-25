@@ -10,7 +10,7 @@ export default [
       'dist/*',
       '.output/*',
       '.nitro/*',
-      'node-modules*',
+      'node_modules*',
       'site/*',
       'templates/*',
     ],
