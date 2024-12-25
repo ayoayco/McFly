@@ -13,7 +13,7 @@ export default [
       'site/*',
       'templates/*',
       '**/coverage/*',
-      '**/node_modules/*'
+      '**/node_modules/*',
     ],
   },
 ]
