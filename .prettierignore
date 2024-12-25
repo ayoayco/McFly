@@ -1,1 +1,5 @@
-pnpm-*.yaml
+**/*.html
+**/*.md
+**/*.css
+**/*.yml
+**/*.yaml
