@@ -41,7 +41,7 @@ importers:
     devDependencies:
       '@mcflyjs/core':
         specifier: ^0.5.4
-        version: 0.5.4
+        version: 0.5.6
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -62,7 +62,7 @@ importers:
     dependencies:
       '@mcflyjs/core':
         specifier: latest
-        version: 0.5.4
+        version: 0.5.6
       web-component-base:
         specifier: ^2.0.6
         version: 2.1.2
@@ -123,8 +123,8 @@ importers:
         specifier: ^0.1.5
         version: 0.1.5
       '@mcflyjs/core':
-        specifier: ^0.5.4
-        version: 0.5.4
+        specifier: ^0.5.6
+        version: 0.5.6
       nitropack:
         specifier: ~2.10.4
         version: 2.10.4(typescript@5.7.2)
@@ -608,8 +608,8 @@ packages:
   '@mcflyjs/config@0.1.5':
     resolution: {integrity: sha512-FtuQai5CP8cuYESfs3LPgaQ+5gN/dOTCqY9sYypsC0fL6W20a8Nf19yWryLoNodX/Ahjy09BzKL4PFc8EgPD9w==}
 
-  '@mcflyjs/core@0.5.4':
-    resolution: {integrity: sha512-5zLwPeCdbtQUaMkyPfEHW6u2TPe04XJomPhtQ7KSgEIJ6f7nkeRsNXKEZJA4rFMHu4sAX3LKlGXTNed5aJzN1A==}
+  '@mcflyjs/core@0.5.6':
+    resolution: {integrity: sha512-7iLsdbE3tJ8vGulmsPh/4QkycSxWI5CrqsCYFIXQRkEFq1hI1LEwV9MQbx4ak/np6/ud6xExssz8r1UeNz71tQ==}
 
   '@netlify/functions@2.8.2':
     resolution: {integrity: sha512-DeoAQh8LuNPvBE4qsKlezjKj0PyXDryOFJfJKo3Z1qZLKzQ21sT314KQKPVjfvw6knqijj+IO+0kHXy/TJiqNA==}
@@ -3087,12 +3087,12 @@ snapshots:
 
   '@mcflyjs/config@0.1.5':
     dependencies:
-      '@mcflyjs/core': 0.5.4
+      '@mcflyjs/core': 0.5.6
       web-component-base: 2.1.2
     transitivePeerDependencies:
       - uWebSockets.js
 
-  '@mcflyjs/core@0.5.4':
+  '@mcflyjs/core@0.5.6':
     dependencies:
       esbuild: 0.24.2
       esprima: 4.0.1
