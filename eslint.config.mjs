@@ -13,8 +13,8 @@ const gitignorePath = path.resolve(__dirname, '.gitignore')
 export default [
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
-  includeIgnoreFile(gitignorePath),
   eslintPluginPrettierRecommended,
+  includeIgnoreFile(gitignorePath),
   {
     ignores: ['site/*', 'templates/*'],
   },
