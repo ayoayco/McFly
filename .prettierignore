@@ -1,5 +1,5 @@
 # someday let's think about formatting html
-**/*.html
+# **/*.html
 
 **/*.md
 **/*.css
