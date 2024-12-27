@@ -5,3 +5,6 @@
 **/*.css
 **/*.yml
 **/*.yaml
+
+site
+templates
