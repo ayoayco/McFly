@@ -8,6 +8,7 @@ html
 .cache
 .output
 .env
+.eslintcache
 
 *~
 *swp
