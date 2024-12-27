@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/cli",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "McFly CLI tools",
   "type": "module",
   "main": "index.js",
@@ -8,6 +8,8 @@
     "mcfly": "./index.js"
   },
   "scripts": {
+    "version": "npm version",
+    "publish": "npm publish",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage"
