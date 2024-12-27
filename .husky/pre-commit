@@ -1,2 +1,2 @@
 npm run test:cli run
-npm run check
+npx lint-staged

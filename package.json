@@ -24,5 +24,14 @@
     "husky": "^9.1.7",
     "prettier": "^3.4.2",
     "vitest": "^2.1.8"
+  },
+  "lint-staged": {
+    "*.{js,mjs,astro,ts}": [
+      "prettier --write",
+      "eslint --fix"
+    ],
+    "*.json": [
+      "prettier --write"
+    ]
   }
 }
