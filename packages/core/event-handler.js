@@ -26,7 +26,7 @@ export function useMcFlyRoute({ config, storage }) {
     let html = await getHtml(path, storage)
 
     if (html) {
-      const transforms = [doSetUp, deleteServerScripts]
+      const transforms = [evaluateServerScript, deleteServerScripts]
 
       for (const transform of transforms) {
         html = transform(html.toString())
@@ -189,7 +189,7 @@ function isConstructor(f) {
  * @param {string} html
  * @returns {string}
  */
-function doSetUp(html) {
+function evaluateServerScript(html) {
   const ast = parse(html)
   const serverScripts = []
   walkSync(ast, (node) => {
