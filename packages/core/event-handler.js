@@ -227,7 +227,6 @@ function evaluateServerScript(html) {
     let [key, rawValue] = match
 
     const value = rawValue.replace(/\s/g, '')
-    console.log('>>> value', rawValue)
     const keys = value.split('.')
     let finalValue = ''
     let setupCopy = setupMap
@@ -235,7 +234,6 @@ function evaluateServerScript(html) {
     // if not in the server script, it could be a js expression
     if (!(keys[0] in setupMap)) {
       try {
-        console.log('>>> trying to evaluate', rawValue)
         finalValue = eval(rawValue)
       } catch (e) {
         console.error('ERR! Failed to evaluate expression', e)
@@ -253,9 +251,6 @@ function evaluateServerScript(html) {
     html = html.replace(key, finalValue ?? '')
     regex.lastIndex = -1
   }
-
-  console.log('setupMap', setupMap)
-  console.log('________')
 
   return html
 }
