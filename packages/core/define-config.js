@@ -1,7 +1,9 @@
 /**
- * @typedef {{
- *  components: 'js'
- * }} McFlyConfig
+ * @typedef {Object} McFlyConfig
+ * @property {'js' | 'lit'} components
+ * Type of components used:
+ * - `'js'` = Vanilla
+ * - `'lit'` = Lit
  */
 
 /**
