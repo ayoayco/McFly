@@ -271,7 +271,7 @@ function cleanScript(scripts) {
 
   script = removeComments(script)
 
-  return script.replace(/\n/g, '').replace(/\s+/g, ' ')
+  return script //.replace(/\n/g, '').replace(/\s+/g, ' ')
 }
 
 /**
