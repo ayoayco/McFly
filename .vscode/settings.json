@@ -1,5 +1,4 @@
 {
-  // "editor.formatOnSave": false,
   "js/ts.implicitProjectConfig.checkJs": true,
   "cSpell.words": [
     "citty",
