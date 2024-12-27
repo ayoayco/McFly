@@ -17,9 +17,6 @@
       function sum(x, y) {
         return x + y;
       }
-
-      const hey = 'hey'
-      const world = 'world'
     </script>
   </my-head>
   <body>
@@ -29,7 +26,7 @@
     <main>
       <section id="intro">
         <h1>McFly Demo</h1>
-        <h2>{{ hey }}, {{ world }} {{1+1}} {{hey}} {{3-2}} {{hey}} {{new Date().toString()}}</h2>
+        <p>Server date time: {{new Date().toLocaleString()}}</p>
         <warning-block
           ><span>This page is in-progress. See the 
           <a
@@ -54,6 +51,7 @@
           border-radius: 5px;
         "
       >
+        <p>Server date time: {{new Date().toLocaleString()}}</p>
         <a href="/demo/about">{{ count }}</a>
         <div>
           <my-hello-world id="my-hello" my-name="{{ name }}"></my-hello-world>
@@ -86,6 +84,7 @@
     &lt;/script&gt;
   &lt;/my-head&gt;
   &lt;body&gt;
+    &lt;p&gt;Server date time: &#123;&#123; new Date().toLocaleString() &#125;&#125;&lt;/p&gt;
     &lt;a href=&quot;/demo/about&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/a&gt;
     &lt;div&gt;
       &lt;my-hello-world id=&quot;my-hello&quot; my-name=&quot;&#123;&#123;name&#125;&#125;&quot;&gt;&lt;/my-hello-world&gt;
