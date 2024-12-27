@@ -85,7 +85,7 @@ function getPath(filename) {
 /**
  * Returns transformed HTML with custom elements registry in the head
  * @param {string} html
- * @param {'js'} type
+ * @param {Config['components']} type
  * @param {Storage} storage
  * @returns {Promise<string>}
  */
@@ -126,7 +126,7 @@ async function insertRegistry(html, type, storage) {
 /**
  * Builds the string containing all custom elements definition
  * @param {Array<string>} usedCustomElements
- * @param {"js" | "ts"} type
+ * @param {Config['components']} type
  * @param {Storage} storage
  * @returns {Promise<string>}
  */
