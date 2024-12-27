@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
+    "esbuild": "^0.24.2",
     "esprima": "^4.0.1",
     "h3": "^1.8.2",
     "ultrahtml": "^1.5.2"
