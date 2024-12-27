@@ -59,7 +59,7 @@ importers:
     dependencies:
       '@mcflyjs/core':
         specifier: latest
-        version: 0.5.3
+        version: 0.5.4
       web-component-base:
         specifier: ^2.0.6
         version: 2.1.2
@@ -114,14 +114,14 @@ importers:
   templates/basic:
     dependencies:
       '@mcflyjs/cli':
-        specifier: ^0.0.26
-        version: 0.0.26
+        specifier: ^0.0.27
+        version: 0.0.27
       '@mcflyjs/config':
         specifier: ^0.1.5
         version: 0.1.5
       '@mcflyjs/core':
-        specifier: ^0.5.3
-        version: 0.5.3
+        specifier: ^0.5.4
+        version: 0.5.4
       nitropack:
         specifier: ~2.10.4
         version: 2.10.4(typescript@5.7.2)
@@ -870,8 +870,8 @@ packages:
     resolution: {integrity: sha512-Yhlar6v9WQgUp/He7BdgzOz8lqMQ8sU+jkCq7Wx8Myc5YFJLbEe7lgui/V7G1qB1DJykHSGwreceSaD60Y0PUQ==}
     hasBin: true
 
-  '@mcflyjs/cli@0.0.26':
-    resolution: {integrity: sha512-agmJa4f3Jeb4KV/wTXqXBywMNlqsmZwXHB3HHAHz0vYuaziJ4S3s4Gn3q33XZnZv45kNB1oHlAX+HFJnXygrJA==}
+  '@mcflyjs/cli@0.0.27':
+    resolution: {integrity: sha512-jVfrcD+Edxyagp18bcIWgEGnq+4pN2uszisIyQdgARto0D9sha1HASccxQnmVudG5md+aYy05pTKHLhNOVGwXw==}
     hasBin: true
 
   '@mcflyjs/config@0.1.5':
@@ -879,6 +879,9 @@ packages:
 
   '@mcflyjs/core@0.5.3':
     resolution: {integrity: sha512-hLRRqiPnpqPX466QwMxc4kHN5FepGyKFXoAl25AM6ZrXvQIT8GgG2iyo7PGbpy2kZ+2vDOBSDDxH+ecOuPE/BA==}
+
+  '@mcflyjs/core@0.5.4':
+    resolution: {integrity: sha512-5zLwPeCdbtQUaMkyPfEHW6u2TPe04XJomPhtQ7KSgEIJ6f7nkeRsNXKEZJA4rFMHu4sAX3LKlGXTNed5aJzN1A==}
 
   '@netlify/functions@2.8.2':
     resolution: {integrity: sha512-DeoAQh8LuNPvBE4qsKlezjKj0PyXDryOFJfJKo3Z1qZLKzQ21sT314KQKPVjfvw6knqijj+IO+0kHXy/TJiqNA==}
@@ -3632,23 +3635,29 @@ snapshots:
       - encoding
       - supports-color
 
-  '@mcflyjs/cli@0.0.26':
+  '@mcflyjs/cli@0.0.27':
     dependencies:
-      '@mcflyjs/core': 0.5.3
       citty: 0.1.6
       consola: 3.2.3
-    transitivePeerDependencies:
-      - uWebSockets.js
 
   '@mcflyjs/config@0.1.5':
     dependencies:
-      '@mcflyjs/core': 0.5.3
+      '@mcflyjs/core': 0.5.4
       web-component-base: 2.1.2
     transitivePeerDependencies:
       - uWebSockets.js
 
   '@mcflyjs/core@0.5.3':
     dependencies:
+      esprima: 4.0.1
+      h3: 1.13.0
+      ultrahtml: 1.5.3
+    transitivePeerDependencies:
+      - uWebSockets.js
+
+  '@mcflyjs/core@0.5.4':
+    dependencies:
+      esbuild: 0.24.2
       esprima: 4.0.1
       h3: 1.13.0
       ultrahtml: 1.5.3
