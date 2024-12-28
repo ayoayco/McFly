@@ -35,15 +35,6 @@ jobs:
           npm install eslint@9.17.0
 
       - name: Run ESLint
-        env:
-          SARIF_ESLINT_IGNORE_SUPPRESSED: "true"
         run: npx eslint .
           --config eslint.config.mjs
-          --output-file eslint-results.sarif
-        continue-on-error: true
-
-      - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@v3
-        with:
-          sarif_file: eslint-results.sarif
-          wait-for-processing: true
+        continue-on-error: false

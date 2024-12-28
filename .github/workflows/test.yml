@@ -25,5 +25,5 @@ jobs:
         run: cd packages/cli && npm install --ignore-scripts
 
       - name: Run CLI tests
-        run: cd packages/cli && npx vitest run .
+        run: npx vitest run .
         continue-on-error: false
