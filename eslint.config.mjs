@@ -18,4 +18,14 @@ export default [
   {
     ignores: ['site/*', 'templates/*'],
   },
+  {
+    rules: {
+      'prettier/prettier': [
+        'error',
+        {
+          endOfLine: 'auto',
+        },
+      ],
+    },
+  },
 ]
