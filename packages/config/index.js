@@ -1,3 +1,5 @@
+export { defineMcFlyConfig } from './define-config'
+
 /**
  * @typedef {import('nitropack').NitroConfig} NitroConfig
  */
