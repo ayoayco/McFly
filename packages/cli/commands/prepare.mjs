@@ -2,15 +2,19 @@
 
 import { consola } from 'consola'
 import { defineCommand } from 'citty'
-import { execSync } from 'node:child_process'
+import { resolve } from 'pathe'
+import { createNitro } from 'nitropack'
+import { writeTypes } from 'nitropack'
 
-function prepare() {
+async function prepare(args) {
   consola.start('Preparing McFly workspace...')
 
   let err
 
   try {
-    execSync('npx nitropack prepare', { stdio: 'inherit' })
+    const rootDir = resolve(args.dir || args._dir || '.')
+    const nitro = await createNitro({ extends: '@mcflyjs/config', rootDir })
+    await writeTypes(nitro)
   } catch (e) {
     consola.error(e)
     err = e
@@ -28,8 +32,8 @@ export default defineCommand({
     name: 'prepare',
     description: 'Prepares the McFly workspace.',
   },
-  run() {
-    prepare()
+  async run({ args }) {
+    await prepare(args)
   },
 })
 
