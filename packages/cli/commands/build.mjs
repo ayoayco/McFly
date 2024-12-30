@@ -46,6 +46,15 @@ export default defineCommand({
   },
 
   args: {
+    dir: {
+      type: 'string',
+      description: 'project root directory',
+    },
+    _dir: {
+      type: 'positional',
+      default: '.',
+      description: 'project root directory (prefer using `--dir`)',
+    },
     minify: {
       type: 'boolean',
       description:
@@ -68,5 +77,5 @@ export default defineCommand({
 })
 
 export const exportedForTest = {
-  build,
+  build: _build,
 }

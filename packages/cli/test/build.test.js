@@ -1,12 +1,14 @@
 import consola from 'consola'
 import { vi, expect, test } from 'vitest'
 import { exportedForTest } from '../commands/build.mjs'
+import * as nitropack from 'nitropack'
 
 const testFn = exportedForTest.build
 
 const mocks = vi.hoisted(() => {
   return {
     execSync: vi.fn(),
+    build: vi.fn(),
   }
 })
 
@@ -26,17 +28,16 @@ test('start build with message', () => {
 })
 
 test('execute nitropack build', () => {
-  const command = 'npx nitropack build'
-  const param = { stdio: 'inherit' }
+  const spy = vi.spyOn(nitropack, 'build')
 
-  testFn()
+  testFn({ dir: '.' })
 
-  expect(mocks.execSync).toHaveBeenCalledWith(command, param)
+  expect(spy).toHaveBeenCalled()
 })
 
 test('catch error', () => {
   const spy = vi.spyOn(consola, 'error')
-  mocks.execSync.mockImplementationOnce(() => {
+  mocks.build.mockImplementationOnce(() => {
     throw new Error('hey')
   })
 
