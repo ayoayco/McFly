@@ -3,8 +3,18 @@
 import { consola } from 'consola'
 import { colorize } from 'consola/utils'
 import { defineCommand } from 'citty'
-import { execSync } from 'node:child_process'
 import { createRequire } from 'node:module'
+import {
+  build,
+  createDevServer,
+  createNitro,
+  prepare,
+  prerender,
+} from 'nitropack'
+import { resolve } from 'pathe'
+import { loadConfig } from 'c12'
+
+const hmrKeyRe = /^runtimeConfig\.|routeRules\./
 
 async function printInfo() {
   try {
@@ -21,9 +31,70 @@ async function printInfo() {
   }
 }
 
-function serve() {
+async function serve(args) {
   try {
-    execSync(`npx nitropack dev`, { stdio: 'inherit' })
+    /**
+     * @type {string}
+     */
+    const rootDir = resolve(args.dir || args._dir || '.')
+    const { config: mcflyConfig } = await loadConfig({ name: 'mcfly' })
+    const { config: nitroConfig } = await loadConfig({ name: 'nitro' })
+
+    /**
+     * @typedef {import('nitropack').Nitro} Nitro
+     * @type {Nitro}
+     */
+    let nitro
+    const reload = async () => {
+      if (nitro) {
+        consola.info('Restarting dev server...')
+        if ('unwatch' in nitro.options._c12) {
+          await nitro.options._c12.unwatch()
+        }
+        await nitro.close()
+      }
+      nitro = await createNitro(
+        {
+          extends: '@mcflyjs/config',
+          rootDir,
+          dev: true,
+          preset: 'nitro-dev',
+          _cli: { command: 'dev' },
+          // spread mcfly.nitro config
+          ...(mcflyConfig.nitro ?? {}),
+          ...(nitroConfig ?? {}),
+        },
+        {
+          watch: true,
+          c12: {
+            async onUpdate({ getDiff, newConfig }) {
+              const diff = getDiff()
+
+              if (diff.length === 0) {
+                return // No changes
+              }
+
+              consola.info(
+                'Nitro config updated:\n' +
+                  diff.map((entry) => `  ${entry.toString()}`).join('\n')
+              )
+
+              await (diff.every((e) => hmrKeyRe.test(e.key))
+                ? nitro.updateConfig(newConfig.config || {}) // Hot reload
+                : reload()) // Full reload
+            },
+          },
+        }
+      )
+      nitro.hooks.hookOnce('restart', reload)
+      const server = createDevServer(nitro)
+      // const listenOptions = parseArgs(args)
+      await server.listen(1234)
+      await prepare(nitro)
+      await prerender(nitro)
+      await build(nitro)
+    }
+    await reload()
   } catch (e) {
     consola.error(e)
   }
@@ -34,9 +105,9 @@ export default defineCommand({
     name: 'prepare',
     description: 'Runs the dev server.',
   },
-  async run() {
+  async run({ args }) {
     await printInfo()
-    serve()
+    await serve(args)
   },
 })
 

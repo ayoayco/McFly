@@ -9,7 +9,7 @@
     "template:basic": "pnpm --filter @templates/basic dev",
     "create": "node ./packages/create-mcfly",
     "cli": "node ./packages/cli",
-    "test": "vitest run",
+    "test": "vitest .",
     "lint": "eslint . --config eslint.config.mjs --cache",
     "check": "npm run format && npm run lint",
     "format": "prettier . --write",
