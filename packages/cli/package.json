@@ -26,11 +26,14 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
+    "c12": "^2.0.1",
     "citty": "^0.1.6",
-    "consola": "^3.3.3"
+    "consola": "^3.3.3",
+    "pathe": "^1.1.2"
   },
   "devDependencies": {
-    "@mcflyjs/core": "^0.5.4",
+    "@mcflyjs/config": "workspace:*",
+    "@mcflyjs/core": "workspace:*",
     "@vitest/coverage-istanbul": "2.1.8",
     "@vitest/coverage-v8": "2.1.8",
     "@vitest/ui": "2.1.8",
