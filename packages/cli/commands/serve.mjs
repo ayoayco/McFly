@@ -4,8 +4,7 @@ import { consola } from 'consola'
 import { colorize } from 'consola/utils'
 import { defineCommand } from 'citty'
 import { createRequire } from 'node:module'
-import { createNitro } from 'nitropack'
-import { createDevServer, prepare } from 'nitropack'
+import { createDevServer, createNitro, prepare, prerender } from 'nitropack'
 import { build } from 'nitropack'
 // import { parseArgs } from 'node:util'
 import { resolve } from 'pathe'
@@ -88,6 +87,7 @@ async function serve(args) {
       // const listenOptions = parseArgs(args)
       await server.listen(1234)
       await prepare(nitro)
+      await prerender(nitro)
       await build(nitro)
     }
     await reload()

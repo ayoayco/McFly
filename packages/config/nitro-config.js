@@ -26,10 +26,6 @@ export const nitroConfig = {
         from: 'web-component-base',
         imports: ['WebComponent', 'html', 'attachEffect'],
       },
-      {
-        from: '@mcflyjs/core',
-        imports: ['useMcFlyRoute'],
-      },
     ],
   },
 }

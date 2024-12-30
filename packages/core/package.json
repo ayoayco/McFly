@@ -21,13 +21,15 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
+    "c12": "^2.0.1",
     "esbuild": "^0.24.2",
     "esprima": "^4.0.1",
     "h3": "^1.8.2",
-    "ultrahtml": "^1.5.2"
+    "ultrahtml": "^1.5.2",
+    "nitropack": "~2.10.4"
   },
   "devDependencies": {
-    "unstorage": "^1.10.1",
-    "@mcflyjs/config": "workspace:*"
+    "@mcflyjs/config": "workspace:*",
+    "unstorage": "^1.14.4"
   }
 }

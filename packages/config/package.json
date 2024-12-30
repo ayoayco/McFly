@@ -21,10 +21,11 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
-    "@mcflyjs/core": "latest",
+    "@mcflyjs/core": "workspace:*",
+    "h3": "^1.8.2",
     "web-component-base": "^2.0.6"
   },
   "devDependencies": {
-    "nitropack": "2.8"
+    "nitropack": "~2.10"
   }
 }
