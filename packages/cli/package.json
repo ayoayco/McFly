@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/cli",
-  "version": "0.0.27",
+  "version": "0.1.0",
   "description": "McFly CLI tools",
   "type": "module",
   "main": "index.js",
