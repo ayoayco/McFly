@@ -51,9 +51,6 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
     devDependencies:
-      '@mcflyjs/core':
-        specifier: ^0.5.4
-        version: 0.6.0
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -72,15 +69,15 @@ importers:
 
   packages/config:
     dependencies:
-      '@mcflyjs/core':
-        specifier: latest
-        version: 0.6.0
+      h3:
+        specifier: ^1.8.2
+        version: 1.13.0
       web-component-base:
         specifier: ^2.0.6
         version: 2.1.2
     devDependencies:
       nitropack:
-        specifier: '2.8'
+        specifier: ~2.10
         version: 2.10.4(typescript@5.7.2)
 
   packages/core:
@@ -622,9 +619,6 @@ packages:
 
   '@mcflyjs/config@0.2.0':
     resolution: {integrity: sha512-KseiM5wW184Bi/UDcqnazorpvAakg8GL6hduqEDRT9zpTeiynX4nvEcs6ptVQN+M29fTVSPrS2D/yF5Qh1Ilig==}
-
-  '@mcflyjs/core@0.6.0':
-    resolution: {integrity: sha512-ZsW2SEB2nc+GjncY08rpxG6lqbhO0Tv2bQPxVV+907k85jvl+go9Zpsl65l1ukE6QwA9+krgAe/CLf+7yuStqg==}
 
   '@mcflyjs/core@0.6.0':
     resolution: {integrity: sha512-ZsW2SEB2nc+GjncY08rpxG6lqbhO0Tv2bQPxVV+907k85jvl+go9Zpsl65l1ukE6QwA9+krgAe/CLf+7yuStqg==}
@@ -2543,8 +2537,8 @@ packages:
     resolution: {integrity: sha512-5liCNPuJW8dqh3+DM6uNM2EI3MLLpCKp/KY+9pB5M2S2SR2qvvDHhKgBOaTWEbZTAws3CXfB0rKTIolWKL05VQ==}
     engines: {node: '>=14.0.0'}
 
-  unplugin@2.1.2:
-    resolution: {integrity: sha512-Q3LU0e4zxKfRko1wMV2HmP8lB9KWislY7hxXpxd+lGx0PRInE4vhMBVEZwpdVYHvtqzhSrzuIfErsob6bQfCzw==}
+  unplugin@2.1.0:
+    resolution: {integrity: sha512-us4j03/499KhbGP8BU7Hrzrgseo+KdfJYWcbcajCOqsAyb8Gk0Yn2kiUIcZISYCb1JFaZfIuG3b42HmguVOKCQ==}
     engines: {node: '>=18.12.0'}
 
   unstorage@1.14.4:
@@ -3149,15 +3143,6 @@ snapshots:
     dependencies:
       '@mcflyjs/core': 0.6.0
       web-component-base: 2.1.2
-    transitivePeerDependencies:
-      - uWebSockets.js
-
-  '@mcflyjs/core@0.6.0':
-    dependencies:
-      esbuild: 0.24.2
-      esprima: 4.0.1
-      h3: 1.13.0
-      ultrahtml: 1.5.3
     transitivePeerDependencies:
       - uWebSockets.js
 
@@ -5099,7 +5084,7 @@ snapshots:
       acorn: 8.14.0
       estree-walker: 3.0.3
       magic-string: 0.30.17
-      unplugin: 2.1.2
+      unplugin: 2.1.0
 
   undici-types@6.20.0: {}
 
@@ -5139,7 +5124,7 @@ snapshots:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
 
-  unplugin@2.1.2:
+  unplugin@2.1.0:
     dependencies:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
