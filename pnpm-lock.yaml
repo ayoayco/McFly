@@ -51,6 +51,9 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
     devDependencies:
+      '@mcflyjs/core':
+        specifier: ^0.5.4
+        version: 0.6.0
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -69,15 +72,15 @@ importers:
 
   packages/config:
     dependencies:
-      h3:
-        specifier: ^1.8.2
-        version: 1.13.0
+      '@mcflyjs/core':
+        specifier: latest
+        version: 0.6.0
       web-component-base:
         specifier: ^2.0.6
         version: 2.1.2
     devDependencies:
       nitropack:
-        specifier: ~2.10
+        specifier: '2.8'
         version: 2.10.4(typescript@5.7.2)
 
   packages/core:
@@ -129,14 +132,14 @@ importers:
   templates/basic:
     dependencies:
       '@mcflyjs/cli':
-        specifier: ^0.0.27
-        version: 0.0.27
+        specifier: ^0.1.0
+        version: 0.1.0(magicast@0.3.5)
       '@mcflyjs/config':
-        specifier: ^0.1.5
-        version: 0.1.5
+        specifier: ^0.2.0
+        version: 0.2.0
       '@mcflyjs/core':
-        specifier: ^0.5.6
-        version: 0.5.6
+        specifier: ^0.6.0
+        version: 0.6.0
       nitropack:
         specifier: ~2.10.4
         version: 2.10.4(typescript@5.7.2)
@@ -613,15 +616,15 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@mcflyjs/cli@0.0.27':
-    resolution: {integrity: sha512-jVfrcD+Edxyagp18bcIWgEGnq+4pN2uszisIyQdgARto0D9sha1HASccxQnmVudG5md+aYy05pTKHLhNOVGwXw==}
+  '@mcflyjs/cli@0.1.0':
+    resolution: {integrity: sha512-s7QrnCHhbttA1d2wmE4/k6PxIhAmHQelmKP8hENL9GBpug3fgjt3+QEJTf53nWk9CkKO2oUJrjv6imUE4JETTw==}
     hasBin: true
 
-  '@mcflyjs/config@0.1.5':
-    resolution: {integrity: sha512-FtuQai5CP8cuYESfs3LPgaQ+5gN/dOTCqY9sYypsC0fL6W20a8Nf19yWryLoNodX/Ahjy09BzKL4PFc8EgPD9w==}
+  '@mcflyjs/config@0.2.0':
+    resolution: {integrity: sha512-KseiM5wW184Bi/UDcqnazorpvAakg8GL6hduqEDRT9zpTeiynX4nvEcs6ptVQN+M29fTVSPrS2D/yF5Qh1Ilig==}
 
-  '@mcflyjs/core@0.5.6':
-    resolution: {integrity: sha512-7iLsdbE3tJ8vGulmsPh/4QkycSxWI5CrqsCYFIXQRkEFq1hI1LEwV9MQbx4ak/np6/ud6xExssz8r1UeNz71tQ==}
+  '@mcflyjs/core@0.6.0':
+    resolution: {integrity: sha512-ZsW2SEB2nc+GjncY08rpxG6lqbhO0Tv2bQPxVV+907k85jvl+go9Zpsl65l1ukE6QwA9+krgAe/CLf+7yuStqg==}
 
   '@mcflyjs/core@0.6.0':
     resolution: {integrity: sha512-ZsW2SEB2nc+GjncY08rpxG6lqbhO0Tv2bQPxVV+907k85jvl+go9Zpsl65l1ukE6QwA9+krgAe/CLf+7yuStqg==}
@@ -2540,8 +2543,8 @@ packages:
     resolution: {integrity: sha512-5liCNPuJW8dqh3+DM6uNM2EI3MLLpCKp/KY+9pB5M2S2SR2qvvDHhKgBOaTWEbZTAws3CXfB0rKTIolWKL05VQ==}
     engines: {node: '>=14.0.0'}
 
-  unplugin@2.1.0:
-    resolution: {integrity: sha512-us4j03/499KhbGP8BU7Hrzrgseo+KdfJYWcbcajCOqsAyb8Gk0Yn2kiUIcZISYCb1JFaZfIuG3b42HmguVOKCQ==}
+  unplugin@2.1.2:
+    resolution: {integrity: sha512-Q3LU0e4zxKfRko1wMV2HmP8lB9KWislY7hxXpxd+lGx0PRInE4vhMBVEZwpdVYHvtqzhSrzuIfErsob6bQfCzw==}
     engines: {node: '>=18.12.0'}
 
   unstorage@1.14.4:
@@ -3133,19 +3136,23 @@ snapshots:
       - encoding
       - supports-color
 
-  '@mcflyjs/cli@0.0.27':
+  '@mcflyjs/cli@0.1.0(magicast@0.3.5)':
     dependencies:
+      c12: 2.0.1(magicast@0.3.5)
       citty: 0.1.6
       consola: 3.3.3
+      pathe: 1.1.2
+    transitivePeerDependencies:
+      - magicast
 
-  '@mcflyjs/config@0.1.5':
+  '@mcflyjs/config@0.2.0':
     dependencies:
       '@mcflyjs/core': 0.6.0
       web-component-base: 2.1.2
     transitivePeerDependencies:
       - uWebSockets.js
 
-  '@mcflyjs/core@0.5.6':
+  '@mcflyjs/core@0.6.0':
     dependencies:
       esbuild: 0.24.2
       esprima: 4.0.1
@@ -5092,7 +5099,7 @@ snapshots:
       acorn: 8.14.0
       estree-walker: 3.0.3
       magic-string: 0.30.17
-      unplugin: 2.1.0
+      unplugin: 2.1.2
 
   undici-types@6.20.0: {}
 
@@ -5132,7 +5139,7 @@ snapshots:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
 
-  unplugin@2.1.0:
+  unplugin@2.1.2:
     dependencies:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
