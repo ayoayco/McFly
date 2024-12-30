@@ -35,6 +35,7 @@ async function serve(args) {
      */
     const rootDir = resolve(args.dir || args._dir || '.')
     const { config: mcflyConfig } = await loadConfig({ name: 'mcfly' })
+    const { config: nitroConfig } = await loadConfig({ name: 'nitro' })
 
     /**
      * @typedef {import('nitropack').Nitro} Nitro
@@ -57,7 +58,8 @@ async function serve(args) {
           preset: 'nitro-dev',
           _cli: { command: 'dev' },
           // spread mcfly.nitro config
-          ...mcflyConfig.nitro,
+          ...(mcflyConfig.nitro ?? {}),
+          ...(nitroConfig ?? {}),
         },
         {
           watch: true,
