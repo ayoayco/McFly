@@ -125,6 +125,9 @@ importers:
       '@mcflyjs/core':
         specifier: workspace:*
         version: link:../packages/core
+      nitropack:
+        specifier: ~2.10.4
+        version: 2.10.4(typescript@5.7.2)
 
   templates/basic:
     dependencies:
@@ -133,10 +136,10 @@ importers:
         version: 0.1.0(magicast@0.3.5)
       '@mcflyjs/config':
         specifier: ^0.2.0
-        version: 0.2.0
+        version: 0.2.0(magicast@0.3.5)(typescript@5.7.2)
       '@mcflyjs/core':
-        specifier: ^0.6.0
-        version: 0.6.0
+        specifier: ^0.6.1
+        version: 0.6.1(magicast@0.3.5)(typescript@5.7.2)
       nitropack:
         specifier: ~2.10.4
         version: 2.10.4(typescript@5.7.2)
@@ -620,8 +623,8 @@ packages:
   '@mcflyjs/config@0.2.0':
     resolution: {integrity: sha512-KseiM5wW184Bi/UDcqnazorpvAakg8GL6hduqEDRT9zpTeiynX4nvEcs6ptVQN+M29fTVSPrS2D/yF5Qh1Ilig==}
 
-  '@mcflyjs/core@0.6.0':
-    resolution: {integrity: sha512-ZsW2SEB2nc+GjncY08rpxG6lqbhO0Tv2bQPxVV+907k85jvl+go9Zpsl65l1ukE6QwA9+krgAe/CLf+7yuStqg==}
+  '@mcflyjs/core@0.6.1':
+    resolution: {integrity: sha512-ozgpIRpNix7gyuFlB8ofEm+iENMvxQsgyzxMTbIrOM69QYiEV1GsjxWyUqH3QuCwA4UB1KHdyWS+PNaCWSepOQ==}
 
   '@netlify/functions@2.8.2':
     resolution: {integrity: sha512-DeoAQh8LuNPvBE4qsKlezjKj0PyXDryOFJfJKo3Z1qZLKzQ21sT314KQKPVjfvw6knqijj+IO+0kHXy/TJiqNA==}
@@ -2537,8 +2540,8 @@ packages:
     resolution: {integrity: sha512-5liCNPuJW8dqh3+DM6uNM2EI3MLLpCKp/KY+9pB5M2S2SR2qvvDHhKgBOaTWEbZTAws3CXfB0rKTIolWKL05VQ==}
     engines: {node: '>=14.0.0'}
 
-  unplugin@2.1.0:
-    resolution: {integrity: sha512-us4j03/499KhbGP8BU7Hrzrgseo+KdfJYWcbcajCOqsAyb8Gk0Yn2kiUIcZISYCb1JFaZfIuG3b42HmguVOKCQ==}
+  unplugin@2.1.2:
+    resolution: {integrity: sha512-Q3LU0e4zxKfRko1wMV2HmP8lB9KWislY7hxXpxd+lGx0PRInE4vhMBVEZwpdVYHvtqzhSrzuIfErsob6bQfCzw==}
     engines: {node: '>=18.12.0'}
 
   unstorage@1.14.4:
@@ -3139,21 +3142,77 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@mcflyjs/config@0.2.0':
+  '@mcflyjs/config@0.2.0(magicast@0.3.5)(typescript@5.7.2)':
     dependencies:
-      '@mcflyjs/core': 0.6.0
+      '@mcflyjs/core': 0.6.1(magicast@0.3.5)(typescript@5.7.2)
       web-component-base: 2.1.2
     transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/kv'
+      - aws4fetch
+      - better-sqlite3
+      - drizzle-orm
+      - encoding
+      - idb-keyval
+      - magicast
+      - mysql2
+      - rolldown
+      - supports-color
+      - typescript
       - uWebSockets.js
+      - uploadthing
+      - xml2js
 
-  '@mcflyjs/core@0.6.0':
+  '@mcflyjs/core@0.6.1(magicast@0.3.5)(typescript@5.7.2)':
     dependencies:
+      c12: 2.0.1(magicast@0.3.5)
       esbuild: 0.24.2
       esprima: 4.0.1
       h3: 1.13.0
+      nitropack: 2.10.4(typescript@5.7.2)
       ultrahtml: 1.5.3
     transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/kv'
+      - aws4fetch
+      - better-sqlite3
+      - drizzle-orm
+      - encoding
+      - idb-keyval
+      - magicast
+      - mysql2
+      - rolldown
+      - supports-color
+      - typescript
       - uWebSockets.js
+      - uploadthing
+      - xml2js
 
   '@netlify/functions@2.8.2':
     dependencies:
@@ -5084,7 +5143,7 @@ snapshots:
       acorn: 8.14.0
       estree-walker: 3.0.3
       magic-string: 0.30.17
-      unplugin: 2.1.0
+      unplugin: 2.1.2
 
   undici-types@6.20.0: {}
 
@@ -5124,7 +5183,7 @@ snapshots:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
 
-  unplugin@2.1.0:
+  unplugin@2.1.2:
     dependencies:
       acorn: 8.14.0
       webpack-virtual-modules: 0.6.2
