@@ -10,9 +10,9 @@
     "build:preview": "npm run build && npm run preview"
   },
   "dependencies": {
-    "@mcflyjs/cli": "^0.1.0",
-    "@mcflyjs/config": "^0.2.0",
-    "@mcflyjs/core": "^0.6.0",
+    "@mcflyjs/cli": "^0.1.1",
+    "@mcflyjs/config": "^0.2.1",
+    "@mcflyjs/core": "^0.6.1",
     "nitropack": "~2.10.4"
   }
 }

@@ -132,11 +132,11 @@ importers:
   templates/basic:
     dependencies:
       '@mcflyjs/cli':
-        specifier: ^0.1.0
-        version: 0.1.0(magicast@0.3.5)
+        specifier: ^0.1.1
+        version: 0.1.1(magicast@0.3.5)
       '@mcflyjs/config':
-        specifier: ^0.2.0
-        version: 0.2.0(magicast@0.3.5)(typescript@5.7.2)
+        specifier: ^0.2.1
+        version: 0.2.1
       '@mcflyjs/core':
         specifier: ^0.6.1
         version: 0.6.1(magicast@0.3.5)(typescript@5.7.2)
@@ -616,12 +616,12 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@mcflyjs/cli@0.1.0':
-    resolution: {integrity: sha512-s7QrnCHhbttA1d2wmE4/k6PxIhAmHQelmKP8hENL9GBpug3fgjt3+QEJTf53nWk9CkKO2oUJrjv6imUE4JETTw==}
+  '@mcflyjs/cli@0.1.1':
+    resolution: {integrity: sha512-YT0XVwbUO9SscfoCrNY1Tz92SwLrCKbvHYrPUWjC8UAVaaX8tekdfRDF7DiIr8PX5me3YIZUBnQw0/loFNPhvQ==}
     hasBin: true
 
-  '@mcflyjs/config@0.2.0':
-    resolution: {integrity: sha512-KseiM5wW184Bi/UDcqnazorpvAakg8GL6hduqEDRT9zpTeiynX4nvEcs6ptVQN+M29fTVSPrS2D/yF5Qh1Ilig==}
+  '@mcflyjs/config@0.2.1':
+    resolution: {integrity: sha512-u+4iKQtId3P8qvopl9p04gX2a/ahSmmrLx/uFp9bvg6UA6Y9tIhPG8l713QH7LVNr4iSIybukeuYbHxYHLiHYQ==}
 
   '@mcflyjs/core@0.6.1':
     resolution: {integrity: sha512-ozgpIRpNix7gyuFlB8ofEm+iENMvxQsgyzxMTbIrOM69QYiEV1GsjxWyUqH3QuCwA4UB1KHdyWS+PNaCWSepOQ==}
@@ -3133,7 +3133,7 @@ snapshots:
       - encoding
       - supports-color
 
-  '@mcflyjs/cli@0.1.0(magicast@0.3.5)':
+  '@mcflyjs/cli@0.1.1(magicast@0.3.5)':
     dependencies:
       c12: 2.0.1(magicast@0.3.5)
       citty: 0.1.6
@@ -3142,39 +3142,12 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@mcflyjs/config@0.2.0(magicast@0.3.5)(typescript@5.7.2)':
+  '@mcflyjs/config@0.2.1':
     dependencies:
-      '@mcflyjs/core': 0.6.1(magicast@0.3.5)(typescript@5.7.2)
+      h3: 1.13.0
       web-component-base: 2.1.2
     transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/kv'
-      - aws4fetch
-      - better-sqlite3
-      - drizzle-orm
-      - encoding
-      - idb-keyval
-      - magicast
-      - mysql2
-      - rolldown
-      - supports-color
-      - typescript
       - uWebSockets.js
-      - uploadthing
-      - xml2js
 
   '@mcflyjs/core@0.6.1(magicast@0.3.5)(typescript@5.7.2)':
     dependencies:
