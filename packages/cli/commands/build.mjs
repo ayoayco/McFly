@@ -3,11 +3,14 @@
 import { consola } from 'consola'
 import { defineCommand } from 'citty'
 import { resolve } from 'pathe'
-import { createNitro } from 'nitropack'
-import { prepare, build } from 'nitropack'
-import { copyPublicAssets } from 'nitropack'
-import { prerender } from 'nitropack'
 import { loadConfig } from 'c12'
+import {
+  build,
+  copyPublicAssets,
+  createNitro,
+  prepare,
+  prerender,
+} from 'nitropack'
 
 async function _build(args) {
   consola.start('Building project...')

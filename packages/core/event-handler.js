@@ -4,7 +4,7 @@ import { loadConfig } from 'c12'
 import { eventHandler } from 'h3'
 
 /**
- * @typedef {import('@mcflyjs/config').McFlyConfig} Config
+ * @typedef {import('../config').McFlyConfig} Config
  * @typedef {import('unstorage').Storage} Storage
  * @typedef {import('unstorage').StorageValue} StorageValue
  * @typedef {import('ultrahtml').Node} HtmlNode
@@ -15,7 +15,6 @@ import { eventHandler } from 'h3'
 /**
  * Intercepts all routes and assembles the correct HTML to return
  * @param {{
- *  config: function(): Config,
  *  storage: Storage
  * }} param0
  * @returns {EventHandler}

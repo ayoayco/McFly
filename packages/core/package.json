@@ -29,7 +29,6 @@
     "nitropack": "~2.10.4"
   },
   "devDependencies": {
-    "@mcflyjs/config": "workspace:*",
     "unstorage": "^1.14.4"
   }
 }

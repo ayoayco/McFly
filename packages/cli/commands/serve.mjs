@@ -4,9 +4,13 @@ import { consola } from 'consola'
 import { colorize } from 'consola/utils'
 import { defineCommand } from 'citty'
 import { createRequire } from 'node:module'
-import { createDevServer, createNitro, prepare, prerender } from 'nitropack'
-import { build } from 'nitropack'
-// import { parseArgs } from 'node:util'
+import {
+  build,
+  createDevServer,
+  createNitro,
+  prepare,
+  prerender,
+} from 'nitropack'
 import { resolve } from 'pathe'
 import { loadConfig } from 'c12'
 

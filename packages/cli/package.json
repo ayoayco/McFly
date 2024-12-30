@@ -32,8 +32,6 @@
     "pathe": "^1.1.2"
   },
   "devDependencies": {
-    "@mcflyjs/config": "workspace:*",
-    "@mcflyjs/core": "workspace:*",
     "@vitest/coverage-istanbul": "2.1.8",
     "@vitest/coverage-v8": "2.1.8",
     "@vitest/ui": "2.1.8",

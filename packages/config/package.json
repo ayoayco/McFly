@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/ayoayco/McFly#readme",
   "dependencies": {
-    "@mcflyjs/core": "workspace:*",
     "h3": "^1.8.2",
     "web-component-base": "^2.0.6"
   },

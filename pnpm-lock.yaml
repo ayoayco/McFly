@@ -51,12 +51,6 @@ importers:
         specifier: ^1.1.2
         version: 1.1.2
     devDependencies:
-      '@mcflyjs/config':
-        specifier: workspace:*
-        version: link:../config
-      '@mcflyjs/core':
-        specifier: workspace:*
-        version: link:../core
       '@vitest/coverage-istanbul':
         specifier: 2.1.8
         version: 2.1.8(vitest@2.1.8)
@@ -75,9 +69,6 @@ importers:
 
   packages/config:
     dependencies:
-      '@mcflyjs/core':
-        specifier: workspace:*
-        version: link:../core
       h3:
         specifier: ^1.8.2
         version: 1.13.0
@@ -110,9 +101,6 @@ importers:
         specifier: ^1.5.2
         version: 1.5.3
     devDependencies:
-      '@mcflyjs/config':
-        specifier: workspace:*
-        version: link:../config
       unstorage:
         specifier: ^1.14.4
         version: 1.14.4(db0@0.2.1)(ioredis@5.4.2)
