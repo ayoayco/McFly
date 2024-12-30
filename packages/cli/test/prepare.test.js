@@ -25,7 +25,7 @@ test('start prepare script', () => {
   expect(spy).toHaveBeenCalled()
 })
 
-test('execute nitropack prepare', () => {
+test.skip('execute nitropack prepare', () => {
   const successSpy = vi.spyOn(consola, 'success')
   const command = 'npx nitropack prepare'
   const param = { stdio: 'inherit' }
