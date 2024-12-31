@@ -35,7 +35,7 @@ export function useMcFlyRoute({ storage }) {
     const { components: componentType } = config
     let html = await getHtml(path, storage)
 
-    if (config.server.logs) {
+    if (config?.server?.logs) {
       consola.info('[INFO]: Config found\n', config)
     }
 
