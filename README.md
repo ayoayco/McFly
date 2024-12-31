@@ -68,7 +68,7 @@ The following are the project packages published on the NPM registry:
 | [`create-mcfly`](https://ayco.io/n/create-mcfly) | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly) |
 
 ## More info
-This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [Nitro](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [Web Component Base](https://WebComponent.io) class.
+This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [Nitro](https://nitro.build) and custom elements using a minimal [Web Component Base](https://WebComponent.io) class.
 
 **Nitro** is the same production-grade web server powering [Nuxt](https://nuxt.com/)
 
