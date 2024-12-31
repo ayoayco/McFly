@@ -26,6 +26,8 @@ export function useMcFlyRoute({ storage }) {
     const { components: componentType } = config
     let html = await getHtml(path, storage)
 
+    console.log('[INFO]: Mcfly Config', config)
+
     if (html) {
       const transforms = [evaluateServerScript, deleteServerScripts]
 
