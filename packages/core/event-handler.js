@@ -1,4 +1,5 @@
 import { ELEMENT_NODE, parse, render, renderSync, walkSync } from 'ultrahtml'
+import { consola } from 'consola'
 import { parseScript } from 'esprima'
 import { loadConfig } from 'c12'
 import { eventHandler } from 'h3'
@@ -34,8 +35,6 @@ export function useMcFlyRoute({ storage }) {
     const { components: componentType } = config
     let html = await getHtml(path, storage)
 
-    console.log('[INFO]: Mcfly Config', loadedConfig)
-
     if (html) {
       const transforms = [evaluateServerScript, deleteServerScripts]
 
@@ -48,7 +47,7 @@ export function useMcFlyRoute({ storage }) {
       if (!!componentType && !!html) {
         html = await insertRegistry(html.toString(), componentType, storage)
       } else {
-        console.error('[ERR]: Failed to insert registry', {
+        consola.error('[ERR]: Failed to insert registry', {
           componentType: !componentType ? 'missing' : 'okay',
           html: !html ? 'missing' : 'okay',
         })
@@ -252,7 +251,7 @@ function evaluateServerScript(html) {
       try {
         finalValue = eval(rawValue)
       } catch (e) {
-        console.error('ERR! Failed to evaluate expression', e)
+        consola.error('[ERR]: Failed to evaluate expression', e)
       }
     }
 
