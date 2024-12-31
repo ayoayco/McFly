@@ -37,6 +37,11 @@ export function useMcFlyRoute({ storage }) {
 
       if (!!componentType && !!html) {
         html = await insertRegistry(html.toString(), componentType, storage)
+      } else {
+        console.error('[ERR]: Failed to insert registry', {
+          componentType: !componentType ? 'missing' : 'okay',
+          html: !html ? 'missing' : 'okay',
+        })
       }
     }
 

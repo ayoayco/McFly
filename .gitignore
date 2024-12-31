@@ -5,6 +5,7 @@ html
 
 *.log*
 .nitro
+.netlify
 .cache
 .output
 .env
