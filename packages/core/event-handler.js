@@ -22,14 +22,17 @@ import { eventHandler } from 'h3'
 export function useMcFlyRoute({ storage }) {
   return eventHandler(async (event) => {
     const { path } = event
-    const { config } = await loadConfig({
+    const loadedConfig = await loadConfig({
       name: 'mcfly',
       configFile: 'mcfly.config',
     })
+    const config = loadConfig.config ?? {
+      components: 'js',
+    }
     const { components: componentType } = config
     let html = await getHtml(path, storage)
 
-    console.log('[INFO]: Mcfly Config', config)
+    console.log('[INFO]: Mcfly Config', loadedConfig)
 
     if (html) {
       const transforms = [evaluateServerScript, deleteServerScripts]
