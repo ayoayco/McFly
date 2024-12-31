@@ -4,7 +4,7 @@
 
 <h1 align="center">McFly</h1>
 
-<p align="center"><strong>McFly</strong> is a no-framework framework<br />that assists in leveraging the web platform</p>
+<p align="center"><strong>McFly</strong> is a no-framework metaframework<br />that assists in leveraging the web platform</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/from-the_future-blue?style=flat" />
@@ -24,23 +24,22 @@ I thought:
 
 **McFly** is my reimagination of web development: Back to the basics. Into the future.
 
-## Project Status 
-We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases. 
+## Project Status
+We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases.
 
-## Installation
+## Try it today
 Run the following to generate a McFly starter project.
 ```
 npm create mcfly@latest
 ```
 
 ## Features
-The time has come for vanilla Web tech. 🎉
 
-✅ Create web apps with vanilla custom elements<br>
-✅ Write real .HTML files<br>
-✅ Have no frameworks or reactivity libraries on the browser<br>
+✅ Use vanilla custom elements (or sugar-coated web components)<br>
+✅ Write server-powered .html pages<br>
+✅ "Use the Platform™" on both server runtimes & browsers
 ✅ Use server-side rendering<br>
-✅ Deploy anywhere<br>
+✅ Deploy anywhere, even the Edge<br>
 
 ## Special directories
 **1. `./src/pages/`**

@@ -4,29 +4,42 @@
 
 <h1 align="center">McFly</h1>
 
-<p align="center"><strong>McFly</strong> is a no-framework framework<br />that assists in leveraging the web platform</p>
+<p align="center"><strong>McFly</strong> is a no-framework metaframework<br />that assists in leveraging the web platform</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/from-the_future-blue?style=flat" />
   <img src="https://img.shields.io/badge/status-legit-purple?style=flat" />
-  <a href="https://mc-fly.vercel.app/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
+  <a href="https://mcfly.js.org/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
 
-## Installation
+## Why
 
-Run the following to generate a McFly starter project:
+I often wonder what it would look like to build sites & apps knowing just the basics.
+
+I thought:
+- What if I knew how to write HTML and I can have a dynamic web page from that?
+- What if I knew how to build custom elements and that's all the component system I needed?
+- What if I can write HTML fragments and assemble them easily in a page?
+- What if I did not have to worry about the [ever-growing number of ways to have a place on the Web](https://ayos.blog/places-in-the-web/)?
+
+**McFly** is my reimagination of web development: Back to the basics. Into the future.
+
+## Project Status
+We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases.
+
+## Try it today
+Run the following to generate a McFly starter project.
 ```
 npm create mcfly@latest
 ```
 
 ## Features
-The time has come for vanilla Web tech. 🎉
 
-✅ Create web apps with vanilla custom elements<br>
-✅ Write real .HTML files<br>
-✅ Have no frameworks or reactivity libraries on the browser<br>
+✅ Use vanilla custom elements (or sugar-coated web components)<br>
+✅ Write server-powered .html pages<br>
+✅ "Use the Platform™" on both server runtimes & browsers
 ✅ Use server-side rendering<br>
-✅ Deploy anywhere<br>
+✅ Deploy anywhere, even the Edge<br>
 
 ## Special directories
 **1. `./src/pages/`**
@@ -44,23 +57,20 @@ The time has come for vanilla Web tech. 🎉
 - e.g., `./routes/api/users.ts` can be accessed via `http://<domain>/api/users`
 - TypeScript or JavaScript welcome!
 
-## McFly config
+## Packages
+The following are the project packages published on the NPM registry:
 
-To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
-
-```js
-import defineConfig from "./packages/define-config";
-
-export default defineConfig({
-  components: "js",
-});
-
-```
+| Package | Description | Version |
+| --- | --- | --- |
+| [`@mcflyjs/cli`](https://ayco.io/n/@mcflyjs/cli) | The McFly CLI tooling | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcli) |
+| [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Nitro server config for McFly projects | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
+| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core) | Route event and config handlers | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore) |
+| [`create-mcfly`](https://ayco.io/n/create-mcfly) | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly) |
 
 ## More info
-This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://WebComponent.io) class.
+This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [Nitro](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [Web Component Base](https://WebComponent.io) class.
 
-**Nitro** is the same production-grade web server powering [**Nuxt**](https://nuxt.com/)
+**Nitro** is the same production-grade web server powering [Nuxt](https://nuxt.com/)
 
 ---
 *Just keep building*<br />
