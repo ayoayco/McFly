@@ -27,8 +27,9 @@ export function useMcFlyRoute({ storage }) {
       configFile: 'mcfly.config',
       cwd: '.',
     })
-    const config = loadedConfig.config ?? {
-      components: 'js',
+    const config = {
+      components: 'js', // work around for c12.loadConfig not working on Netlify function
+      ...loadedConfig,
     }
     const { components: componentType } = config
     let html = await getHtml(path, storage)
