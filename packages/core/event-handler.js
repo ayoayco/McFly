@@ -3,6 +3,7 @@ import { consola } from 'consola'
 import { parseScript } from 'esprima'
 import { loadConfig } from 'c12'
 import { eventHandler } from 'h3'
+import { resolve } from 'pathe'
 
 /**
  * @typedef {import('../config').McFlyConfig} Config
@@ -23,10 +24,11 @@ import { eventHandler } from 'h3'
 export function useMcFlyRoute({ storage }) {
   return eventHandler(async (event) => {
     const { path } = event
+    const rootDir = resolve('.')
     const loadedConfig = await loadConfig({
       name: 'mcfly',
       configFile: 'mcfly.config',
-      cwd: '.',
+      cwd: rootDir,
     })
     const config = {
       components: 'js', // work around for c12.loadConfig not working on Netlify function
@@ -36,6 +38,7 @@ export function useMcFlyRoute({ storage }) {
     let html = await getHtml(path, storage)
 
     consola.info('[INFO]: Config found\n', config)
+    consola.info('>>> Current Working Directory: ', rootDir)
 
     if (html) {
       const transforms = [evaluateServerScript, deleteServerScripts]
