@@ -37,7 +37,7 @@ npm create mcfly@latest
 
 ✅ Use vanilla custom elements (or sugar-coated web components)<br>
 ✅ Write server-powered .html pages<br>
-✅ "Use the Platform™" on both server runtimes & browsers
+✅ "Use the Platform™" on both server runtimes & browsers<br>
 ✅ Use server-side rendering<br>
 ✅ Deploy anywhere, even the Edge<br>
 
