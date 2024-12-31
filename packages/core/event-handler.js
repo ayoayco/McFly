@@ -26,7 +26,7 @@ export function useMcFlyRoute({ storage }) {
       name: 'mcfly',
       configFile: 'mcfly.config',
     })
-    const config = loadConfig.config ?? {
+    const config = loadedConfig.config ?? {
       components: 'js',
     }
     const { components: componentType } = config
