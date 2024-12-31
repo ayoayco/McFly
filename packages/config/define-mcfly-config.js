@@ -1,5 +1,8 @@
 /**
  * @typedef {import('nitropack').NitroConfig} NitroConfig
+ * @typedef {object} ServerConfig
+ * @property {boolean} logs
+ * Set to true if you want to see server logs
  * @typedef {object} McFlyConfig
  * @property {'js' | 'lit'} components
  * Type of components used:
@@ -8,6 +11,7 @@
  * - `'enhance'` = Enhance (in-progress)
  * - `'webc'` = WebC (in-progress)
  * @property {NitroConfig} nitro
+ * @property {ServerConfig} server
  */
 
 /**
