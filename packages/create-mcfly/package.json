@@ -25,7 +25,7 @@
   "bugs": {
     "url": "https://github.com/ayoayco/McFly/issues"
   },
-  "homepage": "https://github.com/ayoayco/McFly#readme",
+  "homepage": "https://mcfly.js.org",
   "dependencies": {
     "consola": "^3.2.3",
     "giget": "^1.1.3"
