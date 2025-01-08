@@ -31,7 +31,7 @@ export default eventHandler(async (event) => {
     consola.warn(`[WARN]: McFly configuration not loaded, using defaults...`)
   }
 
-  const plugins = config.plugins
+  const plugins = config.plugins ?? []
 
   plugins.forEach((plugin) => {
     const pluginHooks = Object.keys(plugin)

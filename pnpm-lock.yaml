@@ -121,15 +121,9 @@ importers:
       '@mcflyjs/cli':
         specifier: ^0.1.1
         version: 0.1.1(magicast@0.3.5)
-      '@mcflyjs/config':
-        specifier: ^0.2.1
-        version: link:../../packages/config
       '@mcflyjs/core':
-        specifier: ^0.6.1
-        version: 0.6.1(magicast@0.3.5)(typescript@5.7.2)
-      nitropack:
-        specifier: ~2.10.4
-        version: 2.10.4(typescript@5.7.2)
+        specifier: ^0.7.1
+        version: link:../../packages/core
 
 packages:
 
@@ -606,9 +600,6 @@ packages:
   '@mcflyjs/cli@0.1.1':
     resolution: {integrity: sha512-YT0XVwbUO9SscfoCrNY1Tz92SwLrCKbvHYrPUWjC8UAVaaX8tekdfRDF7DiIr8PX5me3YIZUBnQw0/loFNPhvQ==}
     hasBin: true
-
-  '@mcflyjs/core@0.6.1':
-    resolution: {integrity: sha512-ozgpIRpNix7gyuFlB8ofEm+iENMvxQsgyzxMTbIrOM69QYiEV1GsjxWyUqH3QuCwA4UB1KHdyWS+PNaCWSepOQ==}
 
   '@netlify/functions@2.8.2':
     resolution: {integrity: sha512-DeoAQh8LuNPvBE4qsKlezjKj0PyXDryOFJfJKo3Z1qZLKzQ21sT314KQKPVjfvw6knqijj+IO+0kHXy/TJiqNA==}
@@ -3125,44 +3116,6 @@ snapshots:
       pathe: 1.1.2
     transitivePeerDependencies:
       - magicast
-
-  '@mcflyjs/core@0.6.1(magicast@0.3.5)(typescript@5.7.2)':
-    dependencies:
-      c12: 2.0.1(magicast@0.3.5)
-      esbuild: 0.24.2
-      esprima: 4.0.1
-      h3: 1.13.0
-      nitropack: 2.10.4(typescript@5.7.2)
-      ultrahtml: 1.5.3
-    transitivePeerDependencies:
-      - '@azure/app-configuration'
-      - '@azure/cosmos'
-      - '@azure/data-tables'
-      - '@azure/identity'
-      - '@azure/keyvault-secrets'
-      - '@azure/storage-blob'
-      - '@capacitor/preferences'
-      - '@deno/kv'
-      - '@electric-sql/pglite'
-      - '@libsql/client'
-      - '@netlify/blobs'
-      - '@planetscale/database'
-      - '@upstash/redis'
-      - '@vercel/blob'
-      - '@vercel/kv'
-      - aws4fetch
-      - better-sqlite3
-      - drizzle-orm
-      - encoding
-      - idb-keyval
-      - magicast
-      - mysql2
-      - rolldown
-      - supports-color
-      - typescript
-      - uWebSockets.js
-      - uploadthing
-      - xml2js
 
   '@netlify/functions@2.8.2':
     dependencies:
