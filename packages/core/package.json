@@ -1,9 +1,12 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "McFly core package",
   "type": "module",
   "main": "index.js",
+  "bin": {
+    "mcfly": "./cli/index.js"
+  },
   "scripts": {
     "version": "npm version",
     "publish": "npm publish",
@@ -22,6 +25,7 @@
   "homepage": "https://mcfly.js.org",
   "dependencies": {
     "c12": "^2.0.1",
+    "citty": "^0.1.6",
     "consola": "^3.3.3",
     "esbuild": "^0.24.2",
     "esprima": "^4.0.1",
@@ -31,6 +35,10 @@
     "ultrahtml": "^1.5.2"
   },
   "devDependencies": {
-    "unstorage": "^1.14.4"
+    "unstorage": "^1.14.4",
+    "@vitest/coverage-istanbul": "2.1.8",
+    "@vitest/coverage-v8": "2.1.8",
+    "@vitest/ui": "2.1.8",
+    "vitest": "^2.1.8"
   }
 }

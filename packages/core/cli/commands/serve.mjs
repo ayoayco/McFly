@@ -102,7 +102,7 @@ async function serve(args) {
 
 export default defineCommand({
   meta: {
-    name: 'prepare',
+    name: 'serve',
     description: 'Runs the dev server.',
   },
   async run({ args }) {

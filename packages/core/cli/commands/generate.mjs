@@ -9,7 +9,7 @@ function generate() {
 
 export default defineCommand({
   meta: {
-    name: 'prepare',
+    name: 'generate',
     description: 'Generates building blocks for a McFly app.',
   },
   run() {

@@ -41,7 +41,7 @@ async function _build(args) {
 
 export default defineCommand({
   meta: {
-    name: 'prepare',
+    name: 'build',
     description: 'Builds the McFly project for production.',
   },
 

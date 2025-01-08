@@ -85,6 +85,9 @@ importers:
       c12:
         specifier: ^2.0.1
         version: 2.0.1(magicast@0.3.5)
+      citty:
+        specifier: ^0.1.6
+        version: 0.1.6
       consola:
         specifier: ^3.3.3
         version: 3.3.3
@@ -107,9 +110,21 @@ importers:
         specifier: ^1.5.2
         version: 1.5.3
     devDependencies:
+      '@vitest/coverage-istanbul':
+        specifier: 2.1.8
+        version: 2.1.8(vitest@2.1.8)
+      '@vitest/coverage-v8':
+        specifier: 2.1.8
+        version: 2.1.8(vitest@2.1.8)
+      '@vitest/ui':
+        specifier: 2.1.8
+        version: 2.1.8(vitest@2.1.8)
       unstorage:
         specifier: ^1.14.4
         version: 1.14.4(db0@0.2.1)(ioredis@5.4.2)
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.8(@types/node@22.10.2)(@vitest/ui@2.1.8)(terser@5.37.0)
 
   packages/create-mcfly:
     dependencies:
@@ -122,9 +137,6 @@ importers:
 
   site:
     dependencies:
-      '@mcflyjs/cli':
-        specifier: workspace:*
-        version: link:../packages/cli
       '@mcflyjs/config':
         specifier: workspace:*
         version: link:../packages/config
