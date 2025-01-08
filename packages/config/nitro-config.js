@@ -7,17 +7,19 @@ export const nitroConfig = {
     name: 'McFly',
   },
   compatibilityDate: '2024-12-08',
+  srcDir: 'src',
+  apiDir: 'api',
   devServer: {
-    watch: ['./src/pages', './src/components'],
+    watch: ['./pages', './components', './api'],
   },
   serverAssets: [
     {
       baseName: 'pages',
-      dir: './src/pages',
+      dir: './pages',
     },
     {
       baseName: 'components',
-      dir: './src/components',
+      dir: './components',
     },
   ],
   imports: {
