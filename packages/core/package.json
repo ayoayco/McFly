@@ -5,7 +5,7 @@
   "type": "module",
   "main": "index.js",
   "bin": {
-    "mcfly": "./cli/index.js"
+    "mcfly": "cli/index.js"
   },
   "scripts": {
     "version": "npm version",
