@@ -51,9 +51,6 @@ importers:
 
   packages/core:
     dependencies:
-      '@mcflyjs/config':
-        specifier: workspace:*
-        version: link:../config
       c12:
         specifier: ^2.0.1
         version: 2.0.1(magicast@0.3.5)
