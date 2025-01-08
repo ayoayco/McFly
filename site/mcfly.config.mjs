@@ -5,6 +5,11 @@ export default defineMcFlyConfig({
   server: {
     logs: true,
   },
+  plugins: [
+    {
+      'mcfly:page:rendered': () => console.log('>>> from site'),
+    },
+  ],
   nitro: {
     devServer: {
       watch: ['../packages'],
