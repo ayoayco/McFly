@@ -28,7 +28,6 @@ export function useMcFlyRoute({ storage }) {
 
   return eventHandler(async (event) => {
     const { path } = event
-    console.log(event)
     let { config } = await loadConfig({ name: 'mcfly' })
 
     if (!config || Object.keys(config).length === 0) {
@@ -36,7 +35,14 @@ export function useMcFlyRoute({ storage }) {
       consola.warn(`[WARN]: McFly configuration not loaded, using defaults...`)
     }
 
-    consola.info('[INFO] Config loaded', config)
+    const plugins = config.plugins
+
+    plugins.forEach((plugin) => {
+      const pluginHooks = Object.keys(plugin)
+      pluginHooks.forEach((pluginHook) => {
+        hooks.hook(pluginHook, plugin[pluginHook])
+      })
+    })
 
     const { components: componentType } = config
     let html = await getHtml(path, storage)
@@ -77,7 +83,9 @@ export function useMcFlyRoute({ storage }) {
       }
     }
 
-    hooks.callHook(mcflyHooks.pageRendered)
+    if (html) {
+      hooks.callHook(mcflyHooks.pageRendered)
+    }
 
     return (
       html ??
