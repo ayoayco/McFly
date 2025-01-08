@@ -12,6 +12,7 @@ import {
   prerender,
 } from 'nitropack'
 import { fileURLToPath } from 'node:url'
+import { nitroConfig as mcflyNitroConfig } from '@mcflyjs/config/nitro-config.js'
 
 async function _build(args) {
   consola.start('Building project...')
@@ -21,7 +22,6 @@ async function _build(args) {
     const { config: nitroConfig } = await loadConfig({ name: 'nitro' })
 
     const nitro = await createNitro({
-      extends: '@mcflyjs/config',
       rootDir,
       dev: false,
       minify: args.minify,
@@ -29,6 +29,7 @@ async function _build(args) {
       // spread mcfly.nitro config
       ...(mcflyConfig.nitro ?? {}),
       ...(nitroConfig ?? {}),
+      ...mcflyNitroConfig,
     })
     nitro.options.runtimeConfig.mcfly = mcflyConfig
 

@@ -15,6 +15,7 @@ import { resolve } from 'pathe'
 import { loadConfig } from 'c12'
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'pathe'
+import { nitroConfig as mcflyNitroConfig } from '@mcflyjs/config/nitro-config.js'
 
 const hmrKeyRe = /^runtimeConfig\.|routeRules\./
 const __filename = fileURLToPath(import.meta.url)
@@ -62,7 +63,6 @@ async function serve(args) {
       // create new nitro
       nitro = await createNitro(
         {
-          extends: '@mcflyjs/config',
           rootDir,
           dev: true,
           preset: 'nitro-dev',
@@ -70,6 +70,7 @@ async function serve(args) {
           // spread mcfly.nitro config
           ...(mcflyConfig.nitro ?? {}),
           ...(nitroConfig ?? {}),
+          ...mcflyNitroConfig,
         },
         {
           watch: true,

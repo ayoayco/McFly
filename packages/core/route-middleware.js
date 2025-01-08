@@ -22,11 +22,21 @@ import {
  * McFly middleware event handler
  */
 export default eventHandler(async (event) => {
+  const timeStart = performance.now()
   const hooks = createHooks()
   Object.keys(mcflyHooks).forEach((hookName) => hooks.addHooks(hookName))
   const { path } = event
   let { mcfly: config } = useRuntimeConfig()
   const storage = useStorage()
+
+  const publicAssets = (await storage.getKeys('root:public')).map(
+    (key) => `/${key.replace('root:public:', '')}`
+  )
+
+  // if not page, don't render
+  if (event.path.startsWith('/api') || publicAssets.includes(event.path)) {
+    return
+  }
 
   if (!config || Object.keys(config).length === 0) {
     config = defaultMcflyConfig
@@ -85,6 +95,13 @@ export default eventHandler(async (event) => {
     hooks.callHook(mcflyHooks.pageRendered)
   }
 
+  const timeEnd = performance.now()
+  consola.info(
+    'Page rendered in',
+    Math.round(timeEnd - timeStart),
+    'ms:',
+    event.path
+  )
   return (
     html ??
     new Response(
