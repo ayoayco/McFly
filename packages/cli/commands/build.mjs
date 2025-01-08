@@ -29,6 +29,7 @@ async function _build(args) {
       ...(mcflyConfig.nitro ?? {}),
       ...(nitroConfig ?? {}),
     })
+    nitro.options.runtimeConfig.mcfly = mcflyConfig
     await prepare(nitro)
     await copyPublicAssets(nitro)
     await prerender(nitro)
