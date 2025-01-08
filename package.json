@@ -1,4 +1,6 @@
 {
+  "name": "mcfly",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
