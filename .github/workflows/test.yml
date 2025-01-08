@@ -21,8 +21,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Install CLI deps
-        run: cd packages/cli && npm install --ignore-scripts
+      - name: Install core deps
+        run: cd packages/core && npm install --ignore-scripts
 
       - name: Run CLI tests
         run: npx vitest run .

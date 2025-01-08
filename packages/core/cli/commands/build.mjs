@@ -2,7 +2,7 @@
 
 import { consola } from 'consola'
 import { defineCommand } from 'citty'
-import { resolve } from 'pathe'
+import { dirname, resolve } from 'pathe'
 import { loadConfig } from 'c12'
 import {
   build,
@@ -11,6 +11,7 @@ import {
   prepare,
   prerender,
 } from 'nitropack'
+import { fileURLToPath } from 'node:url'
 
 async function _build(args) {
   consola.start('Building project...')
@@ -30,6 +31,15 @@ async function _build(args) {
       ...(nitroConfig ?? {}),
     })
     nitro.options.runtimeConfig.mcfly = mcflyConfig
+
+    const __filename = fileURLToPath(import.meta.url)
+    const __dirname = dirname(__filename)
+
+    nitro.options.handlers.push({
+      middleware: true,
+      handler: resolve(__dirname, '../../route-middleware.js'),
+    })
+
     await prepare(nitro)
     await copyPublicAssets(nitro)
     await prerender(nitro)
@@ -42,7 +52,7 @@ async function _build(args) {
 
 export default defineCommand({
   meta: {
-    name: 'prepare',
+    name: 'build',
     description: 'Builds the McFly project for production.',
   },
 

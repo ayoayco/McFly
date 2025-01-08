@@ -36,37 +36,6 @@ importers:
         specifier: ^2.1.8
         version: 2.1.8(@types/node@22.10.2)(@vitest/ui@2.1.8)(terser@5.37.0)
 
-  packages/cli:
-    dependencies:
-      c12:
-        specifier: ^2.0.1
-        version: 2.0.1(magicast@0.3.5)
-      citty:
-        specifier: ^0.1.6
-        version: 0.1.6
-      consola:
-        specifier: ^3.3.3
-        version: 3.3.3
-      pathe:
-        specifier: ^1.1.2
-        version: 1.1.2
-    devDependencies:
-      '@vitest/coverage-istanbul':
-        specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8)
-      '@vitest/coverage-v8':
-        specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8)
-      '@vitest/ui':
-        specifier: 2.1.8
-        version: 2.1.8(vitest@2.1.8)
-      nitropack:
-        specifier: ~2.10.4
-        version: 2.10.4(typescript@5.7.2)
-      vitest:
-        specifier: ^2.1.8
-        version: 2.1.8(@types/node@22.10.2)(@vitest/ui@2.1.8)(terser@5.37.0)
-
   packages/config:
     dependencies:
       h3:
@@ -85,12 +54,12 @@ importers:
       c12:
         specifier: ^2.0.1
         version: 2.0.1(magicast@0.3.5)
+      citty:
+        specifier: ^0.1.6
+        version: 0.1.6
       consola:
         specifier: ^3.3.3
         version: 3.3.3
-      esbuild:
-        specifier: ^0.24.2
-        version: 0.24.2
       esprima:
         specifier: ^4.0.1
         version: 4.0.1
@@ -107,12 +76,27 @@ importers:
         specifier: ^1.5.3
         version: 1.5.3
     devDependencies:
+      '@vitest/coverage-istanbul':
+        specifier: 2.1.8
+        version: 2.1.8(vitest@2.1.8)
+      '@vitest/coverage-v8':
+        specifier: 2.1.8
+        version: 2.1.8(vitest@2.1.8)
+      '@vitest/ui':
+        specifier: 2.1.8
+        version: 2.1.8(vitest@2.1.8)
+      esbuild:
+        specifier: ^0.24.2
+        version: 0.24.2
       hookable:
         specifier: ^5.5.3
         version: 5.5.3
       unstorage:
         specifier: ^1.14.4
         version: 1.14.4(db0@0.2.1)(ioredis@5.4.2)
+      vitest:
+        specifier: ^2.1.8
+        version: 2.1.8(@types/node@22.10.2)(@vitest/ui@2.1.8)(terser@5.37.0)
 
   packages/create-mcfly:
     dependencies:
@@ -125,9 +109,6 @@ importers:
 
   site:
     dependencies:
-      '@mcflyjs/cli':
-        specifier: workspace:*
-        version: link:../packages/cli
       '@mcflyjs/config':
         specifier: workspace:*
         version: link:../packages/config
@@ -139,7 +120,7 @@ importers:
     dependencies:
       '@mcflyjs/cli':
         specifier: ^0.1.1
-        version: link:../../packages/cli
+        version: 0.1.1(magicast@0.3.5)
       '@mcflyjs/config':
         specifier: ^0.2.1
         version: link:../../packages/config
@@ -620,6 +601,10 @@ packages:
   '@mapbox/node-pre-gyp@2.0.0-rc.0':
     resolution: {integrity: sha512-nhSMNprz3WmeRvd8iUs5JqkKr0Ncx46JtPxM3AhXes84XpSJfmIwKeWXRpsr53S7kqPkQfPhzrMFUxSNb23qSA==}
     engines: {node: '>=18'}
+    hasBin: true
+
+  '@mcflyjs/cli@0.1.1':
+    resolution: {integrity: sha512-YT0XVwbUO9SscfoCrNY1Tz92SwLrCKbvHYrPUWjC8UAVaaX8tekdfRDF7DiIr8PX5me3YIZUBnQw0/loFNPhvQ==}
     hasBin: true
 
   '@mcflyjs/core@0.6.1':
@@ -3131,6 +3116,15 @@ snapshots:
     transitivePeerDependencies:
       - encoding
       - supports-color
+
+  '@mcflyjs/cli@0.1.1(magicast@0.3.5)':
+    dependencies:
+      c12: 2.0.1(magicast@0.3.5)
+      citty: 0.1.6
+      consola: 3.3.3
+      pathe: 1.1.2
+    transitivePeerDependencies:
+      - magicast
 
   '@mcflyjs/core@0.6.1(magicast@0.3.5)(typescript@5.7.2)':
     dependencies:

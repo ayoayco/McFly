@@ -18,7 +18,7 @@ function createNew(args) {
 
 export default defineCommand({
   meta: {
-    name: 'prepare',
+    name: 'new',
     description: 'Creates a new McFly project.',
   },
   args: {
