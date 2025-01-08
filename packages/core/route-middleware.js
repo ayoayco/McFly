@@ -3,11 +3,13 @@ import { useRuntimeConfig, useStorage } from 'nitropack/runtime'
 import { createHooks } from 'hookable'
 import { consola } from 'consola'
 
-import { hooks as mcflyHooks } from '@mcflyjs/core/hooks.mjs'
-import defaultMcflyConfig from '@mcflyjs/core/default-mcfly-config.mjs'
-import { evaluateServerScripts } from '@mcflyjs/core/evaluate-scripts.mjs'
-import { injectHtmlFragments } from '@mcflyjs/core/inject-fragments.mjs'
-import { injectCustomElements } from '@mcflyjs/core/inject-elements.mjs'
+import {
+  hooks as mcflyHooks,
+  defaultMcflyConfig,
+  evaluateServerScripts,
+  injectHtmlFragments,
+  injectCustomElements,
+} from '@mcflyjs/core/runtime'
 
 /**
  * @typedef {import('../config').McFlyConfig} Config
