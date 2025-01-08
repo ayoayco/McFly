@@ -115,15 +115,23 @@ importers:
       '@mcflyjs/core':
         specifier: workspace:*
         version: link:../packages/core
+    devDependencies:
+      typescript:
+        specifier: ^5
+        version: 5.7.2
 
   templates/basic:
     dependencies:
-      '@mcflyjs/cli':
-        specifier: ^0.1.1
-        version: 0.1.1(magicast@0.3.5)
+      '@mcflyjs/config':
+        specifier: ^0.2.1
+        version: 0.2.1
       '@mcflyjs/core':
         specifier: ^0.7.1
-        version: link:../../packages/core
+        version: 0.7.1(magicast@0.3.5)(typescript@5.7.2)
+    devDependencies:
+      typescript:
+        specifier: ^5
+        version: 5.7.2
 
 packages:
 
@@ -597,8 +605,11 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@mcflyjs/cli@0.1.1':
-    resolution: {integrity: sha512-YT0XVwbUO9SscfoCrNY1Tz92SwLrCKbvHYrPUWjC8UAVaaX8tekdfRDF7DiIr8PX5me3YIZUBnQw0/loFNPhvQ==}
+  '@mcflyjs/config@0.2.1':
+    resolution: {integrity: sha512-u+4iKQtId3P8qvopl9p04gX2a/ahSmmrLx/uFp9bvg6UA6Y9tIhPG8l713QH7LVNr4iSIybukeuYbHxYHLiHYQ==}
+
+  '@mcflyjs/core@0.7.1':
+    resolution: {integrity: sha512-supKkiuGrJfOSwlQ99LfvcbqNoj/DDQdCKe/wTg0oF7TtOP/xxslBN3edzpqW6eIuBY3Qs4mlXHq47x41w3HPg==}
     hasBin: true
 
   '@netlify/functions@2.8.2':
@@ -3108,14 +3119,52 @@ snapshots:
       - encoding
       - supports-color
 
-  '@mcflyjs/cli@0.1.1(magicast@0.3.5)':
+  '@mcflyjs/config@0.2.1':
+    dependencies:
+      h3: 1.13.0
+      web-component-base: 2.1.2
+    transitivePeerDependencies:
+      - uWebSockets.js
+
+  '@mcflyjs/core@0.7.1(magicast@0.3.5)(typescript@5.7.2)':
     dependencies:
       c12: 2.0.1(magicast@0.3.5)
       citty: 0.1.6
       consola: 3.3.3
+      esprima: 4.0.1
+      h3: 1.13.0
+      nitropack: 2.10.4(typescript@5.7.2)
       pathe: 1.1.2
+      ultrahtml: 1.5.3
     transitivePeerDependencies:
+      - '@azure/app-configuration'
+      - '@azure/cosmos'
+      - '@azure/data-tables'
+      - '@azure/identity'
+      - '@azure/keyvault-secrets'
+      - '@azure/storage-blob'
+      - '@capacitor/preferences'
+      - '@deno/kv'
+      - '@electric-sql/pglite'
+      - '@libsql/client'
+      - '@netlify/blobs'
+      - '@planetscale/database'
+      - '@upstash/redis'
+      - '@vercel/blob'
+      - '@vercel/kv'
+      - aws4fetch
+      - better-sqlite3
+      - drizzle-orm
+      - encoding
+      - idb-keyval
       - magicast
+      - mysql2
+      - rolldown
+      - supports-color
+      - typescript
+      - uWebSockets.js
+      - uploadthing
+      - xml2js
 
   '@netlify/functions@2.8.2':
     dependencies:

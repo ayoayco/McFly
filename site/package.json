@@ -1,5 +1,5 @@
 {
-  "name": "@mcflyjs/landing-page",
+  "name": "site",
   "description": "McFly is a full-stack no-framework framework that assists developers in leveraging the web platform.",
   "private": true,
   "version": "0.0.1",
@@ -26,5 +26,8 @@
   "dependencies": {
     "@mcflyjs/config": "workspace:*",
     "@mcflyjs/core": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5"
   }
 }

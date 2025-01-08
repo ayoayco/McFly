@@ -9,8 +9,11 @@
     "preview": "node .output/server/index.mjs",
     "build:preview": "npm run build && npm run preview"
   },
+  "devDependencies": {
+    "typescript": "^5"
+  },
   "dependencies": {
-    "@mcflyjs/cli": "^0.1.1",
+    "@mcflyjs/config": "^0.2.1",
     "@mcflyjs/core": "^0.7.1"
   }
 }
