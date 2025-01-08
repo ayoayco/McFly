@@ -2,18 +2,6 @@
   "name": "@mcflyjs/landing-page",
   "description": "McFly is a full-stack no-framework framework that assists developers in leveraging the web platform.",
   "private": true,
-  "scripts": {
-    "start": "mcfly serve",
-    "prepare": "mcfly prepare",
-    "dev": "mcfly serve",
-    "build": "mcfly build",
-    "preview": "node .output/server/index.mjs",
-    "build:preview": "pnpm run build && pnpm run preview"
-  },
-  "dependencies": {
-    "@mcflyjs/config": "workspace:*",
-    "@mcflyjs/core": "workspace:*"
-  },
   "version": "0.0.1",
   "main": "index.js",
   "repository": {
@@ -26,5 +14,17 @@
   "bugs": {
     "url": "https://github.com/ayoayco/McFly/issues"
   },
-  "homepage": "https://mcfly.js.org"
+  "homepage": "https://mcfly.js.org",
+  "scripts": {
+    "start": "mcfly serve",
+    "prepare": "mcfly prepare",
+    "dev": "mcfly serve",
+    "build": "mcfly build",
+    "preview": "node .output/server/index.mjs",
+    "build:preview": "pnpm run build && pnpm run preview"
+  },
+  "dependencies": {
+    "@mcflyjs/config": "workspace:*",
+    "@mcflyjs/core": "workspace:*"
+  }
 }

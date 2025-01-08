@@ -1,8 +1,8 @@
 import { ELEMENT_NODE, parse, render, walkSync } from 'ultrahtml'
-import { getFiles } from './get-files.js'
+import { getFiles } from './get-files.mjs'
 
 /**
- * @typedef {import('../config').McFlyConfig} Config
+ * @typedef {import('../config/index.js').McFlyConfig} Config
  */
 
 /**

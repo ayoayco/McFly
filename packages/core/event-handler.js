@@ -1,11 +1,11 @@
 import { consola } from 'consola'
 import { eventHandler } from 'h3'
 import { createHooks } from 'hookable'
-import { hooks as mcflyHooks } from './hooks.js'
-import { evaluateServerScripts } from './evaluate-scripts.js'
-import { injectHtmlFragments } from './inject-fragments.js'
-import { injectCustomElements } from './inject-elements.js'
-import defaultMcflyConfig from './default-mcfly-config.js'
+import { hooks as mcflyHooks } from './hooks.mjs'
+import { evaluateServerScripts } from './evaluate-scripts.mjs'
+import { injectHtmlFragments } from './inject-fragments.mjs'
+import { injectCustomElements } from './inject-elements.mjs'
+import defaultMcflyConfig from './default-mcfly-config.mjs'
 import { loadConfig } from 'c12'
 
 /**
@@ -17,16 +17,16 @@ import { loadConfig } from 'c12'
 
 /**
  * Intercepts all routes and assembles the correct HTML to return
+ * @deprecated
  * @param {{
  *  storage: Storage
  * }} param0
  * @returns {EventHandler}
  */
 export function useMcFlyRoute({ storage }) {
-  const hooks = createHooks()
-  Object.keys(mcflyHooks).forEach((hookName) => hooks.addHooks(hookName))
-
   return eventHandler(async (event) => {
+    const hooks = createHooks()
+    Object.keys(mcflyHooks).forEach((hookName) => hooks.addHooks(hookName))
     const { path } = event
     let { config } = await loadConfig({ name: 'mcfly' })
 

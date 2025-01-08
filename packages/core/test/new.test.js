@@ -1,5 +1,5 @@
 import { expect, test, vi } from 'vitest'
-import { exportedForTest } from '../commands/new.mjs'
+import { exportedForTest } from '../cli/commands/new.mjs'
 import { execSync } from 'node:child_process'
 import consola from 'consola'
 

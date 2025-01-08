@@ -10,7 +10,8 @@
   "scripts": {
     "version": "npm version",
     "publish": "npm publish",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:middleware": "npx esbuild route-middleware.js --bundle --outfile=mcfly-middleware.js"
   },
   "repository": {
     "type": "git",
@@ -27,7 +28,6 @@
     "c12": "^2.0.1",
     "citty": "^0.1.6",
     "consola": "^3.3.3",
-    "esbuild": "^0.24.2",
     "esprima": "^4.0.1",
     "h3": "^1.13.0",
     "nitropack": "latest",
@@ -35,11 +35,12 @@
     "ultrahtml": "^1.5.3"
   },
   "devDependencies": {
-    "unstorage": "^1.14.4",
     "@vitest/coverage-istanbul": "2.1.8",
     "@vitest/coverage-v8": "2.1.8",
     "@vitest/ui": "2.1.8",
-    "vitest": "^2.1.8",
-    "hookable": "^5.5.3"
+    "esbuild": "^0.24.2",
+    "hookable": "^5.5.3",
+    "unstorage": "^1.14.4",
+    "vitest": "^2.1.8"
   }
 }

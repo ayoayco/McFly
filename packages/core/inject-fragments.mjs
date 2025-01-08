@@ -1,5 +1,5 @@
 import { ELEMENT_NODE, parse, render, walkSync } from 'ultrahtml'
-import { getFiles } from './get-files.js'
+import { getFiles } from './get-files.mjs'
 
 /**
  * @typedef {import('ultrahtml').Node} HtmlNode

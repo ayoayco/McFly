@@ -13,8 +13,12 @@ import {
 } from 'nitropack'
 import { resolve } from 'pathe'
 import { loadConfig } from 'c12'
+import { fileURLToPath } from 'node:url'
+import { dirname } from 'pathe'
 
 const hmrKeyRe = /^runtimeConfig\.|routeRules\./
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = dirname(__filename)
 
 async function printInfo() {
   try {
@@ -91,7 +95,18 @@ async function serve(args) {
       )
       nitro.hooks.hookOnce('restart', reload)
       nitro.options.runtimeConfig.mcfly = mcflyConfig
+
+      nitro.options.serverAssets.push({
+        baseName: 'mcfly',
+        dir: resolve(__dirname, '../../serverAssets'),
+      })
+
+      nitro.options.handlers.push({
+        middleware: true,
+        handler: resolve(__dirname, '../../route-middleware.js'),
+      })
       const server = createDevServer(nitro)
+
       // const listenOptions = parseArgs(args)
       await server.listen(1234)
       await prepare(nitro)
