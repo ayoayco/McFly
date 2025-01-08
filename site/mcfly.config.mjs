@@ -1,18 +1,12 @@
 import { defineMcFlyConfig } from '@mcflyjs/config'
+import testPlugin from './test-plugin.mjs'
 
 export default defineMcFlyConfig({
   components: 'js',
   server: {
     logs: true,
   },
-  plugins: [
-    {
-      'mcfly:page:rendered': () => console.log('>>> page rendered'),
-      'mcfly:scripts:evaluated': () => console.log('>>> scripts evaluated'),
-      'mcfly:fragments:injected': () => console.log('>>> fragments injected'),
-      'mcfly:elements:injected': () => console.log('>>> elements injected'),
-    },
-  ],
+  plugins: [testPlugin()],
   nitro: {
     devServer: {
       watch: ['../packages'],
