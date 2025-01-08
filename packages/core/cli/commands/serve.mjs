@@ -96,11 +96,6 @@ async function serve(args) {
       nitro.hooks.hookOnce('restart', reload)
       nitro.options.runtimeConfig.mcfly = mcflyConfig
 
-      nitro.options.serverAssets.push({
-        baseName: 'mcfly',
-        dir: resolve(__dirname, '../../serverAssets'),
-      })
-
       nitro.options.handlers.push({
         middleware: true,
         handler: resolve(__dirname, '../../route-middleware.js'),
