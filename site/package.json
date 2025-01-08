@@ -12,8 +12,7 @@
   },
   "dependencies": {
     "@mcflyjs/config": "workspace:*",
-    "@mcflyjs/core": "workspace:*",
-    "nitropack": "~2.10.4"
+    "@mcflyjs/core": "workspace:*"
   },
   "version": "0.0.1",
   "main": "index.js",

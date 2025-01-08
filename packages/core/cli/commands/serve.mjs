@@ -46,6 +46,7 @@ async function serve(args) {
      */
     let nitro
     const reload = async () => {
+      // close existing nitro
       if (nitro) {
         consola.info('Restarting dev server...')
         if ('unwatch' in nitro.options._c12) {
@@ -53,6 +54,8 @@ async function serve(args) {
         }
         await nitro.close()
       }
+
+      // create new nitro
       nitro = await createNitro(
         {
           extends: '@mcflyjs/config',
@@ -87,6 +90,7 @@ async function serve(args) {
         }
       )
       nitro.hooks.hookOnce('restart', reload)
+      nitro.options.runtimeConfig.mcfly = mcflyConfig
       const server = createDevServer(nitro)
       // const listenOptions = parseArgs(args)
       await server.listen(1234)
