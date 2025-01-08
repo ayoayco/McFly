@@ -10,10 +10,10 @@
     "build:preview": "npm run build && npm run preview"
   },
   "devDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.7.3"
   },
   "dependencies": {
-    "@mcflyjs/config": "^0.2.1",
-    "@mcflyjs/core": "^0.7.1"
+    "@mcflyjs/config": "^0.2.3",
+    "@mcflyjs/core": "^0.8.0"
   }
 }

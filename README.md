@@ -62,7 +62,7 @@ npm create mcfly@latest
 **3. `./src/api/`**
 
 - file-based routing for REST API endpoints
-- e.g., `./routes/api/users.ts` can be accessed via `http://<domain>/api/users`
+- e.g., `./routes/api/users.js` can be accessed via `http://<domain>/api/users`
 - TypeScript or JavaScript welcome!
 
 ## Packages

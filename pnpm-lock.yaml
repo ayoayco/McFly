@@ -47,10 +47,13 @@ importers:
     devDependencies:
       nitropack:
         specifier: ~2.10
-        version: 2.10.4(typescript@5.7.2)
+        version: 2.10.4(typescript@5.7.3)
 
   packages/core:
     dependencies:
+      '@mcflyjs/config':
+        specifier: workspace:*
+        version: link:../config
       c12:
         specifier: ^2.0.1
         version: 2.0.1(magicast@0.3.5)
@@ -68,7 +71,7 @@ importers:
         version: 1.13.0
       nitropack:
         specifier: latest
-        version: 2.10.4(typescript@5.7.2)
+        version: 2.10.4(typescript@5.7.3)
       pathe:
         specifier: ^1.1.2
         version: 1.1.2
@@ -123,15 +126,15 @@ importers:
   templates/basic:
     dependencies:
       '@mcflyjs/config':
-        specifier: ^0.2.1
-        version: 0.2.1
+        specifier: ^0.2.3
+        version: 0.2.3
       '@mcflyjs/core':
-        specifier: ^0.7.1
-        version: 0.7.1(magicast@0.3.5)(typescript@5.7.2)
+        specifier: ^0.8.0
+        version: 0.8.0(magicast@0.3.5)(typescript@5.7.3)
     devDependencies:
       typescript:
-        specifier: ^5
-        version: 5.7.2
+        specifier: ^5.7.3
+        version: 5.7.3
 
 packages:
 
@@ -605,11 +608,11 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@mcflyjs/config@0.2.1':
-    resolution: {integrity: sha512-u+4iKQtId3P8qvopl9p04gX2a/ahSmmrLx/uFp9bvg6UA6Y9tIhPG8l713QH7LVNr4iSIybukeuYbHxYHLiHYQ==}
+  '@mcflyjs/config@0.2.3':
+    resolution: {integrity: sha512-toHJrWuusLiYhkxfBnGo9Mqm+8R+5YFmabvA/4dARRRDXdHIfP8c4xJdBowDqZxv4CI504tdvlQvtROpWj1LkA==}
 
-  '@mcflyjs/core@0.7.1':
-    resolution: {integrity: sha512-supKkiuGrJfOSwlQ99LfvcbqNoj/DDQdCKe/wTg0oF7TtOP/xxslBN3edzpqW6eIuBY3Qs4mlXHq47x41w3HPg==}
+  '@mcflyjs/core@0.8.0':
+    resolution: {integrity: sha512-NbXkfYLAtZDTp+qaYTdc9P+nPNgfXOQ6TK1Tfou+C0eoPJWqlZKPK+dMoWy8SY1OlCfkT0JTnlCURt27xBH3Xg==}
     hasBin: true
 
   '@netlify/functions@2.8.2':
@@ -2490,6 +2493,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@5.7.3:
+    resolution: {integrity: sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   ufo@1.4.0:
     resolution: {integrity: sha512-Hhy+BhRBleFjpJ2vchUNN40qgkh0366FWJGqVLYBHev0vpHTrXSA0ryT+74UiW6KWsldNurQMKGqCm1M2zBciQ==}
 
@@ -3119,21 +3127,22 @@ snapshots:
       - encoding
       - supports-color
 
-  '@mcflyjs/config@0.2.1':
+  '@mcflyjs/config@0.2.3':
     dependencies:
       h3: 1.13.0
       web-component-base: 2.1.2
     transitivePeerDependencies:
       - uWebSockets.js
 
-  '@mcflyjs/core@0.7.1(magicast@0.3.5)(typescript@5.7.2)':
+  '@mcflyjs/core@0.8.0(magicast@0.3.5)(typescript@5.7.3)':
     dependencies:
+      '@mcflyjs/config': link:packages/config
       c12: 2.0.1(magicast@0.3.5)
       citty: 0.1.6
       consola: 3.3.3
       esprima: 4.0.1
       h3: 1.13.0
-      nitropack: 2.10.4(typescript@5.7.2)
+      nitropack: 2.10.4(typescript@5.7.3)
       pathe: 1.1.2
       ultrahtml: 1.5.3
     transitivePeerDependencies:
@@ -4492,7 +4501,7 @@ snapshots:
 
   natural-compare@1.4.0: {}
 
-  nitropack@2.10.4(typescript@5.7.2):
+  nitropack@2.10.4(typescript@5.7.3):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.3.4
       '@netlify/functions': 2.8.2
@@ -4541,7 +4550,7 @@ snapshots:
       node-fetch-native: 1.6.4
       ofetch: 1.4.1
       ohash: 1.1.4
-      openapi-typescript: 7.4.4(typescript@5.7.2)
+      openapi-typescript: 7.4.4(typescript@5.7.3)
       pathe: 1.1.2
       perfect-debounce: 1.0.0
       pkg-types: 1.3.0
@@ -4650,14 +4659,14 @@ snapshots:
       is-docker: 2.2.1
       is-wsl: 2.2.0
 
-  openapi-typescript@7.4.4(typescript@5.7.2):
+  openapi-typescript@7.4.4(typescript@5.7.3):
     dependencies:
       '@redocly/openapi-core': 1.26.1(supports-color@9.4.0)
       ansi-colors: 4.1.3
       change-case: 5.4.4
       parse-json: 8.1.0
       supports-color: 9.4.0
-      typescript: 5.7.2
+      typescript: 5.7.3
       yargs-parser: 21.1.1
     transitivePeerDependencies:
       - encoding
@@ -5081,6 +5090,8 @@ snapshots:
   type-fest@4.31.0: {}
 
   typescript@5.7.2: {}
+
+  typescript@5.7.3: {}
 
   ufo@1.4.0: {}
 
