@@ -2,6 +2,10 @@ image: alpine/edge
 packages:
   - nodejs
   - pnpm
+secrets:
+  - 46f739e5-4538-45dd-a79f-bf173b7a2ed9
+environment:
+  NETLIFY_SITE_ID: 390b392a-a898-491b-8500-79aa30f724d6
 tasks:
   - install-deps: |
       cd mcfly/site
@@ -9,3 +13,12 @@ tasks:
   - build: |
       cd mcfly/site
       pnpm run build
+  - deploy: |
+      cd mcfly/site
+      {
+        set +x
+        . ~/.buildsecrets
+        set -x
+      }
+      export NETLIFY_AUTH_TOKEN
+      npm run deploy
