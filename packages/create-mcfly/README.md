@@ -1,6 +1,6 @@
-<p align="center">
+<!--p align="center">
   <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/template-basic.png" alt="rRick & Morty cartoon" />
-</p>
+</p-->
 
 <h1 align="center">Create McFly</h1>
 
