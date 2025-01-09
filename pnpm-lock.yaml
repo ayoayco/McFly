@@ -126,11 +126,11 @@ importers:
   templates/basic:
     dependencies:
       '@mcflyjs/config':
-        specifier: ^0.2.6
-        version: 0.2.6
+        specifier: ^0.2.7
+        version: 0.2.7
       '@mcflyjs/core':
-        specifier: ^0.8.4
-        version: 0.8.4(@netlify/blobs@8.1.0)(magicast@0.3.5)(typescript@5.7.3)
+        specifier: ^0.8.5
+        version: 0.8.5(@netlify/blobs@8.1.0)(magicast@0.3.5)(typescript@5.7.3)
     devDependencies:
       typescript:
         specifier: ^5.7.3
@@ -964,11 +964,11 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@mcflyjs/config@0.2.6':
-    resolution: {integrity: sha512-HGjvSwXlM0+FSxyQV/2e8rs7dJw98i+jV8/71YupimBvdUCgErCXR7Hh+3Qzox6naoWm+8e91mRQeMY6uF99JA==}
+  '@mcflyjs/config@0.2.7':
+    resolution: {integrity: sha512-pGwklhU4apoT1JyOK3HcAdXP+OuaA4CtwXOn7/rOfHNB9Gde1lwc26TY5rlBHAvZwyJIFd1QVQUguGQ+PAa+pA==}
 
-  '@mcflyjs/core@0.8.4':
-    resolution: {integrity: sha512-LBO6lYP0QwV4rHD580ZYAiOYvdgSzejZkP26zH+Uptn6h5V7X43vN7vocRPRaruapKrBN+Y4tnSaXb48NtBlfA==}
+  '@mcflyjs/core@0.8.5':
+    resolution: {integrity: sha512-JJPNrlebSakkryEc+F+7yU1ovDWiSYeRLgMaXcKRFn2oQ3GtrwHpU4eeZbnByPFQ40DFsvA61dobRgc+SP8YUg==}
     hasBin: true
 
   '@netlify/binary-info@1.0.0':
@@ -6361,14 +6361,14 @@ snapshots:
       - encoding
       - supports-color
 
-  '@mcflyjs/config@0.2.6':
+  '@mcflyjs/config@0.2.7':
     dependencies:
       h3: 1.13.0
       web-component-base: 2.1.2
     transitivePeerDependencies:
       - uWebSockets.js
 
-  '@mcflyjs/core@0.8.4(@netlify/blobs@8.1.0)(magicast@0.3.5)(typescript@5.7.3)':
+  '@mcflyjs/core@0.8.5(@netlify/blobs@8.1.0)(magicast@0.3.5)(typescript@5.7.3)':
     dependencies:
       c12: 2.0.1(magicast@0.3.5)
       citty: 0.1.6
