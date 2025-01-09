@@ -18,9 +18,9 @@ I often wonder what it would look like to build sites & apps knowing just the ba
 
 I thought:
 
-- What if I knew how to write HTML and I can have a dynamic web page from that?
-- What if I knew how to build custom elements and that's all the component system I needed?
-- What if I can write HTML fragments and assemble them easily in a page?
+- What if I knew how to write [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) and I can have a dynamic web page from that?
+- What if I knew how to build [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) and that's all the component system I needed?
+- What if I can write [HTML fragments](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) and assemble them easily in a page?
 - What if I did not have to worry about the [ever-growing number of ways to have a place on the Web](https://ayos.blog/places-in-the-web/)?
 
 **McFly** is my reimagination of web development: Back to the basics. Into the future.

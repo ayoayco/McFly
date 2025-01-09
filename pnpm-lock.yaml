@@ -126,8 +126,8 @@ importers:
         specifier: ^0.2.3
         version: 0.2.3
       '@mcflyjs/core':
-        specifier: ^0.8.0
-        version: 0.8.0(magicast@0.3.5)(typescript@5.7.3)
+        specifier: ^0.8.1
+        version: 0.8.1(magicast@0.3.5)(typescript@5.7.3)
     devDependencies:
       typescript:
         specifier: ^5.7.3
@@ -608,8 +608,8 @@ packages:
   '@mcflyjs/config@0.2.3':
     resolution: {integrity: sha512-toHJrWuusLiYhkxfBnGo9Mqm+8R+5YFmabvA/4dARRRDXdHIfP8c4xJdBowDqZxv4CI504tdvlQvtROpWj1LkA==}
 
-  '@mcflyjs/core@0.8.0':
-    resolution: {integrity: sha512-NbXkfYLAtZDTp+qaYTdc9P+nPNgfXOQ6TK1Tfou+C0eoPJWqlZKPK+dMoWy8SY1OlCfkT0JTnlCURt27xBH3Xg==}
+  '@mcflyjs/core@0.8.1':
+    resolution: {integrity: sha512-nPez716blw3Ua5hh799rzK7ixVFr7iMV+aN9RbXj3lzWZ6fzK+eqKt7+PvXCHbbMvpx0G0Q9Wg8mfFbnQmJySw==}
     hasBin: true
 
   '@netlify/functions@2.8.2':
@@ -3131,9 +3131,8 @@ snapshots:
     transitivePeerDependencies:
       - uWebSockets.js
 
-  '@mcflyjs/core@0.8.0(magicast@0.3.5)(typescript@5.7.3)':
+  '@mcflyjs/core@0.8.1(magicast@0.3.5)(typescript@5.7.3)':
     dependencies:
-      '@mcflyjs/config': link:packages/config
       c12: 2.0.1(magicast@0.3.5)
       citty: 0.1.6
       consola: 3.3.3
