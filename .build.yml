@@ -1,6 +1,7 @@
 image: archlinux
 packages:
   - nodejs
+  - npm
 secrets:
   - 46f739e5-4538-45dd-a79f-bf173b7a2ed9
 environment:
@@ -8,8 +9,7 @@ environment:
 tasks:
   - setup: |
     cd mcfly/site
-    corepack enable
-    pnpm i
+    npm i
   - build: |
     cd mcfly/site
     NODE_ENV=production npm run build
