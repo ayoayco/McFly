@@ -14,8 +14,6 @@ tasks:
   - build: |
       cd mcfly
       pnpm -F site run build
-      cp -R ./site/dist .
-      ls -al
   - deploy: |
       cd mcfly/site
       {
