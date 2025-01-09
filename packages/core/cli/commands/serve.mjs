@@ -15,7 +15,7 @@ import { resolve } from 'pathe'
 import { loadConfig } from 'c12'
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'pathe'
-import { nitroConfig as mcflyNitroConfig } from '@mcflyjs/config/nitro-config.js'
+import { nitroConfig as mcflyNitroConfig } from '@mcflyjs/core/runtime'
 
 const hmrKeyRe = /^runtimeConfig\.|routeRules\./
 const __filename = fileURLToPath(import.meta.url)
