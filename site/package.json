@@ -22,7 +22,7 @@
     "build": "mcfly build",
     "preview": "node .output/server/index.mjs",
     "build:preview": "pnpm run build && pnpm run preview",
-    "deploy": "netlify deploy --site=$NETLIFY_SITE_ID --dir=dist functions=server --prod"
+    "deploy": "netlify deploy --site=$NETLIFY_SITE_ID --dir=dist --prod"
   },
   "dependencies": {
     "@mcflyjs/config": "workspace:*",

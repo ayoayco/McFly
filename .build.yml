@@ -9,11 +9,12 @@ environment:
   NETLIFY_SITE_ID: 390b392a-a898-491b-8500-79aa30f724d6
 tasks:
   - install-deps: |
-      cd mcfly/site
-      pnpm i
+      cd mcfly
+      pnpm -F site i
   - build: |
-      cd mcfly/site
-      npm run build
+      cd mcfly
+      pnpm -F site run build
+      ls
   - deploy: |
       cd mcfly/site
       {
