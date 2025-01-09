@@ -21,4 +21,4 @@ tasks:
         set -x
       }
       export NETLIFY_AUTH_TOKEN
-      npm run deploy
+      pnpm run deploy
