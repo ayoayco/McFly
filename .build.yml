@@ -1,6 +1,11 @@
 image: archlinux
+packages:
+  - nodejs
 tasks:
-  - say-hello: |
-      echo hello
-  - say-world: |
-      echo world
+  - install-deps: |
+      cd mcfly/site
+      corepack enable
+      pnpm i
+  - build: |
+      cd mcfly/site
+      ls
