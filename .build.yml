@@ -8,13 +8,13 @@ environment:
   NETLIFY_SITE_ID: 390b392a-a898-491b-8500-79aa30f724d6
 tasks:
   - setup: |
-    cd mcfly/site
+    cd "mcfly/site"
     npm i
   - build: |
-    cd mcfly/site
+    cd "mcfly/site"
     NODE_ENV=production npm run build
   - deploy: |
-    cd mcfly/site
+    cd "mcfly/site"
     {
       set +x
       . ~/.buildsecrets
