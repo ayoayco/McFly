@@ -8,6 +8,7 @@ export default defineMcFlyConfig({
   },
   plugins: [testPlugin()],
   nitro: {
+    preset: 'netlify',
     devServer: {
       watch: ['../packages'],
     },

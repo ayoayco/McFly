@@ -1,11 +1,9 @@
 image: alpine/edge
 packages:
   - nodejs
-  - corepack
   - pnpm
 tasks:
   - install-deps: |
-      corpack enable
       cd mcfly/site
       pnpm i
   - build: |
