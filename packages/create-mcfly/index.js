@@ -174,7 +174,7 @@ function showResults(directory, installDeps) {
 
   nextActions = nextActions.concat([
     `Start the dev server with ${colorize('yellow', 'npm start')}`,
-    `Join us at ${colorize('blue', 'https://ayco.io/gh/McFly')}`,
+    `Join us at ${colorize('blue', 'https://ayco.io/sh/mcfly')}`,
   ])
 
   const result = `🎉 Your new ${colorize(
