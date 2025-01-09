@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="250" src="https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd" alt="rRick & Morty cartoon" />
+  <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/template-basic.png" alt="rRick & Morty cartoon" />
 </p>
 
 <h1 align="center">McFly Docs</h1>
