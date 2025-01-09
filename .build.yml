@@ -24,4 +24,4 @@ tasks:
         set -x
       }
       export NETLIFY_AUTH_TOKEN
-      npx netlify deploy --site=$NETLIFY_SITE_ID --dir=./site/dist
+      npx netlify deploy --site=$NETLIFY_SITE_ID
