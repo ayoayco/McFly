@@ -1,11 +1,11 @@
-image: archlinux
+image: alpine/edge
 packages:
   - nodejs
+  - npm
 tasks:
   - install-deps: |
       cd mcfly/site
-      corepack enable
-      pnpm i
-  - build: |
+      npm i
+  - list-files: |
       cd mcfly/site
       ls
