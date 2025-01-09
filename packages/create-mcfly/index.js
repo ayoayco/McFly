@@ -104,7 +104,7 @@ async function downloadTemplateToDirectory(directory) {
     consola.start(
       `Copying template to ${colorize('bold', getSafeDirectory(directory))}...`
     )
-    await downloadTemplate('github:ayoayco/mcfly/templates/basic', {
+    await downloadTemplate('sourcehut:ayoayco/mcfly/templates/basic', {
       dir: directory,
     })
   } catch (ㆆ_ㆆ) {
