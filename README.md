@@ -62,7 +62,7 @@ npm create mcfly@latest
 **3. `./src/api/`**
 
 - file-based routing for REST API endpoints
-- e.g., `./routes/api/users.js` can be accessed via `http://<domain>/api/users`
+- e.g., `./src/api/users.js` can be accessed via `http://<domain>/api/users`
 - TypeScript or JavaScript welcome!
 
 ## Packages
@@ -74,6 +74,24 @@ The following are the project packages published on the NPM registry:
 | [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Nitro server config for McFly projects       | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
 | [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Route event and config handlers              | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
 | [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly)        |
+
+## Project setup
+
+After cloning the project, you will need [node](https://nodejs.org/en/download) and [pnpm installed](https://pnpm.io/installation). When you are sure that you have `node` and `pnpm`, then run the following to download the dependencies:
+
+```
+corepack enable
+pnpm i
+```
+
+The following commands are available to you on this project. Add more, or modify them as needed in your `./package.json` file.
+
+| Command                 | Action                                                |
+| ----------------------- | ----------------------------------------------------- |
+| pnpm run site           | Start the development server for https://mcfly.js.org |
+| pnpm run template:basic | Start the development server for the basic template   |
+| pnpm run build          | Locally generate the app's build files to `./output`  |
+| pnpm run preview        | Preview the built app locally                         |
 
 ## More info
 
