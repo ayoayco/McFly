@@ -3,7 +3,7 @@ packages:
   - nodejs
   - pnpm
 secrets:
-  - 46f739e5-4538-45dd-a79f-bf173b7a2ed9
+  - 291f0e35-9b8d-43ff-844c-77c5f29c1876
 environment:
   NETLIFY_SITE_ID: 390b392a-a898-491b-8500-79aa30f724d6
 tasks:
