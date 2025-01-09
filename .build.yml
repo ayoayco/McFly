@@ -1,6 +1,7 @@
 image: alpine/edge
 packages:
   - nodejs
+  - corepack
   - pnpm
 tasks:
   - install-deps: |
