@@ -1,0 +1,24 @@
+image: archlinux
+packages:
+  - nodejs
+secrets:
+  - 46f739e5-4538-45dd-a79f-bf173b7a2ed9
+environment:
+  NETLIFY_SITE_ID: 390b392a-a898-491b-8500-79aa30f724d6
+tasks:
+  - setup: |
+    cd mcfly/site
+    corepack enable
+    pnpm i
+  - build: |
+    cd mcfly/site
+    NODE_ENV=production npm run build
+  - deploy: |
+    cd mcfly/site
+    {
+      set +x
+      . ~/.buildsecrets
+      set -x
+    }
+    export NETLIFY_AUTH_TOKEN
+    npm run deploy
