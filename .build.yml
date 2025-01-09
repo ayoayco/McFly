@@ -14,9 +14,10 @@ tasks:
   - build: |
       cd mcfly
       pnpm -F site run build
-      ls
+      cp -R ./site/dist .
+      ls -al
   - deploy: |
-      cd mcfly
+      cd mcfly/site
       {
         set +x
         . ~/.buildsecrets
