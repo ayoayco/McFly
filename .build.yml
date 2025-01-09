@@ -1,6 +1,7 @@
 image: alpine/edge
 packages:
   - nodejs
+  - npm
   - pnpm
 secrets:
   - 291f0e35-9b8d-43ff-844c-77c5f29c1876
@@ -12,7 +13,7 @@ tasks:
       pnpm i
   - build: |
       cd mcfly/site
-      pnpm run build
+      npm run build
   - deploy: |
       cd mcfly/site
       {
@@ -21,4 +22,4 @@ tasks:
         set -x
       }
       export NETLIFY_AUTH_TOKEN
-      pnpm run deploy
+      npm run deploy
