@@ -3,9 +3,6 @@ packages:
   - nodejs
   - npm
 tasks:
-  - install-deps: |
-      cd mcfly/site
-      npm i
   - list-files: |
       cd mcfly/site
       ls
