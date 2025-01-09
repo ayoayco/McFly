@@ -16,7 +16,7 @@ tasks:
       pnpm -F site run build
       ls
   - deploy: |
-      cd mcfly/site
+      cd mcfly
       ls /home/build/mcfly/site/dist
       {
         set +x
@@ -24,4 +24,4 @@ tasks:
         set -x
       }
       export NETLIFY_AUTH_TOKEN
-      npm run deploy
+      npx netlify deploy --site=$NETLIFY_SITE_ID --dir=./site/dist
