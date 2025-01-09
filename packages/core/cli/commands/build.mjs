@@ -12,7 +12,7 @@ import {
   prerender,
 } from 'nitropack'
 import { fileURLToPath } from 'node:url'
-import { nitroConfig as mcflyNitroConfig } from '@mcflyjs/core/runtime'
+import { nitroConfig as mcflyNitroConfig } from '../../runtime/nitro-config.js'
 
 async function _build(args) {
   consola.start('Building project...')
