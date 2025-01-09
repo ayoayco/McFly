@@ -1,0 +1,4 @@
+[build]
+base = "site"
+publish = "dist"
+command = "pnpm run build"
