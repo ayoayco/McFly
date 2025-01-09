@@ -15,11 +15,11 @@ tasks:
       cd mcfly
       pnpm -F site run build
   - deploy: |
-      cd mcfly/site
+      cd mcfly
       {
         set +x
         . ~/.buildsecrets
         set -x
       }
       export NETLIFY_AUTH_TOKEN
-      pnpm run deploy
+      pnpm -F site run deploy
