@@ -10,7 +10,7 @@ environment:
 tasks:
   - install-deps: |
       cd mcfly
-      pnpm -F site i
+      pnpm i
   - build: |
       cd mcfly
       pnpm -F site run build
