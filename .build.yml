@@ -17,6 +17,7 @@ tasks:
       ls
   - deploy: |
       cd mcfly/site
+      ls
       {
         set +x
         . ~/.buildsecrets
