@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.8.6",
+  "version": "0.8.7",
   "description": "McFly core package",
   "type": "module",
   "main": "index.js",
@@ -27,6 +27,7 @@
     "c12": "^2.0.1",
     "citty": "^0.1.6",
     "consola": "^3.3.3",
+    "devalue": "^5.1.1",
     "esprima": "^4.0.1",
     "h3": "^1.13.0",
     "nitropack": "latest",

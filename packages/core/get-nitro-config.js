@@ -21,10 +21,5 @@ export async function getNitroConfig() {
 
     // McFly standard nitro config
     ...mcflyNitroConfig,
-
-    // expose mcfly config to framework runtime
-    runtimeConfig: {
-      mcfly: mcflyConfig,
-    },
   }
 }

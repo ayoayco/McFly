@@ -1,8 +1,9 @@
 import { eventHandler } from 'h3'
-import { useRuntimeConfig, useStorage } from 'nitropack/runtime'
+import { useStorage } from 'nitropack/runtime'
 import { createHooks } from 'hookable'
 import { consola } from 'consola'
 import { colorize } from 'consola/utils'
+import { loadConfig } from 'c12'
 
 import {
   hooks as mcflyHooks,
@@ -27,7 +28,7 @@ export default eventHandler(async (event) => {
   const hooks = createHooks()
   Object.keys(mcflyHooks).forEach((hookName) => hooks.addHooks(hookName))
   const { path } = event
-  let { mcfly: config } = useRuntimeConfig()
+  let { config } = await loadConfig({ name: 'mcfly' })
   const storage = useStorage()
 
   // if not page, don't render
@@ -80,7 +81,8 @@ export default eventHandler(async (event) => {
 
         // call hook
         if (transform.hook) {
-          hooks.callHook(transform.hook)
+          // not sure if we want to await, for now it makes the outcome predictable
+          await hooks.callHook(transform.hook)
         }
       }
     } else {
@@ -92,11 +94,11 @@ export default eventHandler(async (event) => {
   }
 
   if (html) {
-    hooks.callHook(mcflyHooks.pageRendered)
+    await hooks.callHook(mcflyHooks.pageRendered)
   }
 
   const timeEnd = performance.now()
-  consola.log(
+  consola.info(
     colorize('green', event.path),
     'rendered in',
     Math.round(timeEnd - timeStart),
