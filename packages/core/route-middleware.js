@@ -124,6 +124,7 @@ function getPath(filename) {
 function getPurePath(path) {
   return path.split('?')[0]
 }
+
 /**
  * Gets the correct HTML depending on the path requested
  * @param {string} path

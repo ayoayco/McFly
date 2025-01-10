@@ -12,6 +12,7 @@ import {
 } from 'nitropack'
 import { fileURLToPath } from 'node:url'
 import { getNitroConfig } from '../../get-nitro-config.js'
+import { copyFileSync } from 'node:fs'
 
 async function _build(args) {
   consola.start('Building project...')
@@ -38,6 +39,15 @@ async function _build(args) {
     nitro.options.handlers.push({
       middleware: true,
       handler: resolve(__dirname, '../../route-middleware.js'),
+    })
+
+    nitro.hooks.hook('compiled', () => {
+      console.log('>>> Nitro compiled', rootDir)
+
+      // TODO: match file for mcfly.config.*
+      const mcflyConfigPath = resolve(rootDir, './mcfly.config.mjs')
+      const distPath = resolve(rootDir, './dist/mcfly.config.mjs')
+      copyFileSync(mcflyConfigPath, distPath)
     })
 
     await prepare(nitro)
