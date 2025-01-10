@@ -2,7 +2,7 @@
  * @typedef {import('nitropack').NitroConfig} NitroConfig
  * @type {NitroConfig}
  */
-export const nitroConfig = {
+export const mcflyNitroConfig = {
   framework: {
     name: 'McFly',
   },

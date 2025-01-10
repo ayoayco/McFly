@@ -3,7 +3,6 @@
 import { consola } from 'consola'
 import { defineCommand } from 'citty'
 import { dirname, resolve } from 'pathe'
-import { loadConfig } from 'c12'
 import {
   build,
   copyPublicAssets,
@@ -12,26 +11,24 @@ import {
   prerender,
 } from 'nitropack'
 import { fileURLToPath } from 'node:url'
-import { nitroConfig as mcflyNitroConfig } from '../../runtime/nitro-config.js'
+import { getNitroConfig } from '../../get-nitro-config.js'
 
 async function _build(args) {
   consola.start('Building project...')
   try {
     const rootDir = resolve(args.dir || args._dir || '.')
-    const { config: mcflyConfig } = await loadConfig({ name: 'mcfly' })
-    const { config: nitroConfig } = await loadConfig({ name: 'nitro' })
+
+    const nitroConfig = await getNitroConfig()
 
     const nitro = await createNitro({
       rootDir,
       dev: false,
+
+      ...nitroConfig,
+
       minify: args.minify,
       preset: args.preset,
-      // spread mcfly.nitro config
-      ...(mcflyConfig.nitro ?? {}),
-      ...(nitroConfig ?? {}),
-      ...mcflyNitroConfig,
     })
-    nitro.options.runtimeConfig.mcfly = mcflyConfig
 
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)

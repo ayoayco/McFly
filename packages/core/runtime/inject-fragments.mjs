@@ -1,5 +1,5 @@
 import { ELEMENT_NODE, parse, render, walkSync } from 'ultrahtml'
-import { getFiles } from '@mcflyjs/core/runtime/get-files.mjs'
+import { getFiles } from './get-files.mjs'
 
 /**
  * @typedef {import('ultrahtml').Node} HtmlNode

@@ -12,10 +12,9 @@ import {
   prerender,
 } from 'nitropack'
 import { resolve } from 'pathe'
-import { loadConfig } from 'c12'
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'pathe'
-import { nitroConfig as mcflyNitroConfig } from '../../runtime/nitro-config.js'
+import { getNitroConfig } from '../../get-nitro-config.js'
 
 const hmrKeyRe = /^runtimeConfig\.|routeRules\./
 const __filename = fileURLToPath(import.meta.url)
@@ -42,8 +41,6 @@ async function serve(args) {
      * @type {string}
      */
     const rootDir = resolve(args.dir || args._dir || '.')
-    const { config: mcflyConfig } = await loadConfig({ name: 'mcfly' })
-    const { config: nitroConfig } = await loadConfig({ name: 'nitro' })
 
     /**
      * @typedef {import('nitropack').Nitro} Nitro
@@ -60,6 +57,8 @@ async function serve(args) {
         await nitro.close()
       }
 
+      const nitroConfig = await getNitroConfig()
+
       // create new nitro
       nitro = await createNitro(
         {
@@ -67,10 +66,7 @@ async function serve(args) {
           dev: true,
           preset: 'nitro-dev',
           _cli: { command: 'dev' },
-          // spread mcfly.nitro config
-          ...(mcflyConfig.nitro ?? {}),
-          ...(nitroConfig ?? {}),
-          ...mcflyNitroConfig,
+          ...nitroConfig,
         },
         {
           watch: true,
@@ -95,7 +91,6 @@ async function serve(args) {
         }
       )
       nitro.hooks.hookOnce('restart', reload)
-      nitro.options.runtimeConfig.mcfly = mcflyConfig
 
       nitro.options.handlers.push({
         middleware: true,

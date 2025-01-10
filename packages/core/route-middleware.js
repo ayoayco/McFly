@@ -2,6 +2,7 @@ import { eventHandler } from 'h3'
 import { useRuntimeConfig, useStorage } from 'nitropack/runtime'
 import { createHooks } from 'hookable'
 import { consola } from 'consola'
+import { colorize } from 'consola/utils'
 
 import {
   hooks as mcflyHooks,
@@ -9,7 +10,7 @@ import {
   evaluateServerScripts,
   injectHtmlFragments,
   injectCustomElements,
-} from '@mcflyjs/core/runtime/index.js'
+} from '@mcflyjs/core/runtime/index.js' // important to import from installed node_module because this script is passed to another context
 
 /**
  * @typedef {import('../config').McFlyConfig} Config
@@ -29,18 +30,17 @@ export default eventHandler(async (event) => {
   let { mcfly: config } = useRuntimeConfig()
   const storage = useStorage()
 
-  const publicAssets = (await storage.getKeys('root:public')).map(
-    (key) => `/${key.replace('root:public:', '')}`
-  )
-
   // if not page, don't render
-  if (event.path.startsWith('/api') || publicAssets.includes(event.path)) {
+  if (event.path.startsWith('/api')) {
     return
   }
 
   if (!config || Object.keys(config).length === 0) {
     config = defaultMcflyConfig
-    consola.warn(`[WARN]: McFly configuration not loaded, using defaults...`)
+    consola.warn(
+      `[WARN]: McFly configuration not found, using defaults...`,
+      defaultMcflyConfig
+    )
   }
 
   const plugins = config.plugins ?? []
@@ -96,11 +96,11 @@ export default eventHandler(async (event) => {
   }
 
   const timeEnd = performance.now()
-  consola.info(
-    'Page rendered in',
+  consola.log(
+    colorize('green', event.path),
+    'rendered in',
     Math.round(timeEnd - timeStart),
-    'ms:',
-    event.path
+    'ms'
   )
   return (
     html ??
