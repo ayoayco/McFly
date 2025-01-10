@@ -20,14 +20,16 @@ async function _build(args) {
 
     const nitroConfig = await getNitroConfig()
 
+    console.log('>>> preset arg', args.preset)
+
     const nitro = await createNitro({
       rootDir,
       dev: false,
 
       ...nitroConfig,
 
-      minify: args.minify,
-      preset: args.preset,
+      minify: args.minify ?? nitroConfig.minify,
+      preset: args.preset ?? nitroConfig.preset,
     })
 
     const __filename = fileURLToPath(import.meta.url)
