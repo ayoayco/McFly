@@ -9,7 +9,7 @@ import {
   evaluateServerScripts,
   injectHtmlFragments,
   injectCustomElements,
-} from '@mcflyjs/core/runtime'
+} from '@mcflyjs/core/runtime/index.js'
 
 /**
  * @typedef {import('../config').McFlyConfig} Config
