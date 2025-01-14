@@ -30,8 +30,14 @@ export default eventHandler(async (event) => {
   const { path } = event
   const { appConfigFile } = useRuntimeConfig()
 
-  let { default: configFn } = await import(appConfigFile)
-  let config = configFn()
+  let config
+  // TODO: this still doesn't work on Netlify
+  try {
+    let { default: configFn } = await import(appConfigFile)
+    config = configFn()
+  } catch (err) {
+    consola.error(err)
+  }
   const storage = useStorage()
 
   // if not page, don't render
