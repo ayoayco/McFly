@@ -36,14 +36,13 @@ export default eventHandler(async (event) => {
   const __filename = fileURLToPath(import.meta.url)
   const __dirname = dirname(__filename)
   let relativePath = relative(__dirname, appConfigFile)
-  relativePath = relativePath.replace('.mjs', '').replace('../', '')
 
   console.log('>>> relative', relativePath)
 
   let config
   // TODO: this still doesn't work on Netlify
   try {
-    const { default: configFn } = await import(`../${relativePath}.mjs`)
+    const { default: configFn } = await import(relativePath)
     config = configFn()
   } catch (err) {
     consola.error(err)
@@ -52,7 +51,7 @@ export default eventHandler(async (event) => {
   console.log('>>> ', {
     config,
     appConfigFile,
-    relativePath: `../${relativePath}.mjs`,
+    relativePath,
     __dirname,
   })
 
