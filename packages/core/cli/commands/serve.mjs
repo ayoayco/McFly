@@ -14,7 +14,7 @@ import {
 import { resolve } from 'pathe'
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'pathe'
-import { getNitroConfig } from '../../get-nitro-config.js'
+import { getMcFlyConfig, getNitroConfig } from '../../get-nitro-config.js'
 
 const hmrKeyRe = /^runtimeConfig\.|routeRules\./
 const __filename = fileURLToPath(import.meta.url)
@@ -57,7 +57,8 @@ async function serve(args) {
         await nitro.close()
       }
 
-      const nitroConfig = await getNitroConfig()
+      const [mcflyConfig, appConfigFile] = await getMcFlyConfig()
+      const nitroConfig = await getNitroConfig(mcflyConfig)
 
       // create new nitro
       nitro = await createNitro(
@@ -91,6 +92,7 @@ async function serve(args) {
         }
       )
       nitro.hooks.hookOnce('restart', reload)
+      nitro.options.runtimeConfig.appConfigFile = appConfigFile
 
       nitro.options.handlers.push({
         middleware: true,

@@ -8,18 +8,24 @@ import { mcflyNitroConfig } from './mcfly-nitro-config.js'
 /**
  * @returns {Promise<NitroConfig>}
  */
-export async function getNitroConfig() {
+export async function getNitroConfig(mcflyConfig = {}) {
   const { config: nitroConfig } = await loadConfig({ name: 'nitro' })
-  const { config: mcflyConfig } = await loadConfig({ name: 'mcfly' })
-
   return {
-    // nitro config within user's mcfly.config.mjs
-    ...(mcflyConfig.nitro ?? {}),
+    // nitro config in mcfly config
+    ...mcflyConfig.nitro,
 
-    // nitro config from nitro.config.mjs
+    // nitro config from nitro config
     ...(nitroConfig ?? {}),
 
     // McFly standard nitro config
     ...mcflyNitroConfig,
   }
+}
+
+export async function getMcFlyConfig() {
+  const { config: mcflyConfig, configFile } = await loadConfig({
+    name: 'mcfly',
+  })
+
+  return [mcflyConfig, configFile]
 }

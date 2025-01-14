@@ -11,7 +11,7 @@ import {
   prerender,
 } from 'nitropack'
 import { fileURLToPath } from 'node:url'
-import { getNitroConfig } from '../../get-nitro-config.js'
+import { getMcFlyConfig, getNitroConfig } from '../../get-nitro-config.js'
 import { copyFileSync } from 'node:fs'
 
 async function _build(args) {
@@ -19,7 +19,8 @@ async function _build(args) {
   try {
     const rootDir = resolve(args.dir || args._dir || '.')
 
-    const nitroConfig = await getNitroConfig()
+    const [mcflyConfig, appConfigFile] = await getMcFlyConfig()
+    const nitroConfig = await getNitroConfig(mcflyConfig)
 
     console.log('>>> preset arg', args.preset)
 
@@ -40,6 +41,8 @@ async function _build(args) {
       middleware: true,
       handler: resolve(__dirname, '../../route-middleware.js'),
     })
+
+    nitro.options.runtimeConfig.appConfigFile = appConfigFile
 
     nitro.hooks.hook('compiled', () => {
       console.log('>>> Nitro compiled', rootDir)

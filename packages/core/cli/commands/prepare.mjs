@@ -4,7 +4,7 @@ import { consola } from 'consola'
 import { defineCommand } from 'citty'
 import { resolve } from 'pathe'
 import { createNitro, writeTypes } from 'nitropack'
-import { getNitroConfig } from '../../get-nitro-config.js'
+import { getMcFlyConfig, getNitroConfig } from '../../get-nitro-config.js'
 
 async function prepare(args) {
   consola.start('Preparing McFly workspace...')
@@ -13,7 +13,8 @@ async function prepare(args) {
 
   try {
     const rootDir = resolve(args.dir || args._dir || '.')
-    const nitroConfig = await getNitroConfig()
+    const [mcflyConfig] = await getMcFlyConfig()
+    const nitroConfig = await getNitroConfig(mcflyConfig)
     const nitro = await createNitro({ rootDir, ...nitroConfig })
 
     await writeTypes(nitro)

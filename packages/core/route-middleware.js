@@ -3,7 +3,7 @@ import { useStorage } from 'nitropack/runtime'
 import { createHooks } from 'hookable'
 import { consola } from 'consola'
 import { colorize } from 'consola/utils'
-import { resolve } from 'pathe'
+import { useRuntimeConfig } from 'nitropack/runtime'
 
 import {
   hooks as mcflyHooks,
@@ -28,10 +28,9 @@ export default eventHandler(async (event) => {
   const hooks = createHooks()
   Object.keys(mcflyHooks).forEach((hookName) => hooks.addHooks(hookName))
   const { path } = event
+  const { appConfigFile } = useRuntimeConfig()
 
-  // TODO: detect config file type
-  const mcflyConfigPath = resolve('./mcfly.config.mjs')
-  let { default: configFn } = await import(mcflyConfigPath)
+  let { default: configFn } = await import(appConfigFile)
   let config = configFn()
   const storage = useStorage()
 
