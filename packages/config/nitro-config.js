@@ -9,6 +9,7 @@ export const nitroConfig = {
   compatibilityDate: '2024-12-08',
   srcDir: 'src',
   apiDir: 'api',
+  buildDir: '.mcfly',
   devServer: {
     watch: ['./pages', './components', './api'],
   },
