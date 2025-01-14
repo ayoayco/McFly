@@ -4,6 +4,8 @@ import { createHooks } from 'hookable'
 import { consola } from 'consola'
 import { colorize } from 'consola/utils'
 import { useRuntimeConfig } from 'nitropack/runtime'
+import { dirname, relative } from 'pathe'
+import { fileURLToPath } from 'node:url'
 
 import {
   hooks as mcflyHooks,
@@ -28,17 +30,31 @@ export default eventHandler(async (event) => {
   const hooks = createHooks()
   Object.keys(mcflyHooks).forEach((hookName) => hooks.addHooks(hookName))
   const { path } = event
+  const storage = useStorage()
+
   const { appConfigFile } = useRuntimeConfig()
+  const __filename = fileURLToPath(import.meta.url)
+  const __dirname = dirname(__filename)
+  let relativePath = relative(__dirname, appConfigFile)
+  relativePath = relativePath.replace('.mjs', '').replace('../', '')
+
+  console.log('>>> relative', relativePath)
 
   let config
   // TODO: this still doesn't work on Netlify
   try {
-    let { default: configFn } = await import(appConfigFile)
+    const { default: configFn } = await import(`../${relativePath}.mjs`)
     config = configFn()
   } catch (err) {
     consola.error(err)
   }
-  const storage = useStorage()
+
+  console.log('>>> ', {
+    config,
+    appConfigFile,
+    relativePath: `../${relativePath}.mjs`,
+    __dirname,
+  })
 
   // if not page, don't render
   if (event.path.startsWith('/api')) {
