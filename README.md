@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="250" src="https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd" alt="rRick & Morty cartoon" />
+  <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/mcfly-logo-sm.png" alt="rRick & Morty cartoon" />
 </p>
 
 <h1 align="center">McFly</h1>
@@ -18,9 +18,9 @@ I often wonder what it would look like to build sites & apps knowing just the ba
 
 I thought:
 
-- What if I knew how to write HTML and I can have a dynamic web page from that?
-- What if I knew how to build custom elements and that's all the component system I needed?
-- What if I can write HTML fragments and assemble them easily in a page?
+- What if I knew how to write [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) and I can have a dynamic web page from that?
+- What if I knew how to build [custom elements](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_custom_elements) and that's all the component system I needed?
+- What if I can write [HTML fragments](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) and [assemble them](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM) easily in a page?
 - What if I did not have to worry about the [ever-growing number of ways to have a place on the Web](https://ayos.blog/places-in-the-web/)?
 
 **McFly** is my reimagination of web development: Back to the basics. Into the future.
@@ -70,10 +70,27 @@ The following are the project packages published on the NPM registry:
 
 | Package                                                | Description                                  | Version                                                          |
 | ------------------------------------------------------ | -------------------------------------------- | ---------------------------------------------------------------- |
-| [`@mcflyjs/cli`](https://ayco.io/n/@mcflyjs/cli)       | The McFly CLI tooling                        | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcli)    |
 | [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Nitro server config for McFly projects       | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
 | [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Route event and config handlers              | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
 | [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly)        |
+
+## Project setup
+
+After cloning the project, you will need [node](https://nodejs.org/en/download) and [pnpm installed](https://pnpm.io/installation). When you are sure that you have `node` and `pnpm`, then run the following to download the dependencies:
+
+```
+corepack enable
+pnpm i
+```
+
+The following commands are available to you on this project. Add more, or modify them as needed in your `./package.json` file.
+
+| Command                 | Action                                                |
+| ----------------------- | ----------------------------------------------------- |
+| pnpm run site           | Start the development server for https://mcfly.js.org |
+| pnpm run template:basic | Start the development server for the basic template   |
+| pnpm run build          | Locally generate the app's build files to `./output`  |
+| pnpm run preview        | Preview the built app locally                         |
 
 ## More info
 

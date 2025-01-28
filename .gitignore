@@ -5,6 +5,7 @@ html
 
 *.log*
 .nitro
+.mcfly
 .netlify
 .cache
 .output

@@ -2,14 +2,13 @@
  * @typedef {import('nitropack').NitroConfig} NitroConfig
  * @type {NitroConfig}
  */
-export const nitroConfig = {
+export const mcflyNitroConfig = {
   framework: {
     name: 'McFly',
   },
   compatibilityDate: '2024-12-08',
   srcDir: 'src',
   apiDir: 'api',
-  buildDir: '.mcfly',
   devServer: {
     watch: ['./pages', './components', './api'],
   },

@@ -3,7 +3,6 @@
 import { consola } from 'consola'
 import { defineCommand } from 'citty'
 import { dirname, resolve } from 'pathe'
-import { loadConfig } from 'c12'
 import {
   build,
   copyPublicAssets,
@@ -12,26 +11,25 @@ import {
   prerender,
 } from 'nitropack'
 import { fileURLToPath } from 'node:url'
-import { nitroConfig as mcflyNitroConfig } from '@mcflyjs/config/nitro-config.js'
+import { getMcFlyConfig, getNitroConfig } from '../../get-nitro-config.js'
 
 async function _build(args) {
   consola.start('Building project...')
   try {
     const rootDir = resolve(args.dir || args._dir || '.')
-    const { config: mcflyConfig } = await loadConfig({ name: 'mcfly' })
-    const { config: nitroConfig } = await loadConfig({ name: 'nitro' })
+
+    const [mcflyConfig, appConfigFile] = await getMcFlyConfig()
+    const nitroConfig = await getNitroConfig(mcflyConfig)
 
     const nitro = await createNitro({
       rootDir,
       dev: false,
-      minify: args.minify,
-      preset: args.preset,
-      // spread mcfly.nitro config
-      ...(mcflyConfig.nitro ?? {}),
-      ...(nitroConfig ?? {}),
-      ...mcflyNitroConfig,
+
+      ...nitroConfig,
+
+      minify: args.minify ?? nitroConfig.minify,
+      preset: args.preset ?? nitroConfig.preset,
     })
-    nitro.options.runtimeConfig.mcfly = mcflyConfig
 
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
@@ -40,6 +38,8 @@ async function _build(args) {
       middleware: true,
       handler: resolve(__dirname, '../../route-middleware.js'),
     })
+
+    nitro.options.runtimeConfig.appConfigFile = appConfigFile
 
     await prepare(nitro)
     await copyPublicAssets(nitro)

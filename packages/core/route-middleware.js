@@ -1,7 +1,11 @@
 import { eventHandler } from 'h3'
-import { useRuntimeConfig, useStorage } from 'nitropack/runtime'
+import { useStorage } from 'nitropack/runtime'
 import { createHooks } from 'hookable'
 import { consola } from 'consola'
+import { colorize } from 'consola/utils'
+import { useRuntimeConfig } from 'nitropack/runtime'
+import { dirname, relative } from 'pathe'
+import { fileURLToPath } from 'node:url'
 
 import {
   hooks as mcflyHooks,
@@ -9,7 +13,7 @@ import {
   evaluateServerScripts,
   injectHtmlFragments,
   injectCustomElements,
-} from '@mcflyjs/core/runtime'
+} from '@mcflyjs/core/runtime/index.js' // important to import from installed node_module because this script is passed to another context
 
 /**
  * @typedef {import('../config').McFlyConfig} Config
@@ -26,21 +30,42 @@ export default eventHandler(async (event) => {
   const hooks = createHooks()
   Object.keys(mcflyHooks).forEach((hookName) => hooks.addHooks(hookName))
   const { path } = event
-  let { mcfly: config } = useRuntimeConfig()
   const storage = useStorage()
 
-  const publicAssets = (await storage.getKeys('root:public')).map(
-    (key) => `/${key.replace('root:public:', '')}`
-  )
+  const { appConfigFile } = useRuntimeConfig()
+  const __filename = fileURLToPath(import.meta.url)
+  const __dirname = dirname(__filename)
+  let relativePath = relative(__dirname, appConfigFile)
+
+  console.log('>>> relative', relativePath)
+
+  let config
+  // TODO: this still doesn't work on Netlify
+  try {
+    const { default: configFn } = await import(relativePath)
+    config = configFn()
+  } catch (err) {
+    consola.error(err)
+  }
+
+  console.log('>>> ', {
+    config,
+    appConfigFile,
+    relativePath,
+    __dirname,
+  })
 
   // if not page, don't render
-  if (event.path.startsWith('/api') || publicAssets.includes(event.path)) {
+  if (event.path.startsWith('/api')) {
     return
   }
 
   if (!config || Object.keys(config).length === 0) {
     config = defaultMcflyConfig
-    consola.warn(`[WARN]: McFly configuration not loaded, using defaults...`)
+    consola.warn(
+      `[WARN]: McFly configuration not found, using defaults...`,
+      defaultMcflyConfig
+    )
   }
 
   const plugins = config.plugins ?? []
@@ -80,7 +105,8 @@ export default eventHandler(async (event) => {
 
         // call hook
         if (transform.hook) {
-          hooks.callHook(transform.hook)
+          // not sure if we want to await, for now it makes the outcome predictable
+          await hooks.callHook(transform.hook)
         }
       }
     } else {
@@ -92,15 +118,15 @@ export default eventHandler(async (event) => {
   }
 
   if (html) {
-    hooks.callHook(mcflyHooks.pageRendered)
+    await hooks.callHook(mcflyHooks.pageRendered)
   }
 
   const timeEnd = performance.now()
   consola.info(
-    'Page rendered in',
+    colorize('green', event.path),
+    'rendered in',
     Math.round(timeEnd - timeStart),
-    'ms:',
-    event.path
+    'ms'
   )
   return (
     html ??
@@ -122,6 +148,7 @@ function getPath(filename) {
 function getPurePath(path) {
   return path.split('?')[0]
 }
+
 /**
  * Gets the correct HTML depending on the path requested
  * @param {string} path

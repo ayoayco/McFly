@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.8.1",
+  "version": "0.8.7",
   "description": "McFly core package",
   "type": "module",
   "main": "index.js",
@@ -10,24 +10,24 @@
   "scripts": {
     "version": "npm version",
     "publish": "npm publish",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build:middleware": "npx esbuild route-middleware.js --bundle --outfile=mcfly-middleware.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ayoayco/McFly.git",
+    "url": "https://git.sr.ht/~ayoayco/mcfly",
     "directory": "packages/core"
   },
   "author": "Ayo Ayco",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ayoayco/McFly/issues"
+    "url": "https://todo.sr.ht/~ayoayco/mcfly-todo"
   },
   "homepage": "https://mcfly.js.org",
   "dependencies": {
     "c12": "^2.0.1",
     "citty": "^0.1.6",
     "consola": "^3.3.3",
+    "devalue": "^5.1.1",
     "esprima": "^4.0.1",
     "h3": "^1.13.0",
     "nitropack": "latest",

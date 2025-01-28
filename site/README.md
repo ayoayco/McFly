@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="250" src="https://github.com/ayoayco/McFly/assets/4262489/719a51c6-4858-4e3c-9856-c5af0e9be1bd" alt="rRick & Morty cartoon" />
+  <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/mcfly-logo-sm.png" alt="rRick & Morty cartoon" />
 </p>
 
 <h1 align="center">McFly Docs</h1>
@@ -13,19 +13,23 @@
 </p>
 
 ## Special directories
+
 **1. `./src/pages/`**
+
 - file-based routing for `.html` files
 - directly use custom elements & static fragments (no imports or registry maintenance needed)
 - use `<script server:setup>` to define logic that runs on the server, which then gets stripped away
 
 **2. `./src/components/`**
+
 - custom element constructor files (only `.js` files for now)
 - all components are automatically registered using their file names; a `hello-world.js` component can be used as `<hello-world>`
 - static `.html` fragments; a `my-header.html` fragment can be directly used as `<my-header>`
 
-**3. `./routes/api/`**
+**3. `./src/api/`**
+
 - file-based routing for REST API endpoints
-- e.g., `./routes/api/users.ts` can be accessed via `http://<domain>/api/users`
+- e.g., `./src/api/users.ts` can be accessed via `http://<domain>/api/users`
 - TypeScript or JavaScript welcome!
 
 ## McFly config
@@ -33,14 +37,14 @@
 To tell McFly you want to use components, pass the mode (only `"js"` for now) to the `components` prop mcfly.config.ts
 
 ```js
-import defineConfig from "./packages/define-config";
+import defineConfig from './packages/define-config'
 
 export default defineConfig({
-  components: "js",
-});
-
+  components: 'js',
+})
 ```
 
 ---
-*Just keep building*<br />
-*A project by [Ayo Ayco](https://ayco.io)*
+
+_Just keep building_<br />
+_A project by [Ayo Ayco](https://ayco.io)_

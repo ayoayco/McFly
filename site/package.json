@@ -6,13 +6,13 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ayoayco/McFly.git",
+    "url": "https://git.sr.ht/~ayoayco/mcfly",
     "directory": "app"
   },
   "author": "Ayo Ayco",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ayoayco/McFly/issues"
+    "url": "https://todo.sr.ht/~ayoayco/mcfly-todo"
   },
   "homepage": "https://mcfly.js.org",
   "scripts": {
@@ -21,13 +21,14 @@
     "dev": "mcfly serve",
     "build": "mcfly build",
     "preview": "node .output/server/index.mjs",
-    "build:preview": "pnpm run build && pnpm run preview"
+    "build:preview": "pnpm run build --preset=node-server && pnpm run preview",
+    "deploy": "netlify deploy --site=$NETLIFY_SITE_ID --dir=dist --prod"
   },
   "dependencies": {
     "@mcflyjs/config": "workspace:*",
     "@mcflyjs/core": "workspace:*"
   },
   "devDependencies": {
-    "typescript": "^5"
+    "typescript": "^5.7.3"
   }
 }
