@@ -5,6 +5,7 @@ packages:
   - pnpm
 secrets:
   - 291f0e35-9b8d-43ff-844c-77c5f29c1876
+  - bbfcb6dc-7c4a-42ee-a11a-022f0339a133
 environment:
   NETLIFY_SITE_ID: 390b392a-a898-491b-8500-79aa30f724d6
   GH_USER: ayoayco
