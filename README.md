@@ -1,3 +1,6 @@
+> [!NOTE]
+> The project is now in [SourceHut](https://git.sr.ht/~ayoayco/mcfly), and all other places are just [git mirrors](https://www.educative.io/answers/beginners-guide-git-mirrors). Please submit issues or requests via our [Todo Page](https://todo.sr.ht/~ayoayco/mcfly). You may also send and receive mails about the project via our [Mailing List](https://lists.sr.ht/~ayoayco/mcfly).
+
 <p align="center">
   <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/mcfly-logo-sm.png" alt="rRick & Morty cartoon" />
 </p>
@@ -11,11 +14,6 @@
   <img src="https://img.shields.io/badge/status-legit-purple?style=flat" />
   <a href="https://mcfly.js.org/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
-
-## Links
-- [Repository](https://git.sr.ht/~ayoayco/mcfly)
-- [Issues](https://todo.sr.ht/~ayoayco/mcfly)
-- [Mailing List](https://lists.sr.ht/~ayoayco/mcfly)
 
 ## Why
 
