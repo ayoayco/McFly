@@ -12,6 +12,11 @@
   <a href="https://mcfly.js.org/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
 
+## Links
+- [Repository](https://git.sr.ht/~ayoayco/mcfly)
+- [Issues](https://todo.sr.ht/~ayoayco/mcfly)
+- [Mailing List](https://lists.sr.ht/~ayoayco/mcfly)
+
 ## Why
 
 I often wonder what it would look like to build sites & apps knowing just the basics.
@@ -36,6 +41,7 @@ Run the following to generate a McFly starter project.
 ```
 npm create mcfly@latest
 ```
+
 
 ## Features
 
