@@ -11,14 +11,14 @@ environment:
   REPO: mcfly
 tasks:
   - push-mirror: |
-      cd mcfly
+      cd ~/"${REPO}"
       git config --global credential.helper store
       git push --mirror "https://github.com/${GH_USER}/${REPO}"
   - install-deps: |
-      cd mcfly
+      cd ~/"${REPO}"
       pnpm i
   - build: |
-      cd mcfly
+      cd ~/"${REPO}"
       pnpm -F site run build
   - deploy: |
       cd mcfly
