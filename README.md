@@ -1,5 +1,5 @@
 > [!NOTE]
-> The project is now in [SourceHut](https://git.sr.ht/~ayoayco/mcfly), and all other places are just [git mirrors](https://www.educative.io/answers/beginners-guide-git-mirrors). Please submit issues or requests via our [Todo Page](https://todo.sr.ht/~ayoayco/mcfly). You may also send and receive mails about the project via our [Mailing List](https://lists.sr.ht/~ayoayco/mcfly).
+> The project is now in [SourceHut](https://git.sr.ht/~ayoayco/mcfly). Please submit issues or requests via our [Todo Page](https://todo.sr.ht/~ayoayco/mcfly) or [via email](mailto:~ayoayco/mcfly@todo.sr.ht) (~ayoayco/mcfly@todo.sr.ht). You may also follow updates about the project via our [Mailing List](https://lists.sr.ht/~ayoayco/mcfly).
 
 <p align="center">
   <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/mcfly-logo-sm.png" alt="rRick & Morty cartoon" />
