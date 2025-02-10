@@ -1,12 +1,57 @@
 # CONTRIBUTING
 
-This file contains the contributing guide for our project.
+Hi, and thanks for your intereset to contribute to **McFly**! 🎉
 
-To contribute to our project, please follow these steps:
+This is the best place to start if you want to contribute code to the project.
 
-1. Fork the repository on [SourceHut](https://ayco.io/sh/mcfly).
-2. Clone the forked repository to your local machine.
-3. Create a new branch for your changes.
-4. Make your changes and commit them with a descriptive message.
-5. Push your changes to your forked repository.
-6. Create a pull request to merge your changes into the main repository.
+## Report issues or request features
+
+To open issues or feature requests, see our [issue tracker](https://todo.sr.ht/~ayoayco/mcfly). You can also send them via email to [`~ayoayco/mcfly@todo.sr.ht`](mailto:~ayoayco/mcfly@todo.sr.ht).
+
+## Participate in discussions
+
+To open new or participate on existing discussions, see our [mcfly-discussions](https://lists.sr.ht/~ayoayco/mcfly-discussions) mailing list.
+
+## Contribute Code
+
+We use `git` and `email` here -- it is actually fun!
+
+To get started, setup [git send-email](https://git-send-email.io).
+
+After setting up `git send-email` you can now follow the steps below to start hacking:
+
+1. Clone the repository to your local machine, then go into the project directory:
+
+```bash
+$ git clone https://git.sr.ht/~ayoayco/mcfly
+$ cd mcfly
+```
+
+2. Create a new branch for your changes:
+
+```bash
+git checkout -b my-branch
+```
+
+3. Make your changes, and then commit them with a descriptive message using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/):
+
+```bash
+git commit -m "feat(core): implement server-side rendering"
+```
+
+4. Use `git send-email` to send a patch:
+
+```bash
+git send-email --to="~ayoayco/mcfly-patches@lists.sr.ht" HEAD^
+```
+
+> The `HEAD^` bit is a reference to the latest commit, which will be added to your patch. This could be a range of commits as well if you have mutiple commits.
+
+5. Wait for a response from us whether the patch needs rework... or a notification if it gets merged!
+
+> As a summary, we use `git` and `email` to collaborate on McFly. You have to set up [git send-email](https://git-send-email.io) and send patches via email. :)
+
+
+## Need help?
+
+If something needs clarification, don't hesitate to reach out to me via email [`ayo@ayco.io`](mailto:ayo@ayco.io). Thanks! :)
