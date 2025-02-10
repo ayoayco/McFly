@@ -1,8 +1,12 @@
-# CONTRIBUTING
+# CONTRIBUTING to McFly
 
 Hi, and thanks for your intereset to contribute to **McFly**! 🎉
 
-This is the best place to start if you want to contribute code to the project.
+This is the best place to start if you want to contribute to the project. You can do so by any of the following:
+1. [Report issues or request features](#report-issues-or-request-features)
+1. [Participate in discussions](#participate-in-discussions)
+1. [Contribute code](#contribute-code)
+1. [Get in touch](#get-in-touch)
 
 ## Report issues or request features
 
@@ -52,6 +56,6 @@ git send-email --to="~ayoayco/mcfly-patches@lists.sr.ht" HEAD^
 > As a summary, we use `git` and `email` to collaborate on McFly. You have to set up [git send-email](https://git-send-email.io) and send patches via email. :)
 
 
-## Need help?
+## Get in touch
 
-If something needs clarification, don't hesitate to reach out to me via email [`ayo@ayco.io`](mailto:ayo@ayco.io). Thanks! :)
+If something needs clarification, or even if you just want to chat about the project, don't hesitate to reach out to me via email [`ayo@ayco.io`](mailto:ayo@ayco.io). Thanks! :)
