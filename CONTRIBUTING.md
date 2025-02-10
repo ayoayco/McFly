@@ -1,6 +1,6 @@
 # CONTRIBUTING to McFly
 
-Hi, and thanks for your intereset to contribute to **McFly**! 🎉
+Hi, and thanks for your interest to contribute to **McFly**! 🎉
 
 This is the best place to start if you want to contribute to the project. You can do so by any of the following:
 1. [Report issues or request features](#report-issues-or-request-features)
