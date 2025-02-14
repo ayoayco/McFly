@@ -1,0 +1,13 @@
+{
+  "name": "McFly",
+  "short_name": "McFly",
+  "icons": [
+    {
+      "src": "touch-icon-large.png",
+      "sizes": "500x500"
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#3054bf",
+  "display": "fullscreen"
+}
