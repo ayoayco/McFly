@@ -13,7 +13,7 @@ import {
   evaluateServerScripts,
   injectHtmlFragments,
   injectCustomElements,
-} from '@mcflyjs/core/runtime/index.js' // important to import from installed node_module because this script is passed to another context
+} from '@mcflyjs/core/runtime' // important to import from installed node_module because this script is passed to another context
 
 /**
  * @typedef {import('../config').McFlyConfig} Config
