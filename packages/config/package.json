@@ -8,7 +8,9 @@
     ".": {
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
-    }
+    },
+    "./define-mcfly-config": "./dist/define-mcfly-config.js",
+    "./nitro-config": "./dist/nitro-config.js"
   },
   "scripts": {
     "build": "tsc --build tsconfig.json",
