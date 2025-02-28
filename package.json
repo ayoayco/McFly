@@ -6,8 +6,9 @@
     "preinstall": "npx only-allow pnpm",
     "start": "pnpm --filter site start",
     "site": "pnpm --filter site start",
-    "build": "pnpm --filter site build",
-    "build:preview": "pnpm --filter site build:preview",
+    "build": "pnpm -F './packages/**' build",
+    "build:site": "pnpm --filter site build",
+    "build:site:preview": "pnpm --filter site build:preview",
     "template:basic": "pnpm --filter @templates/basic dev",
     "create": "node ./packages/create-mcfly",
     "cli": "node ./packages/core/cli/index.js",
@@ -28,6 +29,7 @@
     "husky": "^9.1.7",
     "netlify-cli": "^18.0.0",
     "prettier": "^3.4.2",
+    "typescript": "^5.7.3",
     "vitest": "^2.1.8"
   },
   "lint-staged": {

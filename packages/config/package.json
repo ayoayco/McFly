@@ -3,8 +3,15 @@
   "version": "0.2.7",
   "description": "Nitro configuration for McFly apps",
   "type": "module",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
+    "build": "tsc --build tsconfig.json",
     "version": "npm version",
     "publish": "npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"

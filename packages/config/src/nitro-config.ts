@@ -1,8 +1,10 @@
+import type { NitroConfig } from 'nitropack'
+
 /**
  * @typedef {import('nitropack').NitroConfig} NitroConfig
  * @type {NitroConfig}
  */
-export const nitroConfig = {
+export const nitroConfig: NitroConfig = {
   framework: {
     name: 'McFly',
   },

@@ -8,9 +8,13 @@
   },
   "main": "index.js",
   "exports": {
-    ".": "./index.js"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "scripts": {
+    "build": "tsc --build tsconfig.json",
     "version": "npm version",
     "publish": "npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
