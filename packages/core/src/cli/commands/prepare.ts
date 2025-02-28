@@ -1,18 +1,20 @@
 #!/usr/bin/env node
 
 import { consola } from 'consola'
-import { defineCommand } from 'citty'
+import { defineCommand, type ParsedArgs } from 'citty'
 import { resolve } from 'pathe'
 import { createNitro, writeTypes } from 'nitropack'
 import { getMcFlyConfig, getNitroConfig } from '../../get-nitro-config.js'
 
-async function prepare(args) {
+async function prepare(args: ParsedArgs) {
   consola.start('Preparing McFly workspace...')
 
   let err
 
   try {
-    const rootDir = resolve(args.dir || args._dir || '.')
+    // TODO: check for dir type (should be string)
+    const dir: string = args.dir?.toString() || args._dir?.toString() || '.'
+    const rootDir = resolve(dir)
     const [mcflyConfig] = await getMcFlyConfig()
     const nitroConfig = await getNitroConfig(mcflyConfig)
     const nitro = await createNitro({ rootDir, ...nitroConfig })

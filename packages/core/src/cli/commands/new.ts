@@ -2,10 +2,11 @@
 
 import { execSync } from 'node:child_process'
 import { consola } from 'consola'
-import { defineCommand } from 'citty'
+import { defineCommand, type ParsedArgs } from 'citty'
 
-function createNew(args) {
-  const directory = args.dir || args._dir
+function createNew(args: ParsedArgs) {
+  // TODO: check for dir type (should be string)
+  const directory = args?.dir || args?._dir
   const command = directory
     ? `npm create mcfly@latest ${directory}`
     : 'npm create mcfly@latest'

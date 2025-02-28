@@ -9,7 +9,7 @@
     "build": "pnpm -F './packages/**' build",
     "build:site": "pnpm --filter site build",
     "build:site:preview": "pnpm --filter site build:preview",
-    "template:basic": "pnpm --filter @templates/basic dev",
+    "template:basic": "pnpm run build && pnpm --filter @templates/basic start",
     "create": "node ./packages/create-mcfly",
     "cli": "node ./packages/core/cli/index.js",
     "test": "vitest .",

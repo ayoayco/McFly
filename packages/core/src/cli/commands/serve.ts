@@ -2,9 +2,10 @@
 
 import { consola } from 'consola'
 import { colorize } from 'consola/utils'
-import { defineCommand } from 'citty'
+import { defineCommand, type ParsedArgs } from 'citty'
 import { createRequire } from 'node:module'
 import {
+  type Nitro,
   build,
   createDevServer,
   createNitro,
@@ -35,18 +36,13 @@ async function printInfo() {
   }
 }
 
-async function serve(args) {
+async function serve(args: ParsedArgs) {
   try {
-    /**
-     * @type {string}
-     */
-    const rootDir = resolve(args.dir || args._dir || '.')
+    // TODO: check for dir type (should be string)
+    const dir = args.dir?.toString() || args._dir?.toString()
+    const rootDir: string = resolve(dir || '.')
 
-    /**
-     * @typedef {import('nitropack').Nitro} Nitro
-     * @type {Nitro}
-     */
-    let nitro
+    let nitro: Nitro
     const reload = async () => {
       // close existing nitro
       if (nitro) {
@@ -72,7 +68,7 @@ async function serve(args) {
         {
           watch: true,
           c12: {
-            async onUpdate({ getDiff, newConfig }) {
+            async onUpdate({ getDiff, newConfig }: unknown) {
               const diff = getDiff()
 
               if (diff.length === 0) {
@@ -81,10 +77,14 @@ async function serve(args) {
 
               consola.info(
                 'Nitro config updated:\n' +
-                  diff.map((entry) => `  ${entry.toString()}`).join('\n')
+                  diff
+                    .map((entry: unknown) => `  ${entry?.toString()}`)
+                    .join('\n')
               )
 
-              await (diff.every((e) => hmrKeyRe.test(e.key))
+              // TODO: get types for c12 config & remove unknown
+              // @ts-ignore
+              await (diff.every((e: unknown) => hmrKeyRe.test(e.key))
                 ? nitro.updateConfig(newConfig.config || {}) // Hot reload
                 : reload()) // Full reload
             },

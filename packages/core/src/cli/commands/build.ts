@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 import { consola } from 'consola'
-import { defineCommand } from 'citty'
+import { defineCommand, type ParsedArgs } from 'citty'
 import { dirname, resolve } from 'pathe'
 import {
   build,
@@ -13,10 +13,12 @@ import {
 import { fileURLToPath } from 'node:url'
 import { getMcFlyConfig, getNitroConfig } from '../../get-nitro-config.js'
 
-async function _build(args) {
+async function _build(args: ParsedArgs) {
   consola.start('Building project...')
   try {
-    const rootDir = resolve(args.dir || args._dir || '.')
+    // TODO: check for dir type (should be string)
+    const dir: string = args.dir?.toString() || args._dir?.toString() || '.'
+    const rootDir = resolve(dir)
 
     const [mcflyConfig, appConfigFile] = await getMcFlyConfig()
     const nitroConfig = await getNitroConfig(mcflyConfig)

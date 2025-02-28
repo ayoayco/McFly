@@ -17,7 +17,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "build": "tsc",
+    "build": "tsc --erasableSyntaxOnly",
     "version": "npm version",
     "publish": "npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
