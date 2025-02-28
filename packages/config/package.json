@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/config",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Nitro configuration for McFly apps",
   "type": "module",
   "main": "./dist/index.js",
