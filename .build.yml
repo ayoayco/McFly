@@ -18,12 +18,9 @@ tasks:
   - install-deps: |
       cd ~/"${REPO}"
       pnpm i
-  - build-config: |
-      cd ~/"${REPO}"
-      pnpm -F "./packages/config" run build
   - build: |
       cd ~/"${REPO}"
-      pnpm -F site run build
+      pnpm run build:site
   - deploy: |
       cd mcfly
       {
