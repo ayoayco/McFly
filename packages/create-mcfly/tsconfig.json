@@ -3,7 +3,7 @@
   "include": ["src"],
   "compilerOptions": {
     "allowJs": true,
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
     "declarationDir": "./dist",
     "outDir": "./dist"
   }

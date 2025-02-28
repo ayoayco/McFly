@@ -13,7 +13,7 @@
     "./nitro-config": "./dist/nitro-config.js"
   },
   "scripts": {
-    "build": "tsc --build tsconfig.json",
+    "build": "tsc --erasableSyntaxOnly",
     "version": "npm version",
     "publish": "npm publish",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -31,9 +31,9 @@
   "homepage": "https://mcfly.js.org",
   "dependencies": {
     "h3": "^1.8.2",
-    "web-component-base": "^2.0.6"
+    "web-component-base": "^2.1.2"
   },
   "devDependencies": {
-    "nitropack": "~2.10"
+    "nitropack": "~2.10.4"
   }
 }

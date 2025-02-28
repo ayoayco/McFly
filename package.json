@@ -29,7 +29,7 @@
     "husky": "^9.1.7",
     "netlify-cli": "^18.0.0",
     "prettier": "^3.4.2",
-    "typescript": "^5.7.3",
+    "typescript": "^5.8.2",
     "vitest": "^2.1.8"
   },
   "lint-staged": {
