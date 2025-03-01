@@ -15,14 +15,13 @@ tasks:
       cd ~/"${REPO}"
       git config --global credential.helper store
       git push --mirror "https://github.com/${GH_USER}/${REPO}"
-
-  - install-deps: |
-      cd ~/"${REPO}"
-      pnpm i --ignore-scripts
   - build-local-deps: |
       cd ~/"${REPO}"
       pnpm -F ./packages/core build
       pnpm -F ./packages/config build
+  - install-deps: |
+      cd ~/"${REPO}"
+      pnpm i --ignore-scripts
   - build: |
       cd ~/"${REPO}"
       pnpm -F site build
