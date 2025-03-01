@@ -1,6 +1,3 @@
-> [!NOTE]
-> The project is now on [SourceHut](https://sr.ht/~ayoayco/mcfly). Please submit issues or requests via our [Todo Page](https://todo.sr.ht/~ayoayco/mcfly) there, or send them [via email](mailto:~ayoayco/mcfly@todo.sr.ht). You may also follow updates about the project via our [Mailing List](https://lists.sr.ht/~ayoayco/mcfly).
-
 <p align="center">
   <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/mcfly-logo-sm.png" alt="rRick & Morty cartoon" />
 </p>
@@ -54,7 +51,7 @@ There is [a guide for contributing via SourceHut](https://git.sr.ht/~ayoayco/mcf
 
 But you can also contribute via official mirrors of the project repository in the following platforms:
 
-1. [McFly @ GitHub](https://github.com/ayoayco/mcfly)
+1. [GitHub](https://github.com/ayoayco/mcfly)
 
 We will add more guides & mirrors for different platforms.
 
