@@ -18,12 +18,10 @@ tasks:
   - install-deps: |
       cd ~/"${REPO}"
       pnpm i --ignore-scripts
-  - build-local-deps: |
+  - build: |
       cd ~/"${REPO}"
       pnpm -F ./packages/core build
       pnpm -F ./packages/config build
-  - build: |
-      cd ~/"${REPO}"
       pnpm -F site i --ignore-scripts
       pnpm -F site build
   - deploy: |
