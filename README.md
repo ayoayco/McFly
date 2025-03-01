@@ -48,6 +48,16 @@ It is primarily a runtime middleware for [Nitro](https://nitro.build). Every tim
 
 A plugin system allows for the core functionality to only "lean" on platform. Anything not yet a standard is implemented as a plugin which will be easily "swapped" away when the platform catches up.
 
+## Contribution
+
+There is [a guide for contributing via SourceHut](https://git.sr.ht/~ayoayco/mcfly/tree/main/item/CONTRIBUTING.md).
+
+But you can also contribute via official mirrors of the project repository in the following platforms:
+
+1. [McFly @ GitHub](https://github.com/ayoayco/mcfly)
+
+We will add more guides & mirrors for different platforms.
+
 ## Features
 
 ✅ Use vanilla custom elements (or sugar-coated web components)<br>
