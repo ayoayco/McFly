@@ -20,7 +20,7 @@ tasks:
       pnpm i --ignore-scripts
   - test: |
       cd ~/"${REPO}"
-      pnpm run test
+      npx vitest run
   - build: |
       cd ~/"${REPO}"
       pnpm -F ./packages/core build
