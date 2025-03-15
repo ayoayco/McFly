@@ -15,7 +15,7 @@ async function prepare(args: ParsedArgs) {
     // TODO: check for dir type (should be string)
     const dir: string = args.dir?.toString() || args._dir?.toString() || '.'
     const rootDir = resolve(dir)
-    const [mcflyConfig] = await getMcFlyConfig()
+    const { mcflyConfig } = await getMcFlyConfig()
     const nitroConfig = await getNitroConfig(mcflyConfig)
     const nitro = await createNitro({ rootDir, ...nitroConfig })
 

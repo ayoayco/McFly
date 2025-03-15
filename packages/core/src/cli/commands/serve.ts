@@ -53,7 +53,7 @@ async function serve(args: ParsedArgs) {
         await nitro.close()
       }
 
-      const [mcflyConfig, appConfigFile] = await getMcFlyConfig()
+      const { mcflyConfig, configFile } = await getMcFlyConfig()
       const nitroConfig = await getNitroConfig(mcflyConfig)
 
       // create new nitro
@@ -92,7 +92,7 @@ async function serve(args: ParsedArgs) {
         }
       )
       nitro.hooks.hookOnce('restart', reload)
-      nitro.options.runtimeConfig.appConfigFile = appConfigFile
+      nitro.options.runtimeConfig.appConfigFile = configFile
 
       nitro.options.handlers.push({
         middleware: true,

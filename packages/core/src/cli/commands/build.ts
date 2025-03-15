@@ -20,7 +20,7 @@ async function _build(args: ParsedArgs) {
     const dir: string = args.dir?.toString() || args._dir?.toString() || '.'
     const rootDir = resolve(dir)
 
-    const [mcflyConfig, appConfigFile] = await getMcFlyConfig()
+    const { mcflyConfig, configFile } = await getMcFlyConfig()
     const nitroConfig = await getNitroConfig(mcflyConfig)
 
     const nitro = await createNitro({
@@ -41,7 +41,7 @@ async function _build(args: ParsedArgs) {
       handler: resolve(__dirname, '../../route-middleware.js'),
     })
 
-    nitro.options.runtimeConfig.appConfigFile = appConfigFile
+    nitro.options.runtimeConfig.appConfigFile = configFile
 
     await prepare(nitro)
     await copyPublicAssets(nitro)

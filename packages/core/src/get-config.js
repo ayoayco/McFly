@@ -28,5 +28,5 @@ export async function getMcFlyConfig() {
     name: 'mcfly',
   })
 
-  return [mcflyConfig, configFile]
+  return { mcflyConfig, configFile }
 }
