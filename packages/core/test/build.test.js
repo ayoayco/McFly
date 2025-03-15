@@ -1,6 +1,6 @@
 import consola from 'consola'
 import { vi, expect, test } from 'vitest'
-import { exportedForTest } from '../cli/commands/build.mjs'
+import { exportedForTest } from '../src/cli/commands/build'
 
 const testFn = exportedForTest.build
 

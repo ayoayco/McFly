@@ -1,5 +1,5 @@
 import { describe, expect, test, vi } from 'vitest'
-import { exportedForTest } from '../cli/commands/serve.mjs'
+import { exportedForTest } from '../src/cli/commands/serve'
 import consola from 'consola'
 
 // describe.skip('FUNCTION: serve()', () => {

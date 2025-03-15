@@ -1,5 +1,5 @@
 import { expect, test, vi } from 'vitest'
-import { exportedForTest } from '../cli/commands/generate.mjs'
+import { exportedForTest } from '../src/cli/commands/generate'
 import consola from 'consola'
 
 const testFn = exportedForTest.generate
