@@ -6,6 +6,7 @@ import { mcflyNitroConfig } from './mcfly-nitro-config.js'
  */
 
 /**
+ * Create a valid Nitro configuration given a McFly config object
  * @returns {Promise<NitroConfig>}
  */
 export async function getNitroConfig(mcflyConfig = {}) {
