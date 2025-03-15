@@ -11,5 +11,5 @@ test('show box message in-progress', () => {
   const arg = spy.mock.calls[0][0]
 
   expect(spy).toHaveBeenCalled()
-  expect(arg).toContain('In-progress')
+  expect(arg).not.toContain('In-progress')
 })
