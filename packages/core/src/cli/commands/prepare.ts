@@ -4,7 +4,7 @@ import { consola } from 'consola'
 import { defineCommand, type ParsedArgs } from 'citty'
 import { resolve } from 'pathe'
 import { createNitro, writeTypes } from 'nitropack'
-import { getMcFlyConfig, getNitroConfig } from '../../get-nitro-config.js'
+import { getMcFlyConfig, getNitroConfig } from '../../get-config.js'
 
 async function prepare(args: ParsedArgs) {
   consola.start('Preparing McFly workspace...')
