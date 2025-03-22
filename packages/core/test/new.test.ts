@@ -1,8 +1,7 @@
 import { execSync } from 'node:child_process'
 import { consola } from 'consola'
-import { expect, vi } from 'vitest'
+import { it, expect, vi } from 'vitest'
 import { exportedForTest } from '../src/cli/commands/new.js'
-import { it } from 'node:test'
 
 const createNew = exportedForTest.createNew
 const baseCommand = `npm create mcfly@latest`

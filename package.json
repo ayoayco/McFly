@@ -12,7 +12,7 @@
     "template:basic": "pnpm run build && pnpm --filter @templates/basic start",
     "create": "node ./packages/create-mcfly",
     "cli": "node ./packages/core/cli/index.js",
-    "test": "vitest .",
+    "test": "vitest --run",
     "lint": "eslint . --config eslint.config.mjs --cache",
     "check": "npm run format && npm run lint",
     "format": "prettier . --write",
