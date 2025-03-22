@@ -26,20 +26,22 @@ it('start build with message', () => {
   expect(spy).toHaveBeenCalledWith(message)
 })
 
-// test('execute nitropack build', () => {
-//   mocks.build.mockImplementation(() => {})
-//   testFn({ dir: '.' })
+// TODO
+it.skip('execute nitropack build', () => {
+  mocks.build.mockImplementation(() => {})
+  build({ dir: '.', _: [] })
 
-//   expect(mocks.build).toHaveBeenCalled()
-// })
+  expect(mocks.build).toHaveBeenCalled()
+})
 
-// test('catch error', () => {
-//   const spy = vi.spyOn(consola, 'error')
-//   mocks.build.mockImplementationOnce(() => {
-//     throw new Error('hey')
-//   })
+// TODO
+it.skip('catch error', () => {
+  const spy = vi.spyOn(consola, 'error')
+  mocks.build.mockImplementationOnce(() => {
+    throw new Error('hey')
+  })
 
-//   testFn()
+  build({ _: [] })
 
-//   expect(spy).toHaveBeenCalledWith(new Error('hey'))
-// })
+  expect(spy).toHaveBeenCalledWith(new Error('hey'))
+})

@@ -16,6 +16,9 @@
     "./cli": "./dist/cli/index.js",
     "./package.json": "./package.json"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc --erasableSyntaxOnly",
     "version": "npm version",
