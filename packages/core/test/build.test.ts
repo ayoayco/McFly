@@ -1,8 +1,9 @@
+import type { ParsedArgs } from 'citty'
 import consola from 'consola'
-import { vi, expect, test } from 'vitest'
-import { exportedForTest } from '../src/cli/commands/build'
+import { expect, it, vi } from 'vitest'
+import { exportedForTest } from '../src/cli/commands/build.js'
 
-const testFn = exportedForTest.build
+const build = exportedForTest.build
 
 const mocks = vi.hoisted(() => {
   return {
@@ -16,11 +17,11 @@ vi.mock('nitropack', () => {
   }
 })
 
-test('start build with message', () => {
+it('start build with message', () => {
   const message = 'Building project...'
   const spy = vi.spyOn(consola, 'start')
 
-  testFn()
+  build({ dir: 'fakeDir', _: [] } as ParsedArgs)
 
   expect(spy).toHaveBeenCalledWith(message)
 })

@@ -1,6 +1,6 @@
-import { describe, expect, test, vi } from 'vitest'
-import { exportedForTest } from '../src/cli/commands/serve'
 import consola from 'consola'
+import { describe, expect, it, vi } from 'vitest'
+import { exportedForTest } from '../src/cli/commands/serve.js'
 
 // describe.skip('FUNCTION: serve()', () => {
 //   // // const testFn = exportedForTest.serve
@@ -30,7 +30,7 @@ import consola from 'consola'
 //   // })
 // })
 
-describe('FUNCTION: printInfo()', () => {
+describe('fUNCTION: printInfo()', () => {
   const testFn = exportedForTest.printInfo
 
   const createRequireMocks = vi.hoisted(() => {
@@ -45,7 +45,7 @@ describe('FUNCTION: printInfo()', () => {
     }
   })
 
-  test('log mcfly and nitro versions', async () => {
+  it('log mcfly and nitro versions', async () => {
     const spy = vi.spyOn(consola, 'log')
     createRequireMocks.createRequire.mockImplementationOnce(() => {
       return () => {
@@ -61,7 +61,7 @@ describe('FUNCTION: printInfo()', () => {
     expect(spy.mock.calls[0][0]).toContain('Nitro')
   })
 
-  test('catch error', async () => {
+  it('catch error', async () => {
     createRequireMocks.createRequire.mockImplementationOnce(() => {
       throw new Error('error')
     })

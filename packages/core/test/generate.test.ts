@@ -1,5 +1,5 @@
 import { expect, it, vi } from 'vitest'
-import { exportedForTest } from './generate.js'
+import { exportedForTest } from '../src/cli/commands/generate.js'
 import consola from 'consola'
 
 const generate = exportedForTest.generate

@@ -1,6 +1,6 @@
 import { consola } from 'consola'
 import { it, expect, vi } from 'vitest'
-import { exportedForTest } from './prepare.js'
+import { exportedForTest } from '../src/cli/commands/prepare.js'
 const prepare = exportedForTest.prepare
 
 const mocks = vi.hoisted(() => {

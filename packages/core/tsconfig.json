@@ -1,6 +1,13 @@
 {
   "extends": "../../tsconfig.base.json",
-  "include": ["src"],
+  "include": [
+    "src",
+    "test/build.test.ts",
+    "test/generate.test.ts",
+    "test/new.test.ts",
+    "test/prepare.test.ts",
+    "test/serve.test.ts"
+  ],
   "compilerOptions": {
     "allowJs": true,
     "emitDeclarationOnly": false,
