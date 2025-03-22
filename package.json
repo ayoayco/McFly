@@ -19,18 +19,18 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@eslint/compat": "^1.2.4",
-    "@eslint/js": "^9.17.0",
-    "eslint": "^9.17.0",
-    "eslint-config-prettier": "^9.1.0",
+    "@eslint/compat": "^1.2.7",
+    "@eslint/js": "^9.23.0",
+    "eslint": "^9.23.0",
+    "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "globals": "^15.14.0",
+    "eslint-plugin-prettier": "^5.2.3",
+    "globals": "^16.0.0",
     "husky": "^9.1.7",
-    "netlify-cli": "^18.0.0",
-    "prettier": "^3.4.2",
+    "netlify-cli": "^19.0.3",
+    "prettier": "^3.5.3",
     "typescript": "^5.8.2",
-    "vitest": "^2.1.8"
+    "vitest": "^3.0.9"
   },
   "lint-staged": {
     "*.{js,ts,mjs,cjs,json,.*rc}": [

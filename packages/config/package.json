@@ -30,10 +30,10 @@
   },
   "homepage": "https://mcfly.js.org",
   "dependencies": {
-    "h3": "^1.8.2",
-    "web-component-base": "^2.1.2"
+    "h3": "^1.15.1",
+    "web-component-base": "^4.0.0"
   },
   "devDependencies": {
-    "nitropack": "~2.10.4"
+    "nitropack": "~2.11.7"
   }
 }

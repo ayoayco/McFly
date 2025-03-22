@@ -31,7 +31,10 @@
   },
   "homepage": "https://mcfly.js.org",
   "dependencies": {
-    "consola": "^3.2.3",
-    "giget": "^1.1.3"
+    "consola": "^3.4.2",
+    "giget": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.11"
   }
 }
