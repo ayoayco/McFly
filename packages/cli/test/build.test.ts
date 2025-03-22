@@ -1,7 +1,7 @@
 import type { ParsedArgs } from 'citty'
 import consola from 'consola'
 import { expect, it, vi } from 'vitest'
-import { exportedForTest } from '../src/cli/commands/build.js'
+import { exportedForTest } from '../../cli/src/commands/build.js'
 
 const build = exportedForTest.build
 

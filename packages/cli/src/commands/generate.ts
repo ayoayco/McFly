@@ -4,7 +4,7 @@ import { consola } from 'consola'
 import { defineCommand } from 'citty'
 
 function generate() {
-  consola.box('Generate a McFly building block (In-progress)')
+  consola.box('[WIP] Generate a McFly building block')
 }
 
 export default defineCommand({

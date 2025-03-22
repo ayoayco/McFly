@@ -1,0 +1,31 @@
+{
+  "name": "@mcflyjs/cli",
+  "version": "0.2.0",
+  "description": "Command-line tooling for McFly",
+  "homepage": "https://git.sr.ht/~ayoayco/mcfly#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://git.sr.ht/~ayoayco/mcfly.git"
+  },
+  "main": "./dist/index.js",
+  "bin": {
+    "mcfly": "./dist/index.js"
+  },
+  "license": "MIT",
+  "author": "Ayo Ayco",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "test": "vitest --run",
+    "build": "tsc --erasableSyntaxOnly",
+    "version": "npm version",
+    "publish": "npm publish"
+  },
+  "dependencies": {
+    "consola": "^3.4.2",
+    "nitropack": "^2.11.7",
+    "citty": "^0.1.6"
+  }
+}

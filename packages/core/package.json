@@ -3,19 +3,13 @@
   "version": "0.8.7",
   "description": "McFly core package",
   "type": "module",
-  "main": "./dist/cli/index.js",
-  "bin": {
-    "mcfly": "./dist/cli/index.js"
-  },
   "exports": {
-    ".": {
-      "types": "./dist/cli/index.d.ts",
-      "default": "./dist/cli/index.js"
-    },
     "./runtime": "./dist/runtime/index.js",
-    "./cli": "./dist/cli/index.js",
     "./package.json": "./package.json"
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc --erasableSyntaxOnly",
     "version": "npm version",

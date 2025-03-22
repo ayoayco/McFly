@@ -15,7 +15,7 @@ import {
 import { resolve } from 'pathe'
 import { fileURLToPath } from 'node:url'
 import { dirname } from 'pathe'
-import { getMcFlyConfig, getNitroConfig } from '../../get-config.js'
+import { getMcFlyConfig, getNitroConfig } from '../../../core/src/get-config.js'
 
 const hmrKeyRe = /^runtimeConfig\.|routeRules\./
 const __filename = fileURLToPath(import.meta.url)
@@ -68,7 +68,7 @@ async function serve(args: ParsedArgs) {
         {
           watch: true,
           c12: {
-            async onUpdate({ getDiff, newConfig }: unknown) {
+            async onUpdate({ getDiff, newConfig }) {
               const diff = getDiff()
 
               if (diff.length === 0) {

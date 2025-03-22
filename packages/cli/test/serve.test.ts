@@ -1,6 +1,6 @@
 import consola from 'consola'
 import { describe, expect, it, vi } from 'vitest'
-import { exportedForTest } from '../src/cli/commands/serve.js'
+import { exportedForTest } from '../../cli/src/commands/serve.js'
 
 // describe.skip('FUNCTION: serve()', () => {
 //   // // const testFn = exportedForTest.serve

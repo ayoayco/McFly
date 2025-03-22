@@ -11,7 +11,7 @@ import {
   prerender,
 } from 'nitropack'
 import { fileURLToPath } from 'node:url'
-import { getMcFlyConfig, getNitroConfig } from '../../get-config.js'
+import { getMcFlyConfig, getNitroConfig } from '../../../core/src/get-config.js'
 
 async function _build(args: ParsedArgs) {
   consola.start('Building project...')
