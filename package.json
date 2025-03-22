@@ -1,6 +1,5 @@
 {
-  "name": "mcfly",
-  "version": "0.0.1",
+  "name": "mcfly-monorepo",
   "private": true,
   "scripts": {
     "preinstall": "npx only-allow pnpm",
