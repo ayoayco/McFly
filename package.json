@@ -5,7 +5,7 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "start": "pnpm --filter site start",
-    "site": "pnpm run build && pnpm --filter site start",
+    "site": "pnpm -F @mcflyjs/core run build && pnpm -F @mcflyjs/config run build && pnpm --filter site start",
     "build": "pnpm -F './packages/**' build",
     "build:site": "pnpm --filter site build",
     "build:site:preview": "pnpm --filter site build:preview",
