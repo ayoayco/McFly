@@ -2,7 +2,7 @@ import type { NitroConfig } from 'nitropack'
 
 export type McFlyConfig = {
   components: 'js' | 'lit'
-  nitro: NitroConfig
+  nitro?: NitroConfig
 }
 
 /**
