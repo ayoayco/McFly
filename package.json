@@ -8,7 +8,7 @@
     "build": "pnpm -F './packages/**' build",
     "build:site": "pnpm -F site build",
     "build:site:preview": "pnpm -F site build:preview",
-    "template:basic": "pnpm run build && pnpm -F @templates/basic start",
+    "template:basic": "pnpm run build && pnpm -F basic-template start",
     "create": "node ./packages/create-mcfly",
     "cli": "node ./packages/core/cli/index.js",
     "test": "vitest --run",
