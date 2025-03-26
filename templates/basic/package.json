@@ -1,5 +1,5 @@
 {
-  "name": "@templates/basic",
+  "name": "basic-template",
   "description": "McFly starter project",
   "scripts": {
     "start": "mcfly serve",
@@ -10,10 +10,10 @@
     "build:preview": "npm run build && npm run preview"
   },
   "devDependencies": {
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.2"
   },
   "dependencies": {
-    "@mcflyjs/config": "^0.2.8",
-    "@mcflyjs/core": "^0.8.5"
+    "@mcflyjs/config": "^0.2.9",
+    "@mcflyjs/core": "^0.8.6"
   }
 }
