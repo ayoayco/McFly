@@ -37,8 +37,6 @@ export default eventHandler(async (event) => {
   const __dirname = dirname(__filename)
   let relativePath = relative(__dirname, appConfigFile)
 
-  console.log('>>> relative', relativePath)
-
   let config
   // TODO: this still doesn't work on Netlify
   try {
@@ -47,13 +45,6 @@ export default eventHandler(async (event) => {
   } catch (err) {
     consola.error(err)
   }
-
-  console.log('>>> ', {
-    config,
-    appConfigFile,
-    relativePath,
-    __dirname,
-  })
 
   // if not page, don't render
   if (event.path.startsWith('/api')) {
