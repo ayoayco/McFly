@@ -2,7 +2,7 @@
   "name": "mcfly-monorepo",
   "private": true,
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
+    "preinstall": "npx only-allow pnpm && pnpm -F @mcflyjs/core build && pnpm -F @mcflyjs/config build",
     "start": "pnpm run site",
     "site": "pnpm -F @mcflyjs/core run build && pnpm -F @mcflyjs/config run build && pnpm --filter site start",
     "build": "pnpm -F './packages/**' build",
