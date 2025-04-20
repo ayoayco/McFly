@@ -11,6 +11,6 @@
   },
   "dependencies": {
     "@mcflyjs/config": "^0.2.9",
-    "@mcflyjs/core": "^0.8.6"
+    "@mcflyjs/core": "^0.8.8"
   }
 }
