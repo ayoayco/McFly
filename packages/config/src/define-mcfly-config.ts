@@ -1,5 +1,9 @@
 import type { NitroConfig } from 'nitropack'
 
+/**
+ * TODO: fix types
+ * - plugins missing
+ */
 export type McFlyConfig = {
   components: 'js' | 'lit'
   nitro?: NitroConfig
