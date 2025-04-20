@@ -4,7 +4,7 @@
 
 <h1 align="center">McFly Docs</h1>
 
-<p align="center"><strong>McFly</strong> is a no-framework framework<br />that assists in leveraging the web platform</p>
+<p align="center"><strong>McFly</strong> is a no-framework framework<br />that assists in building on the Web</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/from-the_future-blue?style=flat" />

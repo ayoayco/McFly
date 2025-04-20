@@ -1,69 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-  <my-head>
-    <title>McFly: Back to the Basics. Into the Future.</title>
-    <link rel="prefetch" href="/demo" as="document" />
-    <style>
-      @counter-style publish-icons {
-        system: cyclic;
-        symbols: "️✅";
-        suffix: " ";
-      }
-      ul {
-        list-style: publish-icons;
-      }
-      header,
-      footer,
-      main {
-        max-width: 40em;
-        margin: 0 auto;
-      }
-    </style>
-  </my-head>
-  <body>
-    <awesome-header>
-      <span>Back to the Basics. Into the Future.</span>
-    </awesome-header>
-    <main>
-      <section>
-        <p>
-          <strong style="font-size: large">McFly</strong> is an in-progress,
-          full-stack, no-framework meta-framework that assists developers in
-          leveraging the web platform.
-        </p>
-        <h2>Try it today</h2>
-        <p>
-          You can try it now by running the following:
-        </p>
-        <code-block>npm create <strong style="color: var(--color-blue)">mcfly</strong>@latest</code-block>
-        <p>
-          Here's a sample interactive custom element:
-          <vanilla-hello-world></vanilla-hello-world>
-        </p>
-        <p>
-          Start at the very basic of writing HTML files and enhance with
-          standard web technologies or go advanced as you like, at your own
-          pace.
-        </p>
-        <ul>
-          <li>Use vanilla custom elements (or sugar-coated web components)</li>
-          <li>Write server-powered .html pages</li>
-          <li>"Use the Platform™" on both server runtimes & browsers</li>
-          <li>Use server-side rendering <em>*</em></li>
-          <li>Deploy anywhere, even the Edge <em>**</em></li>
-        </ul>
-        <p>
-          Visit the <a href="/demo">Demo Page</a> or read more on ✨
-          <a href="https://sr.ht/~ayoayco/mcfly/">SourceHut</a>.
-        </p>
-        <p>
-          * Custom element / web component templates are not yet server-rendered, but is a top-priority goal for the project
-        </p>
-        <p>
-          ** Our deployment and other server-side features are provided by <a href="https://nitro.build">Nitro</a>, the same production-grade engine powering Nuxt
-        </p>
-      </section>
-    </main>
-    <my-footer></my-footer>
-  </body>
+<my-head>
+  <title>McFly: Back to the Basics. Into the Future.</title>
+  <link rel="prefetch" href="/demo" as="document" />
+  <style>
+    @counter-style publish-icons {
+      system: cyclic;
+      symbols: "️✅";
+      suffix: " ";
+    }
+
+    ul {
+      list-style: publish-icons;
+    }
+
+    header,
+    footer,
+    main {
+      max-width: 40em;
+      margin: 0 auto;
+    }
+  </style>
+</my-head>
+
+<body>
+  <awesome-header>
+    <span>Back to the Basics. Into the Future.</span>
+  </awesome-header>
+  <main>
+    <section>
+      <p>
+        <strong style="font-size: large">McFly</strong> is an in-progress,
+        full-stack, no-framework meta-framework that assists developers in
+        building on the Web.
+      </p>
+      <h2>Try it today</h2>
+      <p>
+        You can try it now by running the following:
+      </p>
+      <code-block>npm create <strong style="color: var(--color-blue)">mcfly</strong>@latest</code-block>
+      <p>
+        Here's a sample interactive custom element:
+        <vanilla-hello-world></vanilla-hello-world>
+      </p>
+      <p>
+        Start at the very basic of writing HTML files and enhance with
+        standard web technologies or go advanced as you like, at your own
+        pace.
+      </p>
+      <ul>
+        <li>Use vanilla custom elements (or sugar-coated web components)</li>
+        <li>Write server-powered .html pages</li>
+        <li>"Use the Platform™" on both server runtimes & browsers</li>
+        <li>Use server-side rendering <em>*</em></li>
+        <li>Deploy anywhere, even the Edge <em>**</em></li>
+      </ul>
+      <p>
+        Visit the <a href="/demo">Demo Page</a> or read more on ✨
+        <a href="https://sr.ht/~ayoayco/mcfly/">SourceHut</a>.
+      </p>
+      <p>
+        * Custom element / web component templates are not yet server-rendered, but is a top-priority goal for the
+        project
+      </p>
+      <p>
+        ** Our deployment and other server-side features are provided by <a href="https://nitro.build">Nitro</a>, the
+        same production-grade engine powering Nuxt
+      </p>
+    </section>
+  </main>
+  <my-footer></my-footer>
+</body>
+
 </html>

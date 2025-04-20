@@ -1,6 +1,6 @@
 {
   "name": "site",
-  "description": "McFly is a full-stack no-framework framework that assists developers in leveraging the web platform.",
+  "description": "McFly is a full-stack no-framework framework that assists developers in building on the Web.",
   "private": true,
   "version": "0.0.1",
   "main": "index.js",

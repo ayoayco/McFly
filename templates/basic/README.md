@@ -1,6 +1,6 @@
 # McFly Starter Project
 
-This project was generated from the basic template for **McFly** -- a no-framework framework that assists in leveraging the web platform.
+This project was generated from the basic template for **McFly** -- a no-framework framework that assists in building on the Web.
 
 It contains example files to get you started using vanilla web technologies in a modern way. See the [Special Directories](#special-directories) section for more information.
 
