@@ -38,7 +38,7 @@
       "npx eslint --fix"
     ],
     "*.json": [
-      "prettier --write"
+      "npx prettier --write"
     ]
   }
 }
