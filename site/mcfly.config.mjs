@@ -1,11 +1,9 @@
+// @ts-check
 import { defineMcFlyConfig } from '@mcflyjs/config'
 import testPlugin from './test-plugin.mjs'
 
 export default defineMcFlyConfig({
   components: 'js',
-  server: {
-    logs: true,
-  },
   plugins: [testPlugin()],
   nitro: {
     preset: 'netlify',

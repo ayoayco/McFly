@@ -1,6 +1,7 @@
 import { ELEMENT_NODE, parse, renderSync, walkSync } from 'ultrahtml'
 import { parseScript } from 'esprima'
 import { consola } from 'consola'
+import type { BaseNode as JsNode } from 'estree'
 
 /**
  * @typedef {import('estree').BaseNode} JsNode
@@ -8,10 +9,10 @@ import { consola } from 'consola'
 
 /**
  * McFly HTML Template parser
- * @param {*} _html
+ * @param {string} _html
  * @returns {string}
  */
-export function evaluateServerScripts(_html) {
+export function evaluateServerScripts(_html: string) {
   let html = evaluateServerScript(_html)
   html = deleteServerScripts(html)
   return html
@@ -22,9 +23,9 @@ export function evaluateServerScripts(_html) {
  * @param {string} html
  * @returns {string}
  */
-function evaluateServerScript(html) {
+function evaluateServerScript(html: string) {
   const ast = parse(html)
-  const serverScripts = []
+  const serverScripts: string[] = []
   walkSync(ast, (node) => {
     const { attributes } = node
     const attributeKeys = Object.keys(attributes ?? {})
@@ -45,7 +46,12 @@ function evaluateServerScript(html) {
     const { body } = parseScript(script)
     const keys = body
       .filter((n) => n.type === 'VariableDeclaration')
-      .map((n) => n['declarations'][0].id.name)
+      /**
+       * TODO - fix types or replace esprima w/ acorn
+       */
+      // @ts-ignore
+      .map((n) => n.declarations[0].id.name) //['declarations'][0].id.name)
+
     const constructor = `(function(){}.constructor)(\`${script}; return {${keys.join(
       ','
     )}}\`);`
@@ -62,7 +68,8 @@ function evaluateServerScript(html) {
     const value = rawValue.replace(/\s/g, '')
     const keys = value.split('.')
     let finalValue = ''
-    let setupCopy = setupMap
+    // TODO: remove any
+    let setupCopy: any = setupMap
 
     // if not in the server script, it could be a js expression
     if (!(keys[0] in setupMap)) {
@@ -93,7 +100,7 @@ function evaluateServerScript(html) {
  * @param {string} html
  * @returns {string}
  */
-function deleteServerScripts(html) {
+function deleteServerScripts(html: string) {
   const ast = parse(html)
   walkSync(ast, (node) => {
     const { attributes } = node
@@ -112,7 +119,7 @@ function deleteServerScripts(html) {
  * @param {Array<string>} scripts
  * @returns {string}
  */
-function cleanScript(scripts) {
+function cleanScript(scripts: string[]) {
   let script = scripts.map((s) => s.trim()).join(' ')
 
   script = removeComments(script)
@@ -125,8 +132,8 @@ function cleanScript(scripts) {
  * @param {string} script
  * @returns {string}
  */
-function removeComments(script) {
-  const entries = []
+function removeComments(script: string) {
+  const entries: any[] = []
   parseScript(script, { comment: true }, function (node, meta) {
     if (isComment(node)) {
       entries.push({
@@ -152,7 +159,7 @@ function removeComments(script) {
  * @param {JsNode} node
  * @returns {boolean}
  */
-function isComment(node) {
+function isComment(node: JsNode) {
   return (
     node.type === 'Line' ||
     node.type === 'Block' ||

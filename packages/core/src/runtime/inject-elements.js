@@ -1,14 +1,16 @@
 import { ELEMENT_NODE, parse, render, walkSync } from 'ultrahtml'
-import { getFiles } from './get-files.mjs'
+import { getFiles } from './get-files.js'
+// import type { Storage } from 'unstorage'
+// import type { McFlyConfig } from '../../../config/dist/index.js'
 
 /**
- * @typedef {import('../../config/index.js').McFlyConfig} Config
+ * @typedef {import('../../../config/dist/index.js').McFlyConfig} McFlyConfig
  */
 
 /**
  * Returns transformed HTML with custom elements registry in the head
  * @param {string} html
- * @param {Config['components']} type
+ * @param {McFlyConfig['components']} type
  * @param {Storage} storage
  * @returns {Promise<string>}
  */
