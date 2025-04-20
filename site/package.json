@@ -27,8 +27,5 @@
   "dependencies": {
     "@mcflyjs/config": "workspace:*",
     "@mcflyjs/core": "workspace:*"
-  },
-  "devDependencies": {
-    "typescript": "^5.8.2"
   }
 }

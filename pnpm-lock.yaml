@@ -140,10 +140,6 @@ importers:
       '@mcflyjs/core':
         specifier: workspace:*
         version: link:../packages/core
-    devDependencies:
-      typescript:
-        specifier: ^5.8.2
-        version: 5.8.2
 
   templates/basic:
     dependencies:
@@ -153,10 +149,6 @@ importers:
       '@mcflyjs/core':
         specifier: ^0.8.6
         version: 0.8.6(@netlify/blobs@8.1.1)(magicast@0.3.5)
-    devDependencies:
-      typescript:
-        specifier: ^5.8.2
-        version: 5.8.2
 
 packages:
 
