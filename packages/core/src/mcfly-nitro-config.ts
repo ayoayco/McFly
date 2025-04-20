@@ -1,4 +1,4 @@
-import { build, type NitroConfig } from 'nitropack'
+import { type NitroConfig } from 'nitropack'
 
 /**
  * @typedef {import('nitropack').NitroConfig} NitroConfig
