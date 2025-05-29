@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/mcfly-logo-sm.png" alt="rRick & Morty cartoon" />
+  <img width="250" src="https://git.sr.ht/~ayoayco/mcfly/blob/main/assets/mcfly-logo-sm.png" alt="McFly logo" />
 </p>
 
 <h1 align="center">McFly</h1>
@@ -44,16 +44,6 @@ npm create mcfly@latest
 It is primarily a runtime middleware for [Nitro](https://nitro.build). Every time a page is requested, the McFly middleware intercepts and assembles the view for the requestor. McFly does this with the assets it knows about which are mostly: pages, components, public assets.
 
 A plugin system allows for the core functionality to only "lean" on platform. Anything not yet a standard is implemented as a plugin which will be easily "swapped" away when the platform catches up.
-
-## Contribution
-
-There is [a guide for contributing via SourceHut](https://git.sr.ht/~ayoayco/mcfly/tree/main/item/CONTRIBUTING.md).
-
-But you can also contribute via official mirrors of the project repository in the following platforms:
-
-1. [GitHub](https://github.com/ayoayco/mcfly)
-
-We will add more guides & mirrors for different platforms.
 
 ## Features
 
