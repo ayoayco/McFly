@@ -29,7 +29,7 @@ I thought:
 
 We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases.
 
-👉 [Road to v1.0.0 todo items](https://todo.sr.ht/~ayoayco/mcfly?search=label%3A%22v1.0.0+milestone%22)
+👉 [Road to v1.0.0 todo items](https://github.com/ayoayco/McFly/issues?q=is%3Aissue%20state%3Aopen%20milestone%3Av1.0.0)
 
 ## Try it today
 
