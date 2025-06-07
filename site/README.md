@@ -47,4 +47,4 @@ export default defineConfig({
 ---
 
 _Just keep building_<br />
-_A project by [Ayo Ayco](https://ayco.io)_
+_A project by [Ayo](https://ayco.io)_

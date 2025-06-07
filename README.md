@@ -11,7 +11,6 @@
   <img src="https://img.shields.io/badge/status-legit-purple?style=flat" />
   <a href="https://mcfly.js.org/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
-
 ## Why
 
 I often wonder what it would look like to build sites & apps knowing just the basics.
@@ -23,7 +22,7 @@ I thought:
 - What if I can write [HTML fragments](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) and [assemble them](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM) easily in a page?
 - What if I did not have to worry about the [ever-growing number of ways to have a place on the Web](https://ayos.blog/places-in-the-web/)?
 
-**McFly** is my reimagination of web development: Back to the basics. Into the future.
+**McFly** is my reimagination of web development: *Back to the basics. Into the future.*
 
 ## Project Status
 
@@ -43,7 +42,7 @@ npm create mcfly@latest
 
 It is primarily a runtime middleware for [Nitro](https://nitro.build). Every time a page is requested, the McFly middleware intercepts and assembles the view for the requestor. McFly does this with the assets it knows about which are mostly: pages, components, public assets.
 
-A plugin system allows for the core functionality to only "lean" on platform. Anything not yet a standard is implemented as a plugin which will be easily "swapped" away when the platform catches up.
+The idea is to have a plugin system which allows for the core functionality to only "lean" on web platform features. Anything not yet a standard is implemented as a plugin which will be easily "swapped" away when the platform catches up.
 
 ## Features
 
@@ -76,11 +75,11 @@ A plugin system allows for the core functionality to only "lean" on platform. An
 
 The following are the project packages published on the NPM registry:
 
-| Package                                                | Description                                  | Version                                                          |
-| ------------------------------------------------------ | -------------------------------------------- | ---------------------------------------------------------------- |
+| Package                                                | Description                                  | Version                                                      |
+| :----------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
 | [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Nitro server config for McFly projects       | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
-| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Route event and config handlers              | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
-| [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly)        |
+| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Route event and config handlers              | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore) |
+| [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly)    |
 
 ## Project setup
 
@@ -94,7 +93,7 @@ pnpm i
 The following commands are available to you on this project. Add more, or modify them as needed in your `./package.json` file.
 
 | Command                 | Action                                                |
-| ----------------------- | ----------------------------------------------------- |
+| ----------------------- | :---------------------------------------------------- |
 | pnpm run site           | Start the development server for https://mcfly.js.org |
 | pnpm run template:basic | Start the development server for the basic template   |
 | pnpm run build          | Locally generate the app's build files to `./output`  |
@@ -108,5 +107,5 @@ This framework is a result of [an exploration](https://social.ayco.io/@ayo/11119
 
 ---
 
-_Just keep building_<br />
-_A project by [Ayo Ayco](https://ayo.ayco.io)_
+*Just keep building.*<br>
+*A project by [Ayo](https://ayo.ayco.io)*
