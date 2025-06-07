@@ -85,4 +85,4 @@ This framework is a result of [an exploration](https://social.ayco.io/@ayo/11119
 ---
 
 _Just keep building_<br />
-_A project by [Ayo Ayco](https://ayco.io)_
+_A project by [Ayo](https://ayco.io)_
