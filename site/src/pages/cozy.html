@@ -6,22 +6,15 @@
     <title>Cozy (McFly)</title>
     <script server:setup>
         const appName = "Cozy"
-        console.log('>>> Event (from app)', McFly.event.body)
+        console.log('>>> Event (from app)', McFly.event)
+        const url = McFly.event.query.url
     </script>
 </my-head>
 <body>
     <h1>{{ appName }} - {{McFly.hello}}</h1>
-    <form method="post">
-        <input required type="url" id="url" name="url" />
+    <form method="get">
+        <input required type="url" id="url" name="url" value={{ url }} />
         <button type="submit">Extract</button>
-        <ul>
-            <li>
-                URL: {{ McFly.event.body.url }}
-            </li>
-            <li>
-                Method: {{ McFly.event.method }}
-            </li>
-        </ul>
     </form>
 </body>
 </html>

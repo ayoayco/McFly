@@ -35,9 +35,6 @@ export async function evaluateServerScripts(_html: string, event: H3Event) {
     method: event.method,
     query,
     body,
-    url: event.node.req.url,
-    statusCode: event.node.req.statusCode,
-    statusMessage: event.node.req.statusMessage,
   }
 
   // console.log('>>> Event (from core)', McFlyGlobal)
@@ -81,7 +78,6 @@ function evaluateServerScript(html: string) {
       // @ts-ignore
       .map((n) => n.declarations[0].id.name) //['declarations'][0].id.name)
 
-    // const McFly=${JSON.stringify(McFlyGlobal)};
     const constructor = `(function(){}.constructor)(\`
       const McFly=${JSON.stringify(McFlyGlobal)}
       ${script};
@@ -122,6 +118,10 @@ function evaluateServerScript(html: string) {
         setupCopy = finalValue
       }
     })
+
+    // stringify objects
+    finalValue =
+      typeof finalValue === 'object' ? JSON.stringify(finalValue) : finalValue
 
     html = html.replace(key, finalValue ?? '')
     regex.lastIndex = -1
