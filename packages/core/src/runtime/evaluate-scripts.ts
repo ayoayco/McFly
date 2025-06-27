@@ -3,6 +3,7 @@ import { parseScript } from 'esprima'
 import { consola } from 'consola'
 import type { BaseNode as JsNode } from 'estree'
 import type { H3Event } from 'h3'
+import { readBody, getQuery } from 'h3'
 
 const McFlyGlobal: {
   hello: string
@@ -21,13 +22,26 @@ const McFlyGlobal: {
  * @param {string} _html
  * @returns {string}
  */
-export function evaluateServerScripts(_html: string, event: H3Event) {
+export async function evaluateServerScripts(_html: string, event: H3Event) {
+  // Parse query params
+  const query = getQuery(event)
+
+  // Try to read request body
+  const body = await readBody(event).catch(() => {})
+
+  // Echo back request as response
   McFlyGlobal.event = {
+    path: event.path,
+    method: event.method,
+    query,
+    body,
     url: event.node.req.url,
-    method: event.node.req.method,
     statusCode: event.node.req.statusCode,
     statusMessage: event.node.req.statusMessage,
   }
+
+  // console.log('>>> Event (from core)', McFlyGlobal)
+
   let html = evaluateServerScript(_html)
   html = deleteServerScripts(html)
   return html
