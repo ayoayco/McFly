@@ -75,7 +75,7 @@ export default eventHandler(async (event) => {
     const transforms = [
       {
         fn: evaluateServerScripts,
-        args: [''],
+        args: [event],
         hook: mcflyHooks.serverScriptsEvaluated,
       },
       {

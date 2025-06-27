@@ -2,6 +2,15 @@ import { ELEMENT_NODE, parse, renderSync, walkSync } from 'ultrahtml'
 import { parseScript } from 'esprima'
 import { consola } from 'consola'
 import type { BaseNode as JsNode } from 'estree'
+import type { H3Event } from 'h3'
+
+const McFlyGlobal: {
+  hello: string
+  event: any
+} = {
+  hello: 'world',
+  event: undefined,
+}
 
 /**
  * @typedef {import('estree').BaseNode} JsNode
@@ -12,7 +21,13 @@ import type { BaseNode as JsNode } from 'estree'
  * @param {string} _html
  * @returns {string}
  */
-export function evaluateServerScripts(_html: string) {
+export function evaluateServerScripts(_html: string, event: H3Event) {
+  McFlyGlobal.event = {
+    url: event.node.req.url,
+    method: event.node.req.method,
+    statusCode: event.node.req.statusCode,
+    statusMessage: event.node.req.statusMessage,
+  }
   let html = evaluateServerScript(_html)
   html = deleteServerScripts(html)
   return html
@@ -52,9 +67,15 @@ function evaluateServerScript(html: string) {
       // @ts-ignore
       .map((n) => n.declarations[0].id.name) //['declarations'][0].id.name)
 
-    const constructor = `(function(){}.constructor)(\`${script}; return {${keys.join(
-      ','
-    )}}\`);`
+    // const McFly=${JSON.stringify(McFlyGlobal)};
+    const constructor = `(function(){}.constructor)(\`
+      const McFly=${JSON.stringify(McFlyGlobal)}
+      ${script};
+      return {
+        ${keys.join(',')},
+        McFly: ${JSON.stringify(McFlyGlobal)}
+      }\`);`
+
     const evalStore = eval(constructor)
     Object.assign(setupMap, new evalStore())
   })

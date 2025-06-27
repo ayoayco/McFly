@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<my-head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy (McFly)</title>
+    <script server:setup>
+        const appName = "Cozy"
+        console.log('>>> Event (from app)', McFly.event)
+    </script>
+</my-head>
+<body>
+    <h1>{{ appName }} - {{McFly.hello}}</h1>
+    <form>
+        <input id="url" name="url" />
+        <button type="submit">Extract</button>
+    </form>
+</body>
+</html>
