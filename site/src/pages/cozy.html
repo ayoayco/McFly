@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<my-head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cozy (McFly)</title>
+    <title>Cozy</title>
     <script server:setup>
-        const appName = "Cozy"
-        console.log('>>> Event (from app)', McFly.event)
         const url = McFly.event.query.url
     </script>
-</my-head>
+</head>
 <body>
-    <h1>{{ appName }} - {{McFly.hello}}</h1>
-    <form method="get">
-        <input required type="url" id="url" name="url" value={{ url }} />
+    <h1>Cozy</h1>
+    <form>
+        <input required type="url" name="url" id="url" value={{ url }} />
         <button type="submit">Extract</button>
     </form>
+    <p>
+        {{ McFly }}
+    </p>
 </body>
 </html>
