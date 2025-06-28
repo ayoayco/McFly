@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+<my-head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozy</title>
     <link rel="stylesheet" href="/prism.css" />
     <script server:setup>
         const url = McFly.query.url
     </script>
-</head>
+</my-head>
 <body>
-    <h1>Cozy</h1>
+    <awesome-header>A Cozy test page.</awesome-header>
     <form method="get">
         <input required type="url" name="url" id="url" value={{ url }} />
         <button type="submit">Extract</button>

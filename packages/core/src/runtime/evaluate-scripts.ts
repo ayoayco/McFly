@@ -28,15 +28,13 @@ export async function evaluateServerScripts(_html: string, event: H3Event) {
   // Try to read request body
   const body = await readBody(event).catch(() => {})
 
-  // Echo back request as response
+  // The McFly object
   McFlyGlobal = {
     path: event.path,
     method: event.method,
     query,
     body,
   }
-
-  // console.log('>>> Event (from core)', McFlyGlobal)
 
   let html = evaluateServerScript(_html)
   html = deleteServerScripts(html)
