@@ -14,11 +14,13 @@ let McFlyGlobal: {
 
 /**
  * @typedef {import('estree').BaseNode} JsNode
+ * @typedef {import('h3').H3Event} H3Event
  */
 
 /**
- * McFly HTML Template parser
+ * Evaluates `server:setup` scripts and returns a clean HTML string
  * @param {string} _html
+ * @param {H3Event} event
  * @returns {string}
  */
 export async function evaluateServerScripts(_html: string, event: H3Event) {
