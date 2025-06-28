@@ -2,16 +2,15 @@ import { ELEMENT_NODE, parse, renderSync, walkSync } from 'ultrahtml'
 import { parseScript } from 'esprima'
 import { consola } from 'consola'
 import type { BaseNode as JsNode } from 'estree'
-import type { H3Event } from 'h3'
+import type { H3Event, HTTPMethod } from 'h3'
 import { readBody, getQuery } from 'h3'
 
-const McFlyGlobal: {
-  hello: string
-  event: any
-} = {
-  hello: 'world',
-  event: undefined,
-}
+let McFlyGlobal: {
+  path?: string
+  method?: HTTPMethod
+  query?: any
+  body?: any
+} = {}
 
 /**
  * @typedef {import('estree').BaseNode} JsNode
@@ -30,7 +29,7 @@ export async function evaluateServerScripts(_html: string, event: H3Event) {
   const body = await readBody(event).catch(() => {})
 
   // Echo back request as response
-  McFlyGlobal.event = {
+  McFlyGlobal = {
     path: event.path,
     method: event.method,
     query,
@@ -121,7 +120,9 @@ function evaluateServerScript(html: string) {
 
     // stringify objects
     finalValue =
-      typeof finalValue === 'object' ? JSON.stringify(finalValue) : finalValue
+      typeof finalValue === 'object'
+        ? JSON.stringify(finalValue, null, 2)
+        : finalValue
 
     html = html.replace(key, finalValue ?? '')
     regex.lastIndex = -1

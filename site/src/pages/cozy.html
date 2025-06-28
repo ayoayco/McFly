@@ -4,18 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cozy</title>
+    <link rel="stylesheet" href="/prism.css" />
     <script server:setup>
-        const url = McFly.event.query.url
+        const url = McFly.query.url
     </script>
 </head>
 <body>
     <h1>Cozy</h1>
-    <form>
+    <form method="get">
         <input required type="url" name="url" id="url" value={{ url }} />
         <button type="submit">Extract</button>
     </form>
-    <p>
+    <code-block language="js">
         {{ McFly }}
-    </p>
+    </code-block>
 </body>
 </html>
