@@ -1,3 +1,8 @@
+<script server:setup>
+    const url = McFly.query.url
+    console.log(McFly)
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <my-head>
@@ -5,12 +10,9 @@
     <title>Cozy</title>
     <link rel="stylesheet" href="/prism.css" />
     <script src="/prism.js" defer></script>
-    <script server:setup>
-        const url = McFly.query.url
-    </script>
 </my-head>
 <body>
-    <awesome-header>A Cozy test page.</awesome-header>
+    <awesome-header>A Cozy test page for form handling.</awesome-header>
     <p>
         On this page is a demonstration of form submission handing in McFly. A <code>McFly</code> object is accessible on the page which contains request event properties: path, method, query, body.
     </p>
