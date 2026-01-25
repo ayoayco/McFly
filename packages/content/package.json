@@ -1,0 +1,11 @@
+{
+  "name": "@mcflyjs/content",
+  "version": "0.0.1",
+  "description": "McFly plugin for static content generation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ayo Ayco",
+  "license": "MIT"
+}
