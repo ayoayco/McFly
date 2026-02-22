@@ -1,2 +1,1 @@
-git push gh --mirror
-git push sh --mirror
+echo "hey"
