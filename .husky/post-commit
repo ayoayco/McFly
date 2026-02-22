@@ -1,1 +1,2 @@
-echo "hey"
+echo "post-commit"
+git push gh --mirror
