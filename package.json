@@ -18,11 +18,6 @@
     "format": "prettier . --write",
     "prepare": "husky"
   },
-  "husky": {
-    "hooks": {
-      "post-commit": "echo \"hey\""
-    }
-  },
   "devDependencies": {
     "@eslint/compat": "^2.0.2",
     "@eslint/js": "^10.0.1",
