@@ -12,7 +12,7 @@
   <a href="https://mcfly.js.org/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
 
-## Why?
+## Why
 
 I often wonder what it would look like to build sites & apps knowing just the basics.
 
