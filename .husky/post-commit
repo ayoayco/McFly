@@ -1,3 +1,2 @@
-#!/usr/bin/env sh
 git push gh --mirror
 git push sh --mirror
