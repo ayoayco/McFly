@@ -23,7 +23,7 @@ I thought:
 - What if I can write [HTML fragments](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) and [assemble them](https://developer.mozilla.org/en-US/docs/Web/API/Web_components/Using_shadow_DOM) easily in a page?
 - What if I did not have to worry about the [ever-growing number of ways to have a place on the Web](https://ayos.blog/places-in-the-web/)?
 
-**McFly** is my reimagination of web development: *Back to the basics. Into the future.*
+**McFly** is my reimagination of web development: _Back to the basics. Into the future._
 
 ## Project Status
 
@@ -41,7 +41,9 @@ npm create mcfly@latest
 
 ## How it works (for the nerds)
 
-It is primarily a runtime middleware for [Nitro](https://nitro.build). Every time a page is requested, the McFly middleware intercepts and assembles the view for the requestor. McFly does this with the assets it knows about which are mostly: pages, components, public assets.
+It is primarily a runtime middleware for [Nitro](https://nitro.build). Every time a page is requested, the McFly middleware intercepts and assembles the view for the requestor. McFly does this with the assets it knows about which are mostly: pages, components, public assets. Additionally, Nitro is also capable of generating static assets on build time.
+
+These patterns are commonly referred to as Server-Side Rendering and Static Site Generation (SSR & SSG).
 
 The idea is to have a plugin system which allows for the core functionality to only "lean" on web platform features. Anything not yet a standard is implemented as a plugin which will be easily "swapped" away when the platform catches up.
 
@@ -76,11 +78,11 @@ The idea is to have a plugin system which allows for the core functionality to o
 
 The following are the project packages published on the NPM registry:
 
-| Package                                                | Description                                  | Version                                                      |
-| :----------------------------------------------------- | -------------------------------------------- | ------------------------------------------------------------ |
+| Package                                                | Description                                  | Version                                                          |
+| :----------------------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------- |
 | [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Nitro server config for McFly projects       | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
-| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Route event and config handlers              | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore) |
-| [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly)    |
+| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Route event and config handlers              | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
+| [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly)        |
 
 ## Project setup
 
@@ -108,5 +110,5 @@ This framework is a result of [an exploration](https://social.ayco.io/@ayo/11119
 
 ---
 
-*Just keep building.*<br>
-*A project by [Ayo](https://ayo.ayco.io)*
+_Just keep building._<br>
+_A project by [Ayo](https://ayo.ayco.io)_
