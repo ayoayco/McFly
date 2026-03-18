@@ -66,4 +66,4 @@ $ git config sendemail.to "~ayoayco/mcfly-patches@lists.sr.ht"
 
 ## Get in touch
 
-If something needs clarification, or even if you just want to chat about the project, don't hesitate to reach out to me via email [`ayo@ayco.io`](mailto:ayo@ayco.io). Thanks! :)
+If something needs clarification, or even if you just want to chat about the project, don't hesitate to reach out to me via email [`hi@ayo.run`](mailto:hi@ayo.run). Thanks! :)
