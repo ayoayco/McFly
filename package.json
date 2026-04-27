@@ -14,6 +14,7 @@
     "cli": "node ./packages/core/cli/index.js",
     "test": "vitest --run",
     "lint": "eslint . --config eslint.config.mjs --cache",
+    "lint:fix": "eslint . --config eslint.config.mjs --fix",
     "check": "npm run format && npm run lint",
     "format": "prettier . --write",
     "prepare": "husky"
@@ -35,11 +36,11 @@
   },
   "lint-staged": {
     "*.{js,ts,mjs,cjs,json,.*rc}": [
-      "npx prettier --write",
-      "npx eslint --fix"
+      "npm run format",
+      "npm run lint:fix"
     ],
     "*.json": [
-      "npx prettier --write"
+      "npm run format"
     ]
   }
 }

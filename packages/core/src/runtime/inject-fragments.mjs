@@ -65,7 +65,7 @@ function replaceSlots(fragmentNode, node) {
     if (n.type === ELEMENT_NODE && n.name === 'slot') {
       // find node child with same name attribute
       const currentSlotName = n.attributes?.['name'] ?? null
-      let nodeChildren = []
+      let nodeChildren
 
       if (currentSlotName === null) {
         nodeChildren = node.children.filter(
@@ -78,7 +78,11 @@ function replaceSlots(fragmentNode, node) {
         })
       }
 
-      if (nodeChildren.length > 0 && !containsAll(slotted, nodeChildren)) {
+      if (
+        nodeChildren &&
+        nodeChildren.length > 0 &&
+        !containsAll(slotted, nodeChildren)
+      ) {
         slotted = [...slotted, ...nodeChildren]
         const index = n.parent.children.indexOf(n)
         n.parent.children.splice(index, 1, ...nodeChildren)
