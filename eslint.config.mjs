@@ -16,7 +16,7 @@ export default [
   eslintPluginPrettierRecommended,
   includeIgnoreFile(gitignorePath),
   {
-    ignores: ['site/*', 'templates/*'],
+    ignores: ['site/*', 'templates/*', '**/public/*'],
   },
   {
     rules: {
