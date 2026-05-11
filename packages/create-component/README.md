@@ -1,7 +1,7 @@
-# Create WC
+# Create Component
 
 ```
-npm create webcomponent@latest
+npm create @mcflyjs/component@latest
 ```
 
 Create a new web component powered by [webcomponent.io](https://webcomponent.io)
