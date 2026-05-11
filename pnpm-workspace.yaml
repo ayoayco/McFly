@@ -3,9 +3,9 @@ packages:
   - "templates/**"
   - "site/**"
 allowBuilds:
-  '@parcel/watcher': set this to true or false
-  esbuild: set this to true or false
-  netlify-cli: set this to true or false
-  sharp: set this to true or false
-  unix-dgram: set this to true or false
-  web-component-base: set this to true or false
+  '@parcel/watcher': false
+  esbuild: true
+  netlify-cli: false
+  sharp: false
+  unix-dgram: false
+  web-component-base: true
