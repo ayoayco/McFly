@@ -68,7 +68,7 @@ async function serve(args: ParsedArgs) {
         {
           watch: true,
           c12: {
-            async onUpdate({ getDiff, newConfig }: unknown) {
+            async onUpdate({ getDiff, newConfig }: any) {
               const diff = getDiff()
 
               if (diff.length === 0) {
