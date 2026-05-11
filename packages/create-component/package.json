@@ -1,0 +1,35 @@
+{
+  "name": "@mcflyjs/create-component",
+  "version": "0.0.1",
+  "description": "Create a new web component",
+  "type": "module",
+  "bin": {
+    "create-component": "./dist/index.js"
+  },
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc --erasableSyntaxOnly",
+    "dev": "npx jiti ./src/index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.ayo.run/ayo/mcfly",
+    "directory": "packages/create-component"
+  },
+  "author": "Ayo Ayco",
+  "license": "MIT",
+  "dependencies": {
+    "consola": "^3.4.2",
+    "giget": "^3.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0"
+  }
+}
