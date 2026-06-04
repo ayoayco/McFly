@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/core",
-  "version": "0.8.8",
+  "version": "0.9.0-alpha",
   "description": "McFly core package",
   "type": "module",
   "main": "./dist/index.js",
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.sr.ht/~ayoayco/mcfly",
+    "url": "https://git.ayo.run/ayo/mcfly",
     "directory": "packages/core"
   },
   "author": "Ayo Ayco",

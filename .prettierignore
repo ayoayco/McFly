@@ -6,6 +6,6 @@
 **/*.yml
 **/*.yaml
 
-templates
+templates/**
 
 **/public/*

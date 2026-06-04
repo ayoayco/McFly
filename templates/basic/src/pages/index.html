@@ -1,53 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-  <!--
-    Hello! This page is an example McFly page.
-    See more on https://ayco.io/sh/mcfly
-  -->
-  <my-head>
-    <title>McFly: Back to the Basics. Into the Future.</title>
-    <script server:setup>
-      const project = {
-        name: "McFly",
-        description: "Back to the Basics. Into the Future."
-      };
-    </script>
-  </my-head>
-  <body>
-    <awesome-header>
-      <span>{{ project.name }}</span>
-      <span slot="description">{{ project.description }}</span>
-    </awesome-header>
-    <main>
-      <h2>Welcome to {{ project.name }}</h2>
-      <p>Server date time: {{new Date().toLocaleString()}}</p>
-      <p>
-        Here's an interactive custom element:
-        <my-hello-world></my-hello-world>
-      </p>
-      <code-block language="js">
-class MyHelloWorld extends WebComponent {
-  static props = {
-    myName: &quot;World&quot;,
-    count: 0
-  }
-
-  updateLabel() {
-    this.props.myName = `Clicked ${++this.props.count}x`;
-  }
-
-  get template() {
-    return html`
-      &lt;button onClick=${() => this.updateLabel()} style="cursor:pointer"&gt;
-        Hello ${this.props.myName}!
-      &lt;/button&gt;`;
-  }
-}</code-block>
-    </main>
-    <my-footer>
-      <small>
-        Learn how to build components easily at <a href="https://WebComponent.io">WebComponent.io</a>
-      </small>
-    </my-footer>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORK IN PROGRESS</title>
+</head>
+<body>
+    <h1>WORK IN PROGRESS</h1>
+    <p>See <a href="https://ayco.io/sh/mcfly">the project repository</a> for more info.</p>
+</body>
 </html>

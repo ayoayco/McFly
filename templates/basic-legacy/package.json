@@ -1,0 +1,16 @@
+{
+  "name": "basic-legacy-template",
+  "description": "McFly starter project",
+  "scripts": {
+    "start": "mcfly serve",
+    "prepare": "mcfly prepare",
+    "dev": "mcfly serve",
+    "build": "mcfly build",
+    "preview": "node .output/server/index.mjs",
+    "build:preview": "npm run build && npm run preview"
+  },
+  "dependencies": {
+    "@mcflyjs/config": "^0.2.9",
+    "@mcflyjs/core": "^0.8.8"
+  }
+}

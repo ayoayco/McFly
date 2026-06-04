@@ -2,7 +2,13 @@
   <img width="250" src="https://git.ayo.run/ayo/mcfly/blob/main/assets/mcfly-logo-sm.png" alt="McFly Logo" />
 </p>
 
-<h1 align="center">McFly Docs</h1>
+<h1 align="center">McFly Fastify Adapter</h1>
+
+Use fastify as a server framework in McFly
+
+```
+npm create mcfly@latest
+```
 
 <p align="center"><strong>McFly</strong> is a no-framework framework<br />that assists in building on the Web</p>
 
@@ -11,6 +17,16 @@
   <img src="https://img.shields.io/badge/status-legit-purple?style=flat" />
   <a href="https://mc-fly.vercel.app/demo" target="_blank"><img src="https://img.shields.io/badge/see-the_demo_↗️-blue?style=flat&colorB=28CF8D" /></a>
 </p>
+
+## Features
+
+The time has come for vanilla Web tech. 🎉
+
+✅ Create web apps with vanilla custom elements<br>
+✅ Write real .HTML files<br>
+✅ Have no frameworks or reactivity libraries on the browser<br>
+✅ Use server-side rendering<br>
+✅ Deploy anywhere<br>
 
 ## Special directories
 
@@ -43,6 +59,12 @@ export default defineConfig({
   components: 'js',
 })
 ```
+
+## More info
+
+This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [**Nitro**](https://nitro.unjs.io) and vanilla JS custom elements using a minimal [**Web Component Base**](https://WebComponent.io) class.
+
+**Nitro** is the same production-grade web server powering [**Nuxt**](https://nuxt.com/)
 
 ---
 

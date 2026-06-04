@@ -10,3 +10,7 @@ allowBuilds:
   sharp: false
   unix-dgram: false
   web-component-base: true
+minimumReleaseAgeExclude:
+  - '@mcflyjs/config@0.3.0-alpha'
+  - '@mcflyjs/core@0.9.0-alpha'
+  - '@mcflyjs/fastify@0.1.0'

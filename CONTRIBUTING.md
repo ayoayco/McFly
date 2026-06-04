@@ -28,7 +28,7 @@ After setting up `git send-email` you can now follow the steps below to start ha
 1️⃣ Clone the repository to your local machine, then go into the project directory:
 
 ```bash
-$ git clone https://git.sr.ht/~ayoayco/mcfly
+$ git clone https://git.ayo.run/ayo/mcfly
 $ cd mcfly
 ```
 

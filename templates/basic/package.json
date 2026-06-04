@@ -1,16 +1,17 @@
 {
-  "name": "basic-template",
-  "description": "McFly starter project",
+  "name": "mcfly-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "start": "mcfly serve",
-    "prepare": "mcfly prepare",
-    "dev": "mcfly serve",
-    "build": "mcfly build",
-    "preview": "node .output/server/index.mjs",
-    "build:preview": "npm run build && npm run preview"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "mcfly serve"
   },
+  "author": "",
+  "license": "ISC",
   "dependencies": {
-    "@mcflyjs/config": "^0.2.9",
-    "@mcflyjs/core": "^0.8.8"
+    "@mcflyjs/config": "^0.3.0-alpha",
+    "@mcflyjs/core": "^0.9.0-alpha",
+    "@mcflyjs/fastify": "^0.1"
   }
 }

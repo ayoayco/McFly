@@ -7,15 +7,15 @@ import { spawnSync } from 'node:child_process'
 import path from 'node:path'
 
 const [, , directoryArg] = process.argv
-
-type PromptAction = {
-  prompt: string
-  info?: string
-  startMessage: string
-  command: string
-  subCommand: string
-  error: string
-}
+/**
+ * @typedef {Object} PromptAction
+ * @property {string} prompt - The prompt text to display
+ * @property {string} [info] - Additional information about the prompt
+ * @property {string} startMessage - Message to show when starting the action
+ * @property {string} command - The command to execute
+ * @property {string} subCommand - The subcommand to execute
+ * @property {string} error - Error message to display on failure
+ */
 
 /**
  * Create McFly App
@@ -42,7 +42,10 @@ async function create() {
   const hasErrors = await downloadTemplateToDirectory(directory)
 
   if (!hasErrors) {
-    const prompts: PromptAction[] = [
+    /**
+     * @type {Array<PromptAction>}
+     */
+    const prompts = [
       {
         prompt: `Would you like to install the dependencies to ${colorize(
           'bold',
@@ -80,7 +83,7 @@ async function create() {
  * @param {string} directory
  * @returns string
  */
-function getSafeDirectory(directory: string): string {
+function getSafeDirectory(directory) {
   const { platform } = process
   const locale = path[platform === `win32` ? `win32` : `posix`]
   const localePath = directory.split(path.sep).join(locale.sep)
@@ -92,16 +95,14 @@ function getSafeDirectory(directory: string): string {
  * @param {string} directory
  * @returns Promise<boolean> hasErrors
  */
-async function downloadTemplateToDirectory(
-  directory: string
-): Promise<boolean> {
+async function downloadTemplateToDirectory(directory) {
   let hasErrors = false
 
   try {
     consola.start(
       `Copying template to ${colorize('bold', getSafeDirectory(directory))}...`
     )
-    await downloadTemplate('sourcehut:ayoayco/mcfly/templates/basic', {
+    await downloadTemplate('github:ayo-run/mcfly/templates/basic', {
       dir: directory,
     })
   } catch (ㆆ_ㆆ) {
@@ -123,11 +124,11 @@ async function downloadTemplateToDirectory(
  * @param {string} cwd
  * @returns Promise<Array<boolean> | undefined>
  */
-async function askPrompts(
-  prompts: PromptAction[],
-  cwd: string
-): Promise<boolean[] | undefined> {
-  const results: boolean[] = []
+async function askPrompts(prompts, cwd) {
+  /**
+   * @type {Array<boolean>}
+   */
+  const results = []
 
   for (const p of prompts) {
     const userIntends = await consola.prompt(p.prompt, {
@@ -169,7 +170,7 @@ async function askPrompts(
  * @param {string} directory
  * @param {boolean} installDeps
  */
-function showResults(directory: string, installDeps: boolean) {
+function showResults(directory, installDeps) {
   let nextActions = [
     `Go to your project by running ${colorize('yellow', `cd ${directory}`)}`,
   ]
@@ -189,7 +190,7 @@ function showResults(directory: string, installDeps: boolean) {
     'bold',
     'McFly'
   )} app is ready: ${directory}\n\nNext actions: ${nextActions
-    .map((action, index) => `\n${++index}. ${action}`)
+    .map((action, index) => `\n${index}. ${action}`)
     .join('')}`
 
   consola.box(result)

@@ -6,7 +6,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://git.sr.ht/~ayoayco/mcfly",
+    "url": "https://git.ayo.run/ayo/mcfly",
     "directory": "app"
   },
   "author": "Ayo Ayco",

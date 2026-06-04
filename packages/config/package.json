@@ -1,6 +1,6 @@
 {
   "name": "@mcflyjs/config",
-  "version": "0.2.9",
+  "version": "0.3.0-alpha",
   "description": "Nitro configuration for McFly apps",
   "type": "module",
   "main": "./dist/index.js",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.sr.ht/~ayoayco/mcfly",
+    "url": "https://git.ayo.run/ayo/mcfly",
     "directory": "packages/config"
   },
   "author": "Ayo Ayco",

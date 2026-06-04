@@ -13,7 +13,6 @@
     "build:site:preview": "pnpm -F site build:preview",
     "template:basic": "pnpm run build && pnpm -F basic-template start",
     "create:mcfly": "node ./packages/create-mcfly",
-    "create:component": "node ./packages/create-component",
     "cli": "node ./packages/core/cli/index.js",
     "test": "vitest --run",
     "lint": "eslint . --config eslint.config.mjs --cache",
