@@ -11,7 +11,7 @@
     "build:deps": "pnpm -F @mcflyjs/core build && pnpm -F @mcflyjs/config build",
     "build:site": "pnpm -F site build",
     "build:site:preview": "pnpm -F site build:preview",
-    "template:basic": "pnpm run build && pnpm -F basic-template start",
+    "template:basic": "pnpm run build && pnpm -F mcfly-basic start",
     "create:mcfly": "node ./packages/create-mcfly",
     "cli": "node ./packages/core/cli/index.js",
     "test": "vitest --run",
