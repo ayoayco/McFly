@@ -29,6 +29,7 @@ I thought:
 
 We are currently in a focused rewrite. All parts are subject to breaking changes in minor releases.
 
+- [x] generic plugin system for using server frameworks
 - [x] file-based API routing via fastify as server framework
 - [ ] file-based HTML pages routing
 - [ ] HTML templating via Eta
