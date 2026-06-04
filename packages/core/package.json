@@ -3,17 +3,16 @@
   "version": "0.8.8",
   "description": "McFly core package",
   "type": "module",
-  "main": "./dist/cli/index.js",
+  "main": "./dist/index.js",
   "bin": {
-    "mcfly": "./dist/cli/index.js"
+    "mcfly": "./dist/index.js"
   },
   "exports": {
     ".": {
-      "types": "./dist/cli/index.d.ts",
-      "default": "./dist/cli/index.js"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
     },
     "./runtime": "./dist/runtime/index.js",
-    "./cli": "./dist/cli/index.js",
     "./package.json": "./package.json"
   },
   "files": [
@@ -43,7 +42,6 @@
     "devalue": "^5.1.1",
     "esprima": "^4.0.1",
     "h3": "^1.15.1",
-    "nitropack": "^2.11.7",
     "pathe": "^2.0.3",
     "ultrahtml": "^1.5.3"
   },

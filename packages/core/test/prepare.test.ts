@@ -1,17 +1,11 @@
 import { consola } from 'consola'
 import { it, expect, vi } from 'vitest'
-import { exportedForTest } from '../src/cli/commands/prepare.js'
+import { exportedForTest } from '../src/commands/prepare'
 const prepare = exportedForTest.prepare
 
 const mocks = vi.hoisted(() => {
   return {
     createNitro: vi.fn(),
-  }
-})
-
-vi.mock('nitropack', () => {
-  return {
-    createNitro: mocks.createNitro,
   }
 })
 
@@ -21,14 +15,6 @@ it('start prepare script', () => {
   prepare({ dir: 'fakeDir', _: [] })
 
   expect(spy).toHaveBeenCalled()
-})
-
-it.skip('execute nitropack prepare', () => {
-  const successSpy = vi.spyOn(consola, 'success')
-
-  prepare({ dir: 'fakeDir', _: [] })
-
-  expect(successSpy).toHaveBeenCalled()
 })
 
 it.skip('catch error', () => {

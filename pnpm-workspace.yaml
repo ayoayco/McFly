@@ -1,7 +1,8 @@
 packages:
-  - "packages/**"
-  - "templates/**"
-  - "site/**"
+  - 'packages/**'
+  - 'templates/**'
+  - 'site'
+  - 'demo'
 allowBuilds:
   '@parcel/watcher': false
   esbuild: true

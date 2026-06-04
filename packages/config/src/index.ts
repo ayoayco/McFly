@@ -1,1 +1,1 @@
-export { type McFlyConfig, defineMcFlyConfig } from './define-mcfly-config.js'
+export { type McFlyConfig, defineConfig } from './define-config.js'

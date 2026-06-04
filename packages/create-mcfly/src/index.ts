@@ -4,7 +4,7 @@ import { consola } from 'consola'
 import { colorize } from 'consola/utils'
 import { downloadTemplate } from 'giget'
 import { spawnSync } from 'node:child_process'
-import * as path from 'node:path'
+import path from 'node:path'
 
 const [, , directoryArg] = process.argv
 

@@ -9,8 +9,7 @@
       "types": "./dist/index.d.ts",
       "default": "./dist/index.js"
     },
-    "./define-mcfly-config": "./dist/define-mcfly-config.js",
-    "./nitro-config": "./dist/nitro-config.js"
+    "./define-config": "./dist/define-config.js"
   },
   "scripts": {
     "build": "tsc --erasableSyntaxOnly",
@@ -32,8 +31,5 @@
   "dependencies": {
     "h3": "^1.15.1",
     "web-component-base": "^4.0.0"
-  },
-  "devDependencies": {
-    "nitropack": "~2.11.7"
   }
 }

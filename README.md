@@ -27,9 +27,13 @@ I thought:
 
 ## Project Status
 
-We are currently in a Proof of Concept phase. All parts are subject to breaking changes in minor releases.
+We are currently in a focused rewrite. All parts are subject to breaking changes in minor releases.
 
-👉 [Road to v1.0.0 todo items](https://github.com/ayoayco/McFly/issues?q=is%3Aissue%20state%3Aopen%20milestone%3Av1.0.0)
+- [x] file-based API routing via fastify as server framework
+- [ ] file-based HTML pages routing & templating via Eta
+- [ ] auto-registry of custom elements
+- [ ] SSR custom elements
+- [ ] SSG
 
 ## Try it today
 
@@ -39,15 +43,7 @@ Run the following to generate a McFly starter project.
 npm create mcfly@latest
 ```
 
-## How it works (for the nerds)
-
-It is primarily a runtime middleware for [Nitro](https://nitro.build). Every time a page is requested, the McFly middleware intercepts and assembles the view for the requestor. McFly does this with the assets it knows about which are mostly: pages, components, public assets. Additionally, Nitro is also capable of generating static assets on build time.
-
-These patterns are commonly referred to as Server-Side Rendering and Static Site Generation (SSR & SSG).
-
-The idea is to have a plugin system which allows for the core functionality to only "lean" on web platform features. Anything not yet a standard is implemented as a plugin which will be easily "swapped" away when the platform catches up.
-
-## Features
+## Target Features
 
 ✅ Use vanilla custom elements (or sugar-coated web components)<br>
 ✅ Write server-powered .html pages<br>
@@ -57,19 +53,7 @@ The idea is to have a plugin system which allows for the core functionality to o
 
 ## Special directories
 
-**1. `./src/pages/`**
-
-- file-based routing for `.html` files
-- directly use custom elements & static fragments (no imports or registry maintenance needed)
-- use `<script server:setup>` to define logic that runs on the server, which then gets stripped away
-
-**2. `./src/components/`**
-
-- custom element constructor files (only `.js` files for now)
-- all components are automatically registered using their file names; a `hello-world.js` component can be used as `<hello-world>`
-- static `.html` fragments; a `my-header.html` fragment can be directly used as `<my-header>`
-
-**3. `./src/api/`**
+**1. `./src/api/`**
 
 - file-based routing for REST API endpoints
 - e.g., `./src/api/users.js` can be accessed via `http://<domain>/api/users`
@@ -78,11 +62,12 @@ The idea is to have a plugin system which allows for the core functionality to o
 
 The following are the project packages published on the NPM registry:
 
-| Package                                                | Description                                  | Version                                                          |
-| :----------------------------------------------------- | -------------------------------------------- | ---------------------------------------------------------------- |
-| [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Nitro server config for McFly projects       | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
-| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Route event and config handlers              | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
-| [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace | ![npm version](https://img.shields.io/npm/v/create-mcfly)        |
+| Package                                                | Description                                   | Version                                                          |
+| :----------------------------------------------------- | --------------------------------------------- | ---------------------------------------------------------------- |
+| [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Configuration handling for McFly projects     | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
+| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Commands & runtime handling                   | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
+| [`@mcflyjs/fastify`](https://ayco.io/n/@mcflyjs/core)  | Adapter for using fastify as server framework | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
+| [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace  | ![npm version](https://img.shields.io/npm/v/create-mcfly)        |
 
 ## Project setup
 
@@ -104,9 +89,9 @@ The following commands are available to you on this project. Add more, or modify
 
 ## More info
 
-This framework is a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [Nitro](https://nitro.build) and custom elements using a minimal [Web Component Base](https://WebComponent.io) class.
+This framework was initially a result of [an exploration](https://social.ayco.io/@ayo/111195315785886977) for using [Nitro](https://nitro.build) and custom elements using a minimal [Web Component Base](https://WebComponent.io) class.
 
-**Nitro** is the same production-grade web server powering [Nuxt](https://nuxt.com/)
+In 2026, we pivoted to a new target architecture to become more like a "glue" that allows putting together existing options that achieve our goals. We avoid building custom mechanisms when we can. The resulting architecture theoretically allows using different server frameworks, templating libraries, custom element libraries, etc.
 
 ---
 

@@ -5,6 +5,7 @@
     "allowJs": true,
     "emitDeclarationOnly": false,
     "declarationDir": "./dist",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "rootDir": "./src"
   }
 }

@@ -1,8 +1,6 @@
-import type { NitroConfig } from 'nitropack'
-
 export type McFlyConfig = {
-  components: 'js' | 'lit'
-  nitro?: NitroConfig
+  server: McFlyServer
+  components?: 'js' | 'lit'
   plugins?: McFlyPlugin[]
 }
 
@@ -11,7 +9,7 @@ export type McFlyConfig = {
  * @param {McFlyConfig} config
  * @returns {function(): McFlyConfig}e
  */
-export function defineMcFlyConfig(config: McFlyConfig) {
+export function defineConfig(config: McFlyConfig) {
   return () => config
 }
 
@@ -19,3 +17,5 @@ export function defineMcFlyConfig(config: McFlyConfig) {
  * TODO: finalize Plugin type
  */
 export type McFlyPlugin = {}
+
+export type McFlyServer = any

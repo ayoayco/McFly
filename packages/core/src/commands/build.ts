@@ -3,15 +3,8 @@
 import { consola } from 'consola'
 import { defineCommand, type ParsedArgs } from 'citty'
 import { dirname, resolve } from 'pathe'
-import {
-  build,
-  copyPublicAssets,
-  createNitro,
-  prepare,
-  prerender,
-} from 'nitropack'
 import { fileURLToPath } from 'node:url'
-import { getMcFlyConfig, getNitroConfig } from '../../get-config.js'
+import { getMcFlyConfig } from '../get-config.js'
 
 async function _build(args: ParsedArgs) {
   consola.start('Building project...')
@@ -21,33 +14,11 @@ async function _build(args: ParsedArgs) {
     const rootDir = resolve(dir)
 
     const { mcflyConfig, configFile } = await getMcFlyConfig()
-    const nitroConfig = await getNitroConfig(mcflyConfig)
-
-    const nitro = await createNitro({
-      rootDir,
-      dev: false,
-
-      ...nitroConfig,
-
-      minify: args.minify ?? nitroConfig.minify,
-      preset: args.preset ?? nitroConfig.preset,
-    })
 
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
-    nitro.options.handlers.push({
-      middleware: true,
-      handler: resolve(__dirname, '../../route-middleware.js'),
-    })
-
-    nitro.options.runtimeConfig.appConfigFile = configFile
-
-    await prepare(nitro)
-    await copyPublicAssets(nitro)
-    await prerender(nitro)
-    await build(nitro)
-    await nitro.close()
+    consola.info('dir', __dirname)
   } catch (err) {
     consola.error(err)
   }

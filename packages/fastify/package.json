@@ -1,0 +1,16 @@
+{
+  "name": "@mcflyjs/fastify",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/autoload": "6.3.1",
+    "fastify": "5.8.5"
+  }
+}
