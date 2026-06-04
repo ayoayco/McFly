@@ -2,6 +2,13 @@ import Fastify from 'fastify'
 import AutoLoad from '@fastify/autoload'
 import path from 'node:path'
 
+/**
+ * @typedef {import('@mcflyjs/core').ServerConfig} ServerConfig
+ */
+
+/**
+ * @param {ServerConfig} param
+ */
 export default ({ rootDir, apiDir, logger, port }) => {
   const server = Fastify()
   const portNumber = port ?? 3000

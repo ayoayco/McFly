@@ -1,6 +1,18 @@
 #!/usr/bin/env node
 import { defineCommand, runMain, type ArgsDef, type CommandDef } from 'citty'
 
+export type Logger = {
+  log: Function
+  error: Function
+}
+
+export type ServerConfig = {
+  rootDir: string
+  apiDir: string
+  port: number
+  logger: Logger
+}
+
 const main: CommandDef<ArgsDef> = defineCommand({
   meta: {
     name: 'mcfly',

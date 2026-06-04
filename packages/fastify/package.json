@@ -12,5 +12,8 @@
   "dependencies": {
     "@fastify/autoload": "6.3.1",
     "fastify": "5.8.5"
+  },
+  "devDependencies": {
+    "@mcflyjs/core": "workspace:*"
   }
 }
