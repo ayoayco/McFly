@@ -62,12 +62,12 @@ npm create mcfly@latest
 
 The following are the project packages published on the NPM registry:
 
-| Package                                                | Description                                   | Version                                                          |
-| :----------------------------------------------------- | --------------------------------------------- | ---------------------------------------------------------------- |
-| [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Configuration handling for McFly projects     | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig) |
-| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Commands & runtime handling                   | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
-| [`@mcflyjs/fastify`](https://ayco.io/n/@mcflyjs/core)  | Adapter for using fastify as server framework | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore)   |
-| [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace  | ![npm version](https://img.shields.io/npm/v/create-mcfly)        |
+| Package                                                | Description                                   | Version                                                                |
+| :----------------------------------------------------- | --------------------------------------------- | ---------------------------------------------------------------------- |
+| [`@mcflyjs/config`](https://ayco.io/n/@mcflyjs/config) | Configuration handling for McFly projects     | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fconfig/alpha) |
+| [`@mcflyjs/core`](https://ayco.io/n/@mcflyjs/core)     | Commands & runtime handling                   | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Fcore/alpha)   |
+| [`@mcflyjs/fastify`](https://ayco.io/n/@mcflyjs/core)  | Adapter for using fastify as server framework | ![npm version](https://img.shields.io/npm/v/%40mcflyjs%2Ffastify)      |
+| [`create-mcfly`](https://ayco.io/n/create-mcfly)       | Script for scaffolding a new McFly workspace  | ![npm version](https://img.shields.io/npm/v/create-mcfly)              |
 
 ## Project setup
 
