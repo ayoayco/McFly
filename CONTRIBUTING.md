@@ -19,50 +19,7 @@ To start or participate on discussions, see our [mcfly-discussions](https://list
 
 ## Contribute Code
 
-We use `git` and `email` here -- it is actually fun!
-
-To get started, setup [git send-email](https://git-send-email.io).
-
-After setting up `git send-email` you can now follow the steps below to start hacking:
-
-1️⃣ Clone the repository to your local machine, then go into the project directory:
-
-```bash
-$ git clone https://git.ayo.run/ayo/mcfly
-$ cd mcfly
-```
-
-2️⃣ Create a new branch for your changes:
-
-```bash
-$ git checkout -b my-branch
-```
-
-3️⃣ Make your changes, and then commit them with a descriptive message using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/):
-
-```bash
-$ git commit -m "feat(core): implement server-side rendering"
-```
-
-4️⃣ Use `git send-email` to send a patch:
-
-```bash
-$ git send-email --to="~ayoayco/mcfly-patches@lists.sr.ht" HEAD^
-```
-
-### Tips:
-
-💡 You can set the default "to" address for the project:
-
-```bash
-$ git config sendemail.to "~ayoayco/mcfly-patches@lists.sr.ht"
-```
-
-💡 The `HEAD^` bit is a reference to the latest commit, which will be added to your patch. This could be a range of commits as well if you have mutiple commits.
-
-5️⃣ After successfully sending your patch, wait for a response from us whether the patch needs rework... or a notification if it gets merged!
-
-> As a summary, we use `git` and `email` to collaborate on McFly. You have to set up [git send-email](https://git-send-email.io) and send patches via email. :)
+Due to still figuring out how parts fit together, we are not ready for code contributions.
 
 ## Get in touch
 

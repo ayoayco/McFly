@@ -30,10 +30,11 @@ I thought:
 We are currently in a focused rewrite. All parts are subject to breaking changes in minor releases.
 
 - [x] file-based API routing via fastify as server framework
-- [ ] file-based HTML pages routing & templating via Eta
+- [ ] file-based HTML pages routing
+- [ ] HTML templating via Eta
 - [ ] auto-registry of custom elements
 - [ ] SSR custom elements
-- [ ] SSG
+- [ ] SSG builds
 
 ## Try it today
 
