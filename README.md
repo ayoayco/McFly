@@ -1,3 +1,4 @@
+> [!Note]
 > **Project Archived**
 > This project is archived. It is a “pet project” that will continue to be developed in my spare time at https://git.ayo.run/ayo/mcfly. If you are interested in the goals described below, you can find how to reach me at https://ayco.io/about#contact
 
